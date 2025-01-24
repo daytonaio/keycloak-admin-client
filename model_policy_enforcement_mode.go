@@ -20,9 +20,9 @@ type PolicyEnforcementMode string
 
 // List of PolicyEnforcementMode
 const (
-	ENFORCING PolicyEnforcementMode = "ENFORCING"
-	PERMISSIVE PolicyEnforcementMode = "PERMISSIVE"
-	DISABLED PolicyEnforcementMode = "DISABLED"
+	POLICY_ENFORCING PolicyEnforcementMode = "ENFORCING"
+	POLICY_PERMISSIVE PolicyEnforcementMode = "PERMISSIVE"
+	POLICY_DISABLED PolicyEnforcementMode = "DISABLED"
 )
 
 // All allowed values of PolicyEnforcementMode enum

@@ -20,9 +20,9 @@ type ScopeEnforcementMode string
 
 // List of ScopeEnforcementMode
 const (
-	ALL ScopeEnforcementMode = "ALL"
-	ANY ScopeEnforcementMode = "ANY"
-	DISABLED ScopeEnforcementMode = "DISABLED"
+	SCOPE_ALL ScopeEnforcementMode = "ALL"
+	SCOPE_ANY ScopeEnforcementMode = "ANY"
+	SCOPE_DISABLED ScopeEnforcementMode = "DISABLED"
 )
 
 // All allowed values of ScopeEnforcementMode enum
