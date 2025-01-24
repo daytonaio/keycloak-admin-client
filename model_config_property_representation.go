@@ -19,15 +19,15 @@ var _ MappedNullable = &ConfigPropertyRepresentation{}
 
 // ConfigPropertyRepresentation struct for ConfigPropertyRepresentation
 type ConfigPropertyRepresentation struct {
-	Name         *string     `json:"name,omitempty"`
-	Label        *string     `json:"label,omitempty"`
-	HelpText     *string     `json:"helpText,omitempty"`
-	Type         *string     `json:"type,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Label *string `json:"label,omitempty"`
+	HelpText *string `json:"helpText,omitempty"`
+	Type *string `json:"type,omitempty"`
 	DefaultValue interface{} `json:"defaultValue,omitempty"`
-	Options      []string    `json:"options,omitempty"`
-	Secret       *bool       `json:"secret,omitempty"`
-	Required     *bool       `json:"required,omitempty"`
-	ReadOnly     *bool       `json:"readOnly,omitempty"`
+	Options []string `json:"options,omitempty"`
+	Secret *bool `json:"secret,omitempty"`
+	Required *bool `json:"required,omitempty"`
+	ReadOnly *bool `json:"readOnly,omitempty"`
 }
 
 // NewConfigPropertyRepresentation instantiates a new ConfigPropertyRepresentation object
@@ -337,7 +337,7 @@ func (o *ConfigPropertyRepresentation) SetReadOnly(v bool) {
 }
 
 func (o ConfigPropertyRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -411,3 +411,5 @@ func (v *NullableConfigPropertyRepresentation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

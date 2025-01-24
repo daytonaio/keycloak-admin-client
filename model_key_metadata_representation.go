@@ -19,16 +19,16 @@ var _ MappedNullable = &KeyMetadataRepresentation{}
 
 // KeyMetadataRepresentation struct for KeyMetadataRepresentation
 type KeyMetadataRepresentation struct {
-	ProviderId       *string `json:"providerId,omitempty"`
-	ProviderPriority *int64  `json:"providerPriority,omitempty"`
-	Kid              *string `json:"kid,omitempty"`
-	Status           *string `json:"status,omitempty"`
-	Type             *string `json:"type,omitempty"`
-	Algorithm        *string `json:"algorithm,omitempty"`
-	PublicKey        *string `json:"publicKey,omitempty"`
-	Certificate      *string `json:"certificate,omitempty"`
-	Use              *KeyUse `json:"use,omitempty"`
-	ValidTo          *int64  `json:"validTo,omitempty"`
+	ProviderId *string `json:"providerId,omitempty"`
+	ProviderPriority *int64 `json:"providerPriority,omitempty"`
+	Kid *string `json:"kid,omitempty"`
+	Status *string `json:"status,omitempty"`
+	Type *string `json:"type,omitempty"`
+	Algorithm *string `json:"algorithm,omitempty"`
+	PublicKey *string `json:"publicKey,omitempty"`
+	Certificate *string `json:"certificate,omitempty"`
+	Use *KeyUse `json:"use,omitempty"`
+	ValidTo *int64 `json:"validTo,omitempty"`
 }
 
 // NewKeyMetadataRepresentation instantiates a new KeyMetadataRepresentation object
@@ -369,7 +369,7 @@ func (o *KeyMetadataRepresentation) SetValidTo(v int64) {
 }
 
 func (o KeyMetadataRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -446,3 +446,5 @@ func (v *NullableKeyMetadataRepresentation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

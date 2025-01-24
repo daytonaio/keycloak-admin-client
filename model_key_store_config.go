@@ -19,12 +19,12 @@ var _ MappedNullable = &KeyStoreConfig{}
 
 // KeyStoreConfig struct for KeyStoreConfig
 type KeyStoreConfig struct {
-	RealmCertificate *bool   `json:"realmCertificate,omitempty"`
-	StorePassword    *string `json:"storePassword,omitempty"`
-	KeyPassword      *string `json:"keyPassword,omitempty"`
-	KeyAlias         *string `json:"keyAlias,omitempty"`
-	RealmAlias       *string `json:"realmAlias,omitempty"`
-	Format           *string `json:"format,omitempty"`
+	RealmCertificate *bool `json:"realmCertificate,omitempty"`
+	StorePassword *string `json:"storePassword,omitempty"`
+	KeyPassword *string `json:"keyPassword,omitempty"`
+	KeyAlias *string `json:"keyAlias,omitempty"`
+	RealmAlias *string `json:"realmAlias,omitempty"`
+	Format *string `json:"format,omitempty"`
 }
 
 // NewKeyStoreConfig instantiates a new KeyStoreConfig object
@@ -237,7 +237,7 @@ func (o *KeyStoreConfig) SetFormat(v string) {
 }
 
 func (o KeyStoreConfig) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -302,3 +302,5 @@ func (v *NullableKeyStoreConfig) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -19,11 +19,11 @@ var _ MappedNullable = &ProtocolMapperEvaluationRepresentation{}
 
 // ProtocolMapperEvaluationRepresentation struct for ProtocolMapperEvaluationRepresentation
 type ProtocolMapperEvaluationRepresentation struct {
-	MapperId       *string `json:"mapperId,omitempty"`
-	MapperName     *string `json:"mapperName,omitempty"`
-	ContainerId    *string `json:"containerId,omitempty"`
-	ContainerName  *string `json:"containerName,omitempty"`
-	ContainerType  *string `json:"containerType,omitempty"`
+	MapperId *string `json:"mapperId,omitempty"`
+	MapperName *string `json:"mapperName,omitempty"`
+	ContainerId *string `json:"containerId,omitempty"`
+	ContainerName *string `json:"containerName,omitempty"`
+	ContainerType *string `json:"containerType,omitempty"`
 	ProtocolMapper *string `json:"protocolMapper,omitempty"`
 }
 
@@ -237,7 +237,7 @@ func (o *ProtocolMapperEvaluationRepresentation) SetProtocolMapper(v string) {
 }
 
 func (o ProtocolMapperEvaluationRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -302,3 +302,5 @@ func (v *NullableProtocolMapperEvaluationRepresentation) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

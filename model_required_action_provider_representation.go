@@ -19,13 +19,13 @@ var _ MappedNullable = &RequiredActionProviderRepresentation{}
 
 // RequiredActionProviderRepresentation struct for RequiredActionProviderRepresentation
 type RequiredActionProviderRepresentation struct {
-	Alias         *string            `json:"alias,omitempty"`
-	Name          *string            `json:"name,omitempty"`
-	ProviderId    *string            `json:"providerId,omitempty"`
-	Enabled       *bool              `json:"enabled,omitempty"`
-	DefaultAction *bool              `json:"defaultAction,omitempty"`
-	Priority      *int32             `json:"priority,omitempty"`
-	Config        *map[string]string `json:"config,omitempty"`
+	Alias *string `json:"alias,omitempty"`
+	Name *string `json:"name,omitempty"`
+	ProviderId *string `json:"providerId,omitempty"`
+	Enabled *bool `json:"enabled,omitempty"`
+	DefaultAction *bool `json:"defaultAction,omitempty"`
+	Priority *int32 `json:"priority,omitempty"`
+	Config *map[string]string `json:"config,omitempty"`
 }
 
 // NewRequiredActionProviderRepresentation instantiates a new RequiredActionProviderRepresentation object
@@ -270,7 +270,7 @@ func (o *RequiredActionProviderRepresentation) SetConfig(v map[string]string) {
 }
 
 func (o RequiredActionProviderRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -338,3 +338,5 @@ func (v *NullableRequiredActionProviderRepresentation) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -2,156 +2,159 @@
 
 ## Properties
 
-| Name                                                          | Type                                                                                             | Description | Notes      |
-| ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ----------- | ---------- |
-| **Id**                                                        | Pointer to **string**                                                                            |             | [optional] |
-| **Realm**                                                     | Pointer to **string**                                                                            |             | [optional] |
-| **DisplayName**                                               | Pointer to **string**                                                                            |             | [optional] |
-| **DisplayNameHtml**                                           | Pointer to **string**                                                                            |             | [optional] |
-| **NotBefore**                                                 | Pointer to **int32**                                                                             |             | [optional] |
-| **DefaultSignatureAlgorithm**                                 | Pointer to **string**                                                                            |             | [optional] |
-| **RevokeRefreshToken**                                        | Pointer to **bool**                                                                              |             | [optional] |
-| **RefreshTokenMaxReuse**                                      | Pointer to **int32**                                                                             |             | [optional] |
-| **AccessTokenLifespan**                                       | Pointer to **int32**                                                                             |             | [optional] |
-| **AccessTokenLifespanForImplicitFlow**                        | Pointer to **int32**                                                                             |             | [optional] |
-| **SsoSessionIdleTimeout**                                     | Pointer to **int32**                                                                             |             | [optional] |
-| **SsoSessionMaxLifespan**                                     | Pointer to **int32**                                                                             |             | [optional] |
-| **SsoSessionIdleTimeoutRememberMe**                           | Pointer to **int32**                                                                             |             | [optional] |
-| **SsoSessionMaxLifespanRememberMe**                           | Pointer to **int32**                                                                             |             | [optional] |
-| **OfflineSessionIdleTimeout**                                 | Pointer to **int32**                                                                             |             | [optional] |
-| **OfflineSessionMaxLifespanEnabled**                          | Pointer to **bool**                                                                              |             | [optional] |
-| **OfflineSessionMaxLifespan**                                 | Pointer to **int32**                                                                             |             | [optional] |
-| **ClientSessionIdleTimeout**                                  | Pointer to **int32**                                                                             |             | [optional] |
-| **ClientSessionMaxLifespan**                                  | Pointer to **int32**                                                                             |             | [optional] |
-| **ClientOfflineSessionIdleTimeout**                           | Pointer to **int32**                                                                             |             | [optional] |
-| **ClientOfflineSessionMaxLifespan**                           | Pointer to **int32**                                                                             |             | [optional] |
-| **AccessCodeLifespan**                                        | Pointer to **int32**                                                                             |             | [optional] |
-| **AccessCodeLifespanUserAction**                              | Pointer to **int32**                                                                             |             | [optional] |
-| **AccessCodeLifespanLogin**                                   | Pointer to **int32**                                                                             |             | [optional] |
-| **ActionTokenGeneratedByAdminLifespan**                       | Pointer to **int32**                                                                             |             | [optional] |
-| **ActionTokenGeneratedByUserLifespan**                        | Pointer to **int32**                                                                             |             | [optional] |
-| **Oauth2DeviceCodeLifespan**                                  | Pointer to **int32**                                                                             |             | [optional] |
-| **Oauth2DevicePollingInterval**                               | Pointer to **int32**                                                                             |             | [optional] |
-| **Enabled**                                                   | Pointer to **bool**                                                                              |             | [optional] |
-| **SslRequired**                                               | Pointer to **string**                                                                            |             | [optional] |
-| **PasswordCredentialGrantAllowed**                            | Pointer to **bool**                                                                              |             | [optional] |
-| **RegistrationAllowed**                                       | Pointer to **bool**                                                                              |             | [optional] |
-| **RegistrationEmailAsUsername**                               | Pointer to **bool**                                                                              |             | [optional] |
-| **RememberMe**                                                | Pointer to **bool**                                                                              |             | [optional] |
-| **VerifyEmail**                                               | Pointer to **bool**                                                                              |             | [optional] |
-| **LoginWithEmailAllowed**                                     | Pointer to **bool**                                                                              |             | [optional] |
-| **DuplicateEmailsAllowed**                                    | Pointer to **bool**                                                                              |             | [optional] |
-| **ResetPasswordAllowed**                                      | Pointer to **bool**                                                                              |             | [optional] |
-| **EditUsernameAllowed**                                       | Pointer to **bool**                                                                              |             | [optional] |
-| **UserCacheEnabled**                                          | Pointer to **bool**                                                                              |             | [optional] |
-| **RealmCacheEnabled**                                         | Pointer to **bool**                                                                              |             | [optional] |
-| **BruteForceProtected**                                       | Pointer to **bool**                                                                              |             | [optional] |
-| **PermanentLockout**                                          | Pointer to **bool**                                                                              |             | [optional] |
-| **MaxTemporaryLockouts**                                      | Pointer to **int32**                                                                             |             | [optional] |
-| **BruteForceStrategy**                                        | Pointer to [**BruteForceStrategy**](BruteForceStrategy.md)                                       |             | [optional] |
-| **MaxFailureWaitSeconds**                                     | Pointer to **int32**                                                                             |             | [optional] |
-| **MinimumQuickLoginWaitSeconds**                              | Pointer to **int32**                                                                             |             | [optional] |
-| **WaitIncrementSeconds**                                      | Pointer to **int32**                                                                             |             | [optional] |
-| **QuickLoginCheckMilliSeconds**                               | Pointer to **int64**                                                                             |             | [optional] |
-| **MaxDeltaTimeSeconds**                                       | Pointer to **int32**                                                                             |             | [optional] |
-| **FailureFactor**                                             | Pointer to **int32**                                                                             |             | [optional] |
-| **PrivateKey**                                                | Pointer to **string**                                                                            |             | [optional] |
-| **PublicKey**                                                 | Pointer to **string**                                                                            |             | [optional] |
-| **Certificate**                                               | Pointer to **string**                                                                            |             | [optional] |
-| **CodeSecret**                                                | Pointer to **string**                                                                            |             | [optional] |
-| **Roles**                                                     | Pointer to [**RolesRepresentation**](RolesRepresentation.md)                                     |             | [optional] |
-| **Groups**                                                    | Pointer to [**[]GroupRepresentation**](GroupRepresentation.md)                                   |             | [optional] |
-| **DefaultRoles**                                              | Pointer to **[]string**                                                                          |             | [optional] |
-| **DefaultRole**                                               | Pointer to [**RoleRepresentation**](RoleRepresentation.md)                                       |             | [optional] |
-| **DefaultGroups**                                             | Pointer to **[]string**                                                                          |             | [optional] |
-| **RequiredCredentials**                                       | Pointer to **[]string**                                                                          |             | [optional] |
-| **PasswordPolicy**                                            | Pointer to **string**                                                                            |             | [optional] |
-| **OtpPolicyType**                                             | Pointer to **string**                                                                            |             | [optional] |
-| **OtpPolicyAlgorithm**                                        | Pointer to **string**                                                                            |             | [optional] |
-| **OtpPolicyInitialCounter**                                   | Pointer to **int32**                                                                             |             | [optional] |
-| **OtpPolicyDigits**                                           | Pointer to **int32**                                                                             |             | [optional] |
-| **OtpPolicyLookAheadWindow**                                  | Pointer to **int32**                                                                             |             | [optional] |
-| **OtpPolicyPeriod**                                           | Pointer to **int32**                                                                             |             | [optional] |
-| **OtpPolicyCodeReusable**                                     | Pointer to **bool**                                                                              |             | [optional] |
-| **OtpSupportedApplications**                                  | Pointer to **[]string**                                                                          |             | [optional] |
-| **LocalizationTexts**                                         | Pointer to **map[string]map[string]string**                                                      |             | [optional] |
-| **WebAuthnPolicyRpEntityName**                                | Pointer to **string**                                                                            |             | [optional] |
-| **WebAuthnPolicySignatureAlgorithms**                         | Pointer to **[]string**                                                                          |             | [optional] |
-| **WebAuthnPolicyRpId**                                        | Pointer to **string**                                                                            |             | [optional] |
-| **WebAuthnPolicyAttestationConveyancePreference**             | Pointer to **string**                                                                            |             | [optional] |
-| **WebAuthnPolicyAuthenticatorAttachment**                     | Pointer to **string**                                                                            |             | [optional] |
-| **WebAuthnPolicyRequireResidentKey**                          | Pointer to **string**                                                                            |             | [optional] |
-| **WebAuthnPolicyUserVerificationRequirement**                 | Pointer to **string**                                                                            |             | [optional] |
-| **WebAuthnPolicyCreateTimeout**                               | Pointer to **int32**                                                                             |             | [optional] |
-| **WebAuthnPolicyAvoidSameAuthenticatorRegister**              | Pointer to **bool**                                                                              |             | [optional] |
-| **WebAuthnPolicyAcceptableAaguids**                           | Pointer to **[]string**                                                                          |             | [optional] |
-| **WebAuthnPolicyExtraOrigins**                                | Pointer to **[]string**                                                                          |             | [optional] |
-| **WebAuthnPolicyPasswordlessRpEntityName**                    | Pointer to **string**                                                                            |             | [optional] |
-| **WebAuthnPolicyPasswordlessSignatureAlgorithms**             | Pointer to **[]string**                                                                          |             | [optional] |
-| **WebAuthnPolicyPasswordlessRpId**                            | Pointer to **string**                                                                            |             | [optional] |
-| **WebAuthnPolicyPasswordlessAttestationConveyancePreference** | Pointer to **string**                                                                            |             | [optional] |
-| **WebAuthnPolicyPasswordlessAuthenticatorAttachment**         | Pointer to **string**                                                                            |             | [optional] |
-| **WebAuthnPolicyPasswordlessRequireResidentKey**              | Pointer to **string**                                                                            |             | [optional] |
-| **WebAuthnPolicyPasswordlessUserVerificationRequirement**     | Pointer to **string**                                                                            |             | [optional] |
-| **WebAuthnPolicyPasswordlessCreateTimeout**                   | Pointer to **int32**                                                                             |             | [optional] |
-| **WebAuthnPolicyPasswordlessAvoidSameAuthenticatorRegister**  | Pointer to **bool**                                                                              |             | [optional] |
-| **WebAuthnPolicyPasswordlessAcceptableAaguids**               | Pointer to **[]string**                                                                          |             | [optional] |
-| **WebAuthnPolicyPasswordlessExtraOrigins**                    | Pointer to **[]string**                                                                          |             | [optional] |
-| **ClientProfiles**                                            | Pointer to [**ClientProfilesRepresentation**](ClientProfilesRepresentation.md)                   |             | [optional] |
-| **ClientPolicies**                                            | Pointer to [**ClientPoliciesRepresentation**](ClientPoliciesRepresentation.md)                   |             | [optional] |
-| **Users**                                                     | Pointer to [**[]UserRepresentation**](UserRepresentation.md)                                     |             | [optional] |
-| **FederatedUsers**                                            | Pointer to [**[]UserRepresentation**](UserRepresentation.md)                                     |             | [optional] |
-| **ScopeMappings**                                             | Pointer to [**[]ScopeMappingRepresentation**](ScopeMappingRepresentation.md)                     |             | [optional] |
-| **ClientScopeMappings**                                       | Pointer to [**map[string][]ScopeMappingRepresentation**](array.md)                               |             | [optional] |
-| **Clients**                                                   | Pointer to [**[]ClientRepresentation**](ClientRepresentation.md)                                 |             | [optional] |
-| **ClientScopes**                                              | Pointer to [**[]ClientScopeRepresentation**](ClientScopeRepresentation.md)                       |             | [optional] |
-| **DefaultDefaultClientScopes**                                | Pointer to **[]string**                                                                          |             | [optional] |
-| **DefaultOptionalClientScopes**                               | Pointer to **[]string**                                                                          |             | [optional] |
-| **BrowserSecurityHeaders**                                    | Pointer to **map[string]string**                                                                 |             | [optional] |
-| **SmtpServer**                                                | Pointer to **map[string]string**                                                                 |             | [optional] |
-| **UserFederationProviders**                                   | Pointer to [**[]UserFederationProviderRepresentation**](UserFederationProviderRepresentation.md) |             | [optional] |
-| **UserFederationMappers**                                     | Pointer to [**[]UserFederationMapperRepresentation**](UserFederationMapperRepresentation.md)     |             | [optional] |
-| **LoginTheme**                                                | Pointer to **string**                                                                            |             | [optional] |
-| **AccountTheme**                                              | Pointer to **string**                                                                            |             | [optional] |
-| **AdminTheme**                                                | Pointer to **string**                                                                            |             | [optional] |
-| **EmailTheme**                                                | Pointer to **string**                                                                            |             | [optional] |
-| **EventsEnabled**                                             | Pointer to **bool**                                                                              |             | [optional] |
-| **EventsExpiration**                                          | Pointer to **int64**                                                                             |             | [optional] |
-| **EventsListeners**                                           | Pointer to **[]string**                                                                          |             | [optional] |
-| **EnabledEventTypes**                                         | Pointer to **[]string**                                                                          |             | [optional] |
-| **AdminEventsEnabled**                                        | Pointer to **bool**                                                                              |             | [optional] |
-| **AdminEventsDetailsEnabled**                                 | Pointer to **bool**                                                                              |             | [optional] |
-| **IdentityProviders**                                         | Pointer to [**[]IdentityProviderRepresentation**](IdentityProviderRepresentation.md)             |             | [optional] |
-| **IdentityProviderMappers**                                   | Pointer to [**[]IdentityProviderMapperRepresentation**](IdentityProviderMapperRepresentation.md) |             | [optional] |
-| **ProtocolMappers**                                           | Pointer to [**[]ProtocolMapperRepresentation**](ProtocolMapperRepresentation.md)                 |             | [optional] |
-| **Components**                                                | Pointer to [**map[string][]ComponentExportRepresentation**](array.md)                            |             | [optional] |
-| **InternationalizationEnabled**                               | Pointer to **bool**                                                                              |             | [optional] |
-| **SupportedLocales**                                          | Pointer to **[]string**                                                                          |             | [optional] |
-| **DefaultLocale**                                             | Pointer to **string**                                                                            |             | [optional] |
-| **AuthenticationFlows**                                       | Pointer to [**[]AuthenticationFlowRepresentation**](AuthenticationFlowRepresentation.md)         |             | [optional] |
-| **AuthenticatorConfig**                                       | Pointer to [**[]AuthenticatorConfigRepresentation**](AuthenticatorConfigRepresentation.md)       |             | [optional] |
-| **RequiredActions**                                           | Pointer to [**[]RequiredActionProviderRepresentation**](RequiredActionProviderRepresentation.md) |             | [optional] |
-| **BrowserFlow**                                               | Pointer to **string**                                                                            |             | [optional] |
-| **RegistrationFlow**                                          | Pointer to **string**                                                                            |             | [optional] |
-| **DirectGrantFlow**                                           | Pointer to **string**                                                                            |             | [optional] |
-| **ResetCredentialsFlow**                                      | Pointer to **string**                                                                            |             | [optional] |
-| **ClientAuthenticationFlow**                                  | Pointer to **string**                                                                            |             | [optional] |
-| **DockerAuthenticationFlow**                                  | Pointer to **string**                                                                            |             | [optional] |
-| **FirstBrokerLoginFlow**                                      | Pointer to **string**                                                                            |             | [optional] |
-| **Attributes**                                                | Pointer to **map[string]string**                                                                 |             | [optional] |
-| **KeycloakVersion**                                           | Pointer to **string**                                                                            |             | [optional] |
-| **UserManagedAccessAllowed**                                  | Pointer to **bool**                                                                              |             | [optional] |
-| **OrganizationsEnabled**                                      | Pointer to **bool**                                                                              |             | [optional] |
-| **Organizations**                                             | Pointer to [**[]OrganizationRepresentation**](OrganizationRepresentation.md)                     |             | [optional] |
-| **Social**                                                    | Pointer to **bool**                                                                              |             | [optional] |
-| **UpdateProfileOnInitialSocialLogin**                         | Pointer to **bool**                                                                              |             | [optional] |
-| **SocialProviders**                                           | Pointer to **map[string]string**                                                                 |             | [optional] |
-| **ApplicationScopeMappings**                                  | Pointer to [**map[string][]ScopeMappingRepresentation**](array.md)                               |             | [optional] |
-| **Applications**                                              | Pointer to [**[]ApplicationRepresentation**](ApplicationRepresentation.md)                       |             | [optional] |
-| **OauthClients**                                              | Pointer to [**[]OAuthClientRepresentation**](OAuthClientRepresentation.md)                       |             | [optional] |
-| **ClientTemplates**                                           | Pointer to [**[]ClientTemplateRepresentation**](ClientTemplateRepresentation.md)                 |             | [optional] |
-| **OAuth2DeviceCodeLifespan**                                  | Pointer to **int32**                                                                             |             | [optional] |
-| **OAuth2DevicePollingInterval**                               | Pointer to **int32**                                                                             |             | [optional] |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Id** | Pointer to **string** |  | [optional] 
+**Realm** | Pointer to **string** |  | [optional] 
+**DisplayName** | Pointer to **string** |  | [optional] 
+**DisplayNameHtml** | Pointer to **string** |  | [optional] 
+**NotBefore** | Pointer to **int32** |  | [optional] 
+**DefaultSignatureAlgorithm** | Pointer to **string** |  | [optional] 
+**RevokeRefreshToken** | Pointer to **bool** |  | [optional] 
+**RefreshTokenMaxReuse** | Pointer to **int32** |  | [optional] 
+**AccessTokenLifespan** | Pointer to **int32** |  | [optional] 
+**AccessTokenLifespanForImplicitFlow** | Pointer to **int32** |  | [optional] 
+**SsoSessionIdleTimeout** | Pointer to **int32** |  | [optional] 
+**SsoSessionMaxLifespan** | Pointer to **int32** |  | [optional] 
+**SsoSessionIdleTimeoutRememberMe** | Pointer to **int32** |  | [optional] 
+**SsoSessionMaxLifespanRememberMe** | Pointer to **int32** |  | [optional] 
+**OfflineSessionIdleTimeout** | Pointer to **int32** |  | [optional] 
+**OfflineSessionMaxLifespanEnabled** | Pointer to **bool** |  | [optional] 
+**OfflineSessionMaxLifespan** | Pointer to **int32** |  | [optional] 
+**ClientSessionIdleTimeout** | Pointer to **int32** |  | [optional] 
+**ClientSessionMaxLifespan** | Pointer to **int32** |  | [optional] 
+**ClientOfflineSessionIdleTimeout** | Pointer to **int32** |  | [optional] 
+**ClientOfflineSessionMaxLifespan** | Pointer to **int32** |  | [optional] 
+**AccessCodeLifespan** | Pointer to **int32** |  | [optional] 
+**AccessCodeLifespanUserAction** | Pointer to **int32** |  | [optional] 
+**AccessCodeLifespanLogin** | Pointer to **int32** |  | [optional] 
+**ActionTokenGeneratedByAdminLifespan** | Pointer to **int32** |  | [optional] 
+**ActionTokenGeneratedByUserLifespan** | Pointer to **int32** |  | [optional] 
+**Oauth2DeviceCodeLifespan** | Pointer to **int32** |  | [optional] 
+**Oauth2DevicePollingInterval** | Pointer to **int32** |  | [optional] 
+**Enabled** | Pointer to **bool** |  | [optional] 
+**SslRequired** | Pointer to **string** |  | [optional] 
+**PasswordCredentialGrantAllowed** | Pointer to **bool** |  | [optional] 
+**RegistrationAllowed** | Pointer to **bool** |  | [optional] 
+**RegistrationEmailAsUsername** | Pointer to **bool** |  | [optional] 
+**RememberMe** | Pointer to **bool** |  | [optional] 
+**VerifyEmail** | Pointer to **bool** |  | [optional] 
+**LoginWithEmailAllowed** | Pointer to **bool** |  | [optional] 
+**DuplicateEmailsAllowed** | Pointer to **bool** |  | [optional] 
+**ResetPasswordAllowed** | Pointer to **bool** |  | [optional] 
+**EditUsernameAllowed** | Pointer to **bool** |  | [optional] 
+**UserCacheEnabled** | Pointer to **bool** |  | [optional] 
+**RealmCacheEnabled** | Pointer to **bool** |  | [optional] 
+**BruteForceProtected** | Pointer to **bool** |  | [optional] 
+**PermanentLockout** | Pointer to **bool** |  | [optional] 
+**MaxTemporaryLockouts** | Pointer to **int32** |  | [optional] 
+**BruteForceStrategy** | Pointer to [**BruteForceStrategy**](BruteForceStrategy.md) |  | [optional] 
+**MaxFailureWaitSeconds** | Pointer to **int32** |  | [optional] 
+**MinimumQuickLoginWaitSeconds** | Pointer to **int32** |  | [optional] 
+**WaitIncrementSeconds** | Pointer to **int32** |  | [optional] 
+**QuickLoginCheckMilliSeconds** | Pointer to **int64** |  | [optional] 
+**MaxDeltaTimeSeconds** | Pointer to **int32** |  | [optional] 
+**FailureFactor** | Pointer to **int32** |  | [optional] 
+**PrivateKey** | Pointer to **string** |  | [optional] 
+**PublicKey** | Pointer to **string** |  | [optional] 
+**Certificate** | Pointer to **string** |  | [optional] 
+**CodeSecret** | Pointer to **string** |  | [optional] 
+**Roles** | Pointer to [**RolesRepresentation**](RolesRepresentation.md) |  | [optional] 
+**Groups** | Pointer to [**[]GroupRepresentation**](GroupRepresentation.md) |  | [optional] 
+**DefaultRoles** | Pointer to **[]string** |  | [optional] 
+**DefaultRole** | Pointer to [**RoleRepresentation**](RoleRepresentation.md) |  | [optional] 
+**AdminPermissionsClient** | Pointer to [**ClientRepresentation**](ClientRepresentation.md) |  | [optional] 
+**DefaultGroups** | Pointer to **[]string** |  | [optional] 
+**RequiredCredentials** | Pointer to **[]string** |  | [optional] 
+**PasswordPolicy** | Pointer to **string** |  | [optional] 
+**OtpPolicyType** | Pointer to **string** |  | [optional] 
+**OtpPolicyAlgorithm** | Pointer to **string** |  | [optional] 
+**OtpPolicyInitialCounter** | Pointer to **int32** |  | [optional] 
+**OtpPolicyDigits** | Pointer to **int32** |  | [optional] 
+**OtpPolicyLookAheadWindow** | Pointer to **int32** |  | [optional] 
+**OtpPolicyPeriod** | Pointer to **int32** |  | [optional] 
+**OtpPolicyCodeReusable** | Pointer to **bool** |  | [optional] 
+**OtpSupportedApplications** | Pointer to **[]string** |  | [optional] 
+**LocalizationTexts** | Pointer to **map[string]map[string]string** |  | [optional] 
+**WebAuthnPolicyRpEntityName** | Pointer to **string** |  | [optional] 
+**WebAuthnPolicySignatureAlgorithms** | Pointer to **[]string** |  | [optional] 
+**WebAuthnPolicyRpId** | Pointer to **string** |  | [optional] 
+**WebAuthnPolicyAttestationConveyancePreference** | Pointer to **string** |  | [optional] 
+**WebAuthnPolicyAuthenticatorAttachment** | Pointer to **string** |  | [optional] 
+**WebAuthnPolicyRequireResidentKey** | Pointer to **string** |  | [optional] 
+**WebAuthnPolicyUserVerificationRequirement** | Pointer to **string** |  | [optional] 
+**WebAuthnPolicyCreateTimeout** | Pointer to **int32** |  | [optional] 
+**WebAuthnPolicyAvoidSameAuthenticatorRegister** | Pointer to **bool** |  | [optional] 
+**WebAuthnPolicyAcceptableAaguids** | Pointer to **[]string** |  | [optional] 
+**WebAuthnPolicyExtraOrigins** | Pointer to **[]string** |  | [optional] 
+**WebAuthnPolicyPasswordlessRpEntityName** | Pointer to **string** |  | [optional] 
+**WebAuthnPolicyPasswordlessSignatureAlgorithms** | Pointer to **[]string** |  | [optional] 
+**WebAuthnPolicyPasswordlessRpId** | Pointer to **string** |  | [optional] 
+**WebAuthnPolicyPasswordlessAttestationConveyancePreference** | Pointer to **string** |  | [optional] 
+**WebAuthnPolicyPasswordlessAuthenticatorAttachment** | Pointer to **string** |  | [optional] 
+**WebAuthnPolicyPasswordlessRequireResidentKey** | Pointer to **string** |  | [optional] 
+**WebAuthnPolicyPasswordlessUserVerificationRequirement** | Pointer to **string** |  | [optional] 
+**WebAuthnPolicyPasswordlessCreateTimeout** | Pointer to **int32** |  | [optional] 
+**WebAuthnPolicyPasswordlessAvoidSameAuthenticatorRegister** | Pointer to **bool** |  | [optional] 
+**WebAuthnPolicyPasswordlessAcceptableAaguids** | Pointer to **[]string** |  | [optional] 
+**WebAuthnPolicyPasswordlessExtraOrigins** | Pointer to **[]string** |  | [optional] 
+**ClientProfiles** | Pointer to [**ClientProfilesRepresentation**](ClientProfilesRepresentation.md) |  | [optional] 
+**ClientPolicies** | Pointer to [**ClientPoliciesRepresentation**](ClientPoliciesRepresentation.md) |  | [optional] 
+**Users** | Pointer to [**[]UserRepresentation**](UserRepresentation.md) |  | [optional] 
+**FederatedUsers** | Pointer to [**[]UserRepresentation**](UserRepresentation.md) |  | [optional] 
+**ScopeMappings** | Pointer to [**[]ScopeMappingRepresentation**](ScopeMappingRepresentation.md) |  | [optional] 
+**ClientScopeMappings** | Pointer to [**map[string][]ScopeMappingRepresentation**](array.md) |  | [optional] 
+**Clients** | Pointer to [**[]ClientRepresentation**](ClientRepresentation.md) |  | [optional] 
+**ClientScopes** | Pointer to [**[]ClientScopeRepresentation**](ClientScopeRepresentation.md) |  | [optional] 
+**DefaultDefaultClientScopes** | Pointer to **[]string** |  | [optional] 
+**DefaultOptionalClientScopes** | Pointer to **[]string** |  | [optional] 
+**BrowserSecurityHeaders** | Pointer to **map[string]string** |  | [optional] 
+**SmtpServer** | Pointer to **map[string]string** |  | [optional] 
+**UserFederationProviders** | Pointer to [**[]UserFederationProviderRepresentation**](UserFederationProviderRepresentation.md) |  | [optional] 
+**UserFederationMappers** | Pointer to [**[]UserFederationMapperRepresentation**](UserFederationMapperRepresentation.md) |  | [optional] 
+**LoginTheme** | Pointer to **string** |  | [optional] 
+**AccountTheme** | Pointer to **string** |  | [optional] 
+**AdminTheme** | Pointer to **string** |  | [optional] 
+**EmailTheme** | Pointer to **string** |  | [optional] 
+**EventsEnabled** | Pointer to **bool** |  | [optional] 
+**EventsExpiration** | Pointer to **int64** |  | [optional] 
+**EventsListeners** | Pointer to **[]string** |  | [optional] 
+**EnabledEventTypes** | Pointer to **[]string** |  | [optional] 
+**AdminEventsEnabled** | Pointer to **bool** |  | [optional] 
+**AdminEventsDetailsEnabled** | Pointer to **bool** |  | [optional] 
+**IdentityProviders** | Pointer to [**[]IdentityProviderRepresentation**](IdentityProviderRepresentation.md) |  | [optional] 
+**IdentityProviderMappers** | Pointer to [**[]IdentityProviderMapperRepresentation**](IdentityProviderMapperRepresentation.md) |  | [optional] 
+**ProtocolMappers** | Pointer to [**[]ProtocolMapperRepresentation**](ProtocolMapperRepresentation.md) |  | [optional] 
+**Components** | Pointer to [**map[string][]ComponentExportRepresentation**](array.md) |  | [optional] 
+**InternationalizationEnabled** | Pointer to **bool** |  | [optional] 
+**SupportedLocales** | Pointer to **[]string** |  | [optional] 
+**DefaultLocale** | Pointer to **string** |  | [optional] 
+**AuthenticationFlows** | Pointer to [**[]AuthenticationFlowRepresentation**](AuthenticationFlowRepresentation.md) |  | [optional] 
+**AuthenticatorConfig** | Pointer to [**[]AuthenticatorConfigRepresentation**](AuthenticatorConfigRepresentation.md) |  | [optional] 
+**RequiredActions** | Pointer to [**[]RequiredActionProviderRepresentation**](RequiredActionProviderRepresentation.md) |  | [optional] 
+**BrowserFlow** | Pointer to **string** |  | [optional] 
+**RegistrationFlow** | Pointer to **string** |  | [optional] 
+**DirectGrantFlow** | Pointer to **string** |  | [optional] 
+**ResetCredentialsFlow** | Pointer to **string** |  | [optional] 
+**ClientAuthenticationFlow** | Pointer to **string** |  | [optional] 
+**DockerAuthenticationFlow** | Pointer to **string** |  | [optional] 
+**FirstBrokerLoginFlow** | Pointer to **string** |  | [optional] 
+**Attributes** | Pointer to **map[string]string** |  | [optional] 
+**KeycloakVersion** | Pointer to **string** |  | [optional] 
+**UserManagedAccessAllowed** | Pointer to **bool** |  | [optional] 
+**OrganizationsEnabled** | Pointer to **bool** |  | [optional] 
+**Organizations** | Pointer to [**[]OrganizationRepresentation**](OrganizationRepresentation.md) |  | [optional] 
+**VerifiableCredentialsEnabled** | Pointer to **bool** |  | [optional] 
+**AdminPermissionsEnabled** | Pointer to **bool** |  | [optional] 
+**Social** | Pointer to **bool** |  | [optional] 
+**UpdateProfileOnInitialSocialLogin** | Pointer to **bool** |  | [optional] 
+**SocialProviders** | Pointer to **map[string]string** |  | [optional] 
+**ApplicationScopeMappings** | Pointer to [**map[string][]ScopeMappingRepresentation**](array.md) |  | [optional] 
+**Applications** | Pointer to [**[]ApplicationRepresentation**](ApplicationRepresentation.md) |  | [optional] 
+**OauthClients** | Pointer to [**[]OAuthClientRepresentation**](OAuthClientRepresentation.md) |  | [optional] 
+**ClientTemplates** | Pointer to [**[]ClientTemplateRepresentation**](ClientTemplateRepresentation.md) |  | [optional] 
+**OAuth2DeviceCodeLifespan** | Pointer to **int32** |  | [optional] 
+**OAuth2DevicePollingInterval** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
@@ -1647,6 +1650,31 @@ SetDefaultRole sets DefaultRole field to given value.
 
 HasDefaultRole returns a boolean if a field has been set.
 
+### GetAdminPermissionsClient
+
+`func (o *RealmRepresentation) GetAdminPermissionsClient() ClientRepresentation`
+
+GetAdminPermissionsClient returns the AdminPermissionsClient field if non-nil, zero value otherwise.
+
+### GetAdminPermissionsClientOk
+
+`func (o *RealmRepresentation) GetAdminPermissionsClientOk() (*ClientRepresentation, bool)`
+
+GetAdminPermissionsClientOk returns a tuple with the AdminPermissionsClient field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAdminPermissionsClient
+
+`func (o *RealmRepresentation) SetAdminPermissionsClient(v ClientRepresentation)`
+
+SetAdminPermissionsClient sets AdminPermissionsClient field to given value.
+
+### HasAdminPermissionsClient
+
+`func (o *RealmRepresentation) HasAdminPermissionsClient() bool`
+
+HasAdminPermissionsClient returns a boolean if a field has been set.
+
 ### GetDefaultGroups
 
 `func (o *RealmRepresentation) GetDefaultGroups() []string`
@@ -2774,7 +2802,7 @@ HasBrowserSecurityHeaders returns a boolean if a field has been set.
 
 ### GetSmtpServer
 
-`func (o *RealmRepresentation) GetSmtpServerConfig() map[string]string`
+`func (o *RealmRepresentation) GetSmtpServer() map[string]string`
 
 GetSmtpServer returns the SmtpServer field if non-nil, zero value otherwise.
 
@@ -2793,7 +2821,7 @@ SetSmtpServer sets SmtpServer field to given value.
 
 ### HasSmtpServer
 
-`func (o *RealmRepresentation) HasSmtpServerConfig() bool`
+`func (o *RealmRepresentation) HasSmtpServer() bool`
 
 HasSmtpServer returns a boolean if a field has been set.
 
@@ -3647,6 +3675,56 @@ SetOrganizations sets Organizations field to given value.
 
 HasOrganizations returns a boolean if a field has been set.
 
+### GetVerifiableCredentialsEnabled
+
+`func (o *RealmRepresentation) GetVerifiableCredentialsEnabled() bool`
+
+GetVerifiableCredentialsEnabled returns the VerifiableCredentialsEnabled field if non-nil, zero value otherwise.
+
+### GetVerifiableCredentialsEnabledOk
+
+`func (o *RealmRepresentation) GetVerifiableCredentialsEnabledOk() (*bool, bool)`
+
+GetVerifiableCredentialsEnabledOk returns a tuple with the VerifiableCredentialsEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVerifiableCredentialsEnabled
+
+`func (o *RealmRepresentation) SetVerifiableCredentialsEnabled(v bool)`
+
+SetVerifiableCredentialsEnabled sets VerifiableCredentialsEnabled field to given value.
+
+### HasVerifiableCredentialsEnabled
+
+`func (o *RealmRepresentation) HasVerifiableCredentialsEnabled() bool`
+
+HasVerifiableCredentialsEnabled returns a boolean if a field has been set.
+
+### GetAdminPermissionsEnabled
+
+`func (o *RealmRepresentation) GetAdminPermissionsEnabled() bool`
+
+GetAdminPermissionsEnabled returns the AdminPermissionsEnabled field if non-nil, zero value otherwise.
+
+### GetAdminPermissionsEnabledOk
+
+`func (o *RealmRepresentation) GetAdminPermissionsEnabledOk() (*bool, bool)`
+
+GetAdminPermissionsEnabledOk returns a tuple with the AdminPermissionsEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAdminPermissionsEnabled
+
+`func (o *RealmRepresentation) SetAdminPermissionsEnabled(v bool)`
+
+SetAdminPermissionsEnabled sets AdminPermissionsEnabled field to given value.
+
+### HasAdminPermissionsEnabled
+
+`func (o *RealmRepresentation) HasAdminPermissionsEnabled() bool`
+
+HasAdminPermissionsEnabled returns a boolean if a field has been set.
+
 ### GetSocial
 
 `func (o *RealmRepresentation) GetSocial() bool`
@@ -3872,4 +3950,7 @@ SetOAuth2DevicePollingInterval sets OAuth2DevicePollingInterval field to given v
 
 HasOAuth2DevicePollingInterval returns a boolean if a field has been set.
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

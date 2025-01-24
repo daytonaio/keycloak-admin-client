@@ -19,19 +19,20 @@ var _ MappedNullable = &PolicyRepresentation{}
 
 // PolicyRepresentation struct for PolicyRepresentation
 type PolicyRepresentation struct {
-	Id               *string                  `json:"id,omitempty"`
-	Name             *string                  `json:"name,omitempty"`
-	Description      *string                  `json:"description,omitempty"`
-	Type             *string                  `json:"type,omitempty"`
-	Policies         []string                 `json:"policies,omitempty"`
-	Resources        []string                 `json:"resources,omitempty"`
-	Scopes           []string                 `json:"scopes,omitempty"`
-	Logic            *Logic                   `json:"logic,omitempty"`
-	DecisionStrategy *DecisionStrategy        `json:"decisionStrategy,omitempty"`
-	Owner            *string                  `json:"owner,omitempty"`
-	ResourcesData    []ResourceRepresentation `json:"resourcesData,omitempty"`
-	ScopesData       []ScopeRepresentation    `json:"scopesData,omitempty"`
-	Config           *map[string]string       `json:"config,omitempty"`
+	Id *string `json:"id,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Description *string `json:"description,omitempty"`
+	Type *string `json:"type,omitempty"`
+	Policies []string `json:"policies,omitempty"`
+	Resources []string `json:"resources,omitempty"`
+	Scopes []string `json:"scopes,omitempty"`
+	Logic *Logic `json:"logic,omitempty"`
+	DecisionStrategy *DecisionStrategy `json:"decisionStrategy,omitempty"`
+	Owner *string `json:"owner,omitempty"`
+	ResourceType *string `json:"resourceType,omitempty"`
+	ResourcesData []ResourceRepresentation `json:"resourcesData,omitempty"`
+	ScopesData []ScopeRepresentation `json:"scopesData,omitempty"`
+	Config *map[string]string `json:"config,omitempty"`
 }
 
 // NewPolicyRepresentation instantiates a new PolicyRepresentation object
@@ -371,6 +372,38 @@ func (o *PolicyRepresentation) SetOwner(v string) {
 	o.Owner = &v
 }
 
+// GetResourceType returns the ResourceType field value if set, zero value otherwise.
+func (o *PolicyRepresentation) GetResourceType() string {
+	if o == nil || IsNil(o.ResourceType) {
+		var ret string
+		return ret
+	}
+	return *o.ResourceType
+}
+
+// GetResourceTypeOk returns a tuple with the ResourceType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PolicyRepresentation) GetResourceTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.ResourceType) {
+		return nil, false
+	}
+	return o.ResourceType, true
+}
+
+// HasResourceType returns a boolean if a field has been set.
+func (o *PolicyRepresentation) HasResourceType() bool {
+	if o != nil && !IsNil(o.ResourceType) {
+		return true
+	}
+
+	return false
+}
+
+// SetResourceType gets a reference to the given string and assigns it to the ResourceType field.
+func (o *PolicyRepresentation) SetResourceType(v string) {
+	o.ResourceType = &v
+}
+
 // GetResourcesData returns the ResourcesData field value if set, zero value otherwise.
 func (o *PolicyRepresentation) GetResourcesData() []ResourceRepresentation {
 	if o == nil || IsNil(o.ResourcesData) {
@@ -468,7 +501,7 @@ func (o *PolicyRepresentation) SetConfig(v map[string]string) {
 }
 
 func (o PolicyRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -506,6 +539,9 @@ func (o PolicyRepresentation) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Owner) {
 		toSerialize["owner"] = o.Owner
+	}
+	if !IsNil(o.ResourceType) {
+		toSerialize["resourceType"] = o.ResourceType
 	}
 	if !IsNil(o.ResourcesData) {
 		toSerialize["resourcesData"] = o.ResourcesData
@@ -554,3 +590,5 @@ func (v *NullablePolicyRepresentation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

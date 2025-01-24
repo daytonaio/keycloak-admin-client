@@ -19,10 +19,10 @@ var _ MappedNullable = &UserConsentRepresentation{}
 
 // UserConsentRepresentation struct for UserConsentRepresentation
 type UserConsentRepresentation struct {
-	ClientId            *string  `json:"clientId,omitempty"`
+	ClientId *string `json:"clientId,omitempty"`
 	GrantedClientScopes []string `json:"grantedClientScopes,omitempty"`
-	CreatedDate         *int64   `json:"createdDate,omitempty"`
-	LastUpdatedDate     *int64   `json:"lastUpdatedDate,omitempty"`
+	CreatedDate *int64 `json:"createdDate,omitempty"`
+	LastUpdatedDate *int64 `json:"lastUpdatedDate,omitempty"`
 	// Deprecated
 	GrantedRealmRoles []string `json:"grantedRealmRoles,omitempty"`
 }
@@ -208,7 +208,7 @@ func (o *UserConsentRepresentation) SetGrantedRealmRoles(v []string) {
 }
 
 func (o UserConsentRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -270,3 +270,5 @@ func (v *NullableUserConsentRepresentation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

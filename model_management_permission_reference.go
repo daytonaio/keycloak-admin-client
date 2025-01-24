@@ -19,8 +19,8 @@ var _ MappedNullable = &ManagementPermissionReference{}
 
 // ManagementPermissionReference struct for ManagementPermissionReference
 type ManagementPermissionReference struct {
-	Enabled          *bool              `json:"enabled,omitempty"`
-	Resource         *string            `json:"resource,omitempty"`
+	Enabled *bool `json:"enabled,omitempty"`
+	Resource *string `json:"resource,omitempty"`
 	ScopePermissions *map[string]string `json:"scopePermissions,omitempty"`
 }
 
@@ -138,7 +138,7 @@ func (o *ManagementPermissionReference) SetScopePermissions(v map[string]string)
 }
 
 func (o ManagementPermissionReference) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -194,3 +194,5 @@ func (v *NullableManagementPermissionReference) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

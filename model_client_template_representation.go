@@ -19,21 +19,21 @@ var _ MappedNullable = &ClientTemplateRepresentation{}
 
 // ClientTemplateRepresentation struct for ClientTemplateRepresentation
 type ClientTemplateRepresentation struct {
-	Id                        *string                        `json:"id,omitempty"`
-	Name                      *string                        `json:"name,omitempty"`
-	Description               *string                        `json:"description,omitempty"`
-	Protocol                  *string                        `json:"protocol,omitempty"`
-	FullScopeAllowed          *bool                          `json:"fullScopeAllowed,omitempty"`
-	BearerOnly                *bool                          `json:"bearerOnly,omitempty"`
-	ConsentRequired           *bool                          `json:"consentRequired,omitempty"`
-	StandardFlowEnabled       *bool                          `json:"standardFlowEnabled,omitempty"`
-	ImplicitFlowEnabled       *bool                          `json:"implicitFlowEnabled,omitempty"`
-	DirectAccessGrantsEnabled *bool                          `json:"directAccessGrantsEnabled,omitempty"`
-	ServiceAccountsEnabled    *bool                          `json:"serviceAccountsEnabled,omitempty"`
-	PublicClient              *bool                          `json:"publicClient,omitempty"`
-	FrontchannelLogout        *bool                          `json:"frontchannelLogout,omitempty"`
-	Attributes                *map[string]string             `json:"attributes,omitempty"`
-	ProtocolMappers           []ProtocolMapperRepresentation `json:"protocolMappers,omitempty"`
+	Id *string `json:"id,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Description *string `json:"description,omitempty"`
+	Protocol *string `json:"protocol,omitempty"`
+	FullScopeAllowed *bool `json:"fullScopeAllowed,omitempty"`
+	BearerOnly *bool `json:"bearerOnly,omitempty"`
+	ConsentRequired *bool `json:"consentRequired,omitempty"`
+	StandardFlowEnabled *bool `json:"standardFlowEnabled,omitempty"`
+	ImplicitFlowEnabled *bool `json:"implicitFlowEnabled,omitempty"`
+	DirectAccessGrantsEnabled *bool `json:"directAccessGrantsEnabled,omitempty"`
+	ServiceAccountsEnabled *bool `json:"serviceAccountsEnabled,omitempty"`
+	PublicClient *bool `json:"publicClient,omitempty"`
+	FrontchannelLogout *bool `json:"frontchannelLogout,omitempty"`
+	Attributes *map[string]string `json:"attributes,omitempty"`
+	ProtocolMappers []ProtocolMapperRepresentation `json:"protocolMappers,omitempty"`
 }
 
 // NewClientTemplateRepresentation instantiates a new ClientTemplateRepresentation object
@@ -534,7 +534,7 @@ func (o *ClientTemplateRepresentation) SetProtocolMappers(v []ProtocolMapperRepr
 }
 
 func (o ClientTemplateRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -626,3 +626,5 @@ func (v *NullableClientTemplateRepresentation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

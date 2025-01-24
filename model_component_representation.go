@@ -19,13 +19,13 @@ var _ MappedNullable = &ComponentRepresentation{}
 
 // ComponentRepresentation struct for ComponentRepresentation
 type ComponentRepresentation struct {
-	Id           *string              `json:"id,omitempty"`
-	Name         *string              `json:"name,omitempty"`
-	ProviderId   *string              `json:"providerId,omitempty"`
-	ProviderType *string              `json:"providerType,omitempty"`
-	ParentId     *string              `json:"parentId,omitempty"`
-	SubType      *string              `json:"subType,omitempty"`
-	Config       *map[string][]string `json:"config,omitempty"`
+	Id *string `json:"id,omitempty"`
+	Name *string `json:"name,omitempty"`
+	ProviderId *string `json:"providerId,omitempty"`
+	ProviderType *string `json:"providerType,omitempty"`
+	ParentId *string `json:"parentId,omitempty"`
+	SubType *string `json:"subType,omitempty"`
+	Config *map[string][]string `json:"config,omitempty"`
 }
 
 // NewComponentRepresentation instantiates a new ComponentRepresentation object
@@ -270,7 +270,7 @@ func (o *ComponentRepresentation) SetConfig(v map[string][]string) {
 }
 
 func (o ComponentRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -338,3 +338,5 @@ func (v *NullableComponentRepresentation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

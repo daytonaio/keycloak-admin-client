@@ -20,7 +20,7 @@ type BruteForceStrategy string
 
 // List of BruteForceStrategy
 const (
-	LINEAR   BruteForceStrategy = "LINEAR"
+	LINEAR BruteForceStrategy = "LINEAR"
 	MULTIPLE BruteForceStrategy = "MULTIPLE"
 )
 
@@ -108,3 +108,4 @@ func (v *NullableBruteForceStrategy) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

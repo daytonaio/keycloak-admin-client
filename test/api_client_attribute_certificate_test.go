@@ -11,10 +11,10 @@ package keycloak_admin_client
 
 import (
 	"context"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func Test_keycloak_admin_client_ClientAttributeCertificateAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_keycloak_admin_client_ClientAttributeCertificateAPIService(t *testing.
 
 	t.Run("Test ClientAttributeCertificateAPIService AdminRealmsRealmClientsClientUuidCertificatesAttrDownloadPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -40,7 +40,7 @@ func Test_keycloak_admin_client_ClientAttributeCertificateAPIService(t *testing.
 
 	t.Run("Test ClientAttributeCertificateAPIService AdminRealmsRealmClientsClientUuidCertificatesAttrGenerateAndDownloadPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -56,7 +56,7 @@ func Test_keycloak_admin_client_ClientAttributeCertificateAPIService(t *testing.
 
 	t.Run("Test ClientAttributeCertificateAPIService AdminRealmsRealmClientsClientUuidCertificatesAttrGeneratePost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -72,7 +72,7 @@ func Test_keycloak_admin_client_ClientAttributeCertificateAPIService(t *testing.
 
 	t.Run("Test ClientAttributeCertificateAPIService AdminRealmsRealmClientsClientUuidCertificatesAttrGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -88,7 +88,7 @@ func Test_keycloak_admin_client_ClientAttributeCertificateAPIService(t *testing.
 
 	t.Run("Test ClientAttributeCertificateAPIService AdminRealmsRealmClientsClientUuidCertificatesAttrUploadCertificatePost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -104,7 +104,7 @@ func Test_keycloak_admin_client_ClientAttributeCertificateAPIService(t *testing.
 
 	t.Run("Test ClientAttributeCertificateAPIService AdminRealmsRealmClientsClientUuidCertificatesAttrUploadPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string

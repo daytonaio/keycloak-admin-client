@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Policies** | Pointer to [**[]PolicyRepresentation**](PolicyRepresentation.md) |  | [optional] 
 **Scopes** | Pointer to [**[]ScopeRepresentation**](ScopeRepresentation.md) |  | [optional] 
 **DecisionStrategy** | Pointer to [**DecisionStrategy**](DecisionStrategy.md) |  | [optional] 
+**AuthorizationSchema** | Pointer to [**AuthorizationSchema**](AuthorizationSchema.md) |  | [optional] 
 
 ## Methods
 
@@ -257,6 +258,31 @@ SetDecisionStrategy sets DecisionStrategy field to given value.
 `func (o *ResourceServerRepresentation) HasDecisionStrategy() bool`
 
 HasDecisionStrategy returns a boolean if a field has been set.
+
+### GetAuthorizationSchema
+
+`func (o *ResourceServerRepresentation) GetAuthorizationSchema() AuthorizationSchema`
+
+GetAuthorizationSchema returns the AuthorizationSchema field if non-nil, zero value otherwise.
+
+### GetAuthorizationSchemaOk
+
+`func (o *ResourceServerRepresentation) GetAuthorizationSchemaOk() (*AuthorizationSchema, bool)`
+
+GetAuthorizationSchemaOk returns a tuple with the AuthorizationSchema field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAuthorizationSchema
+
+`func (o *ResourceServerRepresentation) SetAuthorizationSchema(v AuthorizationSchema)`
+
+SetAuthorizationSchema sets AuthorizationSchema field to given value.
+
+### HasAuthorizationSchema
+
+`func (o *ResourceServerRepresentation) HasAuthorizationSchema() bool`
+
+HasAuthorizationSchema returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

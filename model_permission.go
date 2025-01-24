@@ -19,9 +19,9 @@ var _ MappedNullable = &Permission{}
 
 // Permission struct for Permission
 type Permission struct {
-	Rsid   *string              `json:"rsid,omitempty"`
-	Rsname *string              `json:"rsname,omitempty"`
-	Scopes []string             `json:"scopes,omitempty"`
+	Rsid *string `json:"rsid,omitempty"`
+	Rsname *string `json:"rsname,omitempty"`
+	Scopes []string `json:"scopes,omitempty"`
 	Claims *map[string][]string `json:"claims,omitempty"`
 }
 
@@ -171,7 +171,7 @@ func (o *Permission) SetClaims(v map[string][]string) {
 }
 
 func (o Permission) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -230,3 +230,5 @@ func (v *NullablePermission) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

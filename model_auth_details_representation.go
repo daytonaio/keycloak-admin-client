@@ -19,9 +19,9 @@ var _ MappedNullable = &AuthDetailsRepresentation{}
 
 // AuthDetailsRepresentation struct for AuthDetailsRepresentation
 type AuthDetailsRepresentation struct {
-	RealmId   *string `json:"realmId,omitempty"`
-	ClientId  *string `json:"clientId,omitempty"`
-	UserId    *string `json:"userId,omitempty"`
+	RealmId *string `json:"realmId,omitempty"`
+	ClientId *string `json:"clientId,omitempty"`
+	UserId *string `json:"userId,omitempty"`
 	IpAddress *string `json:"ipAddress,omitempty"`
 }
 
@@ -171,7 +171,7 @@ func (o *AuthDetailsRepresentation) SetIpAddress(v string) {
 }
 
 func (o AuthDetailsRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -230,3 +230,5 @@ func (v *NullableAuthDetailsRepresentation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

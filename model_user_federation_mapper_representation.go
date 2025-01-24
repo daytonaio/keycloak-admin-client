@@ -19,11 +19,11 @@ var _ MappedNullable = &UserFederationMapperRepresentation{}
 
 // UserFederationMapperRepresentation struct for UserFederationMapperRepresentation
 type UserFederationMapperRepresentation struct {
-	Id                            *string            `json:"id,omitempty"`
-	Name                          *string            `json:"name,omitempty"`
-	FederationProviderDisplayName *string            `json:"federationProviderDisplayName,omitempty"`
-	FederationMapperType          *string            `json:"federationMapperType,omitempty"`
-	Config                        *map[string]string `json:"config,omitempty"`
+	Id *string `json:"id,omitempty"`
+	Name *string `json:"name,omitempty"`
+	FederationProviderDisplayName *string `json:"federationProviderDisplayName,omitempty"`
+	FederationMapperType *string `json:"federationMapperType,omitempty"`
+	Config *map[string]string `json:"config,omitempty"`
 }
 
 // NewUserFederationMapperRepresentation instantiates a new UserFederationMapperRepresentation object
@@ -204,7 +204,7 @@ func (o *UserFederationMapperRepresentation) SetConfig(v map[string]string) {
 }
 
 func (o UserFederationMapperRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -266,3 +266,5 @@ func (v *NullableUserFederationMapperRepresentation) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

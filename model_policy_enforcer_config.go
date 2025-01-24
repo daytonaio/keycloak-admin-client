@@ -19,18 +19,18 @@ var _ MappedNullable = &PolicyEnforcerConfig{}
 
 // PolicyEnforcerConfig struct for PolicyEnforcerConfig
 type PolicyEnforcerConfig struct {
-	EnforcementMode       *EnforcementMode                   `json:"enforcement-mode,omitempty"`
-	Paths                 []PathConfig                       `json:"paths,omitempty"`
-	PathCache             *PathCacheConfig                   `json:"path-cache,omitempty"`
-	LazyLoadPaths         *bool                              `json:"lazy-load-paths,omitempty"`
-	OnDenyRedirectTo      *string                            `json:"on-deny-redirect-to,omitempty"`
-	UserManagedAccess     map[string]interface{}             `json:"user-managed-access,omitempty"`
+	EnforcementMode *EnforcementMode `json:"enforcement-mode,omitempty"`
+	Paths []PathConfig `json:"paths,omitempty"`
+	PathCache *PathCacheConfig `json:"path-cache,omitempty"`
+	LazyLoadPaths *bool `json:"lazy-load-paths,omitempty"`
+	OnDenyRedirectTo *string `json:"on-deny-redirect-to,omitempty"`
+	UserManagedAccess map[string]interface{} `json:"user-managed-access,omitempty"`
 	ClaimInformationPoint *map[string]map[string]interface{} `json:"claim-information-point,omitempty"`
-	HttpMethodAsScope     *bool                              `json:"http-method-as-scope,omitempty"`
-	Realm                 *string                            `json:"realm,omitempty"`
-	AuthServerUrl         *string                            `json:"auth-server-url,omitempty"`
-	Credentials           map[string]interface{}             `json:"credentials,omitempty"`
-	Resource              *string                            `json:"resource,omitempty"`
+	HttpMethodAsScope *bool `json:"http-method-as-scope,omitempty"`
+	Realm *string `json:"realm,omitempty"`
+	AuthServerUrl *string `json:"auth-server-url,omitempty"`
+	Credentials map[string]interface{} `json:"credentials,omitempty"`
+	Resource *string `json:"resource,omitempty"`
 }
 
 // NewPolicyEnforcerConfig instantiates a new PolicyEnforcerConfig object
@@ -435,7 +435,7 @@ func (o *PolicyEnforcerConfig) SetResource(v string) {
 }
 
 func (o PolicyEnforcerConfig) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -518,3 +518,5 @@ func (v *NullablePolicyEnforcerConfig) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

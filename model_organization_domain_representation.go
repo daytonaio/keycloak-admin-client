@@ -19,8 +19,8 @@ var _ MappedNullable = &OrganizationDomainRepresentation{}
 
 // OrganizationDomainRepresentation struct for OrganizationDomainRepresentation
 type OrganizationDomainRepresentation struct {
-	Name     *string `json:"name,omitempty"`
-	Verified *bool   `json:"verified,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Verified *bool `json:"verified,omitempty"`
 }
 
 // NewOrganizationDomainRepresentation instantiates a new OrganizationDomainRepresentation object
@@ -105,7 +105,7 @@ func (o *OrganizationDomainRepresentation) SetVerified(v bool) {
 }
 
 func (o OrganizationDomainRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,3 +158,5 @@ func (v *NullableOrganizationDomainRepresentation) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

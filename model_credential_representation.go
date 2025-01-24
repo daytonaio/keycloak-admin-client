@@ -19,15 +19,15 @@ var _ MappedNullable = &CredentialRepresentation{}
 
 // CredentialRepresentation struct for CredentialRepresentation
 type CredentialRepresentation struct {
-	Id             *string `json:"id,omitempty"`
-	Type           *string `json:"type,omitempty"`
-	UserLabel      *string `json:"userLabel,omitempty"`
-	CreatedDate    *int64  `json:"createdDate,omitempty"`
-	SecretData     *string `json:"secretData,omitempty"`
+	Id *string `json:"id,omitempty"`
+	Type *string `json:"type,omitempty"`
+	UserLabel *string `json:"userLabel,omitempty"`
+	CreatedDate *int64 `json:"createdDate,omitempty"`
+	SecretData *string `json:"secretData,omitempty"`
 	CredentialData *string `json:"credentialData,omitempty"`
-	Priority       *int32  `json:"priority,omitempty"`
-	Value          *string `json:"value,omitempty"`
-	Temporary      *bool   `json:"temporary,omitempty"`
+	Priority *int32 `json:"priority,omitempty"`
+	Value *string `json:"value,omitempty"`
+	Temporary *bool `json:"temporary,omitempty"`
 	// Deprecated
 	Device *string `json:"device,omitempty"`
 	// Deprecated
@@ -669,7 +669,7 @@ func (o *CredentialRepresentation) SetConfig(v map[string][]string) {
 }
 
 func (o CredentialRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -770,3 +770,5 @@ func (v *NullableCredentialRepresentation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -19,10 +19,10 @@ var _ MappedNullable = &ComponentTypeRepresentation{}
 
 // ComponentTypeRepresentation struct for ComponentTypeRepresentation
 type ComponentTypeRepresentation struct {
-	Id         *string                        `json:"id,omitempty"`
-	HelpText   *string                        `json:"helpText,omitempty"`
+	Id *string `json:"id,omitempty"`
+	HelpText *string `json:"helpText,omitempty"`
 	Properties []ConfigPropertyRepresentation `json:"properties,omitempty"`
-	Metadata   map[string]interface{}         `json:"metadata,omitempty"`
+	Metadata map[string]interface{} `json:"metadata,omitempty"`
 }
 
 // NewComponentTypeRepresentation instantiates a new ComponentTypeRepresentation object
@@ -171,7 +171,7 @@ func (o *ComponentTypeRepresentation) SetMetadata(v map[string]interface{}) {
 }
 
 func (o ComponentTypeRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -230,3 +230,5 @@ func (v *NullableComponentTypeRepresentation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

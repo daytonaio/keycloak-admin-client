@@ -19,16 +19,16 @@ var _ MappedNullable = &RoleRepresentation{}
 
 // RoleRepresentation struct for RoleRepresentation
 type RoleRepresentation struct {
-	Id          *string `json:"id,omitempty"`
-	Name        *string `json:"name,omitempty"`
+	Id *string `json:"id,omitempty"`
+	Name *string `json:"name,omitempty"`
 	Description *string `json:"description,omitempty"`
 	// Deprecated
-	ScopeParamRequired *bool                `json:"scopeParamRequired,omitempty"`
-	Composite          *bool                `json:"composite,omitempty"`
-	Composites         *Composites          `json:"composites,omitempty"`
-	ClientRole         *bool                `json:"clientRole,omitempty"`
-	ContainerId        *string              `json:"containerId,omitempty"`
-	Attributes         *map[string][]string `json:"attributes,omitempty"`
+	ScopeParamRequired *bool `json:"scopeParamRequired,omitempty"`
+	Composite *bool `json:"composite,omitempty"`
+	Composites *Composites `json:"composites,omitempty"`
+	ClientRole *bool `json:"clientRole,omitempty"`
+	ContainerId *string `json:"containerId,omitempty"`
+	Attributes *map[string][]string `json:"attributes,omitempty"`
 }
 
 // NewRoleRepresentation instantiates a new RoleRepresentation object
@@ -340,7 +340,7 @@ func (o *RoleRepresentation) SetAttributes(v map[string][]string) {
 }
 
 func (o RoleRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -414,3 +414,5 @@ func (v *NullableRoleRepresentation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

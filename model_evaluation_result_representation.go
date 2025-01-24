@@ -19,11 +19,11 @@ var _ MappedNullable = &EvaluationResultRepresentation{}
 
 // EvaluationResultRepresentation struct for EvaluationResultRepresentation
 type EvaluationResultRepresentation struct {
-	Resource      *ResourceRepresentation      `json:"resource,omitempty"`
-	Scopes        []ScopeRepresentation        `json:"scopes,omitempty"`
-	Policies      []PolicyResultRepresentation `json:"policies,omitempty"`
-	Status        *DecisionEffect              `json:"status,omitempty"`
-	AllowedScopes []ScopeRepresentation        `json:"allowedScopes,omitempty"`
+	Resource *ResourceRepresentation `json:"resource,omitempty"`
+	Scopes []ScopeRepresentation `json:"scopes,omitempty"`
+	Policies []PolicyResultRepresentation `json:"policies,omitempty"`
+	Status *DecisionEffect `json:"status,omitempty"`
+	AllowedScopes []ScopeRepresentation `json:"allowedScopes,omitempty"`
 }
 
 // NewEvaluationResultRepresentation instantiates a new EvaluationResultRepresentation object
@@ -204,7 +204,7 @@ func (o *EvaluationResultRepresentation) SetAllowedScopes(v []ScopeRepresentatio
 }
 
 func (o EvaluationResultRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -266,3 +266,5 @@ func (v *NullableEvaluationResultRepresentation) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

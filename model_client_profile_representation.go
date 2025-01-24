@@ -19,9 +19,9 @@ var _ MappedNullable = &ClientProfileRepresentation{}
 
 // ClientProfileRepresentation struct for ClientProfileRepresentation
 type ClientProfileRepresentation struct {
-	Name        *string                              `json:"name,omitempty"`
-	Description *string                              `json:"description,omitempty"`
-	Executors   []ClientPolicyExecutorRepresentation `json:"executors,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Description *string `json:"description,omitempty"`
+	Executors []ClientPolicyExecutorRepresentation `json:"executors,omitempty"`
 }
 
 // NewClientProfileRepresentation instantiates a new ClientProfileRepresentation object
@@ -138,7 +138,7 @@ func (o *ClientProfileRepresentation) SetExecutors(v []ClientPolicyExecutorRepre
 }
 
 func (o ClientProfileRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -194,3 +194,5 @@ func (v *NullableClientProfileRepresentation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

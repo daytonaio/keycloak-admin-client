@@ -11,10 +11,10 @@ package keycloak_admin_client
 
 import (
 	"context"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsClientUuidClientSecretGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -39,7 +39,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsClientUuidClientSecretPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -54,7 +54,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsClientUuidClientSecretRotatedDelete", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -68,7 +68,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsClientUuidClientSecretRotatedGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -83,7 +83,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsClientUuidDefaultClientScopesClientScopeIdDelete", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -98,7 +98,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsClientUuidDefaultClientScopesClientScopeIdPut", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -113,7 +113,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsClientUuidDefaultClientScopesGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -128,7 +128,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsClientUuidDelete", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -142,7 +142,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsClientUuidEvaluateScopesGenerateExampleAccessTokenGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -157,7 +157,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsClientUuidEvaluateScopesGenerateExampleIdTokenGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -172,7 +172,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsClientUuidEvaluateScopesGenerateExampleUserinfoGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -187,7 +187,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsClientUuidEvaluateScopesProtocolMappersGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -202,7 +202,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsClientUuidEvaluateScopesScopeMappingsRoleContainerIdGrantedGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -218,7 +218,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsClientUuidEvaluateScopesScopeMappingsRoleContainerIdNotGrantedGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -234,7 +234,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsClientUuidGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -249,7 +249,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsClientUuidInstallationProvidersProviderIdGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -264,7 +264,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsClientUuidManagementPermissionsGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -279,7 +279,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsClientUuidManagementPermissionsPut", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -294,7 +294,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsClientUuidNodesNodeDelete", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -309,7 +309,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsClientUuidNodesPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -323,7 +323,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsClientUuidOfflineSessionCountGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -338,7 +338,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsClientUuidOfflineSessionsGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -353,7 +353,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsClientUuidOptionalClientScopesClientScopeIdDelete", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -368,7 +368,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsClientUuidOptionalClientScopesClientScopeIdPut", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -383,7 +383,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsClientUuidOptionalClientScopesGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -398,7 +398,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsClientUuidPushRevocationPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -413,7 +413,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsClientUuidPut", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -427,7 +427,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsClientUuidRegistrationAccessTokenPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -442,7 +442,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsClientUuidServiceAccountUserGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -457,7 +457,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsClientUuidSessionCountGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -472,7 +472,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsClientUuidTestNodesAvailableGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -487,7 +487,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsClientUuidUserSessionsGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -502,7 +502,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 
@@ -516,7 +516,7 @@ func Test_keycloak_admin_client_ClientsAPIService(t *testing.T) {
 
 	t.Run("Test ClientsAPIService AdminRealmsRealmClientsPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 

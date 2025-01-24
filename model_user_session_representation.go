@@ -19,15 +19,15 @@ var _ MappedNullable = &UserSessionRepresentation{}
 
 // UserSessionRepresentation struct for UserSessionRepresentation
 type UserSessionRepresentation struct {
-	Id            *string            `json:"id,omitempty"`
-	Username      *string            `json:"username,omitempty"`
-	UserId        *string            `json:"userId,omitempty"`
-	IpAddress     *string            `json:"ipAddress,omitempty"`
-	Start         *int64             `json:"start,omitempty"`
-	LastAccess    *int64             `json:"lastAccess,omitempty"`
-	RememberMe    *bool              `json:"rememberMe,omitempty"`
-	Clients       *map[string]string `json:"clients,omitempty"`
-	TransientUser *bool              `json:"transientUser,omitempty"`
+	Id *string `json:"id,omitempty"`
+	Username *string `json:"username,omitempty"`
+	UserId *string `json:"userId,omitempty"`
+	IpAddress *string `json:"ipAddress,omitempty"`
+	Start *int64 `json:"start,omitempty"`
+	LastAccess *int64 `json:"lastAccess,omitempty"`
+	RememberMe *bool `json:"rememberMe,omitempty"`
+	Clients *map[string]string `json:"clients,omitempty"`
+	TransientUser *bool `json:"transientUser,omitempty"`
 }
 
 // NewUserSessionRepresentation instantiates a new UserSessionRepresentation object
@@ -336,7 +336,7 @@ func (o *UserSessionRepresentation) SetTransientUser(v bool) {
 }
 
 func (o UserSessionRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -410,3 +410,5 @@ func (v *NullableUserSessionRepresentation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

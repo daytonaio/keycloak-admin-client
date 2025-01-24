@@ -5,7 +5,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AdminRealmsRealmGroupsCountGet**](GroupsAPI.md#AdminRealmsRealmGroupsCountGet) | **Get** /admin/realms/{realm}/groups/count | Returns the groups counts.
-[**AdminRealmsRealmGroupsGet**](GroupsAPI.md#AdminRealmsRealmGroupsGet) | **Get** /admin/realms/{realm}/groups | Get group hierarchy.  Only name and ids are returned.
+[**AdminRealmsRealmGroupsGet**](GroupsAPI.md#AdminRealmsRealmGroupsGet) | **Get** /admin/realms/{realm}/groups | Get group hierarchy.  Only &#x60;name&#x60; and &#x60;id&#x60; are returned.  &#x60;subGroups&#x60; are only returned when using the &#x60;search&#x60; or &#x60;q&#x60; parameter. If none of these parameters is provided, the top-level groups are returned without &#x60;subGroups&#x60; being filled.
 [**AdminRealmsRealmGroupsGroupIdChildrenGet**](GroupsAPI.md#AdminRealmsRealmGroupsGroupIdChildrenGet) | **Get** /admin/realms/{realm}/groups/{group-id}/children | Return a paginated list of subgroups that have a parent group corresponding to the group on the URL
 [**AdminRealmsRealmGroupsGroupIdChildrenPost**](GroupsAPI.md#AdminRealmsRealmGroupsGroupIdChildrenPost) | **Post** /admin/realms/{realm}/groups/{group-id}/children | Set or create child.
 [**AdminRealmsRealmGroupsGroupIdDelete**](GroupsAPI.md#AdminRealmsRealmGroupsGroupIdDelete) | **Delete** /admin/realms/{realm}/groups/{group-id} | 
@@ -33,7 +33,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -94,7 +94,7 @@ No authorization required
 
 > []GroupRepresentation AdminRealmsRealmGroupsGet(ctx, realm).BriefRepresentation(briefRepresentation).Exact(exact).First(first).Max(max).PopulateHierarchy(populateHierarchy).Q(q).Search(search).Execute()
 
-Get group hierarchy.  Only name and ids are returned.
+Get group hierarchy.  Only `name` and `id` are returned.  `subGroups` are only returned when using the `search` or `q` parameter. If none of these parameters is provided, the top-level groups are returned without `subGroups` being filled.
 
 ### Example
 
@@ -105,7 +105,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -187,7 +187,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -270,7 +270,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -341,7 +341,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -410,7 +410,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -481,7 +481,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -552,7 +552,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -625,7 +625,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -702,7 +702,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -775,7 +775,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {

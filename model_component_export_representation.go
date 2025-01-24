@@ -19,12 +19,12 @@ var _ MappedNullable = &ComponentExportRepresentation{}
 
 // ComponentExportRepresentation struct for ComponentExportRepresentation
 type ComponentExportRepresentation struct {
-	Id            *string                                     `json:"id,omitempty"`
-	Name          *string                                     `json:"name,omitempty"`
-	ProviderId    *string                                     `json:"providerId,omitempty"`
-	SubType       *string                                     `json:"subType,omitempty"`
+	Id *string `json:"id,omitempty"`
+	Name *string `json:"name,omitempty"`
+	ProviderId *string `json:"providerId,omitempty"`
+	SubType *string `json:"subType,omitempty"`
 	SubComponents *map[string][]ComponentExportRepresentation `json:"subComponents,omitempty"`
-	Config        *map[string][]string                        `json:"config,omitempty"`
+	Config *map[string][]string `json:"config,omitempty"`
 }
 
 // NewComponentExportRepresentation instantiates a new ComponentExportRepresentation object
@@ -237,7 +237,7 @@ func (o *ComponentExportRepresentation) SetConfig(v map[string][]string) {
 }
 
 func (o ComponentExportRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -302,3 +302,5 @@ func (v *NullableComponentExportRepresentation) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -11,10 +11,10 @@ package keycloak_admin_client
 
 import (
 	"context"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func Test_keycloak_admin_client_ProtocolMappersAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_keycloak_admin_client_ProtocolMappersAPIService(t *testing.T) {
 
 	t.Run("Test ProtocolMappersAPIService AdminRealmsRealmClientScopesClientScopeIdProtocolMappersAddModelsPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -38,7 +38,7 @@ func Test_keycloak_admin_client_ProtocolMappersAPIService(t *testing.T) {
 
 	t.Run("Test ProtocolMappersAPIService AdminRealmsRealmClientScopesClientScopeIdProtocolMappersModelsGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -53,7 +53,7 @@ func Test_keycloak_admin_client_ProtocolMappersAPIService(t *testing.T) {
 
 	t.Run("Test ProtocolMappersAPIService AdminRealmsRealmClientScopesClientScopeIdProtocolMappersModelsIdDelete", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -68,7 +68,7 @@ func Test_keycloak_admin_client_ProtocolMappersAPIService(t *testing.T) {
 
 	t.Run("Test ProtocolMappersAPIService AdminRealmsRealmClientScopesClientScopeIdProtocolMappersModelsIdGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -84,7 +84,7 @@ func Test_keycloak_admin_client_ProtocolMappersAPIService(t *testing.T) {
 
 	t.Run("Test ProtocolMappersAPIService AdminRealmsRealmClientScopesClientScopeIdProtocolMappersModelsIdPut", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -99,7 +99,7 @@ func Test_keycloak_admin_client_ProtocolMappersAPIService(t *testing.T) {
 
 	t.Run("Test ProtocolMappersAPIService AdminRealmsRealmClientScopesClientScopeIdProtocolMappersModelsPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -113,7 +113,7 @@ func Test_keycloak_admin_client_ProtocolMappersAPIService(t *testing.T) {
 
 	t.Run("Test ProtocolMappersAPIService AdminRealmsRealmClientScopesClientScopeIdProtocolMappersProtocolProtocolGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -129,7 +129,7 @@ func Test_keycloak_admin_client_ProtocolMappersAPIService(t *testing.T) {
 
 	t.Run("Test ProtocolMappersAPIService AdminRealmsRealmClientTemplatesClientScopeIdProtocolMappersAddModelsPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -143,7 +143,7 @@ func Test_keycloak_admin_client_ProtocolMappersAPIService(t *testing.T) {
 
 	t.Run("Test ProtocolMappersAPIService AdminRealmsRealmClientTemplatesClientScopeIdProtocolMappersModelsGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -158,7 +158,7 @@ func Test_keycloak_admin_client_ProtocolMappersAPIService(t *testing.T) {
 
 	t.Run("Test ProtocolMappersAPIService AdminRealmsRealmClientTemplatesClientScopeIdProtocolMappersModelsIdDelete", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -173,7 +173,7 @@ func Test_keycloak_admin_client_ProtocolMappersAPIService(t *testing.T) {
 
 	t.Run("Test ProtocolMappersAPIService AdminRealmsRealmClientTemplatesClientScopeIdProtocolMappersModelsIdGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -189,7 +189,7 @@ func Test_keycloak_admin_client_ProtocolMappersAPIService(t *testing.T) {
 
 	t.Run("Test ProtocolMappersAPIService AdminRealmsRealmClientTemplatesClientScopeIdProtocolMappersModelsIdPut", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -204,7 +204,7 @@ func Test_keycloak_admin_client_ProtocolMappersAPIService(t *testing.T) {
 
 	t.Run("Test ProtocolMappersAPIService AdminRealmsRealmClientTemplatesClientScopeIdProtocolMappersModelsPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -218,7 +218,7 @@ func Test_keycloak_admin_client_ProtocolMappersAPIService(t *testing.T) {
 
 	t.Run("Test ProtocolMappersAPIService AdminRealmsRealmClientTemplatesClientScopeIdProtocolMappersProtocolProtocolGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -234,7 +234,7 @@ func Test_keycloak_admin_client_ProtocolMappersAPIService(t *testing.T) {
 
 	t.Run("Test ProtocolMappersAPIService AdminRealmsRealmClientsClientUuidProtocolMappersAddModelsPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -248,7 +248,7 @@ func Test_keycloak_admin_client_ProtocolMappersAPIService(t *testing.T) {
 
 	t.Run("Test ProtocolMappersAPIService AdminRealmsRealmClientsClientUuidProtocolMappersModelsGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -263,7 +263,7 @@ func Test_keycloak_admin_client_ProtocolMappersAPIService(t *testing.T) {
 
 	t.Run("Test ProtocolMappersAPIService AdminRealmsRealmClientsClientUuidProtocolMappersModelsIdDelete", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -278,7 +278,7 @@ func Test_keycloak_admin_client_ProtocolMappersAPIService(t *testing.T) {
 
 	t.Run("Test ProtocolMappersAPIService AdminRealmsRealmClientsClientUuidProtocolMappersModelsIdGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -294,7 +294,7 @@ func Test_keycloak_admin_client_ProtocolMappersAPIService(t *testing.T) {
 
 	t.Run("Test ProtocolMappersAPIService AdminRealmsRealmClientsClientUuidProtocolMappersModelsIdPut", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -309,7 +309,7 @@ func Test_keycloak_admin_client_ProtocolMappersAPIService(t *testing.T) {
 
 	t.Run("Test ProtocolMappersAPIService AdminRealmsRealmClientsClientUuidProtocolMappersModelsPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -323,7 +323,7 @@ func Test_keycloak_admin_client_ProtocolMappersAPIService(t *testing.T) {
 
 	t.Run("Test ProtocolMappersAPIService AdminRealmsRealmClientsClientUuidProtocolMappersProtocolProtocolGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string

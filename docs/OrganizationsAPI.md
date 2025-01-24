@@ -5,29 +5,29 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AdminRealmsRealmOrganizationsGet**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsGet) | **Get** /admin/realms/{realm}/organizations | Returns a paginated list of organizations filtered according to the specified parameters
-[**AdminRealmsRealmOrganizationsIdDelete**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsIdDelete) | **Delete** /admin/realms/{realm}/organizations/{id} | Deletes the organization
-[**AdminRealmsRealmOrganizationsIdGet**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsIdGet) | **Get** /admin/realms/{realm}/organizations/{id} | Returns the organization representation
-[**AdminRealmsRealmOrganizationsIdIdentityProvidersAliasDelete**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsIdIdentityProvidersAliasDelete) | **Delete** /admin/realms/{realm}/organizations/{id}/identity-providers/{alias} | Removes the identity provider with the specified alias from the organization
-[**AdminRealmsRealmOrganizationsIdIdentityProvidersAliasGet**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsIdIdentityProvidersAliasGet) | **Get** /admin/realms/{realm}/organizations/{id}/identity-providers/{alias} | Returns the identity provider associated with the organization that has the specified alias
-[**AdminRealmsRealmOrganizationsIdIdentityProvidersGet**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsIdIdentityProvidersGet) | **Get** /admin/realms/{realm}/organizations/{id}/identity-providers | Returns all identity providers associated with the organization
-[**AdminRealmsRealmOrganizationsIdIdentityProvidersPost**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsIdIdentityProvidersPost) | **Post** /admin/realms/{realm}/organizations/{id}/identity-providers | Adds the identity provider with the specified id to the organization
-[**AdminRealmsRealmOrganizationsIdMembersCountGet**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsIdMembersCountGet) | **Get** /admin/realms/{realm}/organizations/{id}/members/count | Returns number of members in the organization.
-[**AdminRealmsRealmOrganizationsIdMembersGet**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsIdMembersGet) | **Get** /admin/realms/{realm}/organizations/{id}/members | Returns a paginated list of organization members filtered according to the specified parameters
-[**AdminRealmsRealmOrganizationsIdMembersInviteExistingUserPost**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsIdMembersInviteExistingUserPost) | **Post** /admin/realms/{realm}/organizations/{id}/members/invite-existing-user | Invites an existing user to the organization, using the specified user id
-[**AdminRealmsRealmOrganizationsIdMembersInviteUserPost**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsIdMembersInviteUserPost) | **Post** /admin/realms/{realm}/organizations/{id}/members/invite-user | Invites an existing user or sends a registration link to a new user, based on the provided e-mail address.
-[**AdminRealmsRealmOrganizationsIdMembersPost**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsIdMembersPost) | **Post** /admin/realms/{realm}/organizations/{id}/members | Adds the user with the specified id as a member of the organization
-[**AdminRealmsRealmOrganizationsIdMembersUserIdDelete**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsIdMembersUserIdDelete) | **Delete** /admin/realms/{realm}/organizations/{id}/members/{userId} | Removes the user with the specified id from the organization
-[**AdminRealmsRealmOrganizationsIdMembersUserIdGet**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsIdMembersUserIdGet) | **Get** /admin/realms/{realm}/organizations/{id}/members/{userId} | Returns the member of the organization with the specified id
-[**AdminRealmsRealmOrganizationsIdMembersUserIdOrganizationsGet**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsIdMembersUserIdOrganizationsGet) | **Get** /admin/realms/{realm}/organizations/{id}/members/{userId}/organizations | Returns the organizations associated with the user that has the specified id
-[**AdminRealmsRealmOrganizationsIdPut**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsIdPut) | **Put** /admin/realms/{realm}/organizations/{id} | Updates the organization
-[**AdminRealmsRealmOrganizationsMembersIdOrganizationsGet**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsMembersIdOrganizationsGet) | **Get** /admin/realms/{realm}/organizations/members/{id}/organizations | Returns the organizations associated with the user that has the specified id
+[**AdminRealmsRealmOrganizationsMembersMemberIdOrganizationsGet**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsMembersMemberIdOrganizationsGet) | **Get** /admin/realms/{realm}/organizations/members/{member-id}/organizations | Returns the organizations associated with the user that has the specified id
+[**AdminRealmsRealmOrganizationsOrgIdDelete**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsOrgIdDelete) | **Delete** /admin/realms/{realm}/organizations/{org-id} | Deletes the organization
+[**AdminRealmsRealmOrganizationsOrgIdGet**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsOrgIdGet) | **Get** /admin/realms/{realm}/organizations/{org-id} | Returns the organization representation
+[**AdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasDelete**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasDelete) | **Delete** /admin/realms/{realm}/organizations/{org-id}/identity-providers/{alias} | Removes the identity provider with the specified alias from the organization
+[**AdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasGet**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasGet) | **Get** /admin/realms/{realm}/organizations/{org-id}/identity-providers/{alias} | Returns the identity provider associated with the organization that has the specified alias
+[**AdminRealmsRealmOrganizationsOrgIdIdentityProvidersGet**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsOrgIdIdentityProvidersGet) | **Get** /admin/realms/{realm}/organizations/{org-id}/identity-providers | Returns all identity providers associated with the organization
+[**AdminRealmsRealmOrganizationsOrgIdIdentityProvidersPost**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsOrgIdIdentityProvidersPost) | **Post** /admin/realms/{realm}/organizations/{org-id}/identity-providers | Adds the identity provider with the specified id to the organization
+[**AdminRealmsRealmOrganizationsOrgIdMembersCountGet**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsOrgIdMembersCountGet) | **Get** /admin/realms/{realm}/organizations/{org-id}/members/count | Returns number of members in the organization.
+[**AdminRealmsRealmOrganizationsOrgIdMembersGet**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsOrgIdMembersGet) | **Get** /admin/realms/{realm}/organizations/{org-id}/members | Returns a paginated list of organization members filtered according to the specified parameters
+[**AdminRealmsRealmOrganizationsOrgIdMembersInviteExistingUserPost**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsOrgIdMembersInviteExistingUserPost) | **Post** /admin/realms/{realm}/organizations/{org-id}/members/invite-existing-user | Invites an existing user to the organization, using the specified user id
+[**AdminRealmsRealmOrganizationsOrgIdMembersInviteUserPost**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsOrgIdMembersInviteUserPost) | **Post** /admin/realms/{realm}/organizations/{org-id}/members/invite-user | Invites an existing user or sends a registration link to a new user, based on the provided e-mail address.
+[**AdminRealmsRealmOrganizationsOrgIdMembersMemberIdDelete**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsOrgIdMembersMemberIdDelete) | **Delete** /admin/realms/{realm}/organizations/{org-id}/members/{member-id} | Removes the user with the specified id from the organization
+[**AdminRealmsRealmOrganizationsOrgIdMembersMemberIdGet**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsOrgIdMembersMemberIdGet) | **Get** /admin/realms/{realm}/organizations/{org-id}/members/{member-id} | Returns the member of the organization with the specified id
+[**AdminRealmsRealmOrganizationsOrgIdMembersMemberIdOrganizationsGet**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsOrgIdMembersMemberIdOrganizationsGet) | **Get** /admin/realms/{realm}/organizations/{org-id}/members/{member-id}/organizations | Returns the organizations associated with the user that has the specified id
+[**AdminRealmsRealmOrganizationsOrgIdMembersPost**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsOrgIdMembersPost) | **Post** /admin/realms/{realm}/organizations/{org-id}/members | Adds the user with the specified id as a member of the organization
+[**AdminRealmsRealmOrganizationsOrgIdPut**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsOrgIdPut) | **Put** /admin/realms/{realm}/organizations/{org-id} | Updates the organization
 [**AdminRealmsRealmOrganizationsPost**](OrganizationsAPI.md#AdminRealmsRealmOrganizationsPost) | **Post** /admin/realms/{realm}/organizations | Creates a new organization
 
 
 
 ## AdminRealmsRealmOrganizationsGet
 
-> []OrganizationRepresentation AdminRealmsRealmOrganizationsGet(ctx, realm).Exact(exact).First(first).Max(max).Q(q).Search(search).Execute()
+> []OrganizationRepresentation AdminRealmsRealmOrganizationsGet(ctx, realm).BriefRepresentation(briefRepresentation).Exact(exact).First(first).Max(max).Q(q).Search(search).Execute()
 
 Returns a paginated list of organizations filtered according to the specified parameters
 
@@ -40,11 +40,12 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
 	realm := "realm_example" // string | realm name (not id!)
+	briefRepresentation := true // bool | if true, return the full representation. Otherwise, only the basic fields are returned. (optional) (default to false)
 	exact := true // bool | Boolean which defines whether the param 'search' must match exactly or not (optional)
 	first := int32(56) // int32 | The position of the first result to be processed (pagination offset) (optional)
 	max := int32(56) // int32 | The maximum number of results to be returned - defaults to 10 (optional)
@@ -53,7 +54,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsGet(context.Background(), realm).Exact(exact).First(first).Max(max).Q(q).Search(search).Execute()
+	resp, r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsGet(context.Background(), realm).BriefRepresentation(briefRepresentation).Exact(exact).First(first).Max(max).Q(q).Search(search).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -79,6 +80,7 @@ Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizati
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **briefRepresentation** | **bool** | if true, return the full representation. Otherwise, only the basic fields are returned. | [default to false]
  **exact** | **bool** | Boolean which defines whether the param &#39;search&#39; must match exactly or not | 
  **first** | **int32** | The position of the first result to be processed (pagination offset) | 
  **max** | **int32** | The maximum number of results to be returned - defaults to 10 | 
@@ -103,9 +105,80 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## AdminRealmsRealmOrganizationsIdDelete
+## AdminRealmsRealmOrganizationsMembersMemberIdOrganizationsGet
 
-> AdminRealmsRealmOrganizationsIdDelete(ctx, realm, id).Execute()
+> []OrganizationRepresentation AdminRealmsRealmOrganizationsMembersMemberIdOrganizationsGet(ctx, realm, memberId).Execute()
+
+Returns the organizations associated with the user that has the specified id
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
+)
+
+func main() {
+	realm := "realm_example" // string | realm name (not id!)
+	memberId := "memberId_example" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsMembersMemberIdOrganizationsGet(context.Background(), realm, memberId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsMembersMemberIdOrganizationsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AdminRealmsRealmOrganizationsMembersMemberIdOrganizationsGet`: []OrganizationRepresentation
+	fmt.Fprintf(os.Stdout, "Response from `OrganizationsAPI.AdminRealmsRealmOrganizationsMembersMemberIdOrganizationsGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**realm** | **string** | realm name (not id!) | 
+**memberId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizationsMembersMemberIdOrganizationsGetRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**[]OrganizationRepresentation**](OrganizationRepresentation.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## AdminRealmsRealmOrganizationsOrgIdDelete
+
+> AdminRealmsRealmOrganizationsOrgIdDelete(ctx, realm, orgId).Execute()
 
 Deletes the organization
 
@@ -118,18 +191,18 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
 	realm := "realm_example" // string | realm name (not id!)
-	id := "id_example" // string | 
+	orgId := "orgId_example" // string | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsIdDelete(context.Background(), realm, id).Execute()
+	r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdDelete(context.Background(), realm, orgId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsIdDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdDelete``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 }
@@ -142,11 +215,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **realm** | **string** | realm name (not id!) | 
-**id** | **string** |  | 
+**orgId** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizationsIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizationsOrgIdDeleteRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -172,9 +245,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## AdminRealmsRealmOrganizationsIdGet
+## AdminRealmsRealmOrganizationsOrgIdGet
 
-> OrganizationRepresentation AdminRealmsRealmOrganizationsIdGet(ctx, realm, id).Execute()
+> OrganizationRepresentation AdminRealmsRealmOrganizationsOrgIdGet(ctx, realm, orgId).Execute()
 
 Returns the organization representation
 
@@ -187,22 +260,22 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
 	realm := "realm_example" // string | realm name (not id!)
-	id := "id_example" // string | 
+	orgId := "orgId_example" // string | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsIdGet(context.Background(), realm, id).Execute()
+	resp, r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdGet(context.Background(), realm, orgId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `AdminRealmsRealmOrganizationsIdGet`: OrganizationRepresentation
-	fmt.Fprintf(os.Stdout, "Response from `OrganizationsAPI.AdminRealmsRealmOrganizationsIdGet`: %v\n", resp)
+	// response from `AdminRealmsRealmOrganizationsOrgIdGet`: OrganizationRepresentation
+	fmt.Fprintf(os.Stdout, "Response from `OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdGet`: %v\n", resp)
 }
 ```
 
@@ -213,11 +286,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **realm** | **string** | realm name (not id!) | 
-**id** | **string** |  | 
+**orgId** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizationsIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizationsOrgIdGetRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -243,9 +316,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## AdminRealmsRealmOrganizationsIdIdentityProvidersAliasDelete
+## AdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasDelete
 
-> AdminRealmsRealmOrganizationsIdIdentityProvidersAliasDelete(ctx, realm, id, alias).Execute()
+> AdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasDelete(ctx, realm, orgId, alias).Execute()
 
 Removes the identity provider with the specified alias from the organization
 
@@ -260,19 +333,19 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
 	realm := "realm_example" // string | realm name (not id!)
-	id := "id_example" // string | 
+	orgId := "orgId_example" // string | 
 	alias := "alias_example" // string | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsIdIdentityProvidersAliasDelete(context.Background(), realm, id, alias).Execute()
+	r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasDelete(context.Background(), realm, orgId, alias).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsIdIdentityProvidersAliasDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasDelete``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 }
@@ -285,12 +358,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **realm** | **string** | realm name (not id!) | 
-**id** | **string** |  | 
+**orgId** | **string** |  | 
 **alias** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizationsIdIdentityProvidersAliasDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasDeleteRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -317,9 +390,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## AdminRealmsRealmOrganizationsIdIdentityProvidersAliasGet
+## AdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasGet
 
-> IdentityProviderRepresentation AdminRealmsRealmOrganizationsIdIdentityProvidersAliasGet(ctx, realm, id, alias).Execute()
+> IdentityProviderRepresentation AdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasGet(ctx, realm, orgId, alias).Execute()
 
 Returns the identity provider associated with the organization that has the specified alias
 
@@ -334,23 +407,23 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
 	realm := "realm_example" // string | realm name (not id!)
-	id := "id_example" // string | 
+	orgId := "orgId_example" // string | 
 	alias := "alias_example" // string | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsIdIdentityProvidersAliasGet(context.Background(), realm, id, alias).Execute()
+	resp, r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasGet(context.Background(), realm, orgId, alias).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsIdIdentityProvidersAliasGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `AdminRealmsRealmOrganizationsIdIdentityProvidersAliasGet`: IdentityProviderRepresentation
-	fmt.Fprintf(os.Stdout, "Response from `OrganizationsAPI.AdminRealmsRealmOrganizationsIdIdentityProvidersAliasGet`: %v\n", resp)
+	// response from `AdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasGet`: IdentityProviderRepresentation
+	fmt.Fprintf(os.Stdout, "Response from `OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasGet`: %v\n", resp)
 }
 ```
 
@@ -361,12 +434,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **realm** | **string** | realm name (not id!) | 
-**id** | **string** |  | 
+**orgId** | **string** |  | 
 **alias** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizationsIdIdentityProvidersAliasGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasGetRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -393,9 +466,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## AdminRealmsRealmOrganizationsIdIdentityProvidersGet
+## AdminRealmsRealmOrganizationsOrgIdIdentityProvidersGet
 
-> []IdentityProviderRepresentation AdminRealmsRealmOrganizationsIdIdentityProvidersGet(ctx, realm, id).Execute()
+> []IdentityProviderRepresentation AdminRealmsRealmOrganizationsOrgIdIdentityProvidersGet(ctx, realm, orgId).Execute()
 
 Returns all identity providers associated with the organization
 
@@ -408,22 +481,22 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
 	realm := "realm_example" // string | realm name (not id!)
-	id := "id_example" // string | 
+	orgId := "orgId_example" // string | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsIdIdentityProvidersGet(context.Background(), realm, id).Execute()
+	resp, r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdIdentityProvidersGet(context.Background(), realm, orgId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsIdIdentityProvidersGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdIdentityProvidersGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `AdminRealmsRealmOrganizationsIdIdentityProvidersGet`: []IdentityProviderRepresentation
-	fmt.Fprintf(os.Stdout, "Response from `OrganizationsAPI.AdminRealmsRealmOrganizationsIdIdentityProvidersGet`: %v\n", resp)
+	// response from `AdminRealmsRealmOrganizationsOrgIdIdentityProvidersGet`: []IdentityProviderRepresentation
+	fmt.Fprintf(os.Stdout, "Response from `OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdIdentityProvidersGet`: %v\n", resp)
 }
 ```
 
@@ -434,11 +507,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **realm** | **string** | realm name (not id!) | 
-**id** | **string** |  | 
+**orgId** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizationsIdIdentityProvidersGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizationsOrgIdIdentityProvidersGetRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -464,9 +537,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## AdminRealmsRealmOrganizationsIdIdentityProvidersPost
+## AdminRealmsRealmOrganizationsOrgIdIdentityProvidersPost
 
-> AdminRealmsRealmOrganizationsIdIdentityProvidersPost(ctx, realm, id).Body(body).Execute()
+> AdminRealmsRealmOrganizationsOrgIdIdentityProvidersPost(ctx, realm, orgId).Body(body).Execute()
 
 Adds the identity provider with the specified id to the organization
 
@@ -481,19 +554,19 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
 	realm := "realm_example" // string | realm name (not id!)
-	id := "id_example" // string | 
+	orgId := "orgId_example" // string | 
 	body := "body_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsIdIdentityProvidersPost(context.Background(), realm, id).Body(body).Execute()
+	r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdIdentityProvidersPost(context.Background(), realm, orgId).Body(body).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsIdIdentityProvidersPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdIdentityProvidersPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 }
@@ -506,11 +579,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **realm** | **string** | realm name (not id!) | 
-**id** | **string** |  | 
+**orgId** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizationsIdIdentityProvidersPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizationsOrgIdIdentityProvidersPostRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -537,9 +610,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## AdminRealmsRealmOrganizationsIdMembersCountGet
+## AdminRealmsRealmOrganizationsOrgIdMembersCountGet
 
-> int64 AdminRealmsRealmOrganizationsIdMembersCountGet(ctx, realm, id).Execute()
+> int64 AdminRealmsRealmOrganizationsOrgIdMembersCountGet(ctx, realm, orgId).Execute()
 
 Returns number of members in the organization.
 
@@ -552,22 +625,22 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
 	realm := "realm_example" // string | realm name (not id!)
-	id := "id_example" // string | 
+	orgId := "orgId_example" // string | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsIdMembersCountGet(context.Background(), realm, id).Execute()
+	resp, r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdMembersCountGet(context.Background(), realm, orgId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsIdMembersCountGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdMembersCountGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `AdminRealmsRealmOrganizationsIdMembersCountGet`: int64
-	fmt.Fprintf(os.Stdout, "Response from `OrganizationsAPI.AdminRealmsRealmOrganizationsIdMembersCountGet`: %v\n", resp)
+	// response from `AdminRealmsRealmOrganizationsOrgIdMembersCountGet`: int64
+	fmt.Fprintf(os.Stdout, "Response from `OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdMembersCountGet`: %v\n", resp)
 }
 ```
 
@@ -578,11 +651,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **realm** | **string** | realm name (not id!) | 
-**id** | **string** |  | 
+**orgId** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizationsIdMembersCountGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizationsOrgIdMembersCountGetRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -608,9 +681,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## AdminRealmsRealmOrganizationsIdMembersGet
+## AdminRealmsRealmOrganizationsOrgIdMembersGet
 
-> []MemberRepresentation AdminRealmsRealmOrganizationsIdMembersGet(ctx, realm, id).Exact(exact).First(first).Max(max).Search(search).Execute()
+> []MemberRepresentation AdminRealmsRealmOrganizationsOrgIdMembersGet(ctx, realm, orgId).Exact(exact).First(first).Max(max).MembershipType(membershipType).Search(search).Execute()
 
 Returns a paginated list of organization members filtered according to the specified parameters
 
@@ -623,26 +696,27 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
 	realm := "realm_example" // string | realm name (not id!)
-	id := "id_example" // string | 
+	orgId := "orgId_example" // string | 
 	exact := true // bool | Boolean which defines whether the param 'search' must match exactly or not (optional)
 	first := int32(56) // int32 | The position of the first result to be processed (pagination offset) (optional)
 	max := int32(56) // int32 | The maximum number of results to be returned. Defaults to 10 (optional)
+	membershipType := "membershipType_example" // string | The membership type (optional)
 	search := "search_example" // string | A String representing either a member's username, e-mail, first name, or last name. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsIdMembersGet(context.Background(), realm, id).Exact(exact).First(first).Max(max).Search(search).Execute()
+	resp, r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdMembersGet(context.Background(), realm, orgId).Exact(exact).First(first).Max(max).MembershipType(membershipType).Search(search).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsIdMembersGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdMembersGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `AdminRealmsRealmOrganizationsIdMembersGet`: []MemberRepresentation
-	fmt.Fprintf(os.Stdout, "Response from `OrganizationsAPI.AdminRealmsRealmOrganizationsIdMembersGet`: %v\n", resp)
+	// response from `AdminRealmsRealmOrganizationsOrgIdMembersGet`: []MemberRepresentation
+	fmt.Fprintf(os.Stdout, "Response from `OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdMembersGet`: %v\n", resp)
 }
 ```
 
@@ -653,11 +727,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **realm** | **string** | realm name (not id!) | 
-**id** | **string** |  | 
+**orgId** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizationsIdMembersGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizationsOrgIdMembersGetRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -667,6 +741,7 @@ Name | Type | Description  | Notes
  **exact** | **bool** | Boolean which defines whether the param &#39;search&#39; must match exactly or not | 
  **first** | **int32** | The position of the first result to be processed (pagination offset) | 
  **max** | **int32** | The maximum number of results to be returned. Defaults to 10 | 
+ **membershipType** | **string** | The membership type | 
  **search** | **string** | A String representing either a member&#39;s username, e-mail, first name, or last name. | 
 
 ### Return type
@@ -687,9 +762,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## AdminRealmsRealmOrganizationsIdMembersInviteExistingUserPost
+## AdminRealmsRealmOrganizationsOrgIdMembersInviteExistingUserPost
 
-> AdminRealmsRealmOrganizationsIdMembersInviteExistingUserPost(ctx, realm, id).Id2(id2).Execute()
+> AdminRealmsRealmOrganizationsOrgIdMembersInviteExistingUserPost(ctx, realm, orgId).Id(id).Execute()
 
 Invites an existing user to the organization, using the specified user id
 
@@ -702,19 +777,19 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
 	realm := "realm_example" // string | realm name (not id!)
-	id := "id_example" // string | 
-	id2 := "id_example" // string |  (optional)
+	orgId := "orgId_example" // string | 
+	id := "id_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsIdMembersInviteExistingUserPost(context.Background(), realm, id).Id2(id2).Execute()
+	r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdMembersInviteExistingUserPost(context.Background(), realm, orgId).Id(id).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsIdMembersInviteExistingUserPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdMembersInviteExistingUserPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 }
@@ -727,18 +802,18 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **realm** | **string** | realm name (not id!) | 
-**id** | **string** |  | 
+**orgId** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizationsIdMembersInviteExistingUserPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizationsOrgIdMembersInviteExistingUserPostRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **id2** | **string** |  | 
+ **id** | **string** |  | 
 
 ### Return type
 
@@ -758,9 +833,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## AdminRealmsRealmOrganizationsIdMembersInviteUserPost
+## AdminRealmsRealmOrganizationsOrgIdMembersInviteUserPost
 
-> AdminRealmsRealmOrganizationsIdMembersInviteUserPost(ctx, realm, id).Email(email).FirstName(firstName).LastName(lastName).Execute()
+> AdminRealmsRealmOrganizationsOrgIdMembersInviteUserPost(ctx, realm, orgId).Email(email).FirstName(firstName).LastName(lastName).Execute()
 
 Invites an existing user or sends a registration link to a new user, based on the provided e-mail address.
 
@@ -775,21 +850,21 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
 	realm := "realm_example" // string | realm name (not id!)
-	id := "id_example" // string | 
+	orgId := "orgId_example" // string | 
 	email := "email_example" // string |  (optional)
 	firstName := "firstName_example" // string |  (optional)
 	lastName := "lastName_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsIdMembersInviteUserPost(context.Background(), realm, id).Email(email).FirstName(firstName).LastName(lastName).Execute()
+	r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdMembersInviteUserPost(context.Background(), realm, orgId).Email(email).FirstName(firstName).LastName(lastName).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsIdMembersInviteUserPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdMembersInviteUserPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 }
@@ -802,11 +877,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **realm** | **string** | realm name (not id!) | 
-**id** | **string** |  | 
+**orgId** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizationsIdMembersInviteUserPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizationsOrgIdMembersInviteUserPostRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -835,82 +910,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## AdminRealmsRealmOrganizationsIdMembersPost
+## AdminRealmsRealmOrganizationsOrgIdMembersMemberIdDelete
 
-> AdminRealmsRealmOrganizationsIdMembersPost(ctx, realm, id).Body(body).Execute()
-
-Adds the user with the specified id as a member of the organization
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
-)
-
-func main() {
-	realm := "realm_example" // string | realm name (not id!)
-	id := "id_example" // string | 
-	body := "body_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsIdMembersPost(context.Background(), realm, id).Body(body).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsIdMembersPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**realm** | **string** | realm name (not id!) | 
-**id** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizationsIdMembersPostRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
- **body** | **string** |  | 
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## AdminRealmsRealmOrganizationsIdMembersUserIdDelete
-
-> AdminRealmsRealmOrganizationsIdMembersUserIdDelete(ctx, realm, id, userId).Execute()
+> AdminRealmsRealmOrganizationsOrgIdMembersMemberIdDelete(ctx, realm, orgId, memberId).Execute()
 
 Removes the user with the specified id from the organization
 
@@ -925,19 +927,19 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
 	realm := "realm_example" // string | realm name (not id!)
-	id := "id_example" // string | 
-	userId := "userId_example" // string | 
+	orgId := "orgId_example" // string | 
+	memberId := "memberId_example" // string | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsIdMembersUserIdDelete(context.Background(), realm, id, userId).Execute()
+	r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdMembersMemberIdDelete(context.Background(), realm, orgId, memberId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsIdMembersUserIdDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdMembersMemberIdDelete``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 }
@@ -950,12 +952,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **realm** | **string** | realm name (not id!) | 
-**id** | **string** |  | 
-**userId** | **string** |  | 
+**orgId** | **string** |  | 
+**memberId** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizationsIdMembersUserIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizationsOrgIdMembersMemberIdDeleteRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -982,9 +984,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## AdminRealmsRealmOrganizationsIdMembersUserIdGet
+## AdminRealmsRealmOrganizationsOrgIdMembersMemberIdGet
 
-> MemberRepresentation AdminRealmsRealmOrganizationsIdMembersUserIdGet(ctx, realm, id, userId).Execute()
+> MemberRepresentation AdminRealmsRealmOrganizationsOrgIdMembersMemberIdGet(ctx, realm, orgId, memberId).Execute()
 
 Returns the member of the organization with the specified id
 
@@ -999,23 +1001,23 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
 	realm := "realm_example" // string | realm name (not id!)
-	id := "id_example" // string | 
-	userId := "userId_example" // string | 
+	orgId := "orgId_example" // string | 
+	memberId := "memberId_example" // string | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsIdMembersUserIdGet(context.Background(), realm, id, userId).Execute()
+	resp, r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdMembersMemberIdGet(context.Background(), realm, orgId, memberId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsIdMembersUserIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdMembersMemberIdGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `AdminRealmsRealmOrganizationsIdMembersUserIdGet`: MemberRepresentation
-	fmt.Fprintf(os.Stdout, "Response from `OrganizationsAPI.AdminRealmsRealmOrganizationsIdMembersUserIdGet`: %v\n", resp)
+	// response from `AdminRealmsRealmOrganizationsOrgIdMembersMemberIdGet`: MemberRepresentation
+	fmt.Fprintf(os.Stdout, "Response from `OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdMembersMemberIdGet`: %v\n", resp)
 }
 ```
 
@@ -1026,12 +1028,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **realm** | **string** | realm name (not id!) | 
-**id** | **string** |  | 
-**userId** | **string** |  | 
+**orgId** | **string** |  | 
+**memberId** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizationsIdMembersUserIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizationsOrgIdMembersMemberIdGetRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1058,9 +1060,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## AdminRealmsRealmOrganizationsIdMembersUserIdOrganizationsGet
+## AdminRealmsRealmOrganizationsOrgIdMembersMemberIdOrganizationsGet
 
-> []OrganizationRepresentation AdminRealmsRealmOrganizationsIdMembersUserIdOrganizationsGet(ctx, realm, id, userId).Execute()
+> []OrganizationRepresentation AdminRealmsRealmOrganizationsOrgIdMembersMemberIdOrganizationsGet(ctx, realm, orgId, memberId).Execute()
 
 Returns the organizations associated with the user that has the specified id
 
@@ -1073,23 +1075,23 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
 	realm := "realm_example" // string | realm name (not id!)
-	id := "id_example" // string | 
-	userId := "userId_example" // string | 
+	orgId := "orgId_example" // string | 
+	memberId := "memberId_example" // string | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsIdMembersUserIdOrganizationsGet(context.Background(), realm, id, userId).Execute()
+	resp, r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdMembersMemberIdOrganizationsGet(context.Background(), realm, orgId, memberId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsIdMembersUserIdOrganizationsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdMembersMemberIdOrganizationsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `AdminRealmsRealmOrganizationsIdMembersUserIdOrganizationsGet`: []OrganizationRepresentation
-	fmt.Fprintf(os.Stdout, "Response from `OrganizationsAPI.AdminRealmsRealmOrganizationsIdMembersUserIdOrganizationsGet`: %v\n", resp)
+	// response from `AdminRealmsRealmOrganizationsOrgIdMembersMemberIdOrganizationsGet`: []OrganizationRepresentation
+	fmt.Fprintf(os.Stdout, "Response from `OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdMembersMemberIdOrganizationsGet`: %v\n", resp)
 }
 ```
 
@@ -1100,12 +1102,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **realm** | **string** | realm name (not id!) | 
-**id** | **string** |  | 
-**userId** | **string** |  | 
+**orgId** | **string** |  | 
+**memberId** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizationsIdMembersUserIdOrganizationsGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizationsOrgIdMembersMemberIdOrganizationsGetRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1132,11 +1134,13 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## AdminRealmsRealmOrganizationsIdPut
+## AdminRealmsRealmOrganizationsOrgIdMembersPost
 
-> AdminRealmsRealmOrganizationsIdPut(ctx, realm, id).OrganizationRepresentation(organizationRepresentation).Execute()
+> AdminRealmsRealmOrganizationsOrgIdMembersPost(ctx, realm, orgId).Body(body).Execute()
 
-Updates the organization
+Adds the user with the specified id as a member of the organization
+
+
 
 ### Example
 
@@ -1147,19 +1151,19 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
 	realm := "realm_example" // string | realm name (not id!)
-	id := "id_example" // string | 
-	organizationRepresentation := *openapiclient.NewOrganizationRepresentation() // OrganizationRepresentation |  (optional)
+	orgId := "orgId_example" // string | 
+	body := "body_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsIdPut(context.Background(), realm, id).OrganizationRepresentation(organizationRepresentation).Execute()
+	r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdMembersPost(context.Background(), realm, orgId).Body(body).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsIdPut``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdMembersPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 }
@@ -1172,11 +1176,82 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **realm** | **string** | realm name (not id!) | 
-**id** | **string** |  | 
+**orgId** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizationsIdPutRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizationsOrgIdMembersPostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **body** | **string** |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## AdminRealmsRealmOrganizationsOrgIdPut
+
+> AdminRealmsRealmOrganizationsOrgIdPut(ctx, realm, orgId).OrganizationRepresentation(organizationRepresentation).Execute()
+
+Updates the organization
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
+)
+
+func main() {
+	realm := "realm_example" // string | realm name (not id!)
+	orgId := "orgId_example" // string | 
+	organizationRepresentation := *openapiclient.NewOrganizationRepresentation() // OrganizationRepresentation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdPut(context.Background(), realm, orgId).OrganizationRepresentation(organizationRepresentation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdPut``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**realm** | **string** | realm name (not id!) | 
+**orgId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizationsOrgIdPutRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1203,77 +1278,6 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## AdminRealmsRealmOrganizationsMembersIdOrganizationsGet
-
-> []OrganizationRepresentation AdminRealmsRealmOrganizationsMembersIdOrganizationsGet(ctx, realm, id).Execute()
-
-Returns the organizations associated with the user that has the specified id
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
-)
-
-func main() {
-	realm := "realm_example" // string | realm name (not id!)
-	id := "id_example" // string | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsMembersIdOrganizationsGet(context.Background(), realm, id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsAPI.AdminRealmsRealmOrganizationsMembersIdOrganizationsGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `AdminRealmsRealmOrganizationsMembersIdOrganizationsGet`: []OrganizationRepresentation
-	fmt.Fprintf(os.Stdout, "Response from `OrganizationsAPI.AdminRealmsRealmOrganizationsMembersIdOrganizationsGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**realm** | **string** | realm name (not id!) | 
-**id** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiAdminRealmsRealmOrganizationsMembersIdOrganizationsGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-
-### Return type
-
-[**[]OrganizationRepresentation**](OrganizationRepresentation.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## AdminRealmsRealmOrganizationsPost
 
 > AdminRealmsRealmOrganizationsPost(ctx, realm).OrganizationRepresentation(organizationRepresentation).Execute()
@@ -1289,7 +1293,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {

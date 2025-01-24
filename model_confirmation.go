@@ -20,7 +20,7 @@ var _ MappedNullable = &Confirmation{}
 // Confirmation struct for Confirmation
 type Confirmation struct {
 	X5tS256 *string `json:"x5t#S256,omitempty"`
-	Jkt     *string `json:"jkt,omitempty"`
+	Jkt *string `json:"jkt,omitempty"`
 }
 
 // NewConfirmation instantiates a new Confirmation object
@@ -105,7 +105,7 @@ func (o *Confirmation) SetJkt(v string) {
 }
 
 func (o Confirmation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,3 +158,5 @@ func (v *NullableConfirmation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

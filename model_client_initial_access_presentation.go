@@ -19,12 +19,12 @@ var _ MappedNullable = &ClientInitialAccessPresentation{}
 
 // ClientInitialAccessPresentation struct for ClientInitialAccessPresentation
 type ClientInitialAccessPresentation struct {
-	Id             *string `json:"id,omitempty"`
-	Token          *string `json:"token,omitempty"`
-	Timestamp      *int32  `json:"timestamp,omitempty"`
-	Expiration     *int32  `json:"expiration,omitempty"`
-	Count          *int32  `json:"count,omitempty"`
-	RemainingCount *int32  `json:"remainingCount,omitempty"`
+	Id *string `json:"id,omitempty"`
+	Token *string `json:"token,omitempty"`
+	Timestamp *int32 `json:"timestamp,omitempty"`
+	Expiration *int32 `json:"expiration,omitempty"`
+	Count *int32 `json:"count,omitempty"`
+	RemainingCount *int32 `json:"remainingCount,omitempty"`
 }
 
 // NewClientInitialAccessPresentation instantiates a new ClientInitialAccessPresentation object
@@ -237,7 +237,7 @@ func (o *ClientInitialAccessPresentation) SetRemainingCount(v int32) {
 }
 
 func (o ClientInitialAccessPresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -302,3 +302,5 @@ func (v *NullableClientInitialAccessPresentation) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

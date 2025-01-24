@@ -19,14 +19,14 @@ var _ MappedNullable = &UserFederationProviderRepresentation{}
 
 // UserFederationProviderRepresentation struct for UserFederationProviderRepresentation
 type UserFederationProviderRepresentation struct {
-	Id                *string            `json:"id,omitempty"`
-	DisplayName       *string            `json:"displayName,omitempty"`
-	ProviderName      *string            `json:"providerName,omitempty"`
-	Config            *map[string]string `json:"config,omitempty"`
-	Priority          *int32             `json:"priority,omitempty"`
-	FullSyncPeriod    *int32             `json:"fullSyncPeriod,omitempty"`
-	ChangedSyncPeriod *int32             `json:"changedSyncPeriod,omitempty"`
-	LastSync          *int32             `json:"lastSync,omitempty"`
+	Id *string `json:"id,omitempty"`
+	DisplayName *string `json:"displayName,omitempty"`
+	ProviderName *string `json:"providerName,omitempty"`
+	Config *map[string]string `json:"config,omitempty"`
+	Priority *int32 `json:"priority,omitempty"`
+	FullSyncPeriod *int32 `json:"fullSyncPeriod,omitempty"`
+	ChangedSyncPeriod *int32 `json:"changedSyncPeriod,omitempty"`
+	LastSync *int32 `json:"lastSync,omitempty"`
 }
 
 // NewUserFederationProviderRepresentation instantiates a new UserFederationProviderRepresentation object
@@ -303,7 +303,7 @@ func (o *UserFederationProviderRepresentation) SetLastSync(v int32) {
 }
 
 func (o UserFederationProviderRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -374,3 +374,5 @@ func (v *NullableUserFederationProviderRepresentation) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

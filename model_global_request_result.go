@@ -20,7 +20,7 @@ var _ MappedNullable = &GlobalRequestResult{}
 // GlobalRequestResult struct for GlobalRequestResult
 type GlobalRequestResult struct {
 	SuccessRequests []string `json:"successRequests,omitempty"`
-	FailedRequests  []string `json:"failedRequests,omitempty"`
+	FailedRequests []string `json:"failedRequests,omitempty"`
 }
 
 // NewGlobalRequestResult instantiates a new GlobalRequestResult object
@@ -105,7 +105,7 @@ func (o *GlobalRequestResult) SetFailedRequests(v []string) {
 }
 
 func (o GlobalRequestResult) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,3 +158,5 @@ func (v *NullableGlobalRequestResult) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

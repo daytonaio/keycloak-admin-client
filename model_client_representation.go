@@ -19,43 +19,43 @@ var _ MappedNullable = &ClientRepresentation{}
 
 // ClientRepresentation struct for ClientRepresentation
 type ClientRepresentation struct {
-	Id                      *string `json:"id,omitempty"`
-	ClientId                *string `json:"clientId,omitempty"`
-	Name                    *string `json:"name,omitempty"`
-	Description             *string `json:"description,omitempty"`
-	Type                    *string `json:"type,omitempty"`
-	RootUrl                 *string `json:"rootUrl,omitempty"`
-	AdminUrl                *string `json:"adminUrl,omitempty"`
-	BaseUrl                 *string `json:"baseUrl,omitempty"`
-	SurrogateAuthRequired   *bool   `json:"surrogateAuthRequired,omitempty"`
-	Enabled                 *bool   `json:"enabled,omitempty"`
-	AlwaysDisplayInConsole  *bool   `json:"alwaysDisplayInConsole,omitempty"`
+	Id *string `json:"id,omitempty"`
+	ClientId *string `json:"clientId,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Description *string `json:"description,omitempty"`
+	Type *string `json:"type,omitempty"`
+	RootUrl *string `json:"rootUrl,omitempty"`
+	AdminUrl *string `json:"adminUrl,omitempty"`
+	BaseUrl *string `json:"baseUrl,omitempty"`
+	SurrogateAuthRequired *bool `json:"surrogateAuthRequired,omitempty"`
+	Enabled *bool `json:"enabled,omitempty"`
+	AlwaysDisplayInConsole *bool `json:"alwaysDisplayInConsole,omitempty"`
 	ClientAuthenticatorType *string `json:"clientAuthenticatorType,omitempty"`
-	Secret                  *string `json:"secret,omitempty"`
+	Secret *string `json:"secret,omitempty"`
 	RegistrationAccessToken *string `json:"registrationAccessToken,omitempty"`
 	// Deprecated
-	DefaultRoles                 []string `json:"defaultRoles,omitempty"`
-	RedirectUris                 []string `json:"redirectUris,omitempty"`
-	WebOrigins                   []string `json:"webOrigins,omitempty"`
-	NotBefore                    *int32   `json:"notBefore,omitempty"`
-	BearerOnly                   *bool    `json:"bearerOnly,omitempty"`
-	ConsentRequired              *bool    `json:"consentRequired,omitempty"`
-	StandardFlowEnabled          *bool    `json:"standardFlowEnabled,omitempty"`
-	ImplicitFlowEnabled          *bool    `json:"implicitFlowEnabled,omitempty"`
-	DirectAccessGrantsEnabled    *bool    `json:"directAccessGrantsEnabled,omitempty"`
-	ServiceAccountsEnabled       *bool    `json:"serviceAccountsEnabled,omitempty"`
-	AuthorizationServicesEnabled *bool    `json:"authorizationServicesEnabled,omitempty"`
+	DefaultRoles []string `json:"defaultRoles,omitempty"`
+	RedirectUris []string `json:"redirectUris,omitempty"`
+	WebOrigins []string `json:"webOrigins,omitempty"`
+	NotBefore *int32 `json:"notBefore,omitempty"`
+	BearerOnly *bool `json:"bearerOnly,omitempty"`
+	ConsentRequired *bool `json:"consentRequired,omitempty"`
+	StandardFlowEnabled *bool `json:"standardFlowEnabled,omitempty"`
+	ImplicitFlowEnabled *bool `json:"implicitFlowEnabled,omitempty"`
+	DirectAccessGrantsEnabled *bool `json:"directAccessGrantsEnabled,omitempty"`
+	ServiceAccountsEnabled *bool `json:"serviceAccountsEnabled,omitempty"`
+	AuthorizationServicesEnabled *bool `json:"authorizationServicesEnabled,omitempty"`
 	// Deprecated
-	DirectGrantsOnly                   *bool                          `json:"directGrantsOnly,omitempty"`
-	PublicClient                       *bool                          `json:"publicClient,omitempty"`
-	FrontchannelLogout                 *bool                          `json:"frontchannelLogout,omitempty"`
-	Protocol                           *string                        `json:"protocol,omitempty"`
-	Attributes                         *map[string]string             `json:"attributes,omitempty"`
-	AuthenticationFlowBindingOverrides *map[string]string             `json:"authenticationFlowBindingOverrides,omitempty"`
-	FullScopeAllowed                   *bool                          `json:"fullScopeAllowed,omitempty"`
-	NodeReRegistrationTimeout          *int32                         `json:"nodeReRegistrationTimeout,omitempty"`
-	RegisteredNodes                    *map[string]int32              `json:"registeredNodes,omitempty"`
-	ProtocolMappers                    []ProtocolMapperRepresentation `json:"protocolMappers,omitempty"`
+	DirectGrantsOnly *bool `json:"directGrantsOnly,omitempty"`
+	PublicClient *bool `json:"publicClient,omitempty"`
+	FrontchannelLogout *bool `json:"frontchannelLogout,omitempty"`
+	Protocol *string `json:"protocol,omitempty"`
+	Attributes *map[string]string `json:"attributes,omitempty"`
+	AuthenticationFlowBindingOverrides *map[string]string `json:"authenticationFlowBindingOverrides,omitempty"`
+	FullScopeAllowed *bool `json:"fullScopeAllowed,omitempty"`
+	NodeReRegistrationTimeout *int32 `json:"nodeReRegistrationTimeout,omitempty"`
+	RegisteredNodes *map[string]int32 `json:"registeredNodes,omitempty"`
+	ProtocolMappers []ProtocolMapperRepresentation `json:"protocolMappers,omitempty"`
 	// Deprecated
 	ClientTemplate *string `json:"clientTemplate,omitempty"`
 	// Deprecated
@@ -63,12 +63,12 @@ type ClientRepresentation struct {
 	// Deprecated
 	UseTemplateScope *bool `json:"useTemplateScope,omitempty"`
 	// Deprecated
-	UseTemplateMappers    *bool                         `json:"useTemplateMappers,omitempty"`
-	DefaultClientScopes   []string                      `json:"defaultClientScopes,omitempty"`
-	OptionalClientScopes  []string                      `json:"optionalClientScopes,omitempty"`
+	UseTemplateMappers *bool `json:"useTemplateMappers,omitempty"`
+	DefaultClientScopes []string `json:"defaultClientScopes,omitempty"`
+	OptionalClientScopes []string `json:"optionalClientScopes,omitempty"`
 	AuthorizationSettings *ResourceServerRepresentation `json:"authorizationSettings,omitempty"`
-	Access                *map[string]bool              `json:"access,omitempty"`
-	Origin                *string                       `json:"origin,omitempty"`
+	Access *map[string]bool `json:"access,omitempty"`
+	Origin *string `json:"origin,omitempty"`
 }
 
 // NewClientRepresentation instantiates a new ClientRepresentation object
@@ -1515,7 +1515,7 @@ func (o *ClientRepresentation) SetOrigin(v string) {
 }
 
 func (o ClientRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1694,3 +1694,5 @@ func (v *NullableClientRepresentation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

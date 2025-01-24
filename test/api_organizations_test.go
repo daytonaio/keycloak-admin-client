@@ -11,11 +11,10 @@ package keycloak_admin_client
 
 import (
 	"context"
-	"testing"
-
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"testing"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func Test_keycloak_admin_client_OrganizationsAPIService(t *testing.T) {
@@ -25,7 +24,7 @@ func Test_keycloak_admin_client_OrganizationsAPIService(t *testing.T) {
 
 	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 
@@ -37,28 +36,14 @@ func Test_keycloak_admin_client_OrganizationsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsIdDelete", func(t *testing.T) {
+	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsMembersMemberIdOrganizationsGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
-
-		var realm string
-		var id string
-
-		httpRes, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsIdDelete(context.Background(), realm, id).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsIdGet", func(t *testing.T) {
-
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
-		var id string
+		var memberId string
 
-		resp, httpRes, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsIdGet(context.Background(), realm, id).Execute()
+		resp, httpRes, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsMembersMemberIdOrganizationsGet(context.Background(), realm, memberId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -66,30 +51,59 @@ func Test_keycloak_admin_client_OrganizationsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsIdIdentityProvidersAliasDelete", func(t *testing.T) {
+	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsOrgIdDelete", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
-		var id string
+		var orgId string
+
+		httpRes, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdDelete(context.Background(), realm, orgId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsOrgIdGet", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var realm string
+		var orgId string
+
+		resp, httpRes, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdGet(context.Background(), realm, orgId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasDelete", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var realm string
+		var orgId string
 		var alias string
 
-		httpRes, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsIdIdentityProvidersAliasDelete(context.Background(), realm, id, alias).Execute()
+		httpRes, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasDelete(context.Background(), realm, orgId, alias).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsIdIdentityProvidersAliasGet", func(t *testing.T) {
+	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
-		var id string
+		var orgId string
 		var alias string
 
-		resp, httpRes, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsIdIdentityProvidersAliasGet(context.Background(), realm, id, alias).Execute()
+		resp, httpRes, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasGet(context.Background(), realm, orgId, alias).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -97,14 +111,14 @@ func Test_keycloak_admin_client_OrganizationsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsIdIdentityProvidersGet", func(t *testing.T) {
+	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsOrgIdIdentityProvidersGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
-		var id string
+		var orgId string
 
-		resp, httpRes, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsIdIdentityProvidersGet(context.Background(), realm, id).Execute()
+		resp, httpRes, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdIdentityProvidersGet(context.Background(), realm, orgId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -112,28 +126,28 @@ func Test_keycloak_admin_client_OrganizationsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsIdIdentityProvidersPost", func(t *testing.T) {
+	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsOrgIdIdentityProvidersPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
-		var id string
+		var orgId string
 
-		httpRes, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsIdIdentityProvidersPost(context.Background(), realm, id).Execute()
+		httpRes, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdIdentityProvidersPost(context.Background(), realm, orgId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsIdMembersCountGet", func(t *testing.T) {
+	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsOrgIdMembersCountGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
-		var id string
+		var orgId string
 
-		resp, httpRes, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsIdMembersCountGet(context.Background(), realm, id).Execute()
+		resp, httpRes, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdMembersCountGet(context.Background(), realm, orgId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -141,14 +155,14 @@ func Test_keycloak_admin_client_OrganizationsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsIdMembersGet", func(t *testing.T) {
+	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsOrgIdMembersGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
-		var id string
+		var orgId string
 
-		resp, httpRes, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsIdMembersGet(context.Background(), realm, id).Execute()
+		resp, httpRes, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdMembersGet(context.Background(), realm, orgId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -156,72 +170,58 @@ func Test_keycloak_admin_client_OrganizationsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsIdMembersInviteExistingUserPost", func(t *testing.T) {
+	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsOrgIdMembersInviteExistingUserPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
-		var id string
+		var orgId string
 
-		httpRes, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsIdMembersInviteExistingUserPost(context.Background(), realm, id).Execute()
+		httpRes, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdMembersInviteExistingUserPost(context.Background(), realm, orgId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsIdMembersInviteUserPost", func(t *testing.T) {
+	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsOrgIdMembersInviteUserPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
-		var id string
+		var orgId string
 
-		httpRes, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsIdMembersInviteUserPost(context.Background(), realm, id).Execute()
+		httpRes, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdMembersInviteUserPost(context.Background(), realm, orgId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsIdMembersPost", func(t *testing.T) {
+	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsOrgIdMembersMemberIdDelete", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
-		var id string
+		var orgId string
+		var memberId string
 
-		httpRes, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsIdMembersPost(context.Background(), realm, id).Execute()
+		httpRes, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdMembersMemberIdDelete(context.Background(), realm, orgId, memberId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsIdMembersUserIdDelete", func(t *testing.T) {
+	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsOrgIdMembersMemberIdGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
-
-		var realm string
-		var id string
-		var userId string
-
-		httpRes, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsIdMembersUserIdDelete(context.Background(), realm, id, userId).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsIdMembersUserIdGet", func(t *testing.T) {
-
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
-		var id string
-		var userId string
+		var orgId string
+		var memberId string
 
-		resp, httpRes, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsIdMembersUserIdGet(context.Background(), realm, id, userId).Execute()
+		resp, httpRes, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdMembersMemberIdGet(context.Background(), realm, orgId, memberId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -229,15 +229,15 @@ func Test_keycloak_admin_client_OrganizationsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsIdMembersUserIdOrganizationsGet", func(t *testing.T) {
+	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsOrgIdMembersMemberIdOrganizationsGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
-		var id string
-		var userId string
+		var orgId string
+		var memberId string
 
-		resp, httpRes, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsIdMembersUserIdOrganizationsGet(context.Background(), realm, id, userId).Execute()
+		resp, httpRes, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdMembersMemberIdOrganizationsGet(context.Background(), realm, orgId, memberId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -245,38 +245,37 @@ func Test_keycloak_admin_client_OrganizationsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsIdPut", func(t *testing.T) {
+	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsOrgIdMembersPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
-		var id string
+		var orgId string
 
-		httpRes, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsIdPut(context.Background(), realm, id).Execute()
+		httpRes, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdMembersPost(context.Background(), realm, orgId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsMembersIdOrganizationsGet", func(t *testing.T) {
+	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsOrgIdPut", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
-		var id string
+		var orgId string
 
-		resp, httpRes, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsMembersIdOrganizationsGet(context.Background(), realm, id).Execute()
+		httpRes, err := apiClient.OrganizationsAPI.AdminRealmsRealmOrganizationsOrgIdPut(context.Background(), realm, orgId).Execute()
 
 		require.Nil(t, err)
-		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
 	t.Run("Test OrganizationsAPIService AdminRealmsRealmOrganizationsPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 

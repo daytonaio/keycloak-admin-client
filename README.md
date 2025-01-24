@@ -22,7 +22,7 @@ go get golang.org/x/net/context
 Put the package under your project folder and add the following in import:
 
 ```go
-import keycloak_admin_client "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+import keycloak_admin_client "github.com/daytonaio/keycloak-admin-client"
 ```
 
 To use a proxy, set the environment variable `HTTP_PROXY`:
@@ -222,7 +222,7 @@ Class | Method | HTTP request | Description
 *DefaultAPI* | [**AdminRealmsRealmClientsClientUuidAuthzResourceServerScopeSearchGet**](docs/DefaultAPI.md#adminrealmsrealmclientsclientuuidauthzresourceserverscopesearchget) | **Get** /admin/realms/{realm}/clients/{client-uuid}/authz/resource-server/scope/search | 
 *DefaultAPI* | [**AdminRealmsRealmClientsClientUuidAuthzResourceServerSettingsGet**](docs/DefaultAPI.md#adminrealmsrealmclientsclientuuidauthzresourceserversettingsget) | **Get** /admin/realms/{realm}/clients/{client-uuid}/authz/resource-server/settings | 
 *GroupsAPI* | [**AdminRealmsRealmGroupsCountGet**](docs/GroupsAPI.md#adminrealmsrealmgroupscountget) | **Get** /admin/realms/{realm}/groups/count | Returns the groups counts.
-*GroupsAPI* | [**AdminRealmsRealmGroupsGet**](docs/GroupsAPI.md#adminrealmsrealmgroupsget) | **Get** /admin/realms/{realm}/groups | Get group hierarchy.  Only name and ids are returned.
+*GroupsAPI* | [**AdminRealmsRealmGroupsGet**](docs/GroupsAPI.md#adminrealmsrealmgroupsget) | **Get** /admin/realms/{realm}/groups | Get group hierarchy.  Only &#x60;name&#x60; and &#x60;id&#x60; are returned.  &#x60;subGroups&#x60; are only returned when using the &#x60;search&#x60; or &#x60;q&#x60; parameter. If none of these parameters is provided, the top-level groups are returned without &#x60;subGroups&#x60; being filled.
 *GroupsAPI* | [**AdminRealmsRealmGroupsGroupIdChildrenGet**](docs/GroupsAPI.md#adminrealmsrealmgroupsgroupidchildrenget) | **Get** /admin/realms/{realm}/groups/{group-id}/children | Return a paginated list of subgroups that have a parent group corresponding to the group on the URL
 *GroupsAPI* | [**AdminRealmsRealmGroupsGroupIdChildrenPost**](docs/GroupsAPI.md#adminrealmsrealmgroupsgroupidchildrenpost) | **Post** /admin/realms/{realm}/groups/{group-id}/children | Set or create child.
 *GroupsAPI* | [**AdminRealmsRealmGroupsGroupIdDelete**](docs/GroupsAPI.md#adminrealmsrealmgroupsgroupiddelete) | **Delete** /admin/realms/{realm}/groups/{group-id} | 
@@ -251,22 +251,22 @@ Class | Method | HTTP request | Description
 *IdentityProvidersAPI* | [**AdminRealmsRealmIdentityProviderProvidersProviderIdGet**](docs/IdentityProvidersAPI.md#adminrealmsrealmidentityproviderprovidersprovideridget) | **Get** /admin/realms/{realm}/identity-provider/providers/{provider_id} | Get the identity provider factory for that provider id
 *KeyAPI* | [**AdminRealmsRealmKeysGet**](docs/KeyAPI.md#adminrealmsrealmkeysget) | **Get** /admin/realms/{realm}/keys | 
 *OrganizationsAPI* | [**AdminRealmsRealmOrganizationsGet**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsget) | **Get** /admin/realms/{realm}/organizations | Returns a paginated list of organizations filtered according to the specified parameters
-*OrganizationsAPI* | [**AdminRealmsRealmOrganizationsIdDelete**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsiddelete) | **Delete** /admin/realms/{realm}/organizations/{id} | Deletes the organization
-*OrganizationsAPI* | [**AdminRealmsRealmOrganizationsIdGet**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsidget) | **Get** /admin/realms/{realm}/organizations/{id} | Returns the organization representation
-*OrganizationsAPI* | [**AdminRealmsRealmOrganizationsIdIdentityProvidersAliasDelete**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsididentityprovidersaliasdelete) | **Delete** /admin/realms/{realm}/organizations/{id}/identity-providers/{alias} | Removes the identity provider with the specified alias from the organization
-*OrganizationsAPI* | [**AdminRealmsRealmOrganizationsIdIdentityProvidersAliasGet**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsididentityprovidersaliasget) | **Get** /admin/realms/{realm}/organizations/{id}/identity-providers/{alias} | Returns the identity provider associated with the organization that has the specified alias
-*OrganizationsAPI* | [**AdminRealmsRealmOrganizationsIdIdentityProvidersGet**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsididentityprovidersget) | **Get** /admin/realms/{realm}/organizations/{id}/identity-providers | Returns all identity providers associated with the organization
-*OrganizationsAPI* | [**AdminRealmsRealmOrganizationsIdIdentityProvidersPost**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsididentityproviderspost) | **Post** /admin/realms/{realm}/organizations/{id}/identity-providers | Adds the identity provider with the specified id to the organization
-*OrganizationsAPI* | [**AdminRealmsRealmOrganizationsIdMembersCountGet**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsidmemberscountget) | **Get** /admin/realms/{realm}/organizations/{id}/members/count | Returns number of members in the organization.
-*OrganizationsAPI* | [**AdminRealmsRealmOrganizationsIdMembersGet**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsidmembersget) | **Get** /admin/realms/{realm}/organizations/{id}/members | Returns a paginated list of organization members filtered according to the specified parameters
-*OrganizationsAPI* | [**AdminRealmsRealmOrganizationsIdMembersInviteExistingUserPost**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsidmembersinviteexistinguserpost) | **Post** /admin/realms/{realm}/organizations/{id}/members/invite-existing-user | Invites an existing user to the organization, using the specified user id
-*OrganizationsAPI* | [**AdminRealmsRealmOrganizationsIdMembersInviteUserPost**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsidmembersinviteuserpost) | **Post** /admin/realms/{realm}/organizations/{id}/members/invite-user | Invites an existing user or sends a registration link to a new user, based on the provided e-mail address.
-*OrganizationsAPI* | [**AdminRealmsRealmOrganizationsIdMembersPost**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsidmemberspost) | **Post** /admin/realms/{realm}/organizations/{id}/members | Adds the user with the specified id as a member of the organization
-*OrganizationsAPI* | [**AdminRealmsRealmOrganizationsIdMembersUserIdDelete**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsidmembersuseriddelete) | **Delete** /admin/realms/{realm}/organizations/{id}/members/{userId} | Removes the user with the specified id from the organization
-*OrganizationsAPI* | [**AdminRealmsRealmOrganizationsIdMembersUserIdGet**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsidmembersuseridget) | **Get** /admin/realms/{realm}/organizations/{id}/members/{userId} | Returns the member of the organization with the specified id
-*OrganizationsAPI* | [**AdminRealmsRealmOrganizationsIdMembersUserIdOrganizationsGet**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsidmembersuseridorganizationsget) | **Get** /admin/realms/{realm}/organizations/{id}/members/{userId}/organizations | Returns the organizations associated with the user that has the specified id
-*OrganizationsAPI* | [**AdminRealmsRealmOrganizationsIdPut**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsidput) | **Put** /admin/realms/{realm}/organizations/{id} | Updates the organization
-*OrganizationsAPI* | [**AdminRealmsRealmOrganizationsMembersIdOrganizationsGet**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsmembersidorganizationsget) | **Get** /admin/realms/{realm}/organizations/members/{id}/organizations | Returns the organizations associated with the user that has the specified id
+*OrganizationsAPI* | [**AdminRealmsRealmOrganizationsMembersMemberIdOrganizationsGet**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsmembersmemberidorganizationsget) | **Get** /admin/realms/{realm}/organizations/members/{member-id}/organizations | Returns the organizations associated with the user that has the specified id
+*OrganizationsAPI* | [**AdminRealmsRealmOrganizationsOrgIdDelete**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsorgiddelete) | **Delete** /admin/realms/{realm}/organizations/{org-id} | Deletes the organization
+*OrganizationsAPI* | [**AdminRealmsRealmOrganizationsOrgIdGet**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsorgidget) | **Get** /admin/realms/{realm}/organizations/{org-id} | Returns the organization representation
+*OrganizationsAPI* | [**AdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasDelete**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsorgididentityprovidersaliasdelete) | **Delete** /admin/realms/{realm}/organizations/{org-id}/identity-providers/{alias} | Removes the identity provider with the specified alias from the organization
+*OrganizationsAPI* | [**AdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasGet**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsorgididentityprovidersaliasget) | **Get** /admin/realms/{realm}/organizations/{org-id}/identity-providers/{alias} | Returns the identity provider associated with the organization that has the specified alias
+*OrganizationsAPI* | [**AdminRealmsRealmOrganizationsOrgIdIdentityProvidersGet**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsorgididentityprovidersget) | **Get** /admin/realms/{realm}/organizations/{org-id}/identity-providers | Returns all identity providers associated with the organization
+*OrganizationsAPI* | [**AdminRealmsRealmOrganizationsOrgIdIdentityProvidersPost**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsorgididentityproviderspost) | **Post** /admin/realms/{realm}/organizations/{org-id}/identity-providers | Adds the identity provider with the specified id to the organization
+*OrganizationsAPI* | [**AdminRealmsRealmOrganizationsOrgIdMembersCountGet**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsorgidmemberscountget) | **Get** /admin/realms/{realm}/organizations/{org-id}/members/count | Returns number of members in the organization.
+*OrganizationsAPI* | [**AdminRealmsRealmOrganizationsOrgIdMembersGet**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsorgidmembersget) | **Get** /admin/realms/{realm}/organizations/{org-id}/members | Returns a paginated list of organization members filtered according to the specified parameters
+*OrganizationsAPI* | [**AdminRealmsRealmOrganizationsOrgIdMembersInviteExistingUserPost**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsorgidmembersinviteexistinguserpost) | **Post** /admin/realms/{realm}/organizations/{org-id}/members/invite-existing-user | Invites an existing user to the organization, using the specified user id
+*OrganizationsAPI* | [**AdminRealmsRealmOrganizationsOrgIdMembersInviteUserPost**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsorgidmembersinviteuserpost) | **Post** /admin/realms/{realm}/organizations/{org-id}/members/invite-user | Invites an existing user or sends a registration link to a new user, based on the provided e-mail address.
+*OrganizationsAPI* | [**AdminRealmsRealmOrganizationsOrgIdMembersMemberIdDelete**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsorgidmembersmemberiddelete) | **Delete** /admin/realms/{realm}/organizations/{org-id}/members/{member-id} | Removes the user with the specified id from the organization
+*OrganizationsAPI* | [**AdminRealmsRealmOrganizationsOrgIdMembersMemberIdGet**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsorgidmembersmemberidget) | **Get** /admin/realms/{realm}/organizations/{org-id}/members/{member-id} | Returns the member of the organization with the specified id
+*OrganizationsAPI* | [**AdminRealmsRealmOrganizationsOrgIdMembersMemberIdOrganizationsGet**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsorgidmembersmemberidorganizationsget) | **Get** /admin/realms/{realm}/organizations/{org-id}/members/{member-id}/organizations | Returns the organizations associated with the user that has the specified id
+*OrganizationsAPI* | [**AdminRealmsRealmOrganizationsOrgIdMembersPost**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsorgidmemberspost) | **Post** /admin/realms/{realm}/organizations/{org-id}/members | Adds the user with the specified id as a member of the organization
+*OrganizationsAPI* | [**AdminRealmsRealmOrganizationsOrgIdPut**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationsorgidput) | **Put** /admin/realms/{realm}/organizations/{org-id} | Updates the organization
 *OrganizationsAPI* | [**AdminRealmsRealmOrganizationsPost**](docs/OrganizationsAPI.md#adminrealmsrealmorganizationspost) | **Post** /admin/realms/{realm}/organizations | Creates a new organization
 *ProtocolMappersAPI* | [**AdminRealmsRealmClientScopesClientScopeIdProtocolMappersAddModelsPost**](docs/ProtocolMappersAPI.md#adminrealmsrealmclientscopesclientscopeidprotocolmappersaddmodelspost) | **Post** /admin/realms/{realm}/client-scopes/{client-scope-id}/protocol-mappers/add-models | Create multiple mappers
 *ProtocolMappersAPI* | [**AdminRealmsRealmClientScopesClientScopeIdProtocolMappersModelsGet**](docs/ProtocolMappersAPI.md#adminrealmsrealmclientscopesclientscopeidprotocolmappersmodelsget) | **Get** /admin/realms/{realm}/client-scopes/{client-scope-id}/protocol-mappers/models | Get mappers
@@ -469,6 +469,7 @@ Class | Method | HTTP request | Description
  - [AuthenticatorConfigInfoRepresentation](docs/AuthenticatorConfigInfoRepresentation.md)
  - [AuthenticatorConfigRepresentation](docs/AuthenticatorConfigRepresentation.md)
  - [Authorization](docs/Authorization.md)
+ - [AuthorizationSchema](docs/AuthorizationSchema.md)
  - [BruteForceStrategy](docs/BruteForceStrategy.md)
  - [CertificateRepresentation](docs/CertificateRepresentation.md)
  - [ClaimRepresentation](docs/ClaimRepresentation.md)
@@ -541,6 +542,7 @@ Class | Method | HTTP request | Description
  - [ResourceOwnerRepresentation](docs/ResourceOwnerRepresentation.md)
  - [ResourceRepresentation](docs/ResourceRepresentation.md)
  - [ResourceServerRepresentation](docs/ResourceServerRepresentation.md)
+ - [ResourceType](docs/ResourceType.md)
  - [RoleRepresentation](docs/RoleRepresentation.md)
  - [RolesRepresentation](docs/RolesRepresentation.md)
  - [ScopeEnforcementMode](docs/ScopeEnforcementMode.md)

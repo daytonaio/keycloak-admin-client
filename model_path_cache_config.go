@@ -20,7 +20,7 @@ var _ MappedNullable = &PathCacheConfig{}
 // PathCacheConfig struct for PathCacheConfig
 type PathCacheConfig struct {
 	MaxEntries *int32 `json:"max-entries,omitempty"`
-	Lifespan   *int64 `json:"lifespan,omitempty"`
+	Lifespan *int64 `json:"lifespan,omitempty"`
 }
 
 // NewPathCacheConfig instantiates a new PathCacheConfig object
@@ -105,7 +105,7 @@ func (o *PathCacheConfig) SetLifespan(v int64) {
 }
 
 func (o PathCacheConfig) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,3 +158,5 @@ func (v *NullablePathCacheConfig) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -19,11 +19,11 @@ var _ MappedNullable = &IdentityProviderMapperRepresentation{}
 
 // IdentityProviderMapperRepresentation struct for IdentityProviderMapperRepresentation
 type IdentityProviderMapperRepresentation struct {
-	Id                     *string            `json:"id,omitempty"`
-	Name                   *string            `json:"name,omitempty"`
-	IdentityProviderAlias  *string            `json:"identityProviderAlias,omitempty"`
-	IdentityProviderMapper *string            `json:"identityProviderMapper,omitempty"`
-	Config                 *map[string]string `json:"config,omitempty"`
+	Id *string `json:"id,omitempty"`
+	Name *string `json:"name,omitempty"`
+	IdentityProviderAlias *string `json:"identityProviderAlias,omitempty"`
+	IdentityProviderMapper *string `json:"identityProviderMapper,omitempty"`
+	Config *map[string]string `json:"config,omitempty"`
 }
 
 // NewIdentityProviderMapperRepresentation instantiates a new IdentityProviderMapperRepresentation object
@@ -204,7 +204,7 @@ func (o *IdentityProviderMapperRepresentation) SetConfig(v map[string]string) {
 }
 
 func (o IdentityProviderMapperRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -266,3 +266,5 @@ func (v *NullableIdentityProviderMapperRepresentation) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

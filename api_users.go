@@ -19,21 +19,22 @@ import (
 	"strings"
 )
 
+
 // UsersAPIService UsersAPI service
 type UsersAPIService service
 
 type ApiAdminRealmsRealmUsersCountGetRequest struct {
-	ctx           context.Context
-	ApiService    *UsersAPIService
-	realm         string
-	email         *string
+	ctx context.Context
+	ApiService *UsersAPIService
+	realm string
+	email *string
 	emailVerified *bool
-	enabled       *bool
-	firstName     *string
-	lastName      *string
-	q             *string
-	search        *string
-	username      *string
+	enabled *bool
+	firstName *string
+	lastName *string
+	q *string
+	search *string
+	username *string
 }
 
 // email filter
@@ -91,27 +92,26 @@ AdminRealmsRealmUsersCountGet Returns the number of users that match the given c
 
 It can be called in three different ways. 1. Don’t specify any criteria and pass {@code null}. The number of all users within that realm will be returned. <p> 2. If {@code search} is specified other criteria such as {@code last} will be ignored even though you set them. The {@code search} string will be matched against the first and last name, the username and the email of a user. <p> 3. If {@code search} is unspecified but any of {@code last}, {@code first}, {@code email} or {@code username} those criteria are matched against their respective fields on a user entity. Combined with a logical and.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@return ApiAdminRealmsRealmUsersCountGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @return ApiAdminRealmsRealmUsersCountGetRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersCountGet(ctx context.Context, realm string) ApiAdminRealmsRealmUsersCountGetRequest {
 	return ApiAdminRealmsRealmUsersCountGetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
+		ctx: ctx,
+		realm: realm,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	int32
+//  @return int32
 func (a *UsersAPIService) AdminRealmsRealmUsersCountGetExecute(r ApiAdminRealmsRealmUsersCountGetRequest) (int32, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue int32
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  int32
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersCountGet")
@@ -205,23 +205,23 @@ func (a *UsersAPIService) AdminRealmsRealmUsersCountGetExecute(r ApiAdminRealmsR
 }
 
 type ApiAdminRealmsRealmUsersGetRequest struct {
-	ctx                 context.Context
-	ApiService          *UsersAPIService
-	realm               string
+	ctx context.Context
+	ApiService *UsersAPIService
+	realm string
 	briefRepresentation *bool
-	email               *string
-	emailVerified       *bool
-	enabled             *bool
-	exact               *bool
-	first               *int32
-	firstName           *string
-	idpAlias            *string
-	idpUserId           *string
-	lastName            *string
-	max                 *int32
-	q                   *string
-	search              *string
-	username            *string
+	email *string
+	emailVerified *bool
+	enabled *bool
+	exact *bool
+	first *int32
+	firstName *string
+	idpAlias *string
+	idpUserId *string
+	lastName *string
+	max *int32
+	q *string
+	search *string
+	username *string
 }
 
 // Boolean which defines whether brief representations are returned (default: false)
@@ -315,27 +315,26 @@ func (r ApiAdminRealmsRealmUsersGetRequest) Execute() ([]UserRepresentation, *ht
 /*
 AdminRealmsRealmUsersGet Get users Returns a stream of users, filtered according to query parameters.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@return ApiAdminRealmsRealmUsersGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @return ApiAdminRealmsRealmUsersGetRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersGet(ctx context.Context, realm string) ApiAdminRealmsRealmUsersGetRequest {
 	return ApiAdminRealmsRealmUsersGetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
+		ctx: ctx,
+		realm: realm,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	[]UserRepresentation
+//  @return []UserRepresentation
 func (a *UsersAPIService) AdminRealmsRealmUsersGetExecute(r ApiAdminRealmsRealmUsersGetRequest) ([]UserRepresentation, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []UserRepresentation
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []UserRepresentation
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersGet")
@@ -447,9 +446,9 @@ func (a *UsersAPIService) AdminRealmsRealmUsersGetExecute(r ApiAdminRealmsRealmU
 }
 
 type ApiAdminRealmsRealmUsersPostRequest struct {
-	ctx                context.Context
-	ApiService         *UsersAPIService
-	realm              string
+	ctx context.Context
+	ApiService *UsersAPIService
+	realm string
 	userRepresentation *UserRepresentation
 }
 
@@ -465,24 +464,24 @@ func (r ApiAdminRealmsRealmUsersPostRequest) Execute() (*http.Response, error) {
 /*
 AdminRealmsRealmUsersPost Create a new user Username must be unique.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@return ApiAdminRealmsRealmUsersPostRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @return ApiAdminRealmsRealmUsersPostRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersPost(ctx context.Context, realm string) ApiAdminRealmsRealmUsersPostRequest {
 	return ApiAdminRealmsRealmUsersPostRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
+		ctx: ctx,
+		realm: realm,
 	}
 }
 
 // Execute executes the request
 func (a *UsersAPIService) AdminRealmsRealmUsersPostExecute(r ApiAdminRealmsRealmUsersPostRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersPost")
@@ -545,9 +544,9 @@ func (a *UsersAPIService) AdminRealmsRealmUsersPostExecute(r ApiAdminRealmsRealm
 }
 
 type ApiAdminRealmsRealmUsersProfileGetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *UsersAPIService
-	realm      string
+	realm string
 }
 
 func (r ApiAdminRealmsRealmUsersProfileGetRequest) Execute() (*UPConfig, *http.Response, error) {
@@ -559,27 +558,26 @@ AdminRealmsRealmUsersProfileGet Method for AdminRealmsRealmUsersProfileGet
 
 Get the configuration for the user profile
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@return ApiAdminRealmsRealmUsersProfileGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @return ApiAdminRealmsRealmUsersProfileGetRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersProfileGet(ctx context.Context, realm string) ApiAdminRealmsRealmUsersProfileGetRequest {
 	return ApiAdminRealmsRealmUsersProfileGetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
+		ctx: ctx,
+		realm: realm,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	UPConfig
+//  @return UPConfig
 func (a *UsersAPIService) AdminRealmsRealmUsersProfileGetExecute(r ApiAdminRealmsRealmUsersProfileGetRequest) (*UPConfig, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *UPConfig
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *UPConfig
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersProfileGet")
@@ -649,9 +647,9 @@ func (a *UsersAPIService) AdminRealmsRealmUsersProfileGetExecute(r ApiAdminRealm
 }
 
 type ApiAdminRealmsRealmUsersProfileMetadataGetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *UsersAPIService
-	realm      string
+	realm string
 }
 
 func (r ApiAdminRealmsRealmUsersProfileMetadataGetRequest) Execute() (*UserProfileMetadata, *http.Response, error) {
@@ -663,27 +661,26 @@ AdminRealmsRealmUsersProfileMetadataGet Method for AdminRealmsRealmUsersProfileM
 
 Get the UserProfileMetadata from the configuration
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@return ApiAdminRealmsRealmUsersProfileMetadataGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @return ApiAdminRealmsRealmUsersProfileMetadataGetRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersProfileMetadataGet(ctx context.Context, realm string) ApiAdminRealmsRealmUsersProfileMetadataGetRequest {
 	return ApiAdminRealmsRealmUsersProfileMetadataGetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
+		ctx: ctx,
+		realm: realm,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	UserProfileMetadata
+//  @return UserProfileMetadata
 func (a *UsersAPIService) AdminRealmsRealmUsersProfileMetadataGetExecute(r ApiAdminRealmsRealmUsersProfileMetadataGetRequest) (*UserProfileMetadata, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *UserProfileMetadata
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *UserProfileMetadata
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersProfileMetadataGet")
@@ -753,10 +750,10 @@ func (a *UsersAPIService) AdminRealmsRealmUsersProfileMetadataGetExecute(r ApiAd
 }
 
 type ApiAdminRealmsRealmUsersProfilePutRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *UsersAPIService
-	realm      string
-	uPConfig   *UPConfig
+	realm string
+	uPConfig *UPConfig
 }
 
 func (r ApiAdminRealmsRealmUsersProfilePutRequest) UPConfig(uPConfig UPConfig) ApiAdminRealmsRealmUsersProfilePutRequest {
@@ -773,27 +770,26 @@ AdminRealmsRealmUsersProfilePut Method for AdminRealmsRealmUsersProfilePut
 
 Set the configuration for the user profile
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@return ApiAdminRealmsRealmUsersProfilePutRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @return ApiAdminRealmsRealmUsersProfilePutRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersProfilePut(ctx context.Context, realm string) ApiAdminRealmsRealmUsersProfilePutRequest {
 	return ApiAdminRealmsRealmUsersProfilePutRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
+		ctx: ctx,
+		realm: realm,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	UPConfig
+//  @return UPConfig
 func (a *UsersAPIService) AdminRealmsRealmUsersProfilePutExecute(r ApiAdminRealmsRealmUsersProfilePutRequest) (*UPConfig, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *UPConfig
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *UPConfig
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersProfilePut")
@@ -865,10 +861,10 @@ func (a *UsersAPIService) AdminRealmsRealmUsersProfilePutExecute(r ApiAdminRealm
 }
 
 type ApiAdminRealmsRealmUsersUserIdConfiguredUserStorageCredentialTypesGetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *UsersAPIService
-	realm      string
-	userId     string
+	realm string
+	userId string
 }
 
 func (r ApiAdminRealmsRealmUsersUserIdConfiguredUserStorageCredentialTypesGetRequest) Execute() ([]string, *http.Response, error) {
@@ -880,29 +876,28 @@ AdminRealmsRealmUsersUserIdConfiguredUserStorageCredentialTypesGet Return creden
 
 Returned values can contain for example "password", "otp" etc. This will always return empty list for "local" users, which are not backed by any user storage
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param userId
-	@return ApiAdminRealmsRealmUsersUserIdConfiguredUserStorageCredentialTypesGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param userId
+ @return ApiAdminRealmsRealmUsersUserIdConfiguredUserStorageCredentialTypesGetRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdConfiguredUserStorageCredentialTypesGet(ctx context.Context, realm string, userId string) ApiAdminRealmsRealmUsersUserIdConfiguredUserStorageCredentialTypesGetRequest {
 	return ApiAdminRealmsRealmUsersUserIdConfiguredUserStorageCredentialTypesGetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		userId:     userId,
+		ctx: ctx,
+		realm: realm,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	[]string
+//  @return []string
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdConfiguredUserStorageCredentialTypesGetExecute(r ApiAdminRealmsRealmUsersUserIdConfiguredUserStorageCredentialTypesGetRequest) ([]string, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []string
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersUserIdConfiguredUserStorageCredentialTypesGet")
@@ -973,11 +968,11 @@ func (a *UsersAPIService) AdminRealmsRealmUsersUserIdConfiguredUserStorageCreden
 }
 
 type ApiAdminRealmsRealmUsersUserIdConsentsClientDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *UsersAPIService
-	realm      string
-	userId     string
-	client     string
+	realm string
+	userId string
+	client string
 }
 
 func (r ApiAdminRealmsRealmUsersUserIdConsentsClientDeleteRequest) Execute() (*http.Response, error) {
@@ -987,28 +982,28 @@ func (r ApiAdminRealmsRealmUsersUserIdConsentsClientDeleteRequest) Execute() (*h
 /*
 AdminRealmsRealmUsersUserIdConsentsClientDelete Revoke consent and offline tokens for particular client from user
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param userId
-	@param client Client id
-	@return ApiAdminRealmsRealmUsersUserIdConsentsClientDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param userId
+ @param client Client id
+ @return ApiAdminRealmsRealmUsersUserIdConsentsClientDeleteRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdConsentsClientDelete(ctx context.Context, realm string, userId string, client string) ApiAdminRealmsRealmUsersUserIdConsentsClientDeleteRequest {
 	return ApiAdminRealmsRealmUsersUserIdConsentsClientDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		userId:     userId,
-		client:     client,
+		ctx: ctx,
+		realm: realm,
+		userId: userId,
+		client: client,
 	}
 }
 
 // Execute executes the request
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdConsentsClientDeleteExecute(r ApiAdminRealmsRealmUsersUserIdConsentsClientDeleteRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersUserIdConsentsClientDelete")
@@ -1071,10 +1066,10 @@ func (a *UsersAPIService) AdminRealmsRealmUsersUserIdConsentsClientDeleteExecute
 }
 
 type ApiAdminRealmsRealmUsersUserIdConsentsGetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *UsersAPIService
-	realm      string
-	userId     string
+	realm string
+	userId string
 }
 
 func (r ApiAdminRealmsRealmUsersUserIdConsentsGetRequest) Execute() ([]map[string]interface{}, *http.Response, error) {
@@ -1084,29 +1079,28 @@ func (r ApiAdminRealmsRealmUsersUserIdConsentsGetRequest) Execute() ([]map[strin
 /*
 AdminRealmsRealmUsersUserIdConsentsGet Get consents granted by the user
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param userId
-	@return ApiAdminRealmsRealmUsersUserIdConsentsGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param userId
+ @return ApiAdminRealmsRealmUsersUserIdConsentsGetRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdConsentsGet(ctx context.Context, realm string, userId string) ApiAdminRealmsRealmUsersUserIdConsentsGetRequest {
 	return ApiAdminRealmsRealmUsersUserIdConsentsGetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		userId:     userId,
+		ctx: ctx,
+		realm: realm,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	[]map[string]interface{}
+//  @return []map[string]interface{}
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdConsentsGetExecute(r ApiAdminRealmsRealmUsersUserIdConsentsGetRequest) ([]map[string]interface{}, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []map[string]interface{}
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersUserIdConsentsGet")
@@ -1177,10 +1171,10 @@ func (a *UsersAPIService) AdminRealmsRealmUsersUserIdConsentsGetExecute(r ApiAdm
 }
 
 type ApiAdminRealmsRealmUsersUserIdCredentialsCredentialIdDeleteRequest struct {
-	ctx          context.Context
-	ApiService   *UsersAPIService
-	realm        string
-	userId       string
+	ctx context.Context
+	ApiService *UsersAPIService
+	realm string
+	userId string
 	credentialId string
 }
 
@@ -1191,18 +1185,18 @@ func (r ApiAdminRealmsRealmUsersUserIdCredentialsCredentialIdDeleteRequest) Exec
 /*
 AdminRealmsRealmUsersUserIdCredentialsCredentialIdDelete Remove a credential for a user
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param userId
-	@param credentialId
-	@return ApiAdminRealmsRealmUsersUserIdCredentialsCredentialIdDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param userId
+ @param credentialId
+ @return ApiAdminRealmsRealmUsersUserIdCredentialsCredentialIdDeleteRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdCredentialsCredentialIdDelete(ctx context.Context, realm string, userId string, credentialId string) ApiAdminRealmsRealmUsersUserIdCredentialsCredentialIdDeleteRequest {
 	return ApiAdminRealmsRealmUsersUserIdCredentialsCredentialIdDeleteRequest{
-		ApiService:   a,
-		ctx:          ctx,
-		realm:        realm,
-		userId:       userId,
+		ApiService: a,
+		ctx: ctx,
+		realm: realm,
+		userId: userId,
 		credentialId: credentialId,
 	}
 }
@@ -1210,9 +1204,9 @@ func (a *UsersAPIService) AdminRealmsRealmUsersUserIdCredentialsCredentialIdDele
 // Execute executes the request
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdCredentialsCredentialIdDeleteExecute(r ApiAdminRealmsRealmUsersUserIdCredentialsCredentialIdDeleteRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersUserIdCredentialsCredentialIdDelete")
@@ -1275,11 +1269,11 @@ func (a *UsersAPIService) AdminRealmsRealmUsersUserIdCredentialsCredentialIdDele
 }
 
 type ApiAdminRealmsRealmUsersUserIdCredentialsCredentialIdMoveAfterNewPreviousCredentialIdPostRequest struct {
-	ctx                     context.Context
-	ApiService              *UsersAPIService
-	realm                   string
-	userId                  string
-	credentialId            string
+	ctx context.Context
+	ApiService *UsersAPIService
+	realm string
+	userId string
+	credentialId string
 	newPreviousCredentialId string
 }
 
@@ -1290,20 +1284,20 @@ func (r ApiAdminRealmsRealmUsersUserIdCredentialsCredentialIdMoveAfterNewPreviou
 /*
 AdminRealmsRealmUsersUserIdCredentialsCredentialIdMoveAfterNewPreviousCredentialIdPost Move a credential to a position behind another credential
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param userId
-	@param credentialId The credential to move
-	@param newPreviousCredentialId The credential that will be the previous element in the list. If set to null, the moved credential will be the first element in the list.
-	@return ApiAdminRealmsRealmUsersUserIdCredentialsCredentialIdMoveAfterNewPreviousCredentialIdPostRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param userId
+ @param credentialId The credential to move
+ @param newPreviousCredentialId The credential that will be the previous element in the list. If set to null, the moved credential will be the first element in the list.
+ @return ApiAdminRealmsRealmUsersUserIdCredentialsCredentialIdMoveAfterNewPreviousCredentialIdPostRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdCredentialsCredentialIdMoveAfterNewPreviousCredentialIdPost(ctx context.Context, realm string, userId string, credentialId string, newPreviousCredentialId string) ApiAdminRealmsRealmUsersUserIdCredentialsCredentialIdMoveAfterNewPreviousCredentialIdPostRequest {
 	return ApiAdminRealmsRealmUsersUserIdCredentialsCredentialIdMoveAfterNewPreviousCredentialIdPostRequest{
-		ApiService:              a,
-		ctx:                     ctx,
-		realm:                   realm,
-		userId:                  userId,
-		credentialId:            credentialId,
+		ApiService: a,
+		ctx: ctx,
+		realm: realm,
+		userId: userId,
+		credentialId: credentialId,
 		newPreviousCredentialId: newPreviousCredentialId,
 	}
 }
@@ -1311,9 +1305,9 @@ func (a *UsersAPIService) AdminRealmsRealmUsersUserIdCredentialsCredentialIdMove
 // Execute executes the request
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdCredentialsCredentialIdMoveAfterNewPreviousCredentialIdPostExecute(r ApiAdminRealmsRealmUsersUserIdCredentialsCredentialIdMoveAfterNewPreviousCredentialIdPostRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersUserIdCredentialsCredentialIdMoveAfterNewPreviousCredentialIdPost")
@@ -1377,10 +1371,10 @@ func (a *UsersAPIService) AdminRealmsRealmUsersUserIdCredentialsCredentialIdMove
 }
 
 type ApiAdminRealmsRealmUsersUserIdCredentialsCredentialIdMoveToFirstPostRequest struct {
-	ctx          context.Context
-	ApiService   *UsersAPIService
-	realm        string
-	userId       string
+	ctx context.Context
+	ApiService *UsersAPIService
+	realm string
+	userId string
 	credentialId string
 }
 
@@ -1391,18 +1385,18 @@ func (r ApiAdminRealmsRealmUsersUserIdCredentialsCredentialIdMoveToFirstPostRequ
 /*
 AdminRealmsRealmUsersUserIdCredentialsCredentialIdMoveToFirstPost Move a credential to a first position in the credentials list of the user
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param userId
-	@param credentialId The credential to move
-	@return ApiAdminRealmsRealmUsersUserIdCredentialsCredentialIdMoveToFirstPostRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param userId
+ @param credentialId The credential to move
+ @return ApiAdminRealmsRealmUsersUserIdCredentialsCredentialIdMoveToFirstPostRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdCredentialsCredentialIdMoveToFirstPost(ctx context.Context, realm string, userId string, credentialId string) ApiAdminRealmsRealmUsersUserIdCredentialsCredentialIdMoveToFirstPostRequest {
 	return ApiAdminRealmsRealmUsersUserIdCredentialsCredentialIdMoveToFirstPostRequest{
-		ApiService:   a,
-		ctx:          ctx,
-		realm:        realm,
-		userId:       userId,
+		ApiService: a,
+		ctx: ctx,
+		realm: realm,
+		userId: userId,
 		credentialId: credentialId,
 	}
 }
@@ -1410,9 +1404,9 @@ func (a *UsersAPIService) AdminRealmsRealmUsersUserIdCredentialsCredentialIdMove
 // Execute executes the request
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdCredentialsCredentialIdMoveToFirstPostExecute(r ApiAdminRealmsRealmUsersUserIdCredentialsCredentialIdMoveToFirstPostRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersUserIdCredentialsCredentialIdMoveToFirstPost")
@@ -1475,12 +1469,12 @@ func (a *UsersAPIService) AdminRealmsRealmUsersUserIdCredentialsCredentialIdMove
 }
 
 type ApiAdminRealmsRealmUsersUserIdCredentialsCredentialIdUserLabelPutRequest struct {
-	ctx          context.Context
-	ApiService   *UsersAPIService
-	realm        string
-	userId       string
+	ctx context.Context
+	ApiService *UsersAPIService
+	realm string
+	userId string
 	credentialId string
-	body         *string
+	body *string
 }
 
 func (r ApiAdminRealmsRealmUsersUserIdCredentialsCredentialIdUserLabelPutRequest) Body(body string) ApiAdminRealmsRealmUsersUserIdCredentialsCredentialIdUserLabelPutRequest {
@@ -1495,18 +1489,18 @@ func (r ApiAdminRealmsRealmUsersUserIdCredentialsCredentialIdUserLabelPutRequest
 /*
 AdminRealmsRealmUsersUserIdCredentialsCredentialIdUserLabelPut Update a credential label for a user
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param userId
-	@param credentialId
-	@return ApiAdminRealmsRealmUsersUserIdCredentialsCredentialIdUserLabelPutRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param userId
+ @param credentialId
+ @return ApiAdminRealmsRealmUsersUserIdCredentialsCredentialIdUserLabelPutRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdCredentialsCredentialIdUserLabelPut(ctx context.Context, realm string, userId string, credentialId string) ApiAdminRealmsRealmUsersUserIdCredentialsCredentialIdUserLabelPutRequest {
 	return ApiAdminRealmsRealmUsersUserIdCredentialsCredentialIdUserLabelPutRequest{
-		ApiService:   a,
-		ctx:          ctx,
-		realm:        realm,
-		userId:       userId,
+		ApiService: a,
+		ctx: ctx,
+		realm: realm,
+		userId: userId,
 		credentialId: credentialId,
 	}
 }
@@ -1514,9 +1508,9 @@ func (a *UsersAPIService) AdminRealmsRealmUsersUserIdCredentialsCredentialIdUser
 // Execute executes the request
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdCredentialsCredentialIdUserLabelPutExecute(r ApiAdminRealmsRealmUsersUserIdCredentialsCredentialIdUserLabelPutRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersUserIdCredentialsCredentialIdUserLabelPut")
@@ -1581,10 +1575,10 @@ func (a *UsersAPIService) AdminRealmsRealmUsersUserIdCredentialsCredentialIdUser
 }
 
 type ApiAdminRealmsRealmUsersUserIdCredentialsGetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *UsersAPIService
-	realm      string
-	userId     string
+	realm string
+	userId string
 }
 
 func (r ApiAdminRealmsRealmUsersUserIdCredentialsGetRequest) Execute() ([]CredentialRepresentation, *http.Response, error) {
@@ -1594,29 +1588,28 @@ func (r ApiAdminRealmsRealmUsersUserIdCredentialsGetRequest) Execute() ([]Creden
 /*
 AdminRealmsRealmUsersUserIdCredentialsGet Method for AdminRealmsRealmUsersUserIdCredentialsGet
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param userId
-	@return ApiAdminRealmsRealmUsersUserIdCredentialsGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param userId
+ @return ApiAdminRealmsRealmUsersUserIdCredentialsGetRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdCredentialsGet(ctx context.Context, realm string, userId string) ApiAdminRealmsRealmUsersUserIdCredentialsGetRequest {
 	return ApiAdminRealmsRealmUsersUserIdCredentialsGetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		userId:     userId,
+		ctx: ctx,
+		realm: realm,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	[]CredentialRepresentation
+//  @return []CredentialRepresentation
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdCredentialsGetExecute(r ApiAdminRealmsRealmUsersUserIdCredentialsGetRequest) ([]CredentialRepresentation, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []CredentialRepresentation
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []CredentialRepresentation
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersUserIdCredentialsGet")
@@ -1687,10 +1680,10 @@ func (a *UsersAPIService) AdminRealmsRealmUsersUserIdCredentialsGetExecute(r Api
 }
 
 type ApiAdminRealmsRealmUsersUserIdDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *UsersAPIService
-	realm      string
-	userId     string
+	realm string
+	userId string
 }
 
 func (r ApiAdminRealmsRealmUsersUserIdDeleteRequest) Execute() (*http.Response, error) {
@@ -1700,26 +1693,26 @@ func (r ApiAdminRealmsRealmUsersUserIdDeleteRequest) Execute() (*http.Response, 
 /*
 AdminRealmsRealmUsersUserIdDelete Delete the user
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param userId
-	@return ApiAdminRealmsRealmUsersUserIdDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param userId
+ @return ApiAdminRealmsRealmUsersUserIdDeleteRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdDelete(ctx context.Context, realm string, userId string) ApiAdminRealmsRealmUsersUserIdDeleteRequest {
 	return ApiAdminRealmsRealmUsersUserIdDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		userId:     userId,
+		ctx: ctx,
+		realm: realm,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdDeleteExecute(r ApiAdminRealmsRealmUsersUserIdDeleteRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersUserIdDelete")
@@ -1781,10 +1774,10 @@ func (a *UsersAPIService) AdminRealmsRealmUsersUserIdDeleteExecute(r ApiAdminRea
 }
 
 type ApiAdminRealmsRealmUsersUserIdDisableCredentialTypesPutRequest struct {
-	ctx         context.Context
-	ApiService  *UsersAPIService
-	realm       string
-	userId      string
+	ctx context.Context
+	ApiService *UsersAPIService
+	realm string
+	userId string
 	requestBody *[]string
 }
 
@@ -1800,26 +1793,26 @@ func (r ApiAdminRealmsRealmUsersUserIdDisableCredentialTypesPutRequest) Execute(
 /*
 AdminRealmsRealmUsersUserIdDisableCredentialTypesPut Disable all credentials for a user of a specific type
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param userId
-	@return ApiAdminRealmsRealmUsersUserIdDisableCredentialTypesPutRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param userId
+ @return ApiAdminRealmsRealmUsersUserIdDisableCredentialTypesPutRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdDisableCredentialTypesPut(ctx context.Context, realm string, userId string) ApiAdminRealmsRealmUsersUserIdDisableCredentialTypesPutRequest {
 	return ApiAdminRealmsRealmUsersUserIdDisableCredentialTypesPutRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		userId:     userId,
+		ctx: ctx,
+		realm: realm,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdDisableCredentialTypesPutExecute(r ApiAdminRealmsRealmUsersUserIdDisableCredentialTypesPutRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersUserIdDisableCredentialTypesPut")
@@ -1883,12 +1876,12 @@ func (a *UsersAPIService) AdminRealmsRealmUsersUserIdDisableCredentialTypesPutEx
 }
 
 type ApiAdminRealmsRealmUsersUserIdExecuteActionsEmailPutRequest struct {
-	ctx         context.Context
-	ApiService  *UsersAPIService
-	realm       string
-	userId      string
-	clientId    *string
-	lifespan    *int32
+	ctx context.Context
+	ApiService *UsersAPIService
+	realm string
+	userId string
+	clientId *string
+	lifespan *int32
 	redirectUri *string
 	requestBody *[]string
 }
@@ -1925,26 +1918,26 @@ AdminRealmsRealmUsersUserIdExecuteActionsEmailPut Send an email to the user with
 
 An email contains a link the user can click to perform a set of required actions. The redirectUri and clientId parameters are optional. If no redirect is given, then there will be no link back to click after actions have completed. Redirect uri must be a valid uri for the particular clientId.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param userId
-	@return ApiAdminRealmsRealmUsersUserIdExecuteActionsEmailPutRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param userId
+ @return ApiAdminRealmsRealmUsersUserIdExecuteActionsEmailPutRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdExecuteActionsEmailPut(ctx context.Context, realm string, userId string) ApiAdminRealmsRealmUsersUserIdExecuteActionsEmailPutRequest {
 	return ApiAdminRealmsRealmUsersUserIdExecuteActionsEmailPutRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		userId:     userId,
+		ctx: ctx,
+		realm: realm,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdExecuteActionsEmailPutExecute(r ApiAdminRealmsRealmUsersUserIdExecuteActionsEmailPutRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersUserIdExecuteActionsEmailPut")
@@ -2017,10 +2010,10 @@ func (a *UsersAPIService) AdminRealmsRealmUsersUserIdExecuteActionsEmailPutExecu
 }
 
 type ApiAdminRealmsRealmUsersUserIdFederatedIdentityGetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *UsersAPIService
-	realm      string
-	userId     string
+	realm string
+	userId string
 }
 
 func (r ApiAdminRealmsRealmUsersUserIdFederatedIdentityGetRequest) Execute() ([]FederatedIdentityRepresentation, *http.Response, error) {
@@ -2030,29 +2023,28 @@ func (r ApiAdminRealmsRealmUsersUserIdFederatedIdentityGetRequest) Execute() ([]
 /*
 AdminRealmsRealmUsersUserIdFederatedIdentityGet Get social logins associated with the user
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param userId
-	@return ApiAdminRealmsRealmUsersUserIdFederatedIdentityGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param userId
+ @return ApiAdminRealmsRealmUsersUserIdFederatedIdentityGetRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdFederatedIdentityGet(ctx context.Context, realm string, userId string) ApiAdminRealmsRealmUsersUserIdFederatedIdentityGetRequest {
 	return ApiAdminRealmsRealmUsersUserIdFederatedIdentityGetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		userId:     userId,
+		ctx: ctx,
+		realm: realm,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	[]FederatedIdentityRepresentation
+//  @return []FederatedIdentityRepresentation
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdFederatedIdentityGetExecute(r ApiAdminRealmsRealmUsersUserIdFederatedIdentityGetRequest) ([]FederatedIdentityRepresentation, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []FederatedIdentityRepresentation
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []FederatedIdentityRepresentation
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersUserIdFederatedIdentityGet")
@@ -2123,11 +2115,11 @@ func (a *UsersAPIService) AdminRealmsRealmUsersUserIdFederatedIdentityGetExecute
 }
 
 type ApiAdminRealmsRealmUsersUserIdFederatedIdentityProviderDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *UsersAPIService
-	realm      string
-	userId     string
-	provider   string
+	realm string
+	userId string
+	provider string
 }
 
 func (r ApiAdminRealmsRealmUsersUserIdFederatedIdentityProviderDeleteRequest) Execute() (*http.Response, error) {
@@ -2137,28 +2129,28 @@ func (r ApiAdminRealmsRealmUsersUserIdFederatedIdentityProviderDeleteRequest) Ex
 /*
 AdminRealmsRealmUsersUserIdFederatedIdentityProviderDelete Remove a social login provider from user
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param userId
-	@param provider Social login provider id
-	@return ApiAdminRealmsRealmUsersUserIdFederatedIdentityProviderDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param userId
+ @param provider Social login provider id
+ @return ApiAdminRealmsRealmUsersUserIdFederatedIdentityProviderDeleteRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdFederatedIdentityProviderDelete(ctx context.Context, realm string, userId string, provider string) ApiAdminRealmsRealmUsersUserIdFederatedIdentityProviderDeleteRequest {
 	return ApiAdminRealmsRealmUsersUserIdFederatedIdentityProviderDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		userId:     userId,
-		provider:   provider,
+		ctx: ctx,
+		realm: realm,
+		userId: userId,
+		provider: provider,
 	}
 }
 
 // Execute executes the request
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdFederatedIdentityProviderDeleteExecute(r ApiAdminRealmsRealmUsersUserIdFederatedIdentityProviderDeleteRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersUserIdFederatedIdentityProviderDelete")
@@ -2221,11 +2213,11 @@ func (a *UsersAPIService) AdminRealmsRealmUsersUserIdFederatedIdentityProviderDe
 }
 
 type ApiAdminRealmsRealmUsersUserIdFederatedIdentityProviderPostRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *UsersAPIService
-	realm      string
-	userId     string
-	provider   string
+	realm string
+	userId string
+	provider string
 }
 
 func (r ApiAdminRealmsRealmUsersUserIdFederatedIdentityProviderPostRequest) Execute() (*http.Response, error) {
@@ -2235,28 +2227,28 @@ func (r ApiAdminRealmsRealmUsersUserIdFederatedIdentityProviderPostRequest) Exec
 /*
 AdminRealmsRealmUsersUserIdFederatedIdentityProviderPost Add a social login provider to the user
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param userId
-	@param provider Social login provider id
-	@return ApiAdminRealmsRealmUsersUserIdFederatedIdentityProviderPostRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param userId
+ @param provider Social login provider id
+ @return ApiAdminRealmsRealmUsersUserIdFederatedIdentityProviderPostRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdFederatedIdentityProviderPost(ctx context.Context, realm string, userId string, provider string) ApiAdminRealmsRealmUsersUserIdFederatedIdentityProviderPostRequest {
 	return ApiAdminRealmsRealmUsersUserIdFederatedIdentityProviderPostRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		userId:     userId,
-		provider:   provider,
+		ctx: ctx,
+		realm: realm,
+		userId: userId,
+		provider: provider,
 	}
 }
 
 // Execute executes the request
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdFederatedIdentityProviderPostExecute(r ApiAdminRealmsRealmUsersUserIdFederatedIdentityProviderPostRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersUserIdFederatedIdentityProviderPost")
@@ -2319,10 +2311,10 @@ func (a *UsersAPIService) AdminRealmsRealmUsersUserIdFederatedIdentityProviderPo
 }
 
 type ApiAdminRealmsRealmUsersUserIdGetRequest struct {
-	ctx                 context.Context
-	ApiService          *UsersAPIService
-	realm               string
-	userId              string
+	ctx context.Context
+	ApiService *UsersAPIService
+	realm string
+	userId string
 	userProfileMetadata *bool
 }
 
@@ -2339,29 +2331,28 @@ func (r ApiAdminRealmsRealmUsersUserIdGetRequest) Execute() (*UserRepresentation
 /*
 AdminRealmsRealmUsersUserIdGet Get representation of the user
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param userId
-	@return ApiAdminRealmsRealmUsersUserIdGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param userId
+ @return ApiAdminRealmsRealmUsersUserIdGetRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdGet(ctx context.Context, realm string, userId string) ApiAdminRealmsRealmUsersUserIdGetRequest {
 	return ApiAdminRealmsRealmUsersUserIdGetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		userId:     userId,
+		ctx: ctx,
+		realm: realm,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	UserRepresentation
+//  @return UserRepresentation
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdGetExecute(r ApiAdminRealmsRealmUsersUserIdGetRequest) (*UserRepresentation, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *UserRepresentation
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *UserRepresentation
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersUserIdGet")
@@ -2435,11 +2426,11 @@ func (a *UsersAPIService) AdminRealmsRealmUsersUserIdGetExecute(r ApiAdminRealms
 }
 
 type ApiAdminRealmsRealmUsersUserIdGroupsCountGetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *UsersAPIService
-	realm      string
-	userId     string
-	search     *string
+	realm string
+	userId string
+	search *string
 }
 
 func (r ApiAdminRealmsRealmUsersUserIdGroupsCountGetRequest) Search(search string) ApiAdminRealmsRealmUsersUserIdGroupsCountGetRequest {
@@ -2454,29 +2445,28 @@ func (r ApiAdminRealmsRealmUsersUserIdGroupsCountGetRequest) Execute() (map[stri
 /*
 AdminRealmsRealmUsersUserIdGroupsCountGet Method for AdminRealmsRealmUsersUserIdGroupsCountGet
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param userId
-	@return ApiAdminRealmsRealmUsersUserIdGroupsCountGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param userId
+ @return ApiAdminRealmsRealmUsersUserIdGroupsCountGetRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdGroupsCountGet(ctx context.Context, realm string, userId string) ApiAdminRealmsRealmUsersUserIdGroupsCountGetRequest {
 	return ApiAdminRealmsRealmUsersUserIdGroupsCountGetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		userId:     userId,
+		ctx: ctx,
+		realm: realm,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	map[string]int64
+//  @return map[string]int64
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdGroupsCountGetExecute(r ApiAdminRealmsRealmUsersUserIdGroupsCountGetRequest) (map[string]int64, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue map[string]int64
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  map[string]int64
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersUserIdGroupsCountGet")
@@ -2550,14 +2540,14 @@ func (a *UsersAPIService) AdminRealmsRealmUsersUserIdGroupsCountGetExecute(r Api
 }
 
 type ApiAdminRealmsRealmUsersUserIdGroupsGetRequest struct {
-	ctx                 context.Context
-	ApiService          *UsersAPIService
-	realm               string
-	userId              string
+	ctx context.Context
+	ApiService *UsersAPIService
+	realm string
+	userId string
 	briefRepresentation *bool
-	first               *int32
-	max                 *int32
-	search              *string
+	first *int32
+	max *int32
+	search *string
 }
 
 func (r ApiAdminRealmsRealmUsersUserIdGroupsGetRequest) BriefRepresentation(briefRepresentation bool) ApiAdminRealmsRealmUsersUserIdGroupsGetRequest {
@@ -2587,29 +2577,28 @@ func (r ApiAdminRealmsRealmUsersUserIdGroupsGetRequest) Execute() ([]GroupRepres
 /*
 AdminRealmsRealmUsersUserIdGroupsGet Method for AdminRealmsRealmUsersUserIdGroupsGet
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param userId
-	@return ApiAdminRealmsRealmUsersUserIdGroupsGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param userId
+ @return ApiAdminRealmsRealmUsersUserIdGroupsGetRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdGroupsGet(ctx context.Context, realm string, userId string) ApiAdminRealmsRealmUsersUserIdGroupsGetRequest {
 	return ApiAdminRealmsRealmUsersUserIdGroupsGetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		userId:     userId,
+		ctx: ctx,
+		realm: realm,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	[]GroupRepresentation
+//  @return []GroupRepresentation
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdGroupsGetExecute(r ApiAdminRealmsRealmUsersUserIdGroupsGetRequest) ([]GroupRepresentation, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []GroupRepresentation
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []GroupRepresentation
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersUserIdGroupsGet")
@@ -2695,11 +2684,11 @@ func (a *UsersAPIService) AdminRealmsRealmUsersUserIdGroupsGetExecute(r ApiAdmin
 }
 
 type ApiAdminRealmsRealmUsersUserIdGroupsGroupIdDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *UsersAPIService
-	realm      string
-	userId     string
-	groupId    string
+	realm string
+	userId string
+	groupId string
 }
 
 func (r ApiAdminRealmsRealmUsersUserIdGroupsGroupIdDeleteRequest) Execute() (*http.Response, error) {
@@ -2709,28 +2698,28 @@ func (r ApiAdminRealmsRealmUsersUserIdGroupsGroupIdDeleteRequest) Execute() (*ht
 /*
 AdminRealmsRealmUsersUserIdGroupsGroupIdDelete Method for AdminRealmsRealmUsersUserIdGroupsGroupIdDelete
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param userId
-	@param groupId
-	@return ApiAdminRealmsRealmUsersUserIdGroupsGroupIdDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param userId
+ @param groupId
+ @return ApiAdminRealmsRealmUsersUserIdGroupsGroupIdDeleteRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdGroupsGroupIdDelete(ctx context.Context, realm string, userId string, groupId string) ApiAdminRealmsRealmUsersUserIdGroupsGroupIdDeleteRequest {
 	return ApiAdminRealmsRealmUsersUserIdGroupsGroupIdDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		userId:     userId,
-		groupId:    groupId,
+		ctx: ctx,
+		realm: realm,
+		userId: userId,
+		groupId: groupId,
 	}
 }
 
 // Execute executes the request
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdGroupsGroupIdDeleteExecute(r ApiAdminRealmsRealmUsersUserIdGroupsGroupIdDeleteRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersUserIdGroupsGroupIdDelete")
@@ -2793,11 +2782,11 @@ func (a *UsersAPIService) AdminRealmsRealmUsersUserIdGroupsGroupIdDeleteExecute(
 }
 
 type ApiAdminRealmsRealmUsersUserIdGroupsGroupIdPutRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *UsersAPIService
-	realm      string
-	userId     string
-	groupId    string
+	realm string
+	userId string
+	groupId string
 }
 
 func (r ApiAdminRealmsRealmUsersUserIdGroupsGroupIdPutRequest) Execute() (*http.Response, error) {
@@ -2807,28 +2796,28 @@ func (r ApiAdminRealmsRealmUsersUserIdGroupsGroupIdPutRequest) Execute() (*http.
 /*
 AdminRealmsRealmUsersUserIdGroupsGroupIdPut Method for AdminRealmsRealmUsersUserIdGroupsGroupIdPut
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param userId
-	@param groupId
-	@return ApiAdminRealmsRealmUsersUserIdGroupsGroupIdPutRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param userId
+ @param groupId
+ @return ApiAdminRealmsRealmUsersUserIdGroupsGroupIdPutRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdGroupsGroupIdPut(ctx context.Context, realm string, userId string, groupId string) ApiAdminRealmsRealmUsersUserIdGroupsGroupIdPutRequest {
 	return ApiAdminRealmsRealmUsersUserIdGroupsGroupIdPutRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		userId:     userId,
-		groupId:    groupId,
+		ctx: ctx,
+		realm: realm,
+		userId: userId,
+		groupId: groupId,
 	}
 }
 
 // Execute executes the request
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdGroupsGroupIdPutExecute(r ApiAdminRealmsRealmUsersUserIdGroupsGroupIdPutRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersUserIdGroupsGroupIdPut")
@@ -2891,10 +2880,10 @@ func (a *UsersAPIService) AdminRealmsRealmUsersUserIdGroupsGroupIdPutExecute(r A
 }
 
 type ApiAdminRealmsRealmUsersUserIdImpersonationPostRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *UsersAPIService
-	realm      string
-	userId     string
+	realm string
+	userId string
 }
 
 func (r ApiAdminRealmsRealmUsersUserIdImpersonationPostRequest) Execute() (map[string]interface{}, *http.Response, error) {
@@ -2904,29 +2893,28 @@ func (r ApiAdminRealmsRealmUsersUserIdImpersonationPostRequest) Execute() (map[s
 /*
 AdminRealmsRealmUsersUserIdImpersonationPost Impersonate the user
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param userId
-	@return ApiAdminRealmsRealmUsersUserIdImpersonationPostRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param userId
+ @return ApiAdminRealmsRealmUsersUserIdImpersonationPostRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdImpersonationPost(ctx context.Context, realm string, userId string) ApiAdminRealmsRealmUsersUserIdImpersonationPostRequest {
 	return ApiAdminRealmsRealmUsersUserIdImpersonationPostRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		userId:     userId,
+		ctx: ctx,
+		realm: realm,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	map[string]interface{}
+//  @return map[string]interface{}
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdImpersonationPostExecute(r ApiAdminRealmsRealmUsersUserIdImpersonationPostRequest) (map[string]interface{}, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue map[string]interface{}
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersUserIdImpersonationPost")
@@ -2997,10 +2985,10 @@ func (a *UsersAPIService) AdminRealmsRealmUsersUserIdImpersonationPostExecute(r 
 }
 
 type ApiAdminRealmsRealmUsersUserIdLogoutPostRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *UsersAPIService
-	realm      string
-	userId     string
+	realm string
+	userId string
 }
 
 func (r ApiAdminRealmsRealmUsersUserIdLogoutPostRequest) Execute() (*http.Response, error) {
@@ -3010,26 +2998,26 @@ func (r ApiAdminRealmsRealmUsersUserIdLogoutPostRequest) Execute() (*http.Respon
 /*
 AdminRealmsRealmUsersUserIdLogoutPost Remove all user sessions associated with the user Also send notification to all clients that have an admin URL to invalidate the sessions for the particular user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param userId
-	@return ApiAdminRealmsRealmUsersUserIdLogoutPostRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param userId
+ @return ApiAdminRealmsRealmUsersUserIdLogoutPostRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdLogoutPost(ctx context.Context, realm string, userId string) ApiAdminRealmsRealmUsersUserIdLogoutPostRequest {
 	return ApiAdminRealmsRealmUsersUserIdLogoutPostRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		userId:     userId,
+		ctx: ctx,
+		realm: realm,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdLogoutPostExecute(r ApiAdminRealmsRealmUsersUserIdLogoutPostRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersUserIdLogoutPost")
@@ -3091,10 +3079,10 @@ func (a *UsersAPIService) AdminRealmsRealmUsersUserIdLogoutPostExecute(r ApiAdmi
 }
 
 type ApiAdminRealmsRealmUsersUserIdOfflineSessionsClientUuidGetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *UsersAPIService
-	realm      string
-	userId     string
+	realm string
+	userId string
 	clientUuid string
 }
 
@@ -3105,31 +3093,30 @@ func (r ApiAdminRealmsRealmUsersUserIdOfflineSessionsClientUuidGetRequest) Execu
 /*
 AdminRealmsRealmUsersUserIdOfflineSessionsClientUuidGet Get offline sessions associated with the user and client
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param userId
-	@param clientUuid
-	@return ApiAdminRealmsRealmUsersUserIdOfflineSessionsClientUuidGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param userId
+ @param clientUuid
+ @return ApiAdminRealmsRealmUsersUserIdOfflineSessionsClientUuidGetRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdOfflineSessionsClientUuidGet(ctx context.Context, realm string, userId string, clientUuid string) ApiAdminRealmsRealmUsersUserIdOfflineSessionsClientUuidGetRequest {
 	return ApiAdminRealmsRealmUsersUserIdOfflineSessionsClientUuidGetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		userId:     userId,
+		ctx: ctx,
+		realm: realm,
+		userId: userId,
 		clientUuid: clientUuid,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	[]UserSessionRepresentation
+//  @return []UserSessionRepresentation
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdOfflineSessionsClientUuidGetExecute(r ApiAdminRealmsRealmUsersUserIdOfflineSessionsClientUuidGetRequest) ([]UserSessionRepresentation, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []UserSessionRepresentation
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []UserSessionRepresentation
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersUserIdOfflineSessionsClientUuidGet")
@@ -3201,10 +3188,10 @@ func (a *UsersAPIService) AdminRealmsRealmUsersUserIdOfflineSessionsClientUuidGe
 }
 
 type ApiAdminRealmsRealmUsersUserIdPutRequest struct {
-	ctx                context.Context
-	ApiService         *UsersAPIService
-	realm              string
-	userId             string
+	ctx context.Context
+	ApiService *UsersAPIService
+	realm string
+	userId string
 	userRepresentation *UserRepresentation
 }
 
@@ -3220,26 +3207,26 @@ func (r ApiAdminRealmsRealmUsersUserIdPutRequest) Execute() (*http.Response, err
 /*
 AdminRealmsRealmUsersUserIdPut Update the user
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param userId
-	@return ApiAdminRealmsRealmUsersUserIdPutRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param userId
+ @return ApiAdminRealmsRealmUsersUserIdPutRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdPut(ctx context.Context, realm string, userId string) ApiAdminRealmsRealmUsersUserIdPutRequest {
 	return ApiAdminRealmsRealmUsersUserIdPutRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		userId:     userId,
+		ctx: ctx,
+		realm: realm,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdPutExecute(r ApiAdminRealmsRealmUsersUserIdPutRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersUserIdPut")
@@ -3303,11 +3290,11 @@ func (a *UsersAPIService) AdminRealmsRealmUsersUserIdPutExecute(r ApiAdminRealms
 }
 
 type ApiAdminRealmsRealmUsersUserIdResetPasswordEmailPutRequest struct {
-	ctx         context.Context
-	ApiService  *UsersAPIService
-	realm       string
-	userId      string
-	clientId    *string
+	ctx context.Context
+	ApiService *UsersAPIService
+	realm string
+	userId string
+	clientId *string
 	redirectUri *string
 }
 
@@ -3332,19 +3319,19 @@ AdminRealmsRealmUsersUserIdResetPasswordEmailPut Send an email to the user with 
 
 The redirectUri and clientId parameters are optional. The default for the redirect is the account client. This endpoint has been deprecated.  Please use the execute-actions-email passing a list with UPDATE_PASSWORD within it.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param userId
-	@return ApiAdminRealmsRealmUsersUserIdResetPasswordEmailPutRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param userId
+ @return ApiAdminRealmsRealmUsersUserIdResetPasswordEmailPutRequest
 
 Deprecated
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdResetPasswordEmailPut(ctx context.Context, realm string, userId string) ApiAdminRealmsRealmUsersUserIdResetPasswordEmailPutRequest {
 	return ApiAdminRealmsRealmUsersUserIdResetPasswordEmailPutRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		userId:     userId,
+		ctx: ctx,
+		realm: realm,
+		userId: userId,
 	}
 }
 
@@ -3352,9 +3339,9 @@ func (a *UsersAPIService) AdminRealmsRealmUsersUserIdResetPasswordEmailPut(ctx c
 // Deprecated
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdResetPasswordEmailPutExecute(r ApiAdminRealmsRealmUsersUserIdResetPasswordEmailPutRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersUserIdResetPasswordEmailPut")
@@ -3422,10 +3409,10 @@ func (a *UsersAPIService) AdminRealmsRealmUsersUserIdResetPasswordEmailPutExecut
 }
 
 type ApiAdminRealmsRealmUsersUserIdResetPasswordPutRequest struct {
-	ctx                      context.Context
-	ApiService               *UsersAPIService
-	realm                    string
-	userId                   string
+	ctx context.Context
+	ApiService *UsersAPIService
+	realm string
+	userId string
 	credentialRepresentation *CredentialRepresentation
 }
 
@@ -3441,26 +3428,26 @@ func (r ApiAdminRealmsRealmUsersUserIdResetPasswordPutRequest) Execute() (*http.
 /*
 AdminRealmsRealmUsersUserIdResetPasswordPut Set up a new password for the user.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param userId
-	@return ApiAdminRealmsRealmUsersUserIdResetPasswordPutRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param userId
+ @return ApiAdminRealmsRealmUsersUserIdResetPasswordPutRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdResetPasswordPut(ctx context.Context, realm string, userId string) ApiAdminRealmsRealmUsersUserIdResetPasswordPutRequest {
 	return ApiAdminRealmsRealmUsersUserIdResetPasswordPutRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		userId:     userId,
+		ctx: ctx,
+		realm: realm,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdResetPasswordPutExecute(r ApiAdminRealmsRealmUsersUserIdResetPasswordPutRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersUserIdResetPasswordPut")
@@ -3524,12 +3511,12 @@ func (a *UsersAPIService) AdminRealmsRealmUsersUserIdResetPasswordPutExecute(r A
 }
 
 type ApiAdminRealmsRealmUsersUserIdSendVerifyEmailPutRequest struct {
-	ctx         context.Context
-	ApiService  *UsersAPIService
-	realm       string
-	userId      string
-	clientId    *string
-	lifespan    *int32
+	ctx context.Context
+	ApiService *UsersAPIService
+	realm string
+	userId string
+	clientId *string
+	lifespan *int32
 	redirectUri *string
 }
 
@@ -3560,26 +3547,26 @@ AdminRealmsRealmUsersUserIdSendVerifyEmailPut Send an email-verification email t
 
 The redirectUri, clientId and lifespan parameters are optional. The default for the redirect is the account client. The default for the lifespan is 12 hours
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param userId
-	@return ApiAdminRealmsRealmUsersUserIdSendVerifyEmailPutRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param userId
+ @return ApiAdminRealmsRealmUsersUserIdSendVerifyEmailPutRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdSendVerifyEmailPut(ctx context.Context, realm string, userId string) ApiAdminRealmsRealmUsersUserIdSendVerifyEmailPutRequest {
 	return ApiAdminRealmsRealmUsersUserIdSendVerifyEmailPutRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		userId:     userId,
+		ctx: ctx,
+		realm: realm,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdSendVerifyEmailPutExecute(r ApiAdminRealmsRealmUsersUserIdSendVerifyEmailPutRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersUserIdSendVerifyEmailPut")
@@ -3650,10 +3637,10 @@ func (a *UsersAPIService) AdminRealmsRealmUsersUserIdSendVerifyEmailPutExecute(r
 }
 
 type ApiAdminRealmsRealmUsersUserIdSessionsGetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *UsersAPIService
-	realm      string
-	userId     string
+	realm string
+	userId string
 }
 
 func (r ApiAdminRealmsRealmUsersUserIdSessionsGetRequest) Execute() ([]UserSessionRepresentation, *http.Response, error) {
@@ -3663,29 +3650,28 @@ func (r ApiAdminRealmsRealmUsersUserIdSessionsGetRequest) Execute() ([]UserSessi
 /*
 AdminRealmsRealmUsersUserIdSessionsGet Get sessions associated with the user
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param userId
-	@return ApiAdminRealmsRealmUsersUserIdSessionsGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param userId
+ @return ApiAdminRealmsRealmUsersUserIdSessionsGetRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdSessionsGet(ctx context.Context, realm string, userId string) ApiAdminRealmsRealmUsersUserIdSessionsGetRequest {
 	return ApiAdminRealmsRealmUsersUserIdSessionsGetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		userId:     userId,
+		ctx: ctx,
+		realm: realm,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	[]UserSessionRepresentation
+//  @return []UserSessionRepresentation
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdSessionsGetExecute(r ApiAdminRealmsRealmUsersUserIdSessionsGetRequest) ([]UserSessionRepresentation, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []UserSessionRepresentation
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []UserSessionRepresentation
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersUserIdSessionsGet")
@@ -3756,10 +3742,10 @@ func (a *UsersAPIService) AdminRealmsRealmUsersUserIdSessionsGetExecute(r ApiAdm
 }
 
 type ApiAdminRealmsRealmUsersUserIdUnmanagedAttributesGetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *UsersAPIService
-	realm      string
-	userId     string
+	realm string
+	userId string
 }
 
 func (r ApiAdminRealmsRealmUsersUserIdUnmanagedAttributesGetRequest) Execute() (*map[string][]string, *http.Response, error) {
@@ -3769,29 +3755,28 @@ func (r ApiAdminRealmsRealmUsersUserIdUnmanagedAttributesGetRequest) Execute() (
 /*
 AdminRealmsRealmUsersUserIdUnmanagedAttributesGet Method for AdminRealmsRealmUsersUserIdUnmanagedAttributesGet
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param userId
-	@return ApiAdminRealmsRealmUsersUserIdUnmanagedAttributesGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param userId
+ @return ApiAdminRealmsRealmUsersUserIdUnmanagedAttributesGetRequest
 */
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdUnmanagedAttributesGet(ctx context.Context, realm string, userId string) ApiAdminRealmsRealmUsersUserIdUnmanagedAttributesGetRequest {
 	return ApiAdminRealmsRealmUsersUserIdUnmanagedAttributesGetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		userId:     userId,
+		ctx: ctx,
+		realm: realm,
+		userId: userId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	map[string][]string
+//  @return map[string][]string
 func (a *UsersAPIService) AdminRealmsRealmUsersUserIdUnmanagedAttributesGetExecute(r ApiAdminRealmsRealmUsersUserIdUnmanagedAttributesGetRequest) (*map[string][]string, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *map[string][]string
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *map[string][]string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.AdminRealmsRealmUsersUserIdUnmanagedAttributesGet")

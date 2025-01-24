@@ -11,10 +11,10 @@ package keycloak_admin_client
 
 import (
 	"context"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func Test_keycloak_admin_client_GroupsAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_keycloak_admin_client_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService AdminRealmsRealmGroupsCountGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 
@@ -38,7 +38,7 @@ func Test_keycloak_admin_client_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService AdminRealmsRealmGroupsGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 
@@ -52,7 +52,7 @@ func Test_keycloak_admin_client_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService AdminRealmsRealmGroupsGroupIdChildrenGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var groupId string
@@ -67,7 +67,7 @@ func Test_keycloak_admin_client_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService AdminRealmsRealmGroupsGroupIdChildrenPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var groupId string
@@ -81,7 +81,7 @@ func Test_keycloak_admin_client_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService AdminRealmsRealmGroupsGroupIdDelete", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var groupId string
@@ -95,7 +95,7 @@ func Test_keycloak_admin_client_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService AdminRealmsRealmGroupsGroupIdGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var groupId string
@@ -110,7 +110,7 @@ func Test_keycloak_admin_client_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService AdminRealmsRealmGroupsGroupIdManagementPermissionsGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var groupId string
@@ -125,7 +125,7 @@ func Test_keycloak_admin_client_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService AdminRealmsRealmGroupsGroupIdManagementPermissionsPut", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var groupId string
@@ -140,7 +140,7 @@ func Test_keycloak_admin_client_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService AdminRealmsRealmGroupsGroupIdMembersGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var groupId string
@@ -155,7 +155,7 @@ func Test_keycloak_admin_client_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService AdminRealmsRealmGroupsGroupIdPut", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var groupId string
@@ -169,7 +169,7 @@ func Test_keycloak_admin_client_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService AdminRealmsRealmGroupsPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 

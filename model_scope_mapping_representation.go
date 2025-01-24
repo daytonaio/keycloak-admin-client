@@ -19,12 +19,12 @@ var _ MappedNullable = &ScopeMappingRepresentation{}
 
 // ScopeMappingRepresentation struct for ScopeMappingRepresentation
 type ScopeMappingRepresentation struct {
-	Self   *string `json:"self,omitempty"`
+	Self *string `json:"self,omitempty"`
 	Client *string `json:"client,omitempty"`
 	// Deprecated
-	ClientTemplate *string  `json:"clientTemplate,omitempty"`
-	ClientScope    *string  `json:"clientScope,omitempty"`
-	Roles          []string `json:"roles,omitempty"`
+	ClientTemplate *string `json:"clientTemplate,omitempty"`
+	ClientScope *string `json:"clientScope,omitempty"`
+	Roles []string `json:"roles,omitempty"`
 }
 
 // NewScopeMappingRepresentation instantiates a new ScopeMappingRepresentation object
@@ -208,7 +208,7 @@ func (o *ScopeMappingRepresentation) SetRoles(v []string) {
 }
 
 func (o ScopeMappingRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -270,3 +270,5 @@ func (v *NullableScopeMappingRepresentation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -19,23 +19,23 @@ var _ MappedNullable = &IdentityProviderRepresentation{}
 
 // IdentityProviderRepresentation struct for IdentityProviderRepresentation
 type IdentityProviderRepresentation struct {
-	Alias       *string `json:"alias,omitempty"`
+	Alias *string `json:"alias,omitempty"`
 	DisplayName *string `json:"displayName,omitempty"`
-	InternalId  *string `json:"internalId,omitempty"`
-	ProviderId  *string `json:"providerId,omitempty"`
-	Enabled     *bool   `json:"enabled,omitempty"`
+	InternalId *string `json:"internalId,omitempty"`
+	ProviderId *string `json:"providerId,omitempty"`
+	Enabled *bool `json:"enabled,omitempty"`
 	// Deprecated
-	UpdateProfileFirstLoginMode *string            `json:"updateProfileFirstLoginMode,omitempty"`
-	TrustEmail                  *bool              `json:"trustEmail,omitempty"`
-	StoreToken                  *bool              `json:"storeToken,omitempty"`
-	AddReadTokenRoleOnCreate    *bool              `json:"addReadTokenRoleOnCreate,omitempty"`
-	AuthenticateByDefault       *bool              `json:"authenticateByDefault,omitempty"`
-	LinkOnly                    *bool              `json:"linkOnly,omitempty"`
-	HideOnLogin                 *bool              `json:"hideOnLogin,omitempty"`
-	FirstBrokerLoginFlowAlias   *string            `json:"firstBrokerLoginFlowAlias,omitempty"`
-	PostBrokerLoginFlowAlias    *string            `json:"postBrokerLoginFlowAlias,omitempty"`
-	OrganizationId              *string            `json:"organizationId,omitempty"`
-	Config                      *map[string]string `json:"config,omitempty"`
+	UpdateProfileFirstLoginMode *string `json:"updateProfileFirstLoginMode,omitempty"`
+	TrustEmail *bool `json:"trustEmail,omitempty"`
+	StoreToken *bool `json:"storeToken,omitempty"`
+	AddReadTokenRoleOnCreate *bool `json:"addReadTokenRoleOnCreate,omitempty"`
+	AuthenticateByDefault *bool `json:"authenticateByDefault,omitempty"`
+	LinkOnly *bool `json:"linkOnly,omitempty"`
+	HideOnLogin *bool `json:"hideOnLogin,omitempty"`
+	FirstBrokerLoginFlowAlias *string `json:"firstBrokerLoginFlowAlias,omitempty"`
+	PostBrokerLoginFlowAlias *string `json:"postBrokerLoginFlowAlias,omitempty"`
+	OrganizationId *string `json:"organizationId,omitempty"`
+	Config *map[string]string `json:"config,omitempty"`
 	// Deprecated
 	UpdateProfileFirstLogin *bool `json:"updateProfileFirstLogin,omitempty"`
 }
@@ -608,7 +608,7 @@ func (o *IdentityProviderRepresentation) SetUpdateProfileFirstLogin(v bool) {
 }
 
 func (o IdentityProviderRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -706,3 +706,5 @@ func (v *NullableIdentityProviderRepresentation) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

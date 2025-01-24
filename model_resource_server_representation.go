@@ -19,15 +19,16 @@ var _ MappedNullable = &ResourceServerRepresentation{}
 
 // ResourceServerRepresentation struct for ResourceServerRepresentation
 type ResourceServerRepresentation struct {
-	Id                            *string                  `json:"id,omitempty"`
-	ClientId                      *string                  `json:"clientId,omitempty"`
-	Name                          *string                  `json:"name,omitempty"`
-	AllowRemoteResourceManagement *bool                    `json:"allowRemoteResourceManagement,omitempty"`
-	PolicyEnforcementMode         *PolicyEnforcementMode   `json:"policyEnforcementMode,omitempty"`
-	Resources                     []ResourceRepresentation `json:"resources,omitempty"`
-	Policies                      []PolicyRepresentation   `json:"policies,omitempty"`
-	Scopes                        []ScopeRepresentation    `json:"scopes,omitempty"`
-	DecisionStrategy              *DecisionStrategy        `json:"decisionStrategy,omitempty"`
+	Id *string `json:"id,omitempty"`
+	ClientId *string `json:"clientId,omitempty"`
+	Name *string `json:"name,omitempty"`
+	AllowRemoteResourceManagement *bool `json:"allowRemoteResourceManagement,omitempty"`
+	PolicyEnforcementMode *PolicyEnforcementMode `json:"policyEnforcementMode,omitempty"`
+	Resources []ResourceRepresentation `json:"resources,omitempty"`
+	Policies []PolicyRepresentation `json:"policies,omitempty"`
+	Scopes []ScopeRepresentation `json:"scopes,omitempty"`
+	DecisionStrategy *DecisionStrategy `json:"decisionStrategy,omitempty"`
+	AuthorizationSchema *AuthorizationSchema `json:"authorizationSchema,omitempty"`
 }
 
 // NewResourceServerRepresentation instantiates a new ResourceServerRepresentation object
@@ -335,8 +336,40 @@ func (o *ResourceServerRepresentation) SetDecisionStrategy(v DecisionStrategy) {
 	o.DecisionStrategy = &v
 }
 
+// GetAuthorizationSchema returns the AuthorizationSchema field value if set, zero value otherwise.
+func (o *ResourceServerRepresentation) GetAuthorizationSchema() AuthorizationSchema {
+	if o == nil || IsNil(o.AuthorizationSchema) {
+		var ret AuthorizationSchema
+		return ret
+	}
+	return *o.AuthorizationSchema
+}
+
+// GetAuthorizationSchemaOk returns a tuple with the AuthorizationSchema field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ResourceServerRepresentation) GetAuthorizationSchemaOk() (*AuthorizationSchema, bool) {
+	if o == nil || IsNil(o.AuthorizationSchema) {
+		return nil, false
+	}
+	return o.AuthorizationSchema, true
+}
+
+// HasAuthorizationSchema returns a boolean if a field has been set.
+func (o *ResourceServerRepresentation) HasAuthorizationSchema() bool {
+	if o != nil && !IsNil(o.AuthorizationSchema) {
+		return true
+	}
+
+	return false
+}
+
+// SetAuthorizationSchema gets a reference to the given AuthorizationSchema and assigns it to the AuthorizationSchema field.
+func (o *ResourceServerRepresentation) SetAuthorizationSchema(v AuthorizationSchema) {
+	o.AuthorizationSchema = &v
+}
+
 func (o ResourceServerRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -371,6 +404,9 @@ func (o ResourceServerRepresentation) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.DecisionStrategy) {
 		toSerialize["decisionStrategy"] = o.DecisionStrategy
+	}
+	if !IsNil(o.AuthorizationSchema) {
+		toSerialize["authorizationSchema"] = o.AuthorizationSchema
 	}
 	return toSerialize, nil
 }
@@ -410,3 +446,5 @@ func (v *NullableResourceServerRepresentation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

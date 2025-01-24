@@ -19,14 +19,14 @@ var _ MappedNullable = &UserProfileAttributeMetadata{}
 
 // UserProfileAttributeMetadata struct for UserProfileAttributeMetadata
 type UserProfileAttributeMetadata struct {
-	Name        *string                            `json:"name,omitempty"`
-	DisplayName *string                            `json:"displayName,omitempty"`
-	Required    *bool                              `json:"required,omitempty"`
-	ReadOnly    *bool                              `json:"readOnly,omitempty"`
-	Annotations map[string]interface{}             `json:"annotations,omitempty"`
-	Validators  *map[string]map[string]interface{} `json:"validators,omitempty"`
-	Group       *string                            `json:"group,omitempty"`
-	Multivalued *bool                              `json:"multivalued,omitempty"`
+	Name *string `json:"name,omitempty"`
+	DisplayName *string `json:"displayName,omitempty"`
+	Required *bool `json:"required,omitempty"`
+	ReadOnly *bool `json:"readOnly,omitempty"`
+	Annotations map[string]interface{} `json:"annotations,omitempty"`
+	Validators *map[string]map[string]interface{} `json:"validators,omitempty"`
+	Group *string `json:"group,omitempty"`
+	Multivalued *bool `json:"multivalued,omitempty"`
 }
 
 // NewUserProfileAttributeMetadata instantiates a new UserProfileAttributeMetadata object
@@ -303,7 +303,7 @@ func (o *UserProfileAttributeMetadata) SetMultivalued(v bool) {
 }
 
 func (o UserProfileAttributeMetadata) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -374,3 +374,5 @@ func (v *NullableUserProfileAttributeMetadata) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+
