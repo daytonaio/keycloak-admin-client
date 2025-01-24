@@ -19,15 +19,15 @@ var _ MappedNullable = &AdminEventRepresentation{}
 
 // AdminEventRepresentation struct for AdminEventRepresentation
 type AdminEventRepresentation struct {
-	Time           *int64                     `json:"time,omitempty"`
-	RealmId        *string                    `json:"realmId,omitempty"`
-	AuthDetails    *AuthDetailsRepresentation `json:"authDetails,omitempty"`
-	OperationType  *string                    `json:"operationType,omitempty"`
-	ResourceType   *string                    `json:"resourceType,omitempty"`
-	ResourcePath   *string                    `json:"resourcePath,omitempty"`
-	Representation *string                    `json:"representation,omitempty"`
-	Error          *string                    `json:"error,omitempty"`
-	Details        *map[string]string         `json:"details,omitempty"`
+	Time *int64 `json:"time,omitempty"`
+	RealmId *string `json:"realmId,omitempty"`
+	AuthDetails *AuthDetailsRepresentation `json:"authDetails,omitempty"`
+	OperationType *string `json:"operationType,omitempty"`
+	ResourceType *string `json:"resourceType,omitempty"`
+	ResourcePath *string `json:"resourcePath,omitempty"`
+	Representation *string `json:"representation,omitempty"`
+	Error *string `json:"error,omitempty"`
+	Details *map[string]string `json:"details,omitempty"`
 }
 
 // NewAdminEventRepresentation instantiates a new AdminEventRepresentation object
@@ -336,7 +336,7 @@ func (o *AdminEventRepresentation) SetDetails(v map[string]string) {
 }
 
 func (o AdminEventRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -410,3 +410,5 @@ func (v *NullableAdminEventRepresentation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

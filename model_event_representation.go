@@ -19,15 +19,15 @@ var _ MappedNullable = &EventRepresentation{}
 
 // EventRepresentation struct for EventRepresentation
 type EventRepresentation struct {
-	Time      *int64             `json:"time,omitempty"`
-	Type      *string            `json:"type,omitempty"`
-	RealmId   *string            `json:"realmId,omitempty"`
-	ClientId  *string            `json:"clientId,omitempty"`
-	UserId    *string            `json:"userId,omitempty"`
-	SessionId *string            `json:"sessionId,omitempty"`
-	IpAddress *string            `json:"ipAddress,omitempty"`
-	Error     *string            `json:"error,omitempty"`
-	Details   *map[string]string `json:"details,omitempty"`
+	Time *int64 `json:"time,omitempty"`
+	Type *string `json:"type,omitempty"`
+	RealmId *string `json:"realmId,omitempty"`
+	ClientId *string `json:"clientId,omitempty"`
+	UserId *string `json:"userId,omitempty"`
+	SessionId *string `json:"sessionId,omitempty"`
+	IpAddress *string `json:"ipAddress,omitempty"`
+	Error *string `json:"error,omitempty"`
+	Details *map[string]string `json:"details,omitempty"`
 }
 
 // NewEventRepresentation instantiates a new EventRepresentation object
@@ -336,7 +336,7 @@ func (o *EventRepresentation) SetDetails(v map[string]string) {
 }
 
 func (o EventRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -410,3 +410,5 @@ func (v *NullableEventRepresentation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

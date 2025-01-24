@@ -19,16 +19,16 @@ var _ MappedNullable = &OrganizationRepresentation{}
 
 // OrganizationRepresentation struct for OrganizationRepresentation
 type OrganizationRepresentation struct {
-	Id                *string                            `json:"id,omitempty"`
-	Name              *string                            `json:"name,omitempty"`
-	Alias             *string                            `json:"alias,omitempty"`
-	Enabled           *bool                              `json:"enabled,omitempty"`
-	Description       *string                            `json:"description,omitempty"`
-	RedirectUrl       *string                            `json:"redirectUrl,omitempty"`
-	Attributes        *map[string][]string               `json:"attributes,omitempty"`
-	Domains           []OrganizationDomainRepresentation `json:"domains,omitempty"`
-	Members           []MemberRepresentation             `json:"members,omitempty"`
-	IdentityProviders []IdentityProviderRepresentation   `json:"identityProviders,omitempty"`
+	Id *string `json:"id,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Alias *string `json:"alias,omitempty"`
+	Enabled *bool `json:"enabled,omitempty"`
+	Description *string `json:"description,omitempty"`
+	RedirectUrl *string `json:"redirectUrl,omitempty"`
+	Attributes *map[string][]string `json:"attributes,omitempty"`
+	Domains []OrganizationDomainRepresentation `json:"domains,omitempty"`
+	Members []MemberRepresentation `json:"members,omitempty"`
+	IdentityProviders []IdentityProviderRepresentation `json:"identityProviders,omitempty"`
 }
 
 // NewOrganizationRepresentation instantiates a new OrganizationRepresentation object
@@ -369,7 +369,7 @@ func (o *OrganizationRepresentation) SetIdentityProviders(v []IdentityProviderRe
 }
 
 func (o OrganizationRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -446,3 +446,5 @@ func (v *NullableOrganizationRepresentation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

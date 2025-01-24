@@ -19,20 +19,20 @@ var _ MappedNullable = &AuthenticationExecutionInfoRepresentation{}
 
 // AuthenticationExecutionInfoRepresentation struct for AuthenticationExecutionInfoRepresentation
 type AuthenticationExecutionInfoRepresentation struct {
-	Id                   *string  `json:"id,omitempty"`
-	Requirement          *string  `json:"requirement,omitempty"`
-	DisplayName          *string  `json:"displayName,omitempty"`
-	Alias                *string  `json:"alias,omitempty"`
-	Description          *string  `json:"description,omitempty"`
-	RequirementChoices   []string `json:"requirementChoices,omitempty"`
-	Configurable         *bool    `json:"configurable,omitempty"`
-	AuthenticationFlow   *bool    `json:"authenticationFlow,omitempty"`
-	ProviderId           *string  `json:"providerId,omitempty"`
-	AuthenticationConfig *string  `json:"authenticationConfig,omitempty"`
-	FlowId               *string  `json:"flowId,omitempty"`
-	Level                *int32   `json:"level,omitempty"`
-	Index                *int32   `json:"index,omitempty"`
-	Priority             *int32   `json:"priority,omitempty"`
+	Id *string `json:"id,omitempty"`
+	Requirement *string `json:"requirement,omitempty"`
+	DisplayName *string `json:"displayName,omitempty"`
+	Alias *string `json:"alias,omitempty"`
+	Description *string `json:"description,omitempty"`
+	RequirementChoices []string `json:"requirementChoices,omitempty"`
+	Configurable *bool `json:"configurable,omitempty"`
+	AuthenticationFlow *bool `json:"authenticationFlow,omitempty"`
+	ProviderId *string `json:"providerId,omitempty"`
+	AuthenticationConfig *string `json:"authenticationConfig,omitempty"`
+	FlowId *string `json:"flowId,omitempty"`
+	Level *int32 `json:"level,omitempty"`
+	Index *int32 `json:"index,omitempty"`
+	Priority *int32 `json:"priority,omitempty"`
 }
 
 // NewAuthenticationExecutionInfoRepresentation instantiates a new AuthenticationExecutionInfoRepresentation object
@@ -501,7 +501,7 @@ func (o *AuthenticationExecutionInfoRepresentation) SetPriority(v int32) {
 }
 
 func (o AuthenticationExecutionInfoRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -590,3 +590,5 @@ func (v *NullableAuthenticationExecutionInfoRepresentation) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

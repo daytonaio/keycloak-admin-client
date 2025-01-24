@@ -19,10 +19,10 @@ var _ MappedNullable = &IdentityProviderMapperTypeRepresentation{}
 
 // IdentityProviderMapperTypeRepresentation struct for IdentityProviderMapperTypeRepresentation
 type IdentityProviderMapperTypeRepresentation struct {
-	Id         *string                        `json:"id,omitempty"`
-	Name       *string                        `json:"name,omitempty"`
-	Category   *string                        `json:"category,omitempty"`
-	HelpText   *string                        `json:"helpText,omitempty"`
+	Id *string `json:"id,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Category *string `json:"category,omitempty"`
+	HelpText *string `json:"helpText,omitempty"`
 	Properties []ConfigPropertyRepresentation `json:"properties,omitempty"`
 }
 
@@ -204,7 +204,7 @@ func (o *IdentityProviderMapperTypeRepresentation) SetProperties(v []ConfigPrope
 }
 
 func (o IdentityProviderMapperTypeRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -266,3 +266,5 @@ func (v *NullableIdentityProviderMapperTypeRepresentation) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

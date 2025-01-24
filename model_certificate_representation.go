@@ -19,10 +19,10 @@ var _ MappedNullable = &CertificateRepresentation{}
 
 // CertificateRepresentation struct for CertificateRepresentation
 type CertificateRepresentation struct {
-	PrivateKey  *string `json:"privateKey,omitempty"`
-	PublicKey   *string `json:"publicKey,omitempty"`
+	PrivateKey *string `json:"privateKey,omitempty"`
+	PublicKey *string `json:"publicKey,omitempty"`
 	Certificate *string `json:"certificate,omitempty"`
-	Kid         *string `json:"kid,omitempty"`
+	Kid *string `json:"kid,omitempty"`
 }
 
 // NewCertificateRepresentation instantiates a new CertificateRepresentation object
@@ -171,7 +171,7 @@ func (o *CertificateRepresentation) SetKid(v string) {
 }
 
 func (o CertificateRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -230,3 +230,5 @@ func (v *NullableCertificateRepresentation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

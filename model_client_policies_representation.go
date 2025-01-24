@@ -19,7 +19,7 @@ var _ MappedNullable = &ClientPoliciesRepresentation{}
 
 // ClientPoliciesRepresentation struct for ClientPoliciesRepresentation
 type ClientPoliciesRepresentation struct {
-	Policies       []ClientPolicyRepresentation `json:"policies,omitempty"`
+	Policies []ClientPolicyRepresentation `json:"policies,omitempty"`
 	GlobalPolicies []ClientPolicyRepresentation `json:"globalPolicies,omitempty"`
 }
 
@@ -105,7 +105,7 @@ func (o *ClientPoliciesRepresentation) SetGlobalPolicies(v []ClientPolicyReprese
 }
 
 func (o ClientPoliciesRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,3 +158,5 @@ func (v *NullableClientPoliciesRepresentation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

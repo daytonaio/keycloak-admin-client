@@ -11,10 +11,10 @@ package keycloak_admin_client
 
 import (
 	"context"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func Test_keycloak_admin_client_ClientRoleMappingsAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_keycloak_admin_client_ClientRoleMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ClientRoleMappingsAPIService AdminRealmsRealmGroupsGroupIdRoleMappingsClientsClientIdAvailableGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var groupId string
@@ -40,7 +40,7 @@ func Test_keycloak_admin_client_ClientRoleMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ClientRoleMappingsAPIService AdminRealmsRealmGroupsGroupIdRoleMappingsClientsClientIdCompositeGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var groupId string
@@ -56,7 +56,7 @@ func Test_keycloak_admin_client_ClientRoleMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ClientRoleMappingsAPIService AdminRealmsRealmGroupsGroupIdRoleMappingsClientsClientIdDelete", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var groupId string
@@ -71,7 +71,7 @@ func Test_keycloak_admin_client_ClientRoleMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ClientRoleMappingsAPIService AdminRealmsRealmGroupsGroupIdRoleMappingsClientsClientIdGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var groupId string
@@ -87,7 +87,7 @@ func Test_keycloak_admin_client_ClientRoleMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ClientRoleMappingsAPIService AdminRealmsRealmGroupsGroupIdRoleMappingsClientsClientIdPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var groupId string
@@ -102,7 +102,7 @@ func Test_keycloak_admin_client_ClientRoleMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ClientRoleMappingsAPIService AdminRealmsRealmUsersUserIdRoleMappingsClientsClientIdAvailableGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var userId string
@@ -118,7 +118,7 @@ func Test_keycloak_admin_client_ClientRoleMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ClientRoleMappingsAPIService AdminRealmsRealmUsersUserIdRoleMappingsClientsClientIdCompositeGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var userId string
@@ -134,7 +134,7 @@ func Test_keycloak_admin_client_ClientRoleMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ClientRoleMappingsAPIService AdminRealmsRealmUsersUserIdRoleMappingsClientsClientIdDelete", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var userId string
@@ -149,7 +149,7 @@ func Test_keycloak_admin_client_ClientRoleMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ClientRoleMappingsAPIService AdminRealmsRealmUsersUserIdRoleMappingsClientsClientIdGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var userId string
@@ -165,7 +165,7 @@ func Test_keycloak_admin_client_ClientRoleMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ClientRoleMappingsAPIService AdminRealmsRealmUsersUserIdRoleMappingsClientsClientIdPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var userId string

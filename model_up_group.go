@@ -19,10 +19,10 @@ var _ MappedNullable = &UPGroup{}
 
 // UPGroup struct for UPGroup
 type UPGroup struct {
-	Name               *string                `json:"name,omitempty"`
-	DisplayHeader      *string                `json:"displayHeader,omitempty"`
-	DisplayDescription *string                `json:"displayDescription,omitempty"`
-	Annotations        map[string]interface{} `json:"annotations,omitempty"`
+	Name *string `json:"name,omitempty"`
+	DisplayHeader *string `json:"displayHeader,omitempty"`
+	DisplayDescription *string `json:"displayDescription,omitempty"`
+	Annotations map[string]interface{} `json:"annotations,omitempty"`
 }
 
 // NewUPGroup instantiates a new UPGroup object
@@ -171,7 +171,7 @@ func (o *UPGroup) SetAnnotations(v map[string]interface{}) {
 }
 
 func (o UPGroup) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -230,3 +230,5 @@ func (v *NullableUPGroup) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

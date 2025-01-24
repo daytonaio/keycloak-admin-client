@@ -61,7 +61,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -129,7 +129,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -197,7 +197,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -268,7 +268,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -337,7 +337,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -408,7 +408,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -479,7 +479,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -547,7 +547,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -621,7 +621,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -692,7 +692,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -761,7 +761,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -832,7 +832,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -901,7 +901,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -970,7 +970,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -1038,7 +1038,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -1109,7 +1109,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -1180,7 +1180,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -1251,7 +1251,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -1322,7 +1322,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -1393,7 +1393,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -1461,7 +1461,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -1530,7 +1530,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -1601,7 +1601,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -1672,7 +1672,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -1740,7 +1740,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -1808,7 +1808,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -1876,7 +1876,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -1944,7 +1944,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -2012,7 +2012,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -2081,7 +2081,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -2152,7 +2152,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -2223,7 +2223,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -2294,7 +2294,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -2363,7 +2363,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -2434,7 +2434,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -2503,7 +2503,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -2574,7 +2574,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -2643,7 +2643,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {
@@ -2711,7 +2711,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func main() {

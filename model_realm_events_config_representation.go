@@ -19,12 +19,12 @@ var _ MappedNullable = &RealmEventsConfigRepresentation{}
 
 // RealmEventsConfigRepresentation struct for RealmEventsConfigRepresentation
 type RealmEventsConfigRepresentation struct {
-	EventsEnabled             *bool    `json:"eventsEnabled,omitempty"`
-	EventsExpiration          *int64   `json:"eventsExpiration,omitempty"`
-	EventsListeners           []string `json:"eventsListeners,omitempty"`
-	EnabledEventTypes         []string `json:"enabledEventTypes,omitempty"`
-	AdminEventsEnabled        *bool    `json:"adminEventsEnabled,omitempty"`
-	AdminEventsDetailsEnabled *bool    `json:"adminEventsDetailsEnabled,omitempty"`
+	EventsEnabled *bool `json:"eventsEnabled,omitempty"`
+	EventsExpiration *int64 `json:"eventsExpiration,omitempty"`
+	EventsListeners []string `json:"eventsListeners,omitempty"`
+	EnabledEventTypes []string `json:"enabledEventTypes,omitempty"`
+	AdminEventsEnabled *bool `json:"adminEventsEnabled,omitempty"`
+	AdminEventsDetailsEnabled *bool `json:"adminEventsDetailsEnabled,omitempty"`
 }
 
 // NewRealmEventsConfigRepresentation instantiates a new RealmEventsConfigRepresentation object
@@ -237,7 +237,7 @@ func (o *RealmEventsConfigRepresentation) SetAdminEventsDetailsEnabled(v bool) {
 }
 
 func (o RealmEventsConfigRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -302,3 +302,5 @@ func (v *NullableRealmEventsConfigRepresentation) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

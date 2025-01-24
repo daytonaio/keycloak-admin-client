@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **Logic** | Pointer to [**Logic**](Logic.md) |  | [optional] 
 **DecisionStrategy** | Pointer to [**DecisionStrategy**](DecisionStrategy.md) |  | [optional] 
 **Owner** | Pointer to **string** |  | [optional] 
+**ResourceType** | Pointer to **string** |  | [optional] 
 **ResourcesData** | Pointer to [**[]ResourceRepresentation**](ResourceRepresentation.md) |  | [optional] 
 **ScopesData** | Pointer to [**[]ScopeRepresentation**](ScopeRepresentation.md) |  | [optional] 
 
@@ -285,6 +286,31 @@ SetOwner sets Owner field to given value.
 `func (o *AbstractPolicyRepresentation) HasOwner() bool`
 
 HasOwner returns a boolean if a field has been set.
+
+### GetResourceType
+
+`func (o *AbstractPolicyRepresentation) GetResourceType() string`
+
+GetResourceType returns the ResourceType field if non-nil, zero value otherwise.
+
+### GetResourceTypeOk
+
+`func (o *AbstractPolicyRepresentation) GetResourceTypeOk() (*string, bool)`
+
+GetResourceTypeOk returns a tuple with the ResourceType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResourceType
+
+`func (o *AbstractPolicyRepresentation) SetResourceType(v string)`
+
+SetResourceType sets ResourceType field to given value.
+
+### HasResourceType
+
+`func (o *AbstractPolicyRepresentation) HasResourceType() bool`
+
+HasResourceType returns a boolean if a field has been set.
 
 ### GetResourcesData
 

@@ -20,14 +20,14 @@ var _ MappedNullable = &AuthenticationExecutionExportRepresentation{}
 // AuthenticationExecutionExportRepresentation struct for AuthenticationExecutionExportRepresentation
 type AuthenticationExecutionExportRepresentation struct {
 	AuthenticatorConfig *string `json:"authenticatorConfig,omitempty"`
-	Authenticator       *string `json:"authenticator,omitempty"`
-	AuthenticatorFlow   *bool   `json:"authenticatorFlow,omitempty"`
-	Requirement         *string `json:"requirement,omitempty"`
-	Priority            *int32  `json:"priority,omitempty"`
+	Authenticator *string `json:"authenticator,omitempty"`
+	AuthenticatorFlow *bool `json:"authenticatorFlow,omitempty"`
+	Requirement *string `json:"requirement,omitempty"`
+	Priority *int32 `json:"priority,omitempty"`
 	// Deprecated
-	AutheticatorFlow *bool   `json:"autheticatorFlow,omitempty"`
-	FlowAlias        *string `json:"flowAlias,omitempty"`
-	UserSetupAllowed *bool   `json:"userSetupAllowed,omitempty"`
+	AutheticatorFlow *bool `json:"autheticatorFlow,omitempty"`
+	FlowAlias *string `json:"flowAlias,omitempty"`
+	UserSetupAllowed *bool `json:"userSetupAllowed,omitempty"`
 }
 
 // NewAuthenticationExecutionExportRepresentation instantiates a new AuthenticationExecutionExportRepresentation object
@@ -307,7 +307,7 @@ func (o *AuthenticationExecutionExportRepresentation) SetUserSetupAllowed(v bool
 }
 
 func (o AuthenticationExecutionExportRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -378,3 +378,5 @@ func (v *NullableAuthenticationExecutionExportRepresentation) UnmarshalJSON(src 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

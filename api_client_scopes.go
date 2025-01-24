@@ -19,13 +19,14 @@ import (
 	"strings"
 )
 
+
 // ClientScopesAPIService ClientScopesAPI service
 type ClientScopesAPIService service
 
 type ApiAdminRealmsRealmClientScopesClientScopeIdDeleteRequest struct {
-	ctx           context.Context
-	ApiService    *ClientScopesAPIService
-	realm         string
+	ctx context.Context
+	ApiService *ClientScopesAPIService
+	realm string
 	clientScopeId string
 }
 
@@ -36,16 +37,16 @@ func (r ApiAdminRealmsRealmClientScopesClientScopeIdDeleteRequest) Execute() (*h
 /*
 AdminRealmsRealmClientScopesClientScopeIdDelete Delete the client scope
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param clientScopeId
-	@return ApiAdminRealmsRealmClientScopesClientScopeIdDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param clientScopeId
+ @return ApiAdminRealmsRealmClientScopesClientScopeIdDeleteRequest
 */
 func (a *ClientScopesAPIService) AdminRealmsRealmClientScopesClientScopeIdDelete(ctx context.Context, realm string, clientScopeId string) ApiAdminRealmsRealmClientScopesClientScopeIdDeleteRequest {
 	return ApiAdminRealmsRealmClientScopesClientScopeIdDeleteRequest{
-		ApiService:    a,
-		ctx:           ctx,
-		realm:         realm,
+		ApiService: a,
+		ctx: ctx,
+		realm: realm,
 		clientScopeId: clientScopeId,
 	}
 }
@@ -53,9 +54,9 @@ func (a *ClientScopesAPIService) AdminRealmsRealmClientScopesClientScopeIdDelete
 // Execute executes the request
 func (a *ClientScopesAPIService) AdminRealmsRealmClientScopesClientScopeIdDeleteExecute(r ApiAdminRealmsRealmClientScopesClientScopeIdDeleteRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ClientScopesAPIService.AdminRealmsRealmClientScopesClientScopeIdDelete")
@@ -117,9 +118,9 @@ func (a *ClientScopesAPIService) AdminRealmsRealmClientScopesClientScopeIdDelete
 }
 
 type ApiAdminRealmsRealmClientScopesClientScopeIdGetRequest struct {
-	ctx           context.Context
-	ApiService    *ClientScopesAPIService
-	realm         string
+	ctx context.Context
+	ApiService *ClientScopesAPIService
+	realm string
 	clientScopeId string
 }
 
@@ -130,29 +131,28 @@ func (r ApiAdminRealmsRealmClientScopesClientScopeIdGetRequest) Execute() (*Clie
 /*
 AdminRealmsRealmClientScopesClientScopeIdGet Get representation of the client scope
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param clientScopeId
-	@return ApiAdminRealmsRealmClientScopesClientScopeIdGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param clientScopeId
+ @return ApiAdminRealmsRealmClientScopesClientScopeIdGetRequest
 */
 func (a *ClientScopesAPIService) AdminRealmsRealmClientScopesClientScopeIdGet(ctx context.Context, realm string, clientScopeId string) ApiAdminRealmsRealmClientScopesClientScopeIdGetRequest {
 	return ApiAdminRealmsRealmClientScopesClientScopeIdGetRequest{
-		ApiService:    a,
-		ctx:           ctx,
-		realm:         realm,
+		ApiService: a,
+		ctx: ctx,
+		realm: realm,
 		clientScopeId: clientScopeId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	ClientScopeRepresentation
+//  @return ClientScopeRepresentation
 func (a *ClientScopesAPIService) AdminRealmsRealmClientScopesClientScopeIdGetExecute(r ApiAdminRealmsRealmClientScopesClientScopeIdGetRequest) (*ClientScopeRepresentation, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ClientScopeRepresentation
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ClientScopeRepresentation
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ClientScopesAPIService.AdminRealmsRealmClientScopesClientScopeIdGet")
@@ -223,10 +223,10 @@ func (a *ClientScopesAPIService) AdminRealmsRealmClientScopesClientScopeIdGetExe
 }
 
 type ApiAdminRealmsRealmClientScopesClientScopeIdPutRequest struct {
-	ctx                       context.Context
-	ApiService                *ClientScopesAPIService
-	realm                     string
-	clientScopeId             string
+	ctx context.Context
+	ApiService *ClientScopesAPIService
+	realm string
+	clientScopeId string
 	clientScopeRepresentation *ClientScopeRepresentation
 }
 
@@ -242,16 +242,16 @@ func (r ApiAdminRealmsRealmClientScopesClientScopeIdPutRequest) Execute() (*http
 /*
 AdminRealmsRealmClientScopesClientScopeIdPut Update the client scope
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param clientScopeId
-	@return ApiAdminRealmsRealmClientScopesClientScopeIdPutRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param clientScopeId
+ @return ApiAdminRealmsRealmClientScopesClientScopeIdPutRequest
 */
 func (a *ClientScopesAPIService) AdminRealmsRealmClientScopesClientScopeIdPut(ctx context.Context, realm string, clientScopeId string) ApiAdminRealmsRealmClientScopesClientScopeIdPutRequest {
 	return ApiAdminRealmsRealmClientScopesClientScopeIdPutRequest{
-		ApiService:    a,
-		ctx:           ctx,
-		realm:         realm,
+		ApiService: a,
+		ctx: ctx,
+		realm: realm,
 		clientScopeId: clientScopeId,
 	}
 }
@@ -259,9 +259,9 @@ func (a *ClientScopesAPIService) AdminRealmsRealmClientScopesClientScopeIdPut(ct
 // Execute executes the request
 func (a *ClientScopesAPIService) AdminRealmsRealmClientScopesClientScopeIdPutExecute(r ApiAdminRealmsRealmClientScopesClientScopeIdPutRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ClientScopesAPIService.AdminRealmsRealmClientScopesClientScopeIdPut")
@@ -325,9 +325,9 @@ func (a *ClientScopesAPIService) AdminRealmsRealmClientScopesClientScopeIdPutExe
 }
 
 type ApiAdminRealmsRealmClientScopesGetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *ClientScopesAPIService
-	realm      string
+	realm string
 }
 
 func (r ApiAdminRealmsRealmClientScopesGetRequest) Execute() ([]ClientScopeRepresentation, *http.Response, error) {
@@ -337,27 +337,26 @@ func (r ApiAdminRealmsRealmClientScopesGetRequest) Execute() ([]ClientScopeRepre
 /*
 AdminRealmsRealmClientScopesGet Get client scopes belonging to the realm Returns a list of client scopes belonging to the realm
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@return ApiAdminRealmsRealmClientScopesGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @return ApiAdminRealmsRealmClientScopesGetRequest
 */
 func (a *ClientScopesAPIService) AdminRealmsRealmClientScopesGet(ctx context.Context, realm string) ApiAdminRealmsRealmClientScopesGetRequest {
 	return ApiAdminRealmsRealmClientScopesGetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
+		ctx: ctx,
+		realm: realm,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	[]ClientScopeRepresentation
+//  @return []ClientScopeRepresentation
 func (a *ClientScopesAPIService) AdminRealmsRealmClientScopesGetExecute(r ApiAdminRealmsRealmClientScopesGetRequest) ([]ClientScopeRepresentation, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []ClientScopeRepresentation
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []ClientScopeRepresentation
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ClientScopesAPIService.AdminRealmsRealmClientScopesGet")
@@ -427,9 +426,9 @@ func (a *ClientScopesAPIService) AdminRealmsRealmClientScopesGetExecute(r ApiAdm
 }
 
 type ApiAdminRealmsRealmClientScopesPostRequest struct {
-	ctx                       context.Context
-	ApiService                *ClientScopesAPIService
-	realm                     string
+	ctx context.Context
+	ApiService *ClientScopesAPIService
+	realm string
 	clientScopeRepresentation *ClientScopeRepresentation
 }
 
@@ -445,24 +444,24 @@ func (r ApiAdminRealmsRealmClientScopesPostRequest) Execute() (*http.Response, e
 /*
 AdminRealmsRealmClientScopesPost Create a new client scope Client Scope’s name must be unique!
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@return ApiAdminRealmsRealmClientScopesPostRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @return ApiAdminRealmsRealmClientScopesPostRequest
 */
 func (a *ClientScopesAPIService) AdminRealmsRealmClientScopesPost(ctx context.Context, realm string) ApiAdminRealmsRealmClientScopesPostRequest {
 	return ApiAdminRealmsRealmClientScopesPostRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
+		ctx: ctx,
+		realm: realm,
 	}
 }
 
 // Execute executes the request
 func (a *ClientScopesAPIService) AdminRealmsRealmClientScopesPostExecute(r ApiAdminRealmsRealmClientScopesPostRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ClientScopesAPIService.AdminRealmsRealmClientScopesPost")
@@ -525,9 +524,9 @@ func (a *ClientScopesAPIService) AdminRealmsRealmClientScopesPostExecute(r ApiAd
 }
 
 type ApiAdminRealmsRealmClientTemplatesClientScopeIdDeleteRequest struct {
-	ctx           context.Context
-	ApiService    *ClientScopesAPIService
-	realm         string
+	ctx context.Context
+	ApiService *ClientScopesAPIService
+	realm string
 	clientScopeId string
 }
 
@@ -538,16 +537,16 @@ func (r ApiAdminRealmsRealmClientTemplatesClientScopeIdDeleteRequest) Execute() 
 /*
 AdminRealmsRealmClientTemplatesClientScopeIdDelete Delete the client scope
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param clientScopeId
-	@return ApiAdminRealmsRealmClientTemplatesClientScopeIdDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param clientScopeId
+ @return ApiAdminRealmsRealmClientTemplatesClientScopeIdDeleteRequest
 */
 func (a *ClientScopesAPIService) AdminRealmsRealmClientTemplatesClientScopeIdDelete(ctx context.Context, realm string, clientScopeId string) ApiAdminRealmsRealmClientTemplatesClientScopeIdDeleteRequest {
 	return ApiAdminRealmsRealmClientTemplatesClientScopeIdDeleteRequest{
-		ApiService:    a,
-		ctx:           ctx,
-		realm:         realm,
+		ApiService: a,
+		ctx: ctx,
+		realm: realm,
 		clientScopeId: clientScopeId,
 	}
 }
@@ -555,9 +554,9 @@ func (a *ClientScopesAPIService) AdminRealmsRealmClientTemplatesClientScopeIdDel
 // Execute executes the request
 func (a *ClientScopesAPIService) AdminRealmsRealmClientTemplatesClientScopeIdDeleteExecute(r ApiAdminRealmsRealmClientTemplatesClientScopeIdDeleteRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ClientScopesAPIService.AdminRealmsRealmClientTemplatesClientScopeIdDelete")
@@ -619,9 +618,9 @@ func (a *ClientScopesAPIService) AdminRealmsRealmClientTemplatesClientScopeIdDel
 }
 
 type ApiAdminRealmsRealmClientTemplatesClientScopeIdGetRequest struct {
-	ctx           context.Context
-	ApiService    *ClientScopesAPIService
-	realm         string
+	ctx context.Context
+	ApiService *ClientScopesAPIService
+	realm string
 	clientScopeId string
 }
 
@@ -632,29 +631,28 @@ func (r ApiAdminRealmsRealmClientTemplatesClientScopeIdGetRequest) Execute() (*C
 /*
 AdminRealmsRealmClientTemplatesClientScopeIdGet Get representation of the client scope
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param clientScopeId
-	@return ApiAdminRealmsRealmClientTemplatesClientScopeIdGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param clientScopeId
+ @return ApiAdminRealmsRealmClientTemplatesClientScopeIdGetRequest
 */
 func (a *ClientScopesAPIService) AdminRealmsRealmClientTemplatesClientScopeIdGet(ctx context.Context, realm string, clientScopeId string) ApiAdminRealmsRealmClientTemplatesClientScopeIdGetRequest {
 	return ApiAdminRealmsRealmClientTemplatesClientScopeIdGetRequest{
-		ApiService:    a,
-		ctx:           ctx,
-		realm:         realm,
+		ApiService: a,
+		ctx: ctx,
+		realm: realm,
 		clientScopeId: clientScopeId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	ClientScopeRepresentation
+//  @return ClientScopeRepresentation
 func (a *ClientScopesAPIService) AdminRealmsRealmClientTemplatesClientScopeIdGetExecute(r ApiAdminRealmsRealmClientTemplatesClientScopeIdGetRequest) (*ClientScopeRepresentation, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ClientScopeRepresentation
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ClientScopeRepresentation
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ClientScopesAPIService.AdminRealmsRealmClientTemplatesClientScopeIdGet")
@@ -725,10 +723,10 @@ func (a *ClientScopesAPIService) AdminRealmsRealmClientTemplatesClientScopeIdGet
 }
 
 type ApiAdminRealmsRealmClientTemplatesClientScopeIdPutRequest struct {
-	ctx                       context.Context
-	ApiService                *ClientScopesAPIService
-	realm                     string
-	clientScopeId             string
+	ctx context.Context
+	ApiService *ClientScopesAPIService
+	realm string
+	clientScopeId string
 	clientScopeRepresentation *ClientScopeRepresentation
 }
 
@@ -744,16 +742,16 @@ func (r ApiAdminRealmsRealmClientTemplatesClientScopeIdPutRequest) Execute() (*h
 /*
 AdminRealmsRealmClientTemplatesClientScopeIdPut Update the client scope
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param clientScopeId
-	@return ApiAdminRealmsRealmClientTemplatesClientScopeIdPutRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param clientScopeId
+ @return ApiAdminRealmsRealmClientTemplatesClientScopeIdPutRequest
 */
 func (a *ClientScopesAPIService) AdminRealmsRealmClientTemplatesClientScopeIdPut(ctx context.Context, realm string, clientScopeId string) ApiAdminRealmsRealmClientTemplatesClientScopeIdPutRequest {
 	return ApiAdminRealmsRealmClientTemplatesClientScopeIdPutRequest{
-		ApiService:    a,
-		ctx:           ctx,
-		realm:         realm,
+		ApiService: a,
+		ctx: ctx,
+		realm: realm,
 		clientScopeId: clientScopeId,
 	}
 }
@@ -761,9 +759,9 @@ func (a *ClientScopesAPIService) AdminRealmsRealmClientTemplatesClientScopeIdPut
 // Execute executes the request
 func (a *ClientScopesAPIService) AdminRealmsRealmClientTemplatesClientScopeIdPutExecute(r ApiAdminRealmsRealmClientTemplatesClientScopeIdPutRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ClientScopesAPIService.AdminRealmsRealmClientTemplatesClientScopeIdPut")
@@ -827,9 +825,9 @@ func (a *ClientScopesAPIService) AdminRealmsRealmClientTemplatesClientScopeIdPut
 }
 
 type ApiAdminRealmsRealmClientTemplatesGetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *ClientScopesAPIService
-	realm      string
+	realm string
 }
 
 func (r ApiAdminRealmsRealmClientTemplatesGetRequest) Execute() ([]ClientScopeRepresentation, *http.Response, error) {
@@ -839,27 +837,26 @@ func (r ApiAdminRealmsRealmClientTemplatesGetRequest) Execute() ([]ClientScopeRe
 /*
 AdminRealmsRealmClientTemplatesGet Get client scopes belonging to the realm Returns a list of client scopes belonging to the realm
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@return ApiAdminRealmsRealmClientTemplatesGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @return ApiAdminRealmsRealmClientTemplatesGetRequest
 */
 func (a *ClientScopesAPIService) AdminRealmsRealmClientTemplatesGet(ctx context.Context, realm string) ApiAdminRealmsRealmClientTemplatesGetRequest {
 	return ApiAdminRealmsRealmClientTemplatesGetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
+		ctx: ctx,
+		realm: realm,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	[]ClientScopeRepresentation
+//  @return []ClientScopeRepresentation
 func (a *ClientScopesAPIService) AdminRealmsRealmClientTemplatesGetExecute(r ApiAdminRealmsRealmClientTemplatesGetRequest) ([]ClientScopeRepresentation, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []ClientScopeRepresentation
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []ClientScopeRepresentation
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ClientScopesAPIService.AdminRealmsRealmClientTemplatesGet")
@@ -929,9 +926,9 @@ func (a *ClientScopesAPIService) AdminRealmsRealmClientTemplatesGetExecute(r Api
 }
 
 type ApiAdminRealmsRealmClientTemplatesPostRequest struct {
-	ctx                       context.Context
-	ApiService                *ClientScopesAPIService
-	realm                     string
+	ctx context.Context
+	ApiService *ClientScopesAPIService
+	realm string
 	clientScopeRepresentation *ClientScopeRepresentation
 }
 
@@ -947,24 +944,24 @@ func (r ApiAdminRealmsRealmClientTemplatesPostRequest) Execute() (*http.Response
 /*
 AdminRealmsRealmClientTemplatesPost Create a new client scope Client Scope’s name must be unique!
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@return ApiAdminRealmsRealmClientTemplatesPostRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @return ApiAdminRealmsRealmClientTemplatesPostRequest
 */
 func (a *ClientScopesAPIService) AdminRealmsRealmClientTemplatesPost(ctx context.Context, realm string) ApiAdminRealmsRealmClientTemplatesPostRequest {
 	return ApiAdminRealmsRealmClientTemplatesPostRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
+		ctx: ctx,
+		realm: realm,
 	}
 }
 
 // Execute executes the request
 func (a *ClientScopesAPIService) AdminRealmsRealmClientTemplatesPostExecute(r ApiAdminRealmsRealmClientTemplatesPostRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ClientScopesAPIService.AdminRealmsRealmClientTemplatesPost")

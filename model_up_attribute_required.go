@@ -19,7 +19,7 @@ var _ MappedNullable = &UPAttributeRequired{}
 
 // UPAttributeRequired struct for UPAttributeRequired
 type UPAttributeRequired struct {
-	Roles  []string `json:"roles,omitempty"`
+	Roles []string `json:"roles,omitempty"`
 	Scopes []string `json:"scopes,omitempty"`
 }
 
@@ -105,7 +105,7 @@ func (o *UPAttributeRequired) SetScopes(v []string) {
 }
 
 func (o UPAttributeRequired) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,3 +158,5 @@ func (v *NullableUPAttributeRequired) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

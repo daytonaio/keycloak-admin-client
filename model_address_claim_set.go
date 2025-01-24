@@ -19,12 +19,12 @@ var _ MappedNullable = &AddressClaimSet{}
 
 // AddressClaimSet struct for AddressClaimSet
 type AddressClaimSet struct {
-	Formatted     *string `json:"formatted,omitempty"`
+	Formatted *string `json:"formatted,omitempty"`
 	StreetAddress *string `json:"street_address,omitempty"`
-	Locality      *string `json:"locality,omitempty"`
-	Region        *string `json:"region,omitempty"`
-	PostalCode    *string `json:"postal_code,omitempty"`
-	Country       *string `json:"country,omitempty"`
+	Locality *string `json:"locality,omitempty"`
+	Region *string `json:"region,omitempty"`
+	PostalCode *string `json:"postal_code,omitempty"`
+	Country *string `json:"country,omitempty"`
 }
 
 // NewAddressClaimSet instantiates a new AddressClaimSet object
@@ -237,7 +237,7 @@ func (o *AddressClaimSet) SetCountry(v string) {
 }
 
 func (o AddressClaimSet) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -302,3 +302,5 @@ func (v *NullableAddressClaimSet) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

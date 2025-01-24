@@ -19,10 +19,10 @@ var _ MappedNullable = &PolicyResultRepresentation{}
 
 // PolicyResultRepresentation struct for PolicyResultRepresentation
 type PolicyResultRepresentation struct {
-	Policy             *PolicyRepresentation        `json:"policy,omitempty"`
-	Status             *DecisionEffect              `json:"status,omitempty"`
+	Policy *PolicyRepresentation `json:"policy,omitempty"`
+	Status *DecisionEffect `json:"status,omitempty"`
 	AssociatedPolicies []PolicyResultRepresentation `json:"associatedPolicies,omitempty"`
-	Scopes             []string                     `json:"scopes,omitempty"`
+	Scopes []string `json:"scopes,omitempty"`
 }
 
 // NewPolicyResultRepresentation instantiates a new PolicyResultRepresentation object
@@ -171,7 +171,7 @@ func (o *PolicyResultRepresentation) SetScopes(v []string) {
 }
 
 func (o PolicyResultRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -230,3 +230,5 @@ func (v *NullablePolicyResultRepresentation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

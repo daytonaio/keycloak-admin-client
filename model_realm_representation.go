@@ -19,60 +19,60 @@ var _ MappedNullable = &RealmRepresentation{}
 
 // RealmRepresentation struct for RealmRepresentation
 type RealmRepresentation struct {
-	Id                                  *string `json:"id,omitempty"`
-	Realm                               *string `json:"realm,omitempty"`
-	DisplayName                         *string `json:"displayName,omitempty"`
-	DisplayNameHtml                     *string `json:"displayNameHtml,omitempty"`
-	NotBefore                           *int32  `json:"notBefore,omitempty"`
-	DefaultSignatureAlgorithm           *string `json:"defaultSignatureAlgorithm,omitempty"`
-	RevokeRefreshToken                  *bool   `json:"revokeRefreshToken,omitempty"`
-	RefreshTokenMaxReuse                *int32  `json:"refreshTokenMaxReuse,omitempty"`
-	AccessTokenLifespan                 *int32  `json:"accessTokenLifespan,omitempty"`
-	AccessTokenLifespanForImplicitFlow  *int32  `json:"accessTokenLifespanForImplicitFlow,omitempty"`
-	SsoSessionIdleTimeout               *int32  `json:"ssoSessionIdleTimeout,omitempty"`
-	SsoSessionMaxLifespan               *int32  `json:"ssoSessionMaxLifespan,omitempty"`
-	SsoSessionIdleTimeoutRememberMe     *int32  `json:"ssoSessionIdleTimeoutRememberMe,omitempty"`
-	SsoSessionMaxLifespanRememberMe     *int32  `json:"ssoSessionMaxLifespanRememberMe,omitempty"`
-	OfflineSessionIdleTimeout           *int32  `json:"offlineSessionIdleTimeout,omitempty"`
-	OfflineSessionMaxLifespanEnabled    *bool   `json:"offlineSessionMaxLifespanEnabled,omitempty"`
-	OfflineSessionMaxLifespan           *int32  `json:"offlineSessionMaxLifespan,omitempty"`
-	ClientSessionIdleTimeout            *int32  `json:"clientSessionIdleTimeout,omitempty"`
-	ClientSessionMaxLifespan            *int32  `json:"clientSessionMaxLifespan,omitempty"`
-	ClientOfflineSessionIdleTimeout     *int32  `json:"clientOfflineSessionIdleTimeout,omitempty"`
-	ClientOfflineSessionMaxLifespan     *int32  `json:"clientOfflineSessionMaxLifespan,omitempty"`
-	AccessCodeLifespan                  *int32  `json:"accessCodeLifespan,omitempty"`
-	AccessCodeLifespanUserAction        *int32  `json:"accessCodeLifespanUserAction,omitempty"`
-	AccessCodeLifespanLogin             *int32  `json:"accessCodeLifespanLogin,omitempty"`
-	ActionTokenGeneratedByAdminLifespan *int32  `json:"actionTokenGeneratedByAdminLifespan,omitempty"`
-	ActionTokenGeneratedByUserLifespan  *int32  `json:"actionTokenGeneratedByUserLifespan,omitempty"`
-	Oauth2DeviceCodeLifespan            *int32  `json:"oauth2DeviceCodeLifespan,omitempty"`
-	Oauth2DevicePollingInterval         *int32  `json:"oauth2DevicePollingInterval,omitempty"`
-	Enabled                             *bool   `json:"enabled,omitempty"`
-	SslRequired                         *string `json:"sslRequired,omitempty"`
+	Id *string `json:"id,omitempty"`
+	Realm *string `json:"realm,omitempty"`
+	DisplayName *string `json:"displayName,omitempty"`
+	DisplayNameHtml *string `json:"displayNameHtml,omitempty"`
+	NotBefore *int32 `json:"notBefore,omitempty"`
+	DefaultSignatureAlgorithm *string `json:"defaultSignatureAlgorithm,omitempty"`
+	RevokeRefreshToken *bool `json:"revokeRefreshToken,omitempty"`
+	RefreshTokenMaxReuse *int32 `json:"refreshTokenMaxReuse,omitempty"`
+	AccessTokenLifespan *int32 `json:"accessTokenLifespan,omitempty"`
+	AccessTokenLifespanForImplicitFlow *int32 `json:"accessTokenLifespanForImplicitFlow,omitempty"`
+	SsoSessionIdleTimeout *int32 `json:"ssoSessionIdleTimeout,omitempty"`
+	SsoSessionMaxLifespan *int32 `json:"ssoSessionMaxLifespan,omitempty"`
+	SsoSessionIdleTimeoutRememberMe *int32 `json:"ssoSessionIdleTimeoutRememberMe,omitempty"`
+	SsoSessionMaxLifespanRememberMe *int32 `json:"ssoSessionMaxLifespanRememberMe,omitempty"`
+	OfflineSessionIdleTimeout *int32 `json:"offlineSessionIdleTimeout,omitempty"`
+	OfflineSessionMaxLifespanEnabled *bool `json:"offlineSessionMaxLifespanEnabled,omitempty"`
+	OfflineSessionMaxLifespan *int32 `json:"offlineSessionMaxLifespan,omitempty"`
+	ClientSessionIdleTimeout *int32 `json:"clientSessionIdleTimeout,omitempty"`
+	ClientSessionMaxLifespan *int32 `json:"clientSessionMaxLifespan,omitempty"`
+	ClientOfflineSessionIdleTimeout *int32 `json:"clientOfflineSessionIdleTimeout,omitempty"`
+	ClientOfflineSessionMaxLifespan *int32 `json:"clientOfflineSessionMaxLifespan,omitempty"`
+	AccessCodeLifespan *int32 `json:"accessCodeLifespan,omitempty"`
+	AccessCodeLifespanUserAction *int32 `json:"accessCodeLifespanUserAction,omitempty"`
+	AccessCodeLifespanLogin *int32 `json:"accessCodeLifespanLogin,omitempty"`
+	ActionTokenGeneratedByAdminLifespan *int32 `json:"actionTokenGeneratedByAdminLifespan,omitempty"`
+	ActionTokenGeneratedByUserLifespan *int32 `json:"actionTokenGeneratedByUserLifespan,omitempty"`
+	Oauth2DeviceCodeLifespan *int32 `json:"oauth2DeviceCodeLifespan,omitempty"`
+	Oauth2DevicePollingInterval *int32 `json:"oauth2DevicePollingInterval,omitempty"`
+	Enabled *bool `json:"enabled,omitempty"`
+	SslRequired *string `json:"sslRequired,omitempty"`
 	// Deprecated
 	PasswordCredentialGrantAllowed *bool `json:"passwordCredentialGrantAllowed,omitempty"`
-	RegistrationAllowed            *bool `json:"registrationAllowed,omitempty"`
-	RegistrationEmailAsUsername    *bool `json:"registrationEmailAsUsername,omitempty"`
-	RememberMe                     *bool `json:"rememberMe,omitempty"`
-	VerifyEmail                    *bool `json:"verifyEmail,omitempty"`
-	LoginWithEmailAllowed          *bool `json:"loginWithEmailAllowed,omitempty"`
-	DuplicateEmailsAllowed         *bool `json:"duplicateEmailsAllowed,omitempty"`
-	ResetPasswordAllowed           *bool `json:"resetPasswordAllowed,omitempty"`
-	EditUsernameAllowed            *bool `json:"editUsernameAllowed,omitempty"`
+	RegistrationAllowed *bool `json:"registrationAllowed,omitempty"`
+	RegistrationEmailAsUsername *bool `json:"registrationEmailAsUsername,omitempty"`
+	RememberMe *bool `json:"rememberMe,omitempty"`
+	VerifyEmail *bool `json:"verifyEmail,omitempty"`
+	LoginWithEmailAllowed *bool `json:"loginWithEmailAllowed,omitempty"`
+	DuplicateEmailsAllowed *bool `json:"duplicateEmailsAllowed,omitempty"`
+	ResetPasswordAllowed *bool `json:"resetPasswordAllowed,omitempty"`
+	EditUsernameAllowed *bool `json:"editUsernameAllowed,omitempty"`
 	// Deprecated
 	UserCacheEnabled *bool `json:"userCacheEnabled,omitempty"`
 	// Deprecated
-	RealmCacheEnabled            *bool               `json:"realmCacheEnabled,omitempty"`
-	BruteForceProtected          *bool               `json:"bruteForceProtected,omitempty"`
-	PermanentLockout             *bool               `json:"permanentLockout,omitempty"`
-	MaxTemporaryLockouts         *int32              `json:"maxTemporaryLockouts,omitempty"`
-	BruteForceStrategy           *BruteForceStrategy `json:"bruteForceStrategy,omitempty"`
-	MaxFailureWaitSeconds        *int32              `json:"maxFailureWaitSeconds,omitempty"`
-	MinimumQuickLoginWaitSeconds *int32              `json:"minimumQuickLoginWaitSeconds,omitempty"`
-	WaitIncrementSeconds         *int32              `json:"waitIncrementSeconds,omitempty"`
-	QuickLoginCheckMilliSeconds  *int64              `json:"quickLoginCheckMilliSeconds,omitempty"`
-	MaxDeltaTimeSeconds          *int32              `json:"maxDeltaTimeSeconds,omitempty"`
-	FailureFactor                *int32              `json:"failureFactor,omitempty"`
+	RealmCacheEnabled *bool `json:"realmCacheEnabled,omitempty"`
+	BruteForceProtected *bool `json:"bruteForceProtected,omitempty"`
+	PermanentLockout *bool `json:"permanentLockout,omitempty"`
+	MaxTemporaryLockouts *int32 `json:"maxTemporaryLockouts,omitempty"`
+	BruteForceStrategy *BruteForceStrategy `json:"bruteForceStrategy,omitempty"`
+	MaxFailureWaitSeconds *int32 `json:"maxFailureWaitSeconds,omitempty"`
+	MinimumQuickLoginWaitSeconds *int32 `json:"minimumQuickLoginWaitSeconds,omitempty"`
+	WaitIncrementSeconds *int32 `json:"waitIncrementSeconds,omitempty"`
+	QuickLoginCheckMilliSeconds *int64 `json:"quickLoginCheckMilliSeconds,omitempty"`
+	MaxDeltaTimeSeconds *int32 `json:"maxDeltaTimeSeconds,omitempty"`
+	FailureFactor *int32 `json:"failureFactor,omitempty"`
 	// Deprecated
 	PrivateKey *string `json:"privateKey,omitempty"`
 	// Deprecated
@@ -80,93 +80,96 @@ type RealmRepresentation struct {
 	// Deprecated
 	Certificate *string `json:"certificate,omitempty"`
 	// Deprecated
-	CodeSecret *string               `json:"codeSecret,omitempty"`
-	Roles      *RolesRepresentation  `json:"roles,omitempty"`
-	Groups     []GroupRepresentation `json:"groups,omitempty"`
+	CodeSecret *string `json:"codeSecret,omitempty"`
+	Roles *RolesRepresentation `json:"roles,omitempty"`
+	Groups []GroupRepresentation `json:"groups,omitempty"`
 	// Deprecated
-	DefaultRoles  []string            `json:"defaultRoles,omitempty"`
-	DefaultRole   *RoleRepresentation `json:"defaultRole,omitempty"`
-	DefaultGroups []string            `json:"defaultGroups,omitempty"`
+	DefaultRoles []string `json:"defaultRoles,omitempty"`
+	DefaultRole *RoleRepresentation `json:"defaultRole,omitempty"`
+	AdminPermissionsClient *ClientRepresentation `json:"adminPermissionsClient,omitempty"`
+	DefaultGroups []string `json:"defaultGroups,omitempty"`
 	// Deprecated
-	RequiredCredentials                                       []string                                    `json:"requiredCredentials,omitempty"`
-	PasswordPolicy                                            *string                                     `json:"passwordPolicy,omitempty"`
-	OtpPolicyType                                             *string                                     `json:"otpPolicyType,omitempty"`
-	OtpPolicyAlgorithm                                        *string                                     `json:"otpPolicyAlgorithm,omitempty"`
-	OtpPolicyInitialCounter                                   *int32                                      `json:"otpPolicyInitialCounter,omitempty"`
-	OtpPolicyDigits                                           *int32                                      `json:"otpPolicyDigits,omitempty"`
-	OtpPolicyLookAheadWindow                                  *int32                                      `json:"otpPolicyLookAheadWindow,omitempty"`
-	OtpPolicyPeriod                                           *int32                                      `json:"otpPolicyPeriod,omitempty"`
-	OtpPolicyCodeReusable                                     *bool                                       `json:"otpPolicyCodeReusable,omitempty"`
-	OtpSupportedApplications                                  []string                                    `json:"otpSupportedApplications,omitempty"`
-	LocalizationTexts                                         *map[string]map[string]string               `json:"localizationTexts,omitempty"`
-	WebAuthnPolicyRpEntityName                                *string                                     `json:"webAuthnPolicyRpEntityName,omitempty"`
-	WebAuthnPolicySignatureAlgorithms                         []string                                    `json:"webAuthnPolicySignatureAlgorithms,omitempty"`
-	WebAuthnPolicyRpId                                        *string                                     `json:"webAuthnPolicyRpId,omitempty"`
-	WebAuthnPolicyAttestationConveyancePreference             *string                                     `json:"webAuthnPolicyAttestationConveyancePreference,omitempty"`
-	WebAuthnPolicyAuthenticatorAttachment                     *string                                     `json:"webAuthnPolicyAuthenticatorAttachment,omitempty"`
-	WebAuthnPolicyRequireResidentKey                          *string                                     `json:"webAuthnPolicyRequireResidentKey,omitempty"`
-	WebAuthnPolicyUserVerificationRequirement                 *string                                     `json:"webAuthnPolicyUserVerificationRequirement,omitempty"`
-	WebAuthnPolicyCreateTimeout                               *int32                                      `json:"webAuthnPolicyCreateTimeout,omitempty"`
-	WebAuthnPolicyAvoidSameAuthenticatorRegister              *bool                                       `json:"webAuthnPolicyAvoidSameAuthenticatorRegister,omitempty"`
-	WebAuthnPolicyAcceptableAaguids                           []string                                    `json:"webAuthnPolicyAcceptableAaguids,omitempty"`
-	WebAuthnPolicyExtraOrigins                                []string                                    `json:"webAuthnPolicyExtraOrigins,omitempty"`
-	WebAuthnPolicyPasswordlessRpEntityName                    *string                                     `json:"webAuthnPolicyPasswordlessRpEntityName,omitempty"`
-	WebAuthnPolicyPasswordlessSignatureAlgorithms             []string                                    `json:"webAuthnPolicyPasswordlessSignatureAlgorithms,omitempty"`
-	WebAuthnPolicyPasswordlessRpId                            *string                                     `json:"webAuthnPolicyPasswordlessRpId,omitempty"`
-	WebAuthnPolicyPasswordlessAttestationConveyancePreference *string                                     `json:"webAuthnPolicyPasswordlessAttestationConveyancePreference,omitempty"`
-	WebAuthnPolicyPasswordlessAuthenticatorAttachment         *string                                     `json:"webAuthnPolicyPasswordlessAuthenticatorAttachment,omitempty"`
-	WebAuthnPolicyPasswordlessRequireResidentKey              *string                                     `json:"webAuthnPolicyPasswordlessRequireResidentKey,omitempty"`
-	WebAuthnPolicyPasswordlessUserVerificationRequirement     *string                                     `json:"webAuthnPolicyPasswordlessUserVerificationRequirement,omitempty"`
-	WebAuthnPolicyPasswordlessCreateTimeout                   *int32                                      `json:"webAuthnPolicyPasswordlessCreateTimeout,omitempty"`
-	WebAuthnPolicyPasswordlessAvoidSameAuthenticatorRegister  *bool                                       `json:"webAuthnPolicyPasswordlessAvoidSameAuthenticatorRegister,omitempty"`
-	WebAuthnPolicyPasswordlessAcceptableAaguids               []string                                    `json:"webAuthnPolicyPasswordlessAcceptableAaguids,omitempty"`
-	WebAuthnPolicyPasswordlessExtraOrigins                    []string                                    `json:"webAuthnPolicyPasswordlessExtraOrigins,omitempty"`
-	ClientProfiles                                            *ClientProfilesRepresentation               `json:"clientProfiles,omitempty"`
-	ClientPolicies                                            *ClientPoliciesRepresentation               `json:"clientPolicies,omitempty"`
-	Users                                                     []UserRepresentation                        `json:"users,omitempty"`
-	FederatedUsers                                            []UserRepresentation                        `json:"federatedUsers,omitempty"`
-	ScopeMappings                                             []ScopeMappingRepresentation                `json:"scopeMappings,omitempty"`
-	ClientScopeMappings                                       *map[string][]ScopeMappingRepresentation    `json:"clientScopeMappings,omitempty"`
-	Clients                                                   []ClientRepresentation                      `json:"clients,omitempty"`
-	ClientScopes                                              []ClientScopeRepresentation                 `json:"clientScopes,omitempty"`
-	DefaultDefaultClientScopes                                []string                                    `json:"defaultDefaultClientScopes,omitempty"`
-	DefaultOptionalClientScopes                               []string                                    `json:"defaultOptionalClientScopes,omitempty"`
-	BrowserSecurityHeaders                                    *map[string]string                          `json:"browserSecurityHeaders,omitempty"`
-	SmtpServer                                                *map[string]string                          `json:"smtpServer,omitempty"`
-	UserFederationProviders                                   []UserFederationProviderRepresentation      `json:"userFederationProviders,omitempty"`
-	UserFederationMappers                                     []UserFederationMapperRepresentation        `json:"userFederationMappers,omitempty"`
-	LoginTheme                                                *string                                     `json:"loginTheme,omitempty"`
-	AccountTheme                                              *string                                     `json:"accountTheme,omitempty"`
-	AdminTheme                                                *string                                     `json:"adminTheme,omitempty"`
-	EmailTheme                                                *string                                     `json:"emailTheme,omitempty"`
-	EventsEnabled                                             *bool                                       `json:"eventsEnabled,omitempty"`
-	EventsExpiration                                          *int64                                      `json:"eventsExpiration,omitempty"`
-	EventsListeners                                           []string                                    `json:"eventsListeners,omitempty"`
-	EnabledEventTypes                                         []string                                    `json:"enabledEventTypes,omitempty"`
-	AdminEventsEnabled                                        *bool                                       `json:"adminEventsEnabled,omitempty"`
-	AdminEventsDetailsEnabled                                 *bool                                       `json:"adminEventsDetailsEnabled,omitempty"`
-	IdentityProviders                                         []IdentityProviderRepresentation            `json:"identityProviders,omitempty"`
-	IdentityProviderMappers                                   []IdentityProviderMapperRepresentation      `json:"identityProviderMappers,omitempty"`
-	ProtocolMappers                                           []ProtocolMapperRepresentation              `json:"protocolMappers,omitempty"`
-	Components                                                *map[string][]ComponentExportRepresentation `json:"components,omitempty"`
-	InternationalizationEnabled                               *bool                                       `json:"internationalizationEnabled,omitempty"`
-	SupportedLocales                                          []string                                    `json:"supportedLocales,omitempty"`
-	DefaultLocale                                             *string                                     `json:"defaultLocale,omitempty"`
-	AuthenticationFlows                                       []AuthenticationFlowRepresentation          `json:"authenticationFlows,omitempty"`
-	AuthenticatorConfig                                       []AuthenticatorConfigRepresentation         `json:"authenticatorConfig,omitempty"`
-	RequiredActions                                           []RequiredActionProviderRepresentation      `json:"requiredActions,omitempty"`
-	BrowserFlow                                               *string                                     `json:"browserFlow,omitempty"`
-	RegistrationFlow                                          *string                                     `json:"registrationFlow,omitempty"`
-	DirectGrantFlow                                           *string                                     `json:"directGrantFlow,omitempty"`
-	ResetCredentialsFlow                                      *string                                     `json:"resetCredentialsFlow,omitempty"`
-	ClientAuthenticationFlow                                  *string                                     `json:"clientAuthenticationFlow,omitempty"`
-	DockerAuthenticationFlow                                  *string                                     `json:"dockerAuthenticationFlow,omitempty"`
-	FirstBrokerLoginFlow                                      *string                                     `json:"firstBrokerLoginFlow,omitempty"`
-	Attributes                                                *map[string]string                          `json:"attributes,omitempty"`
-	KeycloakVersion                                           *string                                     `json:"keycloakVersion,omitempty"`
-	UserManagedAccessAllowed                                  *bool                                       `json:"userManagedAccessAllowed,omitempty"`
-	OrganizationsEnabled                                      *bool                                       `json:"organizationsEnabled,omitempty"`
-	Organizations                                             []OrganizationRepresentation                `json:"organizations,omitempty"`
+	RequiredCredentials []string `json:"requiredCredentials,omitempty"`
+	PasswordPolicy *string `json:"passwordPolicy,omitempty"`
+	OtpPolicyType *string `json:"otpPolicyType,omitempty"`
+	OtpPolicyAlgorithm *string `json:"otpPolicyAlgorithm,omitempty"`
+	OtpPolicyInitialCounter *int32 `json:"otpPolicyInitialCounter,omitempty"`
+	OtpPolicyDigits *int32 `json:"otpPolicyDigits,omitempty"`
+	OtpPolicyLookAheadWindow *int32 `json:"otpPolicyLookAheadWindow,omitempty"`
+	OtpPolicyPeriod *int32 `json:"otpPolicyPeriod,omitempty"`
+	OtpPolicyCodeReusable *bool `json:"otpPolicyCodeReusable,omitempty"`
+	OtpSupportedApplications []string `json:"otpSupportedApplications,omitempty"`
+	LocalizationTexts *map[string]map[string]string `json:"localizationTexts,omitempty"`
+	WebAuthnPolicyRpEntityName *string `json:"webAuthnPolicyRpEntityName,omitempty"`
+	WebAuthnPolicySignatureAlgorithms []string `json:"webAuthnPolicySignatureAlgorithms,omitempty"`
+	WebAuthnPolicyRpId *string `json:"webAuthnPolicyRpId,omitempty"`
+	WebAuthnPolicyAttestationConveyancePreference *string `json:"webAuthnPolicyAttestationConveyancePreference,omitempty"`
+	WebAuthnPolicyAuthenticatorAttachment *string `json:"webAuthnPolicyAuthenticatorAttachment,omitempty"`
+	WebAuthnPolicyRequireResidentKey *string `json:"webAuthnPolicyRequireResidentKey,omitempty"`
+	WebAuthnPolicyUserVerificationRequirement *string `json:"webAuthnPolicyUserVerificationRequirement,omitempty"`
+	WebAuthnPolicyCreateTimeout *int32 `json:"webAuthnPolicyCreateTimeout,omitempty"`
+	WebAuthnPolicyAvoidSameAuthenticatorRegister *bool `json:"webAuthnPolicyAvoidSameAuthenticatorRegister,omitempty"`
+	WebAuthnPolicyAcceptableAaguids []string `json:"webAuthnPolicyAcceptableAaguids,omitempty"`
+	WebAuthnPolicyExtraOrigins []string `json:"webAuthnPolicyExtraOrigins,omitempty"`
+	WebAuthnPolicyPasswordlessRpEntityName *string `json:"webAuthnPolicyPasswordlessRpEntityName,omitempty"`
+	WebAuthnPolicyPasswordlessSignatureAlgorithms []string `json:"webAuthnPolicyPasswordlessSignatureAlgorithms,omitempty"`
+	WebAuthnPolicyPasswordlessRpId *string `json:"webAuthnPolicyPasswordlessRpId,omitempty"`
+	WebAuthnPolicyPasswordlessAttestationConveyancePreference *string `json:"webAuthnPolicyPasswordlessAttestationConveyancePreference,omitempty"`
+	WebAuthnPolicyPasswordlessAuthenticatorAttachment *string `json:"webAuthnPolicyPasswordlessAuthenticatorAttachment,omitempty"`
+	WebAuthnPolicyPasswordlessRequireResidentKey *string `json:"webAuthnPolicyPasswordlessRequireResidentKey,omitempty"`
+	WebAuthnPolicyPasswordlessUserVerificationRequirement *string `json:"webAuthnPolicyPasswordlessUserVerificationRequirement,omitempty"`
+	WebAuthnPolicyPasswordlessCreateTimeout *int32 `json:"webAuthnPolicyPasswordlessCreateTimeout,omitempty"`
+	WebAuthnPolicyPasswordlessAvoidSameAuthenticatorRegister *bool `json:"webAuthnPolicyPasswordlessAvoidSameAuthenticatorRegister,omitempty"`
+	WebAuthnPolicyPasswordlessAcceptableAaguids []string `json:"webAuthnPolicyPasswordlessAcceptableAaguids,omitempty"`
+	WebAuthnPolicyPasswordlessExtraOrigins []string `json:"webAuthnPolicyPasswordlessExtraOrigins,omitempty"`
+	ClientProfiles *ClientProfilesRepresentation `json:"clientProfiles,omitempty"`
+	ClientPolicies *ClientPoliciesRepresentation `json:"clientPolicies,omitempty"`
+	Users []UserRepresentation `json:"users,omitempty"`
+	FederatedUsers []UserRepresentation `json:"federatedUsers,omitempty"`
+	ScopeMappings []ScopeMappingRepresentation `json:"scopeMappings,omitempty"`
+	ClientScopeMappings *map[string][]ScopeMappingRepresentation `json:"clientScopeMappings,omitempty"`
+	Clients []ClientRepresentation `json:"clients,omitempty"`
+	ClientScopes []ClientScopeRepresentation `json:"clientScopes,omitempty"`
+	DefaultDefaultClientScopes []string `json:"defaultDefaultClientScopes,omitempty"`
+	DefaultOptionalClientScopes []string `json:"defaultOptionalClientScopes,omitempty"`
+	BrowserSecurityHeaders *map[string]string `json:"browserSecurityHeaders,omitempty"`
+	SmtpServer *map[string]string `json:"smtpServer,omitempty"`
+	UserFederationProviders []UserFederationProviderRepresentation `json:"userFederationProviders,omitempty"`
+	UserFederationMappers []UserFederationMapperRepresentation `json:"userFederationMappers,omitempty"`
+	LoginTheme *string `json:"loginTheme,omitempty"`
+	AccountTheme *string `json:"accountTheme,omitempty"`
+	AdminTheme *string `json:"adminTheme,omitempty"`
+	EmailTheme *string `json:"emailTheme,omitempty"`
+	EventsEnabled *bool `json:"eventsEnabled,omitempty"`
+	EventsExpiration *int64 `json:"eventsExpiration,omitempty"`
+	EventsListeners []string `json:"eventsListeners,omitempty"`
+	EnabledEventTypes []string `json:"enabledEventTypes,omitempty"`
+	AdminEventsEnabled *bool `json:"adminEventsEnabled,omitempty"`
+	AdminEventsDetailsEnabled *bool `json:"adminEventsDetailsEnabled,omitempty"`
+	IdentityProviders []IdentityProviderRepresentation `json:"identityProviders,omitempty"`
+	IdentityProviderMappers []IdentityProviderMapperRepresentation `json:"identityProviderMappers,omitempty"`
+	ProtocolMappers []ProtocolMapperRepresentation `json:"protocolMappers,omitempty"`
+	Components *map[string][]ComponentExportRepresentation `json:"components,omitempty"`
+	InternationalizationEnabled *bool `json:"internationalizationEnabled,omitempty"`
+	SupportedLocales []string `json:"supportedLocales,omitempty"`
+	DefaultLocale *string `json:"defaultLocale,omitempty"`
+	AuthenticationFlows []AuthenticationFlowRepresentation `json:"authenticationFlows,omitempty"`
+	AuthenticatorConfig []AuthenticatorConfigRepresentation `json:"authenticatorConfig,omitempty"`
+	RequiredActions []RequiredActionProviderRepresentation `json:"requiredActions,omitempty"`
+	BrowserFlow *string `json:"browserFlow,omitempty"`
+	RegistrationFlow *string `json:"registrationFlow,omitempty"`
+	DirectGrantFlow *string `json:"directGrantFlow,omitempty"`
+	ResetCredentialsFlow *string `json:"resetCredentialsFlow,omitempty"`
+	ClientAuthenticationFlow *string `json:"clientAuthenticationFlow,omitempty"`
+	DockerAuthenticationFlow *string `json:"dockerAuthenticationFlow,omitempty"`
+	FirstBrokerLoginFlow *string `json:"firstBrokerLoginFlow,omitempty"`
+	Attributes *map[string]string `json:"attributes,omitempty"`
+	KeycloakVersion *string `json:"keycloakVersion,omitempty"`
+	UserManagedAccessAllowed *bool `json:"userManagedAccessAllowed,omitempty"`
+	OrganizationsEnabled *bool `json:"organizationsEnabled,omitempty"`
+	Organizations []OrganizationRepresentation `json:"organizations,omitempty"`
+	VerifiableCredentialsEnabled *bool `json:"verifiableCredentialsEnabled,omitempty"`
+	AdminPermissionsEnabled *bool `json:"adminPermissionsEnabled,omitempty"`
 	// Deprecated
 	Social *bool `json:"social,omitempty"`
 	// Deprecated
@@ -180,9 +183,9 @@ type RealmRepresentation struct {
 	// Deprecated
 	OauthClients []OAuthClientRepresentation `json:"oauthClients,omitempty"`
 	// Deprecated
-	ClientTemplates             []ClientTemplateRepresentation `json:"clientTemplates,omitempty"`
-	OAuth2DeviceCodeLifespan    *int32                         `json:"oAuth2DeviceCodeLifespan,omitempty"`
-	OAuth2DevicePollingInterval *int32                         `json:"oAuth2DevicePollingInterval,omitempty"`
+	ClientTemplates []ClientTemplateRepresentation `json:"clientTemplates,omitempty"`
+	OAuth2DeviceCodeLifespan *int32 `json:"oAuth2DeviceCodeLifespan,omitempty"`
+	OAuth2DevicePollingInterval *int32 `json:"oAuth2DevicePollingInterval,omitempty"`
 }
 
 // NewRealmRepresentation instantiates a new RealmRepresentation object
@@ -2114,6 +2117,38 @@ func (o *RealmRepresentation) SetDefaultRole(v RoleRepresentation) {
 	o.DefaultRole = &v
 }
 
+// GetAdminPermissionsClient returns the AdminPermissionsClient field value if set, zero value otherwise.
+func (o *RealmRepresentation) GetAdminPermissionsClient() ClientRepresentation {
+	if o == nil || IsNil(o.AdminPermissionsClient) {
+		var ret ClientRepresentation
+		return ret
+	}
+	return *o.AdminPermissionsClient
+}
+
+// GetAdminPermissionsClientOk returns a tuple with the AdminPermissionsClient field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RealmRepresentation) GetAdminPermissionsClientOk() (*ClientRepresentation, bool) {
+	if o == nil || IsNil(o.AdminPermissionsClient) {
+		return nil, false
+	}
+	return o.AdminPermissionsClient, true
+}
+
+// HasAdminPermissionsClient returns a boolean if a field has been set.
+func (o *RealmRepresentation) HasAdminPermissionsClient() bool {
+	if o != nil && !IsNil(o.AdminPermissionsClient) {
+		return true
+	}
+
+	return false
+}
+
+// SetAdminPermissionsClient gets a reference to the given ClientRepresentation and assigns it to the AdminPermissionsClient field.
+func (o *RealmRepresentation) SetAdminPermissionsClient(v ClientRepresentation) {
+	o.AdminPermissionsClient = &v
+}
+
 // GetDefaultGroups returns the DefaultGroups field value if set, zero value otherwise.
 func (o *RealmRepresentation) GetDefaultGroups() []string {
 	if o == nil || IsNil(o.DefaultGroups) {
@@ -3558,7 +3593,7 @@ func (o *RealmRepresentation) SetBrowserSecurityHeaders(v map[string]string) {
 }
 
 // GetSmtpServer returns the SmtpServer field value if set, zero value otherwise.
-func (o *RealmRepresentation) GetSmtpServerConfig() map[string]string {
+func (o *RealmRepresentation) GetSmtpServer() map[string]string {
 	if o == nil || IsNil(o.SmtpServer) {
 		var ret map[string]string
 		return ret
@@ -3576,7 +3611,7 @@ func (o *RealmRepresentation) GetSmtpServerOk() (*map[string]string, bool) {
 }
 
 // HasSmtpServer returns a boolean if a field has been set.
-func (o *RealmRepresentation) HasSmtpServerConfig() bool {
+func (o *RealmRepresentation) HasSmtpServer() bool {
 	if o != nil && !IsNil(o.SmtpServer) {
 		return true
 	}
@@ -4677,6 +4712,70 @@ func (o *RealmRepresentation) SetOrganizations(v []OrganizationRepresentation) {
 	o.Organizations = v
 }
 
+// GetVerifiableCredentialsEnabled returns the VerifiableCredentialsEnabled field value if set, zero value otherwise.
+func (o *RealmRepresentation) GetVerifiableCredentialsEnabled() bool {
+	if o == nil || IsNil(o.VerifiableCredentialsEnabled) {
+		var ret bool
+		return ret
+	}
+	return *o.VerifiableCredentialsEnabled
+}
+
+// GetVerifiableCredentialsEnabledOk returns a tuple with the VerifiableCredentialsEnabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RealmRepresentation) GetVerifiableCredentialsEnabledOk() (*bool, bool) {
+	if o == nil || IsNil(o.VerifiableCredentialsEnabled) {
+		return nil, false
+	}
+	return o.VerifiableCredentialsEnabled, true
+}
+
+// HasVerifiableCredentialsEnabled returns a boolean if a field has been set.
+func (o *RealmRepresentation) HasVerifiableCredentialsEnabled() bool {
+	if o != nil && !IsNil(o.VerifiableCredentialsEnabled) {
+		return true
+	}
+
+	return false
+}
+
+// SetVerifiableCredentialsEnabled gets a reference to the given bool and assigns it to the VerifiableCredentialsEnabled field.
+func (o *RealmRepresentation) SetVerifiableCredentialsEnabled(v bool) {
+	o.VerifiableCredentialsEnabled = &v
+}
+
+// GetAdminPermissionsEnabled returns the AdminPermissionsEnabled field value if set, zero value otherwise.
+func (o *RealmRepresentation) GetAdminPermissionsEnabled() bool {
+	if o == nil || IsNil(o.AdminPermissionsEnabled) {
+		var ret bool
+		return ret
+	}
+	return *o.AdminPermissionsEnabled
+}
+
+// GetAdminPermissionsEnabledOk returns a tuple with the AdminPermissionsEnabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RealmRepresentation) GetAdminPermissionsEnabledOk() (*bool, bool) {
+	if o == nil || IsNil(o.AdminPermissionsEnabled) {
+		return nil, false
+	}
+	return o.AdminPermissionsEnabled, true
+}
+
+// HasAdminPermissionsEnabled returns a boolean if a field has been set.
+func (o *RealmRepresentation) HasAdminPermissionsEnabled() bool {
+	if o != nil && !IsNil(o.AdminPermissionsEnabled) {
+		return true
+	}
+
+	return false
+}
+
+// SetAdminPermissionsEnabled gets a reference to the given bool and assigns it to the AdminPermissionsEnabled field.
+func (o *RealmRepresentation) SetAdminPermissionsEnabled(v bool) {
+	o.AdminPermissionsEnabled = &v
+}
+
 // GetSocial returns the Social field value if set, zero value otherwise.
 // Deprecated
 func (o *RealmRepresentation) GetSocial() bool {
@@ -4987,7 +5086,7 @@ func (o *RealmRepresentation) SetOAuth2DevicePollingInterval(v int32) {
 }
 
 func (o RealmRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -5172,6 +5271,9 @@ func (o RealmRepresentation) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.DefaultRole) {
 		toSerialize["defaultRole"] = o.DefaultRole
+	}
+	if !IsNil(o.AdminPermissionsClient) {
+		toSerialize["adminPermissionsClient"] = o.AdminPermissionsClient
 	}
 	if !IsNil(o.DefaultGroups) {
 		toSerialize["defaultGroups"] = o.DefaultGroups
@@ -5413,6 +5515,12 @@ func (o RealmRepresentation) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Organizations) {
 		toSerialize["organizations"] = o.Organizations
 	}
+	if !IsNil(o.VerifiableCredentialsEnabled) {
+		toSerialize["verifiableCredentialsEnabled"] = o.VerifiableCredentialsEnabled
+	}
+	if !IsNil(o.AdminPermissionsEnabled) {
+		toSerialize["adminPermissionsEnabled"] = o.AdminPermissionsEnabled
+	}
 	if !IsNil(o.Social) {
 		toSerialize["social"] = o.Social
 	}
@@ -5478,3 +5586,5 @@ func (v *NullableRealmRepresentation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

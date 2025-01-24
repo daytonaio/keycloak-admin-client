@@ -19,11 +19,11 @@ var _ MappedNullable = &PublishedRealmRepresentation{}
 
 // PublishedRealmRepresentation struct for PublishedRealmRepresentation
 type PublishedRealmRepresentation struct {
-	Realm           *string `json:"realm,omitempty"`
-	PublicKey       *string `json:"public_key,omitempty"`
-	TokenService    *string `json:"token-service,omitempty"`
-	AccountService  *string `json:"account-service,omitempty"`
-	TokensNotBefore *int32  `json:"tokens-not-before,omitempty"`
+	Realm *string `json:"realm,omitempty"`
+	PublicKey *string `json:"public_key,omitempty"`
+	TokenService *string `json:"token-service,omitempty"`
+	AccountService *string `json:"account-service,omitempty"`
+	TokensNotBefore *int32 `json:"tokens-not-before,omitempty"`
 }
 
 // NewPublishedRealmRepresentation instantiates a new PublishedRealmRepresentation object
@@ -204,7 +204,7 @@ func (o *PublishedRealmRepresentation) SetTokensNotBefore(v int32) {
 }
 
 func (o PublishedRealmRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -266,3 +266,5 @@ func (v *NullablePublishedRealmRepresentation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

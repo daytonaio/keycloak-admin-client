@@ -19,13 +19,14 @@ import (
 	"strings"
 )
 
+
 // IdentityProvidersAPIService IdentityProvidersAPI service
 type IdentityProvidersAPIService service
 
 type ApiAdminRealmsRealmIdentityProviderImportConfigPostRequest struct {
-	ctx         context.Context
-	ApiService  *IdentityProvidersAPIService
-	realm       string
+	ctx context.Context
+	ApiService *IdentityProvidersAPIService
+	realm string
 	requestBody *map[string]interface{}
 }
 
@@ -43,27 +44,26 @@ AdminRealmsRealmIdentityProviderImportConfigPost Import identity provider from J
 
 Import identity provider from uploaded JSON file
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@return ApiAdminRealmsRealmIdentityProviderImportConfigPostRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @return ApiAdminRealmsRealmIdentityProviderImportConfigPostRequest
 */
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderImportConfigPost(ctx context.Context, realm string) ApiAdminRealmsRealmIdentityProviderImportConfigPostRequest {
 	return ApiAdminRealmsRealmIdentityProviderImportConfigPostRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
+		ctx: ctx,
+		realm: realm,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	map[string]string
+//  @return map[string]string
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderImportConfigPostExecute(r ApiAdminRealmsRealmIdentityProviderImportConfigPostRequest) (map[string]string, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue map[string]string
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  map[string]string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersAPIService.AdminRealmsRealmIdentityProviderImportConfigPost")
@@ -135,10 +135,10 @@ func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderImportConf
 }
 
 type ApiAdminRealmsRealmIdentityProviderInstancesAliasDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *IdentityProvidersAPIService
-	realm      string
-	alias      string
+	realm string
+	alias string
 }
 
 func (r ApiAdminRealmsRealmIdentityProviderInstancesAliasDeleteRequest) Execute() (*http.Response, error) {
@@ -148,26 +148,26 @@ func (r ApiAdminRealmsRealmIdentityProviderInstancesAliasDeleteRequest) Execute(
 /*
 AdminRealmsRealmIdentityProviderInstancesAliasDelete Delete the identity provider
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param alias
-	@return ApiAdminRealmsRealmIdentityProviderInstancesAliasDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param alias
+ @return ApiAdminRealmsRealmIdentityProviderInstancesAliasDeleteRequest
 */
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesAliasDelete(ctx context.Context, realm string, alias string) ApiAdminRealmsRealmIdentityProviderInstancesAliasDeleteRequest {
 	return ApiAdminRealmsRealmIdentityProviderInstancesAliasDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		alias:      alias,
+		ctx: ctx,
+		realm: realm,
+		alias: alias,
 	}
 }
 
 // Execute executes the request
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesAliasDeleteExecute(r ApiAdminRealmsRealmIdentityProviderInstancesAliasDeleteRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersAPIService.AdminRealmsRealmIdentityProviderInstancesAliasDelete")
@@ -229,11 +229,11 @@ func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesA
 }
 
 type ApiAdminRealmsRealmIdentityProviderInstancesAliasExportGetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *IdentityProvidersAPIService
-	realm      string
-	alias      string
-	format     *string
+	realm string
+	alias string
+	format *string
 }
 
 // Format to use
@@ -249,26 +249,26 @@ func (r ApiAdminRealmsRealmIdentityProviderInstancesAliasExportGetRequest) Execu
 /*
 AdminRealmsRealmIdentityProviderInstancesAliasExportGet Export public broker configuration for identity provider
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param alias
-	@return ApiAdminRealmsRealmIdentityProviderInstancesAliasExportGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param alias
+ @return ApiAdminRealmsRealmIdentityProviderInstancesAliasExportGetRequest
 */
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesAliasExportGet(ctx context.Context, realm string, alias string) ApiAdminRealmsRealmIdentityProviderInstancesAliasExportGetRequest {
 	return ApiAdminRealmsRealmIdentityProviderInstancesAliasExportGetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		alias:      alias,
+		ctx: ctx,
+		realm: realm,
+		alias: alias,
 	}
 }
 
 // Execute executes the request
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesAliasExportGetExecute(r ApiAdminRealmsRealmIdentityProviderInstancesAliasExportGetRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodGet
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersAPIService.AdminRealmsRealmIdentityProviderInstancesAliasExportGet")
@@ -333,10 +333,10 @@ func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesA
 }
 
 type ApiAdminRealmsRealmIdentityProviderInstancesAliasGetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *IdentityProvidersAPIService
-	realm      string
-	alias      string
+	realm string
+	alias string
 }
 
 func (r ApiAdminRealmsRealmIdentityProviderInstancesAliasGetRequest) Execute() (*IdentityProviderRepresentation, *http.Response, error) {
@@ -346,29 +346,28 @@ func (r ApiAdminRealmsRealmIdentityProviderInstancesAliasGetRequest) Execute() (
 /*
 AdminRealmsRealmIdentityProviderInstancesAliasGet Get the identity provider
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param alias
-	@return ApiAdminRealmsRealmIdentityProviderInstancesAliasGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param alias
+ @return ApiAdminRealmsRealmIdentityProviderInstancesAliasGetRequest
 */
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesAliasGet(ctx context.Context, realm string, alias string) ApiAdminRealmsRealmIdentityProviderInstancesAliasGetRequest {
 	return ApiAdminRealmsRealmIdentityProviderInstancesAliasGetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		alias:      alias,
+		ctx: ctx,
+		realm: realm,
+		alias: alias,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	IdentityProviderRepresentation
+//  @return IdentityProviderRepresentation
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesAliasGetExecute(r ApiAdminRealmsRealmIdentityProviderInstancesAliasGetRequest) (*IdentityProviderRepresentation, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *IdentityProviderRepresentation
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *IdentityProviderRepresentation
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersAPIService.AdminRealmsRealmIdentityProviderInstancesAliasGet")
@@ -439,10 +438,10 @@ func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesA
 }
 
 type ApiAdminRealmsRealmIdentityProviderInstancesAliasManagementPermissionsGetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *IdentityProvidersAPIService
-	realm      string
-	alias      string
+	realm string
+	alias string
 }
 
 func (r ApiAdminRealmsRealmIdentityProviderInstancesAliasManagementPermissionsGetRequest) Execute() (*ManagementPermissionReference, *http.Response, error) {
@@ -452,29 +451,28 @@ func (r ApiAdminRealmsRealmIdentityProviderInstancesAliasManagementPermissionsGe
 /*
 AdminRealmsRealmIdentityProviderInstancesAliasManagementPermissionsGet Return object stating whether client Authorization permissions have been initialized or not and a reference
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param alias
-	@return ApiAdminRealmsRealmIdentityProviderInstancesAliasManagementPermissionsGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param alias
+ @return ApiAdminRealmsRealmIdentityProviderInstancesAliasManagementPermissionsGetRequest
 */
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesAliasManagementPermissionsGet(ctx context.Context, realm string, alias string) ApiAdminRealmsRealmIdentityProviderInstancesAliasManagementPermissionsGetRequest {
 	return ApiAdminRealmsRealmIdentityProviderInstancesAliasManagementPermissionsGetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		alias:      alias,
+		ctx: ctx,
+		realm: realm,
+		alias: alias,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	ManagementPermissionReference
+//  @return ManagementPermissionReference
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesAliasManagementPermissionsGetExecute(r ApiAdminRealmsRealmIdentityProviderInstancesAliasManagementPermissionsGetRequest) (*ManagementPermissionReference, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ManagementPermissionReference
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ManagementPermissionReference
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersAPIService.AdminRealmsRealmIdentityProviderInstancesAliasManagementPermissionsGet")
@@ -545,10 +543,10 @@ func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesA
 }
 
 type ApiAdminRealmsRealmIdentityProviderInstancesAliasManagementPermissionsPutRequest struct {
-	ctx                           context.Context
-	ApiService                    *IdentityProvidersAPIService
-	realm                         string
-	alias                         string
+	ctx context.Context
+	ApiService *IdentityProvidersAPIService
+	realm string
+	alias string
 	managementPermissionReference *ManagementPermissionReference
 }
 
@@ -564,29 +562,28 @@ func (r ApiAdminRealmsRealmIdentityProviderInstancesAliasManagementPermissionsPu
 /*
 AdminRealmsRealmIdentityProviderInstancesAliasManagementPermissionsPut Return object stating whether client Authorization permissions have been initialized or not and a reference
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param alias
-	@return ApiAdminRealmsRealmIdentityProviderInstancesAliasManagementPermissionsPutRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param alias
+ @return ApiAdminRealmsRealmIdentityProviderInstancesAliasManagementPermissionsPutRequest
 */
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesAliasManagementPermissionsPut(ctx context.Context, realm string, alias string) ApiAdminRealmsRealmIdentityProviderInstancesAliasManagementPermissionsPutRequest {
 	return ApiAdminRealmsRealmIdentityProviderInstancesAliasManagementPermissionsPutRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		alias:      alias,
+		ctx: ctx,
+		realm: realm,
+		alias: alias,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	ManagementPermissionReference
+//  @return ManagementPermissionReference
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesAliasManagementPermissionsPutExecute(r ApiAdminRealmsRealmIdentityProviderInstancesAliasManagementPermissionsPutRequest) (*ManagementPermissionReference, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ManagementPermissionReference
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ManagementPermissionReference
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersAPIService.AdminRealmsRealmIdentityProviderInstancesAliasManagementPermissionsPut")
@@ -659,10 +656,10 @@ func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesA
 }
 
 type ApiAdminRealmsRealmIdentityProviderInstancesAliasMapperTypesGetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *IdentityProvidersAPIService
-	realm      string
-	alias      string
+	realm string
+	alias string
 }
 
 func (r ApiAdminRealmsRealmIdentityProviderInstancesAliasMapperTypesGetRequest) Execute() (*map[string]IdentityProviderMapperTypeRepresentation, *http.Response, error) {
@@ -672,29 +669,28 @@ func (r ApiAdminRealmsRealmIdentityProviderInstancesAliasMapperTypesGetRequest) 
 /*
 AdminRealmsRealmIdentityProviderInstancesAliasMapperTypesGet Get mapper types for identity provider
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param alias
-	@return ApiAdminRealmsRealmIdentityProviderInstancesAliasMapperTypesGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param alias
+ @return ApiAdminRealmsRealmIdentityProviderInstancesAliasMapperTypesGetRequest
 */
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesAliasMapperTypesGet(ctx context.Context, realm string, alias string) ApiAdminRealmsRealmIdentityProviderInstancesAliasMapperTypesGetRequest {
 	return ApiAdminRealmsRealmIdentityProviderInstancesAliasMapperTypesGetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		alias:      alias,
+		ctx: ctx,
+		realm: realm,
+		alias: alias,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	map[string]IdentityProviderMapperTypeRepresentation
+//  @return map[string]IdentityProviderMapperTypeRepresentation
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesAliasMapperTypesGetExecute(r ApiAdminRealmsRealmIdentityProviderInstancesAliasMapperTypesGetRequest) (*map[string]IdentityProviderMapperTypeRepresentation, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *map[string]IdentityProviderMapperTypeRepresentation
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *map[string]IdentityProviderMapperTypeRepresentation
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersAPIService.AdminRealmsRealmIdentityProviderInstancesAliasMapperTypesGet")
@@ -765,10 +761,10 @@ func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesA
 }
 
 type ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersGetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *IdentityProvidersAPIService
-	realm      string
-	alias      string
+	realm string
+	alias string
 }
 
 func (r ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersGetRequest) Execute() ([]IdentityProviderMapperRepresentation, *http.Response, error) {
@@ -778,29 +774,28 @@ func (r ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersGetRequest) Exec
 /*
 AdminRealmsRealmIdentityProviderInstancesAliasMappersGet Get mappers for identity provider
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param alias
-	@return ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param alias
+ @return ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersGetRequest
 */
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesAliasMappersGet(ctx context.Context, realm string, alias string) ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersGetRequest {
 	return ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersGetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		alias:      alias,
+		ctx: ctx,
+		realm: realm,
+		alias: alias,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	[]IdentityProviderMapperRepresentation
+//  @return []IdentityProviderMapperRepresentation
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesAliasMappersGetExecute(r ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersGetRequest) ([]IdentityProviderMapperRepresentation, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []IdentityProviderMapperRepresentation
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []IdentityProviderMapperRepresentation
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersAPIService.AdminRealmsRealmIdentityProviderInstancesAliasMappersGet")
@@ -871,11 +866,11 @@ func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesA
 }
 
 type ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersIdDeleteRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *IdentityProvidersAPIService
-	realm      string
-	alias      string
-	id         string
+	realm string
+	alias string
+	id string
 }
 
 func (r ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersIdDeleteRequest) Execute() (*http.Response, error) {
@@ -885,28 +880,28 @@ func (r ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersIdDeleteRequest)
 /*
 AdminRealmsRealmIdentityProviderInstancesAliasMappersIdDelete Delete a mapper for the identity provider
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param alias
-	@param id Mapper id
-	@return ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersIdDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param alias
+ @param id Mapper id
+ @return ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersIdDeleteRequest
 */
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesAliasMappersIdDelete(ctx context.Context, realm string, alias string, id string) ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersIdDeleteRequest {
 	return ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersIdDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		alias:      alias,
-		id:         id,
+		ctx: ctx,
+		realm: realm,
+		alias: alias,
+		id: id,
 	}
 }
 
 // Execute executes the request
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesAliasMappersIdDeleteExecute(r ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersIdDeleteRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersAPIService.AdminRealmsRealmIdentityProviderInstancesAliasMappersIdDelete")
@@ -969,11 +964,11 @@ func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesA
 }
 
 type ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersIdGetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *IdentityProvidersAPIService
-	realm      string
-	alias      string
-	id         string
+	realm string
+	alias string
+	id string
 }
 
 func (r ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersIdGetRequest) Execute() (*IdentityProviderMapperRepresentation, *http.Response, error) {
@@ -983,31 +978,30 @@ func (r ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersIdGetRequest) Ex
 /*
 AdminRealmsRealmIdentityProviderInstancesAliasMappersIdGet Get mapper by id for the identity provider
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param alias
-	@param id
-	@return ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersIdGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param alias
+ @param id
+ @return ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersIdGetRequest
 */
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesAliasMappersIdGet(ctx context.Context, realm string, alias string, id string) ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersIdGetRequest {
 	return ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersIdGetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		alias:      alias,
-		id:         id,
+		ctx: ctx,
+		realm: realm,
+		alias: alias,
+		id: id,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	IdentityProviderMapperRepresentation
+//  @return IdentityProviderMapperRepresentation
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesAliasMappersIdGetExecute(r ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersIdGetRequest) (*IdentityProviderMapperRepresentation, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *IdentityProviderMapperRepresentation
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *IdentityProviderMapperRepresentation
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersAPIService.AdminRealmsRealmIdentityProviderInstancesAliasMappersIdGet")
@@ -1079,11 +1073,11 @@ func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesA
 }
 
 type ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersIdPutRequest struct {
-	ctx                                  context.Context
-	ApiService                           *IdentityProvidersAPIService
-	realm                                string
-	alias                                string
-	id                                   string
+	ctx context.Context
+	ApiService *IdentityProvidersAPIService
+	realm string
+	alias string
+	id string
 	identityProviderMapperRepresentation *IdentityProviderMapperRepresentation
 }
 
@@ -1099,28 +1093,28 @@ func (r ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersIdPutRequest) Ex
 /*
 AdminRealmsRealmIdentityProviderInstancesAliasMappersIdPut Update a mapper for the identity provider
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param alias
-	@param id Mapper id
-	@return ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersIdPutRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param alias
+ @param id Mapper id
+ @return ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersIdPutRequest
 */
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesAliasMappersIdPut(ctx context.Context, realm string, alias string, id string) ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersIdPutRequest {
 	return ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersIdPutRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		alias:      alias,
-		id:         id,
+		ctx: ctx,
+		realm: realm,
+		alias: alias,
+		id: id,
 	}
 }
 
 // Execute executes the request
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesAliasMappersIdPutExecute(r ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersIdPutRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersAPIService.AdminRealmsRealmIdentityProviderInstancesAliasMappersIdPut")
@@ -1185,10 +1179,10 @@ func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesA
 }
 
 type ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersPostRequest struct {
-	ctx                                  context.Context
-	ApiService                           *IdentityProvidersAPIService
-	realm                                string
-	alias                                string
+	ctx context.Context
+	ApiService *IdentityProvidersAPIService
+	realm string
+	alias string
 	identityProviderMapperRepresentation *IdentityProviderMapperRepresentation
 }
 
@@ -1204,26 +1198,26 @@ func (r ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersPostRequest) Exe
 /*
 AdminRealmsRealmIdentityProviderInstancesAliasMappersPost Add a mapper to identity provider
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param alias
-	@return ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersPostRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param alias
+ @return ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersPostRequest
 */
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesAliasMappersPost(ctx context.Context, realm string, alias string) ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersPostRequest {
 	return ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersPostRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		alias:      alias,
+		ctx: ctx,
+		realm: realm,
+		alias: alias,
 	}
 }
 
 // Execute executes the request
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesAliasMappersPostExecute(r ApiAdminRealmsRealmIdentityProviderInstancesAliasMappersPostRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersAPIService.AdminRealmsRealmIdentityProviderInstancesAliasMappersPost")
@@ -1287,10 +1281,10 @@ func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesA
 }
 
 type ApiAdminRealmsRealmIdentityProviderInstancesAliasPutRequest struct {
-	ctx                            context.Context
-	ApiService                     *IdentityProvidersAPIService
-	realm                          string
-	alias                          string
+	ctx context.Context
+	ApiService *IdentityProvidersAPIService
+	realm string
+	alias string
 	identityProviderRepresentation *IdentityProviderRepresentation
 }
 
@@ -1306,26 +1300,26 @@ func (r ApiAdminRealmsRealmIdentityProviderInstancesAliasPutRequest) Execute() (
 /*
 AdminRealmsRealmIdentityProviderInstancesAliasPut Update the identity provider
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param alias
-	@return ApiAdminRealmsRealmIdentityProviderInstancesAliasPutRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param alias
+ @return ApiAdminRealmsRealmIdentityProviderInstancesAliasPutRequest
 */
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesAliasPut(ctx context.Context, realm string, alias string) ApiAdminRealmsRealmIdentityProviderInstancesAliasPutRequest {
 	return ApiAdminRealmsRealmIdentityProviderInstancesAliasPutRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		alias:      alias,
+		ctx: ctx,
+		realm: realm,
+		alias: alias,
 	}
 }
 
 // Execute executes the request
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesAliasPutExecute(r ApiAdminRealmsRealmIdentityProviderInstancesAliasPutRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersAPIService.AdminRealmsRealmIdentityProviderInstancesAliasPut")
@@ -1389,10 +1383,10 @@ func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesA
 }
 
 type ApiAdminRealmsRealmIdentityProviderInstancesAliasReloadKeysGetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *IdentityProvidersAPIService
-	realm      string
-	alias      string
+	realm string
+	alias string
 }
 
 func (r ApiAdminRealmsRealmIdentityProviderInstancesAliasReloadKeysGetRequest) Execute() (bool, *http.Response, error) {
@@ -1402,29 +1396,28 @@ func (r ApiAdminRealmsRealmIdentityProviderInstancesAliasReloadKeysGetRequest) E
 /*
 AdminRealmsRealmIdentityProviderInstancesAliasReloadKeysGet Reaload keys for the identity provider if the provider supports it, \"true\" is returned if reload was performed, \"false\" if not.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param alias
-	@return ApiAdminRealmsRealmIdentityProviderInstancesAliasReloadKeysGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param alias
+ @return ApiAdminRealmsRealmIdentityProviderInstancesAliasReloadKeysGetRequest
 */
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesAliasReloadKeysGet(ctx context.Context, realm string, alias string) ApiAdminRealmsRealmIdentityProviderInstancesAliasReloadKeysGetRequest {
 	return ApiAdminRealmsRealmIdentityProviderInstancesAliasReloadKeysGetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		alias:      alias,
+		ctx: ctx,
+		realm: realm,
+		alias: alias,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	bool
+//  @return bool
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesAliasReloadKeysGetExecute(r ApiAdminRealmsRealmIdentityProviderInstancesAliasReloadKeysGetRequest) (bool, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue bool
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersAPIService.AdminRealmsRealmIdentityProviderInstancesAliasReloadKeysGet")
@@ -1495,14 +1488,14 @@ func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesA
 }
 
 type ApiAdminRealmsRealmIdentityProviderInstancesGetRequest struct {
-	ctx                 context.Context
-	ApiService          *IdentityProvidersAPIService
-	realm               string
+	ctx context.Context
+	ApiService *IdentityProvidersAPIService
+	realm string
 	briefRepresentation *bool
-	first               *int32
-	max                 *int32
-	realmOnly           *bool
-	search              *string
+	first *int32
+	max *int32
+	realmOnly *bool
+	search *string
 }
 
 // Boolean which defines whether brief representations are returned (default: false)
@@ -1542,27 +1535,26 @@ func (r ApiAdminRealmsRealmIdentityProviderInstancesGetRequest) Execute() ([]Ide
 /*
 AdminRealmsRealmIdentityProviderInstancesGet List identity providers
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@return ApiAdminRealmsRealmIdentityProviderInstancesGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @return ApiAdminRealmsRealmIdentityProviderInstancesGetRequest
 */
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesGet(ctx context.Context, realm string) ApiAdminRealmsRealmIdentityProviderInstancesGetRequest {
 	return ApiAdminRealmsRealmIdentityProviderInstancesGetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
+		ctx: ctx,
+		realm: realm,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	[]IdentityProviderRepresentation
+//  @return []IdentityProviderRepresentation
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesGetExecute(r ApiAdminRealmsRealmIdentityProviderInstancesGetRequest) ([]IdentityProviderRepresentation, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []IdentityProviderRepresentation
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []IdentityProviderRepresentation
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersAPIService.AdminRealmsRealmIdentityProviderInstancesGet")
@@ -1647,9 +1639,9 @@ func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesG
 }
 
 type ApiAdminRealmsRealmIdentityProviderInstancesPostRequest struct {
-	ctx                            context.Context
-	ApiService                     *IdentityProvidersAPIService
-	realm                          string
+	ctx context.Context
+	ApiService *IdentityProvidersAPIService
+	realm string
 	identityProviderRepresentation *IdentityProviderRepresentation
 }
 
@@ -1665,24 +1657,24 @@ func (r ApiAdminRealmsRealmIdentityProviderInstancesPostRequest) Execute() (*htt
 /*
 AdminRealmsRealmIdentityProviderInstancesPost Create a new identity provider
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@return ApiAdminRealmsRealmIdentityProviderInstancesPostRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @return ApiAdminRealmsRealmIdentityProviderInstancesPostRequest
 */
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesPost(ctx context.Context, realm string) ApiAdminRealmsRealmIdentityProviderInstancesPostRequest {
 	return ApiAdminRealmsRealmIdentityProviderInstancesPostRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
+		ctx: ctx,
+		realm: realm,
 	}
 }
 
 // Execute executes the request
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesPostExecute(r ApiAdminRealmsRealmIdentityProviderInstancesPostRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersAPIService.AdminRealmsRealmIdentityProviderInstancesPost")
@@ -1745,9 +1737,9 @@ func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderInstancesP
 }
 
 type ApiAdminRealmsRealmIdentityProviderProvidersProviderIdGetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *IdentityProvidersAPIService
-	realm      string
+	realm string
 	providerId string
 }
 
@@ -1758,29 +1750,28 @@ func (r ApiAdminRealmsRealmIdentityProviderProvidersProviderIdGetRequest) Execut
 /*
 AdminRealmsRealmIdentityProviderProvidersProviderIdGet Get the identity provider factory for that provider id
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param providerId The provider id to get the factory
-	@return ApiAdminRealmsRealmIdentityProviderProvidersProviderIdGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param providerId The provider id to get the factory
+ @return ApiAdminRealmsRealmIdentityProviderProvidersProviderIdGetRequest
 */
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderProvidersProviderIdGet(ctx context.Context, realm string, providerId string) ApiAdminRealmsRealmIdentityProviderProvidersProviderIdGetRequest {
 	return ApiAdminRealmsRealmIdentityProviderProvidersProviderIdGetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
+		ctx: ctx,
+		realm: realm,
 		providerId: providerId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	map[string]interface{}
+//  @return map[string]interface{}
 func (a *IdentityProvidersAPIService) AdminRealmsRealmIdentityProviderProvidersProviderIdGetExecute(r ApiAdminRealmsRealmIdentityProviderProvidersProviderIdGetRequest) (map[string]interface{}, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue map[string]interface{}
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersAPIService.AdminRealmsRealmIdentityProviderProvidersProviderIdGet")

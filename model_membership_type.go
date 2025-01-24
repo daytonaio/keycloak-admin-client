@@ -21,7 +21,7 @@ type MembershipType string
 // List of MembershipType
 const (
 	UNMANAGED MembershipType = "UNMANAGED"
-	MANAGED   MembershipType = "MANAGED"
+	MANAGED MembershipType = "MANAGED"
 )
 
 // All allowed values of MembershipType enum
@@ -108,3 +108,4 @@ func (v *NullableMembershipType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

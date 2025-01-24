@@ -19,16 +19,16 @@ var _ MappedNullable = &GroupRepresentation{}
 
 // GroupRepresentation struct for GroupRepresentation
 type GroupRepresentation struct {
-	Id            *string               `json:"id,omitempty"`
-	Name          *string               `json:"name,omitempty"`
-	Path          *string               `json:"path,omitempty"`
-	ParentId      *string               `json:"parentId,omitempty"`
-	SubGroupCount *int64                `json:"subGroupCount,omitempty"`
-	SubGroups     []GroupRepresentation `json:"subGroups,omitempty"`
-	Attributes    *map[string][]string  `json:"attributes,omitempty"`
-	RealmRoles    []string              `json:"realmRoles,omitempty"`
-	ClientRoles   *map[string][]string  `json:"clientRoles,omitempty"`
-	Access        *map[string]bool      `json:"access,omitempty"`
+	Id *string `json:"id,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Path *string `json:"path,omitempty"`
+	ParentId *string `json:"parentId,omitempty"`
+	SubGroupCount *int64 `json:"subGroupCount,omitempty"`
+	SubGroups []GroupRepresentation `json:"subGroups,omitempty"`
+	Attributes *map[string][]string `json:"attributes,omitempty"`
+	RealmRoles []string `json:"realmRoles,omitempty"`
+	ClientRoles *map[string][]string `json:"clientRoles,omitempty"`
+	Access *map[string]bool `json:"access,omitempty"`
 }
 
 // NewGroupRepresentation instantiates a new GroupRepresentation object
@@ -369,7 +369,7 @@ func (o *GroupRepresentation) SetAccess(v map[string]bool) {
 }
 
 func (o GroupRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -446,3 +446,5 @@ func (v *NullableGroupRepresentation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

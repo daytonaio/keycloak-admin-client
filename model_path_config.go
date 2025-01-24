@@ -19,17 +19,17 @@ var _ MappedNullable = &PathConfig{}
 
 // PathConfig struct for PathConfig
 type PathConfig struct {
-	Name                  *string                            `json:"name,omitempty"`
-	Type                  *string                            `json:"type,omitempty"`
-	Path                  *string                            `json:"path,omitempty"`
-	Methods               []MethodConfig                     `json:"methods,omitempty"`
-	Scopes                []string                           `json:"scopes,omitempty"`
-	Id                    *string                            `json:"id,omitempty"`
-	EnforcementMode       *EnforcementMode                   `json:"enforcement-mode,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Type *string `json:"type,omitempty"`
+	Path *string `json:"path,omitempty"`
+	Methods []MethodConfig `json:"methods,omitempty"`
+	Scopes []string `json:"scopes,omitempty"`
+	Id *string `json:"id,omitempty"`
+	EnforcementMode *EnforcementMode `json:"enforcement-mode,omitempty"`
 	ClaimInformationPoint *map[string]map[string]interface{} `json:"claim-information-point,omitempty"`
-	Invalidated           *bool                              `json:"invalidated,omitempty"`
-	StaticPath            *bool                              `json:"staticPath,omitempty"`
-	Static                *bool                              `json:"static,omitempty"`
+	Invalidated *bool `json:"invalidated,omitempty"`
+	StaticPath *bool `json:"staticPath,omitempty"`
+	Static *bool `json:"static,omitempty"`
 }
 
 // NewPathConfig instantiates a new PathConfig object
@@ -402,7 +402,7 @@ func (o *PathConfig) SetStatic(v bool) {
 }
 
 func (o PathConfig) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -482,3 +482,5 @@ func (v *NullablePathConfig) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

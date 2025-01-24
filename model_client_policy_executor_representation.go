@@ -19,7 +19,7 @@ var _ MappedNullable = &ClientPolicyExecutorRepresentation{}
 
 // ClientPolicyExecutorRepresentation struct for ClientPolicyExecutorRepresentation
 type ClientPolicyExecutorRepresentation struct {
-	Executor      *string  `json:"executor,omitempty"`
+	Executor *string `json:"executor,omitempty"`
 	Configuration []string `json:"configuration,omitempty"`
 }
 
@@ -105,7 +105,7 @@ func (o *ClientPolicyExecutorRepresentation) SetConfiguration(v []string) {
 }
 
 func (o ClientPolicyExecutorRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,3 +158,5 @@ func (v *NullableClientPolicyExecutorRepresentation) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

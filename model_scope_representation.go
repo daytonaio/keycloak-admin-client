@@ -19,12 +19,12 @@ var _ MappedNullable = &ScopeRepresentation{}
 
 // ScopeRepresentation struct for ScopeRepresentation
 type ScopeRepresentation struct {
-	Id          *string                  `json:"id,omitempty"`
-	Name        *string                  `json:"name,omitempty"`
-	IconUri     *string                  `json:"iconUri,omitempty"`
-	Policies    []PolicyRepresentation   `json:"policies,omitempty"`
-	Resources   []ResourceRepresentation `json:"resources,omitempty"`
-	DisplayName *string                  `json:"displayName,omitempty"`
+	Id *string `json:"id,omitempty"`
+	Name *string `json:"name,omitempty"`
+	IconUri *string `json:"iconUri,omitempty"`
+	Policies []PolicyRepresentation `json:"policies,omitempty"`
+	Resources []ResourceRepresentation `json:"resources,omitempty"`
+	DisplayName *string `json:"displayName,omitempty"`
 }
 
 // NewScopeRepresentation instantiates a new ScopeRepresentation object
@@ -237,7 +237,7 @@ func (o *ScopeRepresentation) SetDisplayName(v string) {
 }
 
 func (o ScopeRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -302,3 +302,5 @@ func (v *NullableScopeRepresentation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

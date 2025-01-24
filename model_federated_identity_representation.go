@@ -20,8 +20,8 @@ var _ MappedNullable = &FederatedIdentityRepresentation{}
 // FederatedIdentityRepresentation struct for FederatedIdentityRepresentation
 type FederatedIdentityRepresentation struct {
 	IdentityProvider *string `json:"identityProvider,omitempty"`
-	UserId           *string `json:"userId,omitempty"`
-	UserName         *string `json:"userName,omitempty"`
+	UserId *string `json:"userId,omitempty"`
+	UserName *string `json:"userName,omitempty"`
 }
 
 // NewFederatedIdentityRepresentation instantiates a new FederatedIdentityRepresentation object
@@ -138,7 +138,7 @@ func (o *FederatedIdentityRepresentation) SetUserName(v string) {
 }
 
 func (o FederatedIdentityRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -194,3 +194,5 @@ func (v *NullableFederatedIdentityRepresentation) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -11,10 +11,10 @@ package keycloak_admin_client
 
 import (
 	"context"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientScopesClientScopeIdScopeMappingsClientsClientAvailableGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -40,7 +40,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientScopesClientScopeIdScopeMappingsClientsClientCompositeGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -56,7 +56,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientScopesClientScopeIdScopeMappingsClientsClientDelete", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -71,7 +71,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientScopesClientScopeIdScopeMappingsClientsClientGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -87,7 +87,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientScopesClientScopeIdScopeMappingsClientsClientPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -102,7 +102,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientScopesClientScopeIdScopeMappingsGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -117,7 +117,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientScopesClientScopeIdScopeMappingsRealmAvailableGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -132,7 +132,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientScopesClientScopeIdScopeMappingsRealmCompositeGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -147,7 +147,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientScopesClientScopeIdScopeMappingsRealmDelete", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -161,7 +161,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientScopesClientScopeIdScopeMappingsRealmGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -176,7 +176,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientScopesClientScopeIdScopeMappingsRealmPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -190,7 +190,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientTemplatesClientScopeIdScopeMappingsClientsClientAvailableGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -206,7 +206,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientTemplatesClientScopeIdScopeMappingsClientsClientCompositeGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -222,7 +222,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientTemplatesClientScopeIdScopeMappingsClientsClientDelete", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -237,7 +237,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientTemplatesClientScopeIdScopeMappingsClientsClientGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -253,7 +253,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientTemplatesClientScopeIdScopeMappingsClientsClientPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -268,7 +268,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientTemplatesClientScopeIdScopeMappingsGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -283,7 +283,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientTemplatesClientScopeIdScopeMappingsRealmAvailableGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -298,7 +298,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientTemplatesClientScopeIdScopeMappingsRealmCompositeGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -313,7 +313,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientTemplatesClientScopeIdScopeMappingsRealmDelete", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -327,7 +327,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientTemplatesClientScopeIdScopeMappingsRealmGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -342,7 +342,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientTemplatesClientScopeIdScopeMappingsRealmPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientScopeId string
@@ -356,7 +356,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientsClientUuidScopeMappingsClientsClientAvailableGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -372,7 +372,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientsClientUuidScopeMappingsClientsClientCompositeGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -388,7 +388,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientsClientUuidScopeMappingsClientsClientDelete", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -403,7 +403,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientsClientUuidScopeMappingsClientsClientGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -419,7 +419,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientsClientUuidScopeMappingsClientsClientPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -434,7 +434,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientsClientUuidScopeMappingsGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -449,7 +449,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientsClientUuidScopeMappingsRealmAvailableGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -464,7 +464,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientsClientUuidScopeMappingsRealmCompositeGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -479,7 +479,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientsClientUuidScopeMappingsRealmDelete", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -493,7 +493,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientsClientUuidScopeMappingsRealmGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string
@@ -508,7 +508,7 @@ func Test_keycloak_admin_client_ScopeMappingsAPIService(t *testing.T) {
 
 	t.Run("Test ScopeMappingsAPIService AdminRealmsRealmClientsClientUuidScopeMappingsRealmPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var clientUuid string

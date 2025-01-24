@@ -19,8 +19,8 @@ var _ MappedNullable = &PropertyConfig{}
 
 // PropertyConfig struct for PropertyConfig
 type PropertyConfig struct {
-	Applicable *bool       `json:"applicable,omitempty"`
-	Value      interface{} `json:"value,omitempty"`
+	Applicable *bool `json:"applicable,omitempty"`
+	Value interface{} `json:"value,omitempty"`
 }
 
 // NewPropertyConfig instantiates a new PropertyConfig object
@@ -106,7 +106,7 @@ func (o *PropertyConfig) SetValue(v interface{}) {
 }
 
 func (o PropertyConfig) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -159,3 +159,5 @@ func (v *NullablePropertyConfig) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -19,18 +19,18 @@ var _ MappedNullable = &InstallationAdapterConfig{}
 
 // InstallationAdapterConfig struct for InstallationAdapterConfig
 type InstallationAdapterConfig struct {
-	Realm                   *string                `json:"realm,omitempty"`
-	RealmPublicKey          *string                `json:"realm-public-key,omitempty"`
-	AuthServerUrl           *string                `json:"auth-server-url,omitempty"`
-	SslRequired             *string                `json:"ssl-required,omitempty"`
-	BearerOnly              *bool                  `json:"bearer-only,omitempty"`
-	Resource                *string                `json:"resource,omitempty"`
-	PublicClient            *bool                  `json:"public-client,omitempty"`
-	VerifyTokenAudience     *bool                  `json:"verify-token-audience,omitempty"`
-	Credentials             map[string]interface{} `json:"credentials,omitempty"`
-	UseResourceRoleMappings *bool                  `json:"use-resource-role-mappings,omitempty"`
-	ConfidentialPort        *int32                 `json:"confidential-port,omitempty"`
-	PolicyEnforcer          *PolicyEnforcerConfig  `json:"policy-enforcer,omitempty"`
+	Realm *string `json:"realm,omitempty"`
+	RealmPublicKey *string `json:"realm-public-key,omitempty"`
+	AuthServerUrl *string `json:"auth-server-url,omitempty"`
+	SslRequired *string `json:"ssl-required,omitempty"`
+	BearerOnly *bool `json:"bearer-only,omitempty"`
+	Resource *string `json:"resource,omitempty"`
+	PublicClient *bool `json:"public-client,omitempty"`
+	VerifyTokenAudience *bool `json:"verify-token-audience,omitempty"`
+	Credentials map[string]interface{} `json:"credentials,omitempty"`
+	UseResourceRoleMappings *bool `json:"use-resource-role-mappings,omitempty"`
+	ConfidentialPort *int32 `json:"confidential-port,omitempty"`
+	PolicyEnforcer *PolicyEnforcerConfig `json:"policy-enforcer,omitempty"`
 }
 
 // NewInstallationAdapterConfig instantiates a new InstallationAdapterConfig object
@@ -435,7 +435,7 @@ func (o *InstallationAdapterConfig) SetPolicyEnforcer(v PolicyEnforcerConfig) {
 }
 
 func (o InstallationAdapterConfig) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -518,3 +518,5 @@ func (v *NullableInstallationAdapterConfig) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

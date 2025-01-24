@@ -19,16 +19,16 @@ var _ MappedNullable = &ClaimRepresentation{}
 
 // ClaimRepresentation struct for ClaimRepresentation
 type ClaimRepresentation struct {
-	Name     *bool `json:"name,omitempty"`
+	Name *bool `json:"name,omitempty"`
 	Username *bool `json:"username,omitempty"`
-	Profile  *bool `json:"profile,omitempty"`
-	Picture  *bool `json:"picture,omitempty"`
-	Website  *bool `json:"website,omitempty"`
-	Email    *bool `json:"email,omitempty"`
-	Gender   *bool `json:"gender,omitempty"`
-	Locale   *bool `json:"locale,omitempty"`
-	Address  *bool `json:"address,omitempty"`
-	Phone    *bool `json:"phone,omitempty"`
+	Profile *bool `json:"profile,omitempty"`
+	Picture *bool `json:"picture,omitempty"`
+	Website *bool `json:"website,omitempty"`
+	Email *bool `json:"email,omitempty"`
+	Gender *bool `json:"gender,omitempty"`
+	Locale *bool `json:"locale,omitempty"`
+	Address *bool `json:"address,omitempty"`
+	Phone *bool `json:"phone,omitempty"`
 }
 
 // NewClaimRepresentation instantiates a new ClaimRepresentation object
@@ -369,7 +369,7 @@ func (o *ClaimRepresentation) SetPhone(v bool) {
 }
 
 func (o ClaimRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -446,3 +446,5 @@ func (v *NullableClaimRepresentation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -11,10 +11,10 @@ package keycloak_admin_client
 
 import (
 	"context"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func Test_keycloak_admin_client_IdentityProvidersAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_keycloak_admin_client_IdentityProvidersAPIService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersAPIService AdminRealmsRealmIdentityProviderImportConfigPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 
@@ -38,7 +38,7 @@ func Test_keycloak_admin_client_IdentityProvidersAPIService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersAPIService AdminRealmsRealmIdentityProviderInstancesAliasDelete", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var alias string
@@ -52,7 +52,7 @@ func Test_keycloak_admin_client_IdentityProvidersAPIService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersAPIService AdminRealmsRealmIdentityProviderInstancesAliasExportGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var alias string
@@ -66,7 +66,7 @@ func Test_keycloak_admin_client_IdentityProvidersAPIService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersAPIService AdminRealmsRealmIdentityProviderInstancesAliasGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var alias string
@@ -81,7 +81,7 @@ func Test_keycloak_admin_client_IdentityProvidersAPIService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersAPIService AdminRealmsRealmIdentityProviderInstancesAliasManagementPermissionsGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var alias string
@@ -96,7 +96,7 @@ func Test_keycloak_admin_client_IdentityProvidersAPIService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersAPIService AdminRealmsRealmIdentityProviderInstancesAliasManagementPermissionsPut", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var alias string
@@ -111,7 +111,7 @@ func Test_keycloak_admin_client_IdentityProvidersAPIService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersAPIService AdminRealmsRealmIdentityProviderInstancesAliasMapperTypesGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var alias string
@@ -126,7 +126,7 @@ func Test_keycloak_admin_client_IdentityProvidersAPIService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersAPIService AdminRealmsRealmIdentityProviderInstancesAliasMappersGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var alias string
@@ -141,7 +141,7 @@ func Test_keycloak_admin_client_IdentityProvidersAPIService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersAPIService AdminRealmsRealmIdentityProviderInstancesAliasMappersIdDelete", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var alias string
@@ -156,7 +156,7 @@ func Test_keycloak_admin_client_IdentityProvidersAPIService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersAPIService AdminRealmsRealmIdentityProviderInstancesAliasMappersIdGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var alias string
@@ -172,7 +172,7 @@ func Test_keycloak_admin_client_IdentityProvidersAPIService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersAPIService AdminRealmsRealmIdentityProviderInstancesAliasMappersIdPut", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var alias string
@@ -187,7 +187,7 @@ func Test_keycloak_admin_client_IdentityProvidersAPIService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersAPIService AdminRealmsRealmIdentityProviderInstancesAliasMappersPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var alias string
@@ -201,7 +201,7 @@ func Test_keycloak_admin_client_IdentityProvidersAPIService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersAPIService AdminRealmsRealmIdentityProviderInstancesAliasPut", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var alias string
@@ -215,7 +215,7 @@ func Test_keycloak_admin_client_IdentityProvidersAPIService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersAPIService AdminRealmsRealmIdentityProviderInstancesAliasReloadKeysGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var alias string
@@ -230,7 +230,7 @@ func Test_keycloak_admin_client_IdentityProvidersAPIService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersAPIService AdminRealmsRealmIdentityProviderInstancesGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 
@@ -244,7 +244,7 @@ func Test_keycloak_admin_client_IdentityProvidersAPIService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersAPIService AdminRealmsRealmIdentityProviderInstancesPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 
@@ -257,7 +257,7 @@ func Test_keycloak_admin_client_IdentityProvidersAPIService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersAPIService AdminRealmsRealmIdentityProviderProvidersProviderIdGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var providerId string

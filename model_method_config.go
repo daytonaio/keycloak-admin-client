@@ -19,8 +19,8 @@ var _ MappedNullable = &MethodConfig{}
 
 // MethodConfig struct for MethodConfig
 type MethodConfig struct {
-	Method                *string               `json:"method,omitempty"`
-	Scopes                []string              `json:"scopes,omitempty"`
+	Method *string `json:"method,omitempty"`
+	Scopes []string `json:"scopes,omitempty"`
 	ScopesEnforcementMode *ScopeEnforcementMode `json:"scopes-enforcement-mode,omitempty"`
 }
 
@@ -138,7 +138,7 @@ func (o *MethodConfig) SetScopesEnforcementMode(v ScopeEnforcementMode) {
 }
 
 func (o MethodConfig) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -194,3 +194,5 @@ func (v *NullableMethodConfig) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

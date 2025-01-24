@@ -20,15 +20,15 @@ var _ MappedNullable = &AuthenticationExecutionRepresentation{}
 // AuthenticationExecutionRepresentation struct for AuthenticationExecutionRepresentation
 type AuthenticationExecutionRepresentation struct {
 	AuthenticatorConfig *string `json:"authenticatorConfig,omitempty"`
-	Authenticator       *string `json:"authenticator,omitempty"`
-	AuthenticatorFlow   *bool   `json:"authenticatorFlow,omitempty"`
-	Requirement         *string `json:"requirement,omitempty"`
-	Priority            *int32  `json:"priority,omitempty"`
+	Authenticator *string `json:"authenticator,omitempty"`
+	AuthenticatorFlow *bool `json:"authenticatorFlow,omitempty"`
+	Requirement *string `json:"requirement,omitempty"`
+	Priority *int32 `json:"priority,omitempty"`
 	// Deprecated
-	AutheticatorFlow *bool   `json:"autheticatorFlow,omitempty"`
-	Id               *string `json:"id,omitempty"`
-	FlowId           *string `json:"flowId,omitempty"`
-	ParentFlow       *string `json:"parentFlow,omitempty"`
+	AutheticatorFlow *bool `json:"autheticatorFlow,omitempty"`
+	Id *string `json:"id,omitempty"`
+	FlowId *string `json:"flowId,omitempty"`
+	ParentFlow *string `json:"parentFlow,omitempty"`
 }
 
 // NewAuthenticationExecutionRepresentation instantiates a new AuthenticationExecutionRepresentation object
@@ -340,7 +340,7 @@ func (o *AuthenticationExecutionRepresentation) SetParentFlow(v string) {
 }
 
 func (o AuthenticationExecutionRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -414,3 +414,5 @@ func (v *NullableAuthenticationExecutionRepresentation) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -19,8 +19,8 @@ var _ MappedNullable = &AuthenticatorConfigRepresentation{}
 
 // AuthenticatorConfigRepresentation struct for AuthenticatorConfigRepresentation
 type AuthenticatorConfigRepresentation struct {
-	Id     *string            `json:"id,omitempty"`
-	Alias  *string            `json:"alias,omitempty"`
+	Id *string `json:"id,omitempty"`
+	Alias *string `json:"alias,omitempty"`
 	Config *map[string]string `json:"config,omitempty"`
 }
 
@@ -138,7 +138,7 @@ func (o *AuthenticatorConfigRepresentation) SetConfig(v map[string]string) {
 }
 
 func (o AuthenticatorConfigRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -194,3 +194,5 @@ func (v *NullableAuthenticatorConfigRepresentation) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

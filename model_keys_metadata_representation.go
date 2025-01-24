@@ -19,8 +19,8 @@ var _ MappedNullable = &KeysMetadataRepresentation{}
 
 // KeysMetadataRepresentation struct for KeysMetadataRepresentation
 type KeysMetadataRepresentation struct {
-	Active *map[string]string          `json:"active,omitempty"`
-	Keys   []KeyMetadataRepresentation `json:"keys,omitempty"`
+	Active *map[string]string `json:"active,omitempty"`
+	Keys []KeyMetadataRepresentation `json:"keys,omitempty"`
 }
 
 // NewKeysMetadataRepresentation instantiates a new KeysMetadataRepresentation object
@@ -105,7 +105,7 @@ func (o *KeysMetadataRepresentation) SetKeys(v []KeyMetadataRepresentation) {
 }
 
 func (o KeysMetadataRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,3 +158,5 @@ func (v *NullableKeysMetadataRepresentation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

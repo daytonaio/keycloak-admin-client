@@ -11,10 +11,10 @@ package keycloak_admin_client
 
 import (
 	"context"
-	openapiclient "github.com/daytonaio/daytona-ee-draft/pkg/keycloak-admin-client"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
+	openapiclient "github.com/daytonaio/keycloak-admin-client"
 )
 
 func Test_keycloak_admin_client_ClientInitialAccessAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_keycloak_admin_client_ClientInitialAccessAPIService(t *testing.T) {
 
 	t.Run("Test ClientInitialAccessAPIService AdminRealmsRealmClientsInitialAccessGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 
@@ -38,7 +38,7 @@ func Test_keycloak_admin_client_ClientInitialAccessAPIService(t *testing.T) {
 
 	t.Run("Test ClientInitialAccessAPIService AdminRealmsRealmClientsInitialAccessIdDelete", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 		var id string
@@ -52,7 +52,7 @@ func Test_keycloak_admin_client_ClientInitialAccessAPIService(t *testing.T) {
 
 	t.Run("Test ClientInitialAccessAPIService AdminRealmsRealmClientsInitialAccessPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var realm string
 

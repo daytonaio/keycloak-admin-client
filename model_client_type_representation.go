@@ -19,10 +19,10 @@ var _ MappedNullable = &ClientTypeRepresentation{}
 
 // ClientTypeRepresentation struct for ClientTypeRepresentation
 type ClientTypeRepresentation struct {
-	Name     *string                    `json:"name,omitempty"`
-	Provider *string                    `json:"provider,omitempty"`
-	Parent   *string                    `json:"parent,omitempty"`
-	Config   *map[string]PropertyConfig `json:"config,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Provider *string `json:"provider,omitempty"`
+	Parent *string `json:"parent,omitempty"`
+	Config *map[string]PropertyConfig `json:"config,omitempty"`
 }
 
 // NewClientTypeRepresentation instantiates a new ClientTypeRepresentation object
@@ -171,7 +171,7 @@ func (o *ClientTypeRepresentation) SetConfig(v map[string]PropertyConfig) {
 }
 
 func (o ClientTypeRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -230,3 +230,5 @@ func (v *NullableClientTypeRepresentation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

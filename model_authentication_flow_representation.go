@@ -19,12 +19,12 @@ var _ MappedNullable = &AuthenticationFlowRepresentation{}
 
 // AuthenticationFlowRepresentation struct for AuthenticationFlowRepresentation
 type AuthenticationFlowRepresentation struct {
-	Id                       *string                                       `json:"id,omitempty"`
-	Alias                    *string                                       `json:"alias,omitempty"`
-	Description              *string                                       `json:"description,omitempty"`
-	ProviderId               *string                                       `json:"providerId,omitempty"`
-	TopLevel                 *bool                                         `json:"topLevel,omitempty"`
-	BuiltIn                  *bool                                         `json:"builtIn,omitempty"`
+	Id *string `json:"id,omitempty"`
+	Alias *string `json:"alias,omitempty"`
+	Description *string `json:"description,omitempty"`
+	ProviderId *string `json:"providerId,omitempty"`
+	TopLevel *bool `json:"topLevel,omitempty"`
+	BuiltIn *bool `json:"builtIn,omitempty"`
 	AuthenticationExecutions []AuthenticationExecutionExportRepresentation `json:"authenticationExecutions,omitempty"`
 }
 
@@ -270,7 +270,7 @@ func (o *AuthenticationFlowRepresentation) SetAuthenticationExecutions(v []Authe
 }
 
 func (o AuthenticationFlowRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -338,3 +338,5 @@ func (v *NullableAuthenticationFlowRepresentation) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

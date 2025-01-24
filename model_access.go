@@ -19,8 +19,8 @@ var _ MappedNullable = &Access{}
 
 // Access struct for Access
 type Access struct {
-	Roles        []string `json:"roles,omitempty"`
-	VerifyCaller *bool    `json:"verify_caller,omitempty"`
+	Roles []string `json:"roles,omitempty"`
+	VerifyCaller *bool `json:"verify_caller,omitempty"`
 }
 
 // NewAccess instantiates a new Access object
@@ -105,7 +105,7 @@ func (o *Access) SetVerifyCaller(v bool) {
 }
 
 func (o Access) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,3 +158,5 @@ func (v *NullableAccess) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

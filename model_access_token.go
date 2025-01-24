@@ -19,49 +19,49 @@ var _ MappedNullable = &AccessToken{}
 
 // AccessToken struct for AccessToken
 type AccessToken struct {
-	Jti                 *string                `json:"jti,omitempty"`
-	Exp                 *int64                 `json:"exp,omitempty"`
-	Nbf                 *int64                 `json:"nbf,omitempty"`
-	Iat                 *int64                 `json:"iat,omitempty"`
-	Iss                 *string                `json:"iss,omitempty"`
-	Sub                 *string                `json:"sub,omitempty"`
-	Typ                 *string                `json:"typ,omitempty"`
-	Azp                 *string                `json:"azp,omitempty"`
-	OtherClaims         map[string]interface{} `json:"otherClaims,omitempty"`
-	Nonce               *string                `json:"nonce,omitempty"`
-	AuthTime            *int64                 `json:"auth_time,omitempty"`
-	Sid                 *string                `json:"sid,omitempty"`
-	AtHash              *string                `json:"at_hash,omitempty"`
-	CHash               *string                `json:"c_hash,omitempty"`
-	Name                *string                `json:"name,omitempty"`
-	GivenName           *string                `json:"given_name,omitempty"`
-	FamilyName          *string                `json:"family_name,omitempty"`
-	MiddleName          *string                `json:"middle_name,omitempty"`
-	Nickname            *string                `json:"nickname,omitempty"`
-	PreferredUsername   *string                `json:"preferred_username,omitempty"`
-	Profile             *string                `json:"profile,omitempty"`
-	Picture             *string                `json:"picture,omitempty"`
-	Website             *string                `json:"website,omitempty"`
-	Email               *string                `json:"email,omitempty"`
-	EmailVerified       *bool                  `json:"email_verified,omitempty"`
-	Gender              *string                `json:"gender,omitempty"`
-	Birthdate           *string                `json:"birthdate,omitempty"`
-	Zoneinfo            *string                `json:"zoneinfo,omitempty"`
-	Locale              *string                `json:"locale,omitempty"`
-	PhoneNumber         *string                `json:"phone_number,omitempty"`
-	PhoneNumberVerified *bool                  `json:"phone_number_verified,omitempty"`
-	Address             *AddressClaimSet       `json:"address,omitempty"`
-	UpdatedAt           *int64                 `json:"updated_at,omitempty"`
-	ClaimsLocales       *string                `json:"claims_locales,omitempty"`
-	Acr                 *string                `json:"acr,omitempty"`
-	SHash               *string                `json:"s_hash,omitempty"`
-	TrustedCerts        []string               `json:"trusted-certs,omitempty"`
-	AllowedOrigins      []string               `json:"allowed-origins,omitempty"`
-	RealmAccess         *Access                `json:"realm_access,omitempty"`
-	ResourceAccess      *map[string]Access     `json:"resource_access,omitempty"`
-	Authorization       *Authorization         `json:"authorization,omitempty"`
-	Cnf                 *Confirmation          `json:"cnf,omitempty"`
-	Scope               *string                `json:"scope,omitempty"`
+	Jti *string `json:"jti,omitempty"`
+	Exp *int64 `json:"exp,omitempty"`
+	Nbf *int64 `json:"nbf,omitempty"`
+	Iat *int64 `json:"iat,omitempty"`
+	Iss *string `json:"iss,omitempty"`
+	Sub *string `json:"sub,omitempty"`
+	Typ *string `json:"typ,omitempty"`
+	Azp *string `json:"azp,omitempty"`
+	OtherClaims map[string]interface{} `json:"otherClaims,omitempty"`
+	Nonce *string `json:"nonce,omitempty"`
+	AuthTime *int64 `json:"auth_time,omitempty"`
+	Sid *string `json:"sid,omitempty"`
+	AtHash *string `json:"at_hash,omitempty"`
+	CHash *string `json:"c_hash,omitempty"`
+	Name *string `json:"name,omitempty"`
+	GivenName *string `json:"given_name,omitempty"`
+	FamilyName *string `json:"family_name,omitempty"`
+	MiddleName *string `json:"middle_name,omitempty"`
+	Nickname *string `json:"nickname,omitempty"`
+	PreferredUsername *string `json:"preferred_username,omitempty"`
+	Profile *string `json:"profile,omitempty"`
+	Picture *string `json:"picture,omitempty"`
+	Website *string `json:"website,omitempty"`
+	Email *string `json:"email,omitempty"`
+	EmailVerified *bool `json:"email_verified,omitempty"`
+	Gender *string `json:"gender,omitempty"`
+	Birthdate *string `json:"birthdate,omitempty"`
+	Zoneinfo *string `json:"zoneinfo,omitempty"`
+	Locale *string `json:"locale,omitempty"`
+	PhoneNumber *string `json:"phone_number,omitempty"`
+	PhoneNumberVerified *bool `json:"phone_number_verified,omitempty"`
+	Address *AddressClaimSet `json:"address,omitempty"`
+	UpdatedAt *int64 `json:"updated_at,omitempty"`
+	ClaimsLocales *string `json:"claims_locales,omitempty"`
+	Acr *string `json:"acr,omitempty"`
+	SHash *string `json:"s_hash,omitempty"`
+	TrustedCerts []string `json:"trusted-certs,omitempty"`
+	AllowedOrigins []string `json:"allowed-origins,omitempty"`
+	RealmAccess *Access `json:"realm_access,omitempty"`
+	ResourceAccess *map[string]Access `json:"resource_access,omitempty"`
+	Authorization *Authorization `json:"authorization,omitempty"`
+	Cnf *Confirmation `json:"cnf,omitempty"`
+	Scope *string `json:"scope,omitempty"`
 }
 
 // NewAccessToken instantiates a new AccessToken object
@@ -1458,7 +1458,7 @@ func (o *AccessToken) SetScope(v string) {
 }
 
 func (o AccessToken) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1634,3 +1634,5 @@ func (v *NullableAccessToken) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

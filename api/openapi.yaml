@@ -8343,7 +8343,10 @@ paths:
                   $ref: '#/components/schemas/GroupRepresentation'
                 type: array
           description: OK
-      summary: Get group hierarchy.  Only name and ids are returned.
+      summary: "Get group hierarchy.  Only `name` and `id` are returned.  `subGroups`\
+        \ are only returned when using the `search` or `q` parameter. If none of these\
+        \ parameters is provided, the top-level groups are returned without `subGroups`\
+        \ being filled."
       tags:
       - Groups
     post:
@@ -9905,6 +9908,16 @@ paths:
         schema:
           type: string
         style: simple
+      - description: "if true, return the full representation. Otherwise, only the\
+          \ basic fields are returned."
+        explode: true
+        in: query
+        name: briefRepresentation
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
       - description: Boolean which defines whether the param 'search' must match exactly
           or not
         explode: true
@@ -9984,7 +9997,7 @@ paths:
       summary: Creates a new organization
       tags:
       - Organizations
-  /admin/realms/{realm}/organizations/members/{id}/organizations:
+  /admin/realms/{realm}/organizations/members/{member-id}/organizations:
     get:
       parameters:
       - description: realm name (not id!)
@@ -9997,7 +10010,7 @@ paths:
         style: simple
       - explode: false
         in: path
-        name: id
+        name: member-id
         required: true
         schema:
           type: string
@@ -10015,7 +10028,7 @@ paths:
         id
       tags:
       - Organizations
-  /admin/realms/{realm}/organizations/{id}:
+  /admin/realms/{realm}/organizations/{org-id}:
     delete:
       parameters:
       - description: realm name (not id!)
@@ -10028,7 +10041,7 @@ paths:
         style: simple
       - explode: false
         in: path
-        name: id
+        name: org-id
         required: true
         schema:
           type: string
@@ -10051,7 +10064,7 @@ paths:
         style: simple
       - explode: false
         in: path
-        name: id
+        name: org-id
         required: true
         schema:
           type: string
@@ -10078,7 +10091,7 @@ paths:
         style: simple
       - explode: false
         in: path
-        name: id
+        name: org-id
         required: true
         schema:
           type: string
@@ -10094,7 +10107,7 @@ paths:
       summary: Updates the organization
       tags:
       - Organizations
-  /admin/realms/{realm}/organizations/{id}/identity-providers:
+  /admin/realms/{realm}/organizations/{org-id}/identity-providers:
     get:
       parameters:
       - description: realm name (not id!)
@@ -10107,7 +10120,7 @@ paths:
         style: simple
       - explode: false
         in: path
-        name: id
+        name: org-id
         required: true
         schema:
           type: string
@@ -10139,7 +10152,7 @@ paths:
         style: simple
       - explode: false
         in: path
-        name: id
+        name: org-id
         required: true
         schema:
           type: string
@@ -10155,7 +10168,7 @@ paths:
       summary: Adds the identity provider with the specified id to the organization
       tags:
       - Organizations
-  /admin/realms/{realm}/organizations/{id}/identity-providers/{alias}:
+  /admin/realms/{realm}/organizations/{org-id}/identity-providers/{alias}:
     delete:
       description: "Breaks the association between the identity provider and the organization.\
         \ The provider itself is not deleted. If no provider is found, or if it is\
@@ -10171,7 +10184,7 @@ paths:
         style: simple
       - explode: false
         in: path
-        name: id
+        name: org-id
         required: true
         schema:
           type: string
@@ -10204,7 +10217,7 @@ paths:
         style: simple
       - explode: false
         in: path
-        name: id
+        name: org-id
         required: true
         schema:
           type: string
@@ -10227,7 +10240,7 @@ paths:
         has the specified alias
       tags:
       - Organizations
-  /admin/realms/{realm}/organizations/{id}/members:
+  /admin/realms/{realm}/organizations/{org-id}/members:
     get:
       parameters:
       - description: realm name (not id!)
@@ -10240,7 +10253,7 @@ paths:
         style: simple
       - explode: false
         in: path
-        name: id
+        name: org-id
         required: true
         schema:
           type: string
@@ -10272,6 +10285,14 @@ paths:
         schema:
           format: int32
           type: integer
+        style: form
+      - description: The membership type
+        explode: true
+        in: query
+        name: membershipType
+        required: false
+        schema:
+          type: string
         style: form
       - description: "A String representing either a member's username, e-mail, first\
           \ name, or last name."
@@ -10310,7 +10331,7 @@ paths:
         style: simple
       - explode: false
         in: path
-        name: id
+        name: org-id
         required: true
         schema:
           type: string
@@ -10326,7 +10347,7 @@ paths:
       summary: Adds the user with the specified id as a member of the organization
       tags:
       - Organizations
-  /admin/realms/{realm}/organizations/{id}/members/count:
+  /admin/realms/{realm}/organizations/{org-id}/members/count:
     get:
       parameters:
       - description: realm name (not id!)
@@ -10339,7 +10360,7 @@ paths:
         style: simple
       - explode: false
         in: path
-        name: id
+        name: org-id
         required: true
         schema:
           type: string
@@ -10355,7 +10376,7 @@ paths:
       summary: Returns number of members in the organization.
       tags:
       - Organizations
-  /admin/realms/{realm}/organizations/{id}/members/invite-existing-user:
+  /admin/realms/{realm}/organizations/{org-id}/members/invite-existing-user:
     post:
       parameters:
       - description: realm name (not id!)
@@ -10368,7 +10389,7 @@ paths:
         style: simple
       - explode: false
         in: path
-        name: id
+        name: org-id
         required: true
         schema:
           type: string
@@ -10377,7 +10398,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/_admin_realms__realm__organizations__id__members_invite_existing_user_post_request'
+              $ref: '#/components/schemas/_admin_realms__realm__organizations__org_id__members_invite_existing_user_post_request'
       responses:
         "200":
           description: OK
@@ -10385,7 +10406,7 @@ paths:
         \ user id"
       tags:
       - Organizations
-  /admin/realms/{realm}/organizations/{id}/members/invite-user:
+  /admin/realms/{realm}/organizations/{org-id}/members/invite-user:
     post:
       description: "If the user with the given e-mail address exists, it sends an\
         \ invitation link, otherwise it sends a registration link."
@@ -10400,7 +10421,7 @@ paths:
         style: simple
       - explode: false
         in: path
-        name: id
+        name: org-id
         required: true
         schema:
           type: string
@@ -10409,7 +10430,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/_admin_realms__realm__organizations__id__members_invite_user_post_request'
+              $ref: '#/components/schemas/_admin_realms__realm__organizations__org_id__members_invite_user_post_request'
       responses:
         "200":
           description: OK
@@ -10417,7 +10438,7 @@ paths:
         \ based on the provided e-mail address."
       tags:
       - Organizations
-  /admin/realms/{realm}/organizations/{id}/members/{userId}:
+  /admin/realms/{realm}/organizations/{org-id}/members/{member-id}:
     delete:
       description: "Breaks the association between the user and organization. The\
         \ user itself is deleted in case the membership is managed, otherwise the\
@@ -10434,14 +10455,14 @@ paths:
         style: simple
       - explode: false
         in: path
-        name: id
+        name: org-id
         required: true
         schema:
           type: string
         style: simple
       - explode: false
         in: path
-        name: userId
+        name: member-id
         required: true
         schema:
           type: string
@@ -10467,14 +10488,14 @@ paths:
         style: simple
       - explode: false
         in: path
-        name: id
+        name: org-id
         required: true
         schema:
           type: string
         style: simple
       - explode: false
         in: path
-        name: userId
+        name: member-id
         required: true
         schema:
           type: string
@@ -10489,7 +10510,7 @@ paths:
       summary: Returns the member of the organization with the specified id
       tags:
       - Organizations
-  /admin/realms/{realm}/organizations/{id}/members/{userId}/organizations:
+  /admin/realms/{realm}/organizations/{org-id}/members/{member-id}/organizations:
     get:
       parameters:
       - description: realm name (not id!)
@@ -10502,14 +10523,14 @@ paths:
         style: simple
       - explode: false
         in: path
-        name: id
+        name: org-id
         required: true
         schema:
           type: string
         style: simple
       - explode: false
         in: path
-        name: userId
+        name: member-id
         required: true
         schema:
           type: string
@@ -13237,120 +13258,6 @@ components:
     AbstractPolicyRepresentation:
       example:
         owner: owner
-        scopesData:
-        - displayName: displayName
-          name: name
-          policies:
-          - owner: owner
-            policies:
-            - policies
-            - policies
-            resourcesData:
-            - null
-            - null
-            description: description
-            resources:
-            - resources
-            - resources
-            type: type
-            scopesData:
-            - null
-            - null
-            name: name
-            id: id
-            scopes:
-            - scopes
-            - scopes
-            logic: POSITIVE
-            decisionStrategy: AFFIRMATIVE
-            config:
-              key: config
-          - owner: owner
-            policies:
-            - policies
-            - policies
-            resourcesData:
-            - null
-            - null
-            description: description
-            resources:
-            - resources
-            - resources
-            type: type
-            scopesData:
-            - null
-            - null
-            name: name
-            id: id
-            scopes:
-            - scopes
-            - scopes
-            logic: POSITIVE
-            decisionStrategy: AFFIRMATIVE
-            config:
-              key: config
-          resources:
-          - null
-          - null
-          id: id
-          iconUri: iconUri
-        - displayName: displayName
-          name: name
-          policies:
-          - owner: owner
-            policies:
-            - policies
-            - policies
-            resourcesData:
-            - null
-            - null
-            description: description
-            resources:
-            - resources
-            - resources
-            type: type
-            scopesData:
-            - null
-            - null
-            name: name
-            id: id
-            scopes:
-            - scopes
-            - scopes
-            logic: POSITIVE
-            decisionStrategy: AFFIRMATIVE
-            config:
-              key: config
-          - owner: owner
-            policies:
-            - policies
-            - policies
-            resourcesData:
-            - null
-            - null
-            description: description
-            resources:
-            - resources
-            - resources
-            type: type
-            scopesData:
-            - null
-            - null
-            name: name
-            id: id
-            scopes:
-            - scopes
-            - scopes
-            logic: POSITIVE
-            decisionStrategy: AFFIRMATIVE
-            config:
-              key: config
-          resources:
-          - null
-          - null
-          id: id
-          iconUri: iconUri
-        name: name
         policies:
         - policies
         - policies
@@ -13387,6 +13294,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -13411,6 +13319,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -13443,6 +13352,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -13467,6 +13377,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -13508,6 +13419,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -13532,6 +13444,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -13564,6 +13477,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -13588,6 +13502,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -13628,6 +13543,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -13652,6 +13568,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -13684,6 +13601,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -13708,6 +13626,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -13749,6 +13668,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -13773,6 +13693,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -13805,6 +13726,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -13829,6 +13751,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -13841,13 +13764,132 @@ components:
         resources:
         - resources
         - resources
+        type: type
+        scopesData:
+        - displayName: displayName
+          name: name
+          policies:
+          - owner: owner
+            policies:
+            - policies
+            - policies
+            resourcesData:
+            - null
+            - null
+            description: description
+            resources:
+            - resources
+            - resources
+            type: type
+            scopesData:
+            - null
+            - null
+            name: name
+            id: id
+            scopes:
+            - scopes
+            - scopes
+            logic: POSITIVE
+            decisionStrategy: AFFIRMATIVE
+            config:
+              key: config
+            resourceType: resourceType
+          - owner: owner
+            policies:
+            - policies
+            - policies
+            resourcesData:
+            - null
+            - null
+            description: description
+            resources:
+            - resources
+            - resources
+            type: type
+            scopesData:
+            - null
+            - null
+            name: name
+            id: id
+            scopes:
+            - scopes
+            - scopes
+            logic: POSITIVE
+            decisionStrategy: AFFIRMATIVE
+            config:
+              key: config
+            resourceType: resourceType
+          resources:
+          - null
+          - null
+          id: id
+          iconUri: iconUri
+        - displayName: displayName
+          name: name
+          policies:
+          - owner: owner
+            policies:
+            - policies
+            - policies
+            resourcesData:
+            - null
+            - null
+            description: description
+            resources:
+            - resources
+            - resources
+            type: type
+            scopesData:
+            - null
+            - null
+            name: name
+            id: id
+            scopes:
+            - scopes
+            - scopes
+            logic: POSITIVE
+            decisionStrategy: AFFIRMATIVE
+            config:
+              key: config
+            resourceType: resourceType
+          - owner: owner
+            policies:
+            - policies
+            - policies
+            resourcesData:
+            - null
+            - null
+            description: description
+            resources:
+            - resources
+            - resources
+            type: type
+            scopesData:
+            - null
+            - null
+            name: name
+            id: id
+            scopes:
+            - scopes
+            - scopes
+            logic: POSITIVE
+            decisionStrategy: AFFIRMATIVE
+            config:
+              key: config
+            resourceType: resourceType
+          resources:
+          - null
+          - null
+          id: id
+          iconUri: iconUri
+        name: name
         id: id
         scopes:
         - scopes
         - scopes
         logic: POSITIVE
-        type: type
         decisionStrategy: AFFIRMATIVE
+        resourceType: resourceType
       properties:
         id:
           type: string
@@ -13877,6 +13919,8 @@ components:
         decisionStrategy:
           $ref: '#/components/schemas/DecisionStrategy'
         owner:
+          type: string
+        resourceType:
           type: string
         resourcesData:
           items:
@@ -14164,6 +14208,13 @@ components:
         registeredNodes:
           key: 0
         authorizationSettings:
+          authorizationSchema:
+            resourceTypes:
+              key:
+                scopes:
+                - scopes
+                - scopes
+                type: type
           clientId: clientId
           name: name
           policies:
@@ -14191,6 +14242,7 @@ components:
             decisionStrategy: AFFIRMATIVE
             config:
               key: config
+            resourceType: resourceType
           - owner: owner
             policies:
             - policies
@@ -14215,6 +14267,7 @@ components:
             decisionStrategy: AFFIRMATIVE
             config:
               key: config
+            resourceType: resourceType
           resources:
           - owner: "{}"
             uris:
@@ -14248,6 +14301,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -14272,6 +14326,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -14304,6 +14359,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -14328,6 +14384,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -14369,6 +14426,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -14393,6 +14451,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -14425,6 +14484,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -14449,6 +14509,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -14489,6 +14550,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -14513,6 +14575,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -14545,6 +14608,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -14569,6 +14633,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -14610,6 +14675,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -14634,6 +14700,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -14666,6 +14733,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -14690,6 +14758,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -14727,6 +14796,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -14751,6 +14821,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -14783,6 +14854,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -14807,6 +14879,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -15265,6 +15338,20 @@ components:
             $ref: '#/components/schemas/Permission'
           type: array
       type: object
+    AuthorizationSchema:
+      example:
+        resourceTypes:
+          key:
+            scopes:
+            - scopes
+            - scopes
+            type: type
+      properties:
+        resourceTypes:
+          additionalProperties:
+            $ref: '#/components/schemas/ResourceType'
+          type: object
+      type: object
     BruteForceStrategy:
       enum:
       - LINEAR
@@ -15633,8 +15720,15 @@ components:
         - optionalClientScopes
         publicClient: true
         registeredNodes:
-          key: 5
+          key: 6
         authorizationSettings:
+          authorizationSchema:
+            resourceTypes:
+              key:
+                scopes:
+                - scopes
+                - scopes
+                type: type
           clientId: clientId
           name: name
           policies:
@@ -15662,6 +15756,7 @@ components:
             decisionStrategy: AFFIRMATIVE
             config:
               key: config
+            resourceType: resourceType
           - owner: owner
             policies:
             - policies
@@ -15686,6 +15781,7 @@ components:
             decisionStrategy: AFFIRMATIVE
             config:
               key: config
+            resourceType: resourceType
           resources:
           - owner: "{}"
             uris:
@@ -15719,6 +15815,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -15743,6 +15840,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -15775,6 +15873,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -15799,6 +15898,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -15840,6 +15940,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -15864,6 +15965,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -15896,6 +15998,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -15920,6 +16023,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -15960,6 +16064,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -15984,6 +16089,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -16016,6 +16122,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -16040,6 +16147,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -16081,6 +16189,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -16105,6 +16214,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -16137,6 +16247,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -16161,6 +16272,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -16198,6 +16310,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -16222,6 +16335,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -16254,6 +16368,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -16278,6 +16393,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -16299,7 +16415,7 @@ components:
         useTemplateConfig: true
         enabled: true
         clientAuthenticatorType: clientAuthenticatorType
-        notBefore: 3
+        notBefore: 2
         surrogateAuthRequired: true
         frontchannelLogout: true
         protocol: protocol
@@ -16307,7 +16423,7 @@ components:
         - defaultClientScopes
         - defaultClientScopes
         bearerOnly: true
-        nodeReRegistrationTimeout: 7
+        nodeReRegistrationTimeout: 6
         id: id
         adminUrl: adminUrl
         useTemplateScope: true
@@ -16840,16 +16956,16 @@ components:
       example:
         userLabel: userLabel
         temporary: true
-        period: 4
+        period: 3
         hashedSaltedValue: hashedSaltedValue
         salt: salt
-        hashIterations: 7
-        counter: 6
+        hashIterations: 4
+        counter: 8
         type: type
         priority: 0
         secretData: secretData
-        createdDate: 7
-        digits: 0
+        createdDate: 6
+        digits: 7
         id: id
         credentialData: credentialData
         value: value
@@ -16963,6 +17079,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -16987,6 +17104,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -17019,6 +17137,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -17043,6 +17162,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -17084,6 +17204,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -17108,6 +17229,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -17140,6 +17262,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -17164,6 +17287,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -17204,6 +17328,7 @@ components:
             decisionStrategy: AFFIRMATIVE
             config:
               key: config
+            resourceType: resourceType
           status: PERMIT
         - scopes:
           - scopes
@@ -17236,6 +17361,7 @@ components:
             decisionStrategy: AFFIRMATIVE
             config:
               key: config
+            resourceType: resourceType
           status: PERMIT
         scopes:
         - displayName: displayName
@@ -17265,6 +17391,7 @@ components:
             decisionStrategy: AFFIRMATIVE
             config:
               key: config
+            resourceType: resourceType
           - owner: owner
             policies:
             - policies
@@ -17289,6 +17416,7 @@ components:
             decisionStrategy: AFFIRMATIVE
             config:
               key: config
+            resourceType: resourceType
           resources:
           - null
           - null
@@ -17321,6 +17449,7 @@ components:
             decisionStrategy: AFFIRMATIVE
             config:
               key: config
+            resourceType: resourceType
           - owner: owner
             policies:
             - policies
@@ -17345,6 +17474,7 @@ components:
             decisionStrategy: AFFIRMATIVE
             config:
               key: config
+            resourceType: resourceType
           resources:
           - null
           - null
@@ -17378,6 +17508,7 @@ components:
             decisionStrategy: AFFIRMATIVE
             config:
               key: config
+            resourceType: resourceType
           - owner: owner
             policies:
             - policies
@@ -17402,6 +17533,7 @@ components:
             decisionStrategy: AFFIRMATIVE
             config:
               key: config
+            resourceType: resourceType
           resources:
           - null
           - null
@@ -17434,6 +17566,7 @@ components:
             decisionStrategy: AFFIRMATIVE
             config:
               key: config
+            resourceType: resourceType
           - owner: owner
             policies:
             - policies
@@ -17458,6 +17591,7 @@ components:
             decisionStrategy: AFFIRMATIVE
             config:
               key: config
+            resourceType: resourceType
           resources:
           - null
           - null
@@ -18113,16 +18247,16 @@ components:
         credentials:
         - userLabel: userLabel
           temporary: true
-          period: 4
+          period: 3
           hashedSaltedValue: hashedSaltedValue
           salt: salt
-          hashIterations: 7
-          counter: 6
+          hashIterations: 4
+          counter: 8
           type: type
           priority: 0
           secretData: secretData
-          createdDate: 7
-          digits: 0
+          createdDate: 6
+          digits: 7
           id: id
           credentialData: credentialData
           value: value
@@ -18131,16 +18265,16 @@ components:
           algorithm: algorithm
         - userLabel: userLabel
           temporary: true
-          period: 4
+          period: 3
           hashedSaltedValue: hashedSaltedValue
           salt: salt
-          hashIterations: 7
-          counter: 6
+          hashIterations: 4
+          counter: 8
           type: type
           priority: 0
           secretData: secretData
-          createdDate: 7
-          digits: 0
+          createdDate: 6
+          digits: 7
           id: id
           credentialData: credentialData
           value: value
@@ -18170,7 +18304,7 @@ components:
           - grantedRealmRoles
           lastUpdatedDate: 7
           clientId: clientId
-          createdDate: 8
+          createdDate: 3
           grantedClientScopes:
           - grantedClientScopes
           - grantedClientScopes
@@ -18179,7 +18313,7 @@ components:
           - grantedRealmRoles
           lastUpdatedDate: 7
           clientId: clientId
-          createdDate: 8
+          createdDate: 3
           grantedClientScopes:
           - grantedClientScopes
           - grantedClientScopes
@@ -18367,6 +18501,13 @@ components:
         registeredNodes:
           key: 4
         authorizationSettings:
+          authorizationSchema:
+            resourceTypes:
+              key:
+                scopes:
+                - scopes
+                - scopes
+                type: type
           clientId: clientId
           name: name
           policies:
@@ -18394,6 +18535,7 @@ components:
             decisionStrategy: AFFIRMATIVE
             config:
               key: config
+            resourceType: resourceType
           - owner: owner
             policies:
             - policies
@@ -18418,6 +18560,7 @@ components:
             decisionStrategy: AFFIRMATIVE
             config:
               key: config
+            resourceType: resourceType
           resources:
           - owner: "{}"
             uris:
@@ -18451,6 +18594,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -18475,6 +18619,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -18507,6 +18652,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -18531,6 +18677,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -18572,6 +18719,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -18596,6 +18744,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -18628,6 +18777,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -18652,6 +18802,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -18692,6 +18843,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -18716,6 +18868,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -18748,6 +18901,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -18772,6 +18926,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -18813,6 +18968,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -18837,6 +18993,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -18869,6 +19026,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -18893,6 +19051,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -18930,6 +19089,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -18954,6 +19114,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -18986,6 +19147,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -19010,6 +19172,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -19284,16 +19447,16 @@ components:
           credentials:
           - userLabel: userLabel
             temporary: true
-            period: 4
+            period: 3
             hashedSaltedValue: hashedSaltedValue
             salt: salt
-            hashIterations: 7
-            counter: 6
+            hashIterations: 4
+            counter: 8
             type: type
             priority: 0
             secretData: secretData
-            createdDate: 7
-            digits: 0
+            createdDate: 6
+            digits: 7
             id: id
             credentialData: credentialData
             value: value
@@ -19302,16 +19465,16 @@ components:
             algorithm: algorithm
           - userLabel: userLabel
             temporary: true
-            period: 4
+            period: 3
             hashedSaltedValue: hashedSaltedValue
             salt: salt
-            hashIterations: 7
-            counter: 6
+            hashIterations: 4
+            counter: 8
             type: type
             priority: 0
             secretData: secretData
-            createdDate: 7
-            digits: 0
+            createdDate: 6
+            digits: 7
             id: id
             credentialData: credentialData
             value: value
@@ -19341,7 +19504,7 @@ components:
             - grantedRealmRoles
             lastUpdatedDate: 7
             clientId: clientId
-            createdDate: 8
+            createdDate: 3
             grantedClientScopes:
             - grantedClientScopes
             - grantedClientScopes
@@ -19350,7 +19513,7 @@ components:
             - grantedRealmRoles
             lastUpdatedDate: 7
             clientId: clientId
-            createdDate: 8
+            createdDate: 3
             grantedClientScopes:
             - grantedClientScopes
             - grantedClientScopes
@@ -19430,16 +19593,16 @@ components:
           credentials:
           - userLabel: userLabel
             temporary: true
-            period: 4
+            period: 3
             hashedSaltedValue: hashedSaltedValue
             salt: salt
-            hashIterations: 7
-            counter: 6
+            hashIterations: 4
+            counter: 8
             type: type
             priority: 0
             secretData: secretData
-            createdDate: 7
-            digits: 0
+            createdDate: 6
+            digits: 7
             id: id
             credentialData: credentialData
             value: value
@@ -19448,16 +19611,16 @@ components:
             algorithm: algorithm
           - userLabel: userLabel
             temporary: true
-            period: 4
+            period: 3
             hashedSaltedValue: hashedSaltedValue
             salt: salt
-            hashIterations: 7
-            counter: 6
+            hashIterations: 4
+            counter: 8
             type: type
             priority: 0
             secretData: secretData
-            createdDate: 7
-            digits: 0
+            createdDate: 6
+            digits: 7
             id: id
             credentialData: credentialData
             value: value
@@ -19487,7 +19650,7 @@ components:
             - grantedRealmRoles
             lastUpdatedDate: 7
             clientId: clientId
-            createdDate: 8
+            createdDate: 3
             grantedClientScopes:
             - grantedClientScopes
             - grantedClientScopes
@@ -19496,7 +19659,7 @@ components:
             - grantedRealmRoles
             lastUpdatedDate: 7
             clientId: clientId
-            createdDate: 8
+            createdDate: 3
             grantedClientScopes:
             - grantedClientScopes
             - grantedClientScopes
@@ -19752,6 +19915,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -19776,6 +19940,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -19808,6 +19973,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -19832,6 +19998,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -19873,6 +20040,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -19897,6 +20065,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -19929,6 +20098,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -19953,6 +20123,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -19993,6 +20164,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -20017,6 +20189,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -20049,6 +20222,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -20073,6 +20247,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -20114,6 +20289,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -20138,6 +20314,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -20170,6 +20347,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -20194,6 +20372,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -20347,6 +20526,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -20371,6 +20551,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -20403,6 +20584,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -20427,6 +20609,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -20468,6 +20651,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -20492,6 +20676,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -20524,6 +20709,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -20548,6 +20734,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -20588,6 +20775,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             status: PERMIT
           - scopes:
             - scopes
@@ -20620,6 +20808,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             status: PERMIT
           scopes:
           - displayName: displayName
@@ -20649,6 +20838,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -20673,6 +20863,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -20705,6 +20896,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -20729,6 +20921,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -20762,6 +20955,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -20786,6 +20980,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -20818,6 +21013,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -20842,6 +21038,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -20881,6 +21078,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -20905,6 +21103,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -20937,6 +21136,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -20961,6 +21161,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -21002,6 +21203,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -21026,6 +21228,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -21058,6 +21261,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -21082,6 +21286,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -21122,6 +21327,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             status: PERMIT
           - scopes:
             - scopes
@@ -21154,6 +21360,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             status: PERMIT
           scopes:
           - displayName: displayName
@@ -21183,6 +21390,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -21207,6 +21415,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -21239,6 +21448,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -21263,6 +21473,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -21296,6 +21507,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -21320,6 +21532,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -21352,6 +21565,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -21376,6 +21590,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -21434,6 +21649,7 @@ components:
         decisionStrategy: AFFIRMATIVE
         config:
           key: config
+        resourceType: resourceType
       properties:
         id:
           type: string
@@ -21463,6 +21679,8 @@ components:
         decisionStrategy:
           $ref: '#/components/schemas/DecisionStrategy'
         owner:
+          type: string
+        resourceType:
           type: string
         resourcesData:
           items:
@@ -21512,6 +21730,7 @@ components:
           decisionStrategy: AFFIRMATIVE
           config:
             key: config
+          resourceType: resourceType
         status: PERMIT
       properties:
         policy:
@@ -21638,7 +21857,7 @@ components:
       example:
         socialProviders:
           key: socialProviders
-        otpPolicyLookAheadWindow: 6
+        otpPolicyLookAheadWindow: 3
         webAuthnPolicyPasswordlessExtraOrigins:
         - webAuthnPolicyPasswordlessExtraOrigins
         - webAuthnPolicyPasswordlessExtraOrigins
@@ -21699,6 +21918,7 @@ components:
         publicKey: publicKey
         maxTemporaryLockouts: 9
         otpPolicyDigits: 6
+        adminPermissionsEnabled: true
         webAuthnPolicySignatureAlgorithms:
         - webAuthnPolicySignatureAlgorithms
         - webAuthnPolicySignatureAlgorithms
@@ -21793,7 +22013,7 @@ components:
         duplicateEmailsAllowed: true
         accessCodeLifespan: 1
         eventsExpiration: 4
-        webAuthnPolicyPasswordlessCreateTimeout: 3
+        webAuthnPolicyPasswordlessCreateTimeout: 0
         otpPolicyType: otpPolicyType
         components:
           key:
@@ -21827,8 +22047,15 @@ components:
           - optionalClientScopes
           publicClient: true
           registeredNodes:
-            key: 5
+            key: 6
           authorizationSettings:
+            authorizationSchema:
+              resourceTypes:
+                key:
+                  scopes:
+                  - scopes
+                  - scopes
+                  type: type
             clientId: clientId
             name: name
             policies:
@@ -21856,6 +22083,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -21880,6 +22108,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - owner: "{}"
               uris:
@@ -21913,6 +22142,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -21937,6 +22167,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -21969,6 +22200,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -21993,6 +22225,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -22034,6 +22267,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -22058,6 +22292,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -22090,6 +22325,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -22114,6 +22350,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -22154,6 +22391,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -22178,6 +22416,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -22210,6 +22449,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -22234,6 +22474,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -22275,6 +22516,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -22299,6 +22541,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -22331,6 +22574,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -22355,6 +22599,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -22392,6 +22637,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -22416,6 +22662,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -22448,6 +22695,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -22472,6 +22720,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -22493,7 +22742,7 @@ components:
           useTemplateConfig: true
           enabled: true
           clientAuthenticatorType: clientAuthenticatorType
-          notBefore: 3
+          notBefore: 2
           surrogateAuthRequired: true
           frontchannelLogout: true
           protocol: protocol
@@ -22501,7 +22750,7 @@ components:
           - defaultClientScopes
           - defaultClientScopes
           bearerOnly: true
-          nodeReRegistrationTimeout: 7
+          nodeReRegistrationTimeout: 6
           id: id
           adminUrl: adminUrl
           useTemplateScope: true
@@ -22552,8 +22801,15 @@ components:
           - optionalClientScopes
           publicClient: true
           registeredNodes:
-            key: 5
+            key: 6
           authorizationSettings:
+            authorizationSchema:
+              resourceTypes:
+                key:
+                  scopes:
+                  - scopes
+                  - scopes
+                  type: type
             clientId: clientId
             name: name
             policies:
@@ -22581,6 +22837,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -22605,6 +22862,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - owner: "{}"
               uris:
@@ -22638,6 +22896,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -22662,6 +22921,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -22694,6 +22954,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -22718,6 +22979,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -22759,6 +23021,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -22783,6 +23046,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -22815,6 +23079,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -22839,6 +23104,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -22879,6 +23145,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -22903,6 +23170,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -22935,6 +23203,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -22959,6 +23228,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -23000,6 +23270,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -23024,6 +23295,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -23056,6 +23328,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -23080,6 +23353,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -23117,6 +23391,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -23141,6 +23416,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -23173,6 +23449,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -23197,6 +23474,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -23218,7 +23496,7 @@ components:
           useTemplateConfig: true
           enabled: true
           clientAuthenticatorType: clientAuthenticatorType
-          notBefore: 3
+          notBefore: 2
           surrogateAuthRequired: true
           frontchannelLogout: true
           protocol: protocol
@@ -23226,7 +23504,7 @@ components:
           - defaultClientScopes
           - defaultClientScopes
           bearerOnly: true
-          nodeReRegistrationTimeout: 7
+          nodeReRegistrationTimeout: 6
           id: id
           adminUrl: adminUrl
           useTemplateScope: true
@@ -23285,6 +23563,13 @@ components:
           registeredNodes:
             key: 4
           authorizationSettings:
+            authorizationSchema:
+              resourceTypes:
+                key:
+                  scopes:
+                  - scopes
+                  - scopes
+                  type: type
             clientId: clientId
             name: name
             policies:
@@ -23312,6 +23597,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -23336,6 +23622,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - owner: "{}"
               uris:
@@ -23369,6 +23656,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -23393,6 +23681,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -23425,6 +23714,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -23449,6 +23739,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -23490,6 +23781,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -23514,6 +23806,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -23546,6 +23839,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -23570,6 +23864,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -23610,6 +23905,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -23634,6 +23930,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -23666,6 +23963,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -23690,6 +23988,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -23731,6 +24030,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -23755,6 +24055,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -23787,6 +24088,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -23811,6 +24113,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -23848,6 +24151,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -23872,6 +24176,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -23904,6 +24209,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -23928,6 +24234,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -24011,6 +24318,13 @@ components:
           registeredNodes:
             key: 4
           authorizationSettings:
+            authorizationSchema:
+              resourceTypes:
+                key:
+                  scopes:
+                  - scopes
+                  - scopes
+                  type: type
             clientId: clientId
             name: name
             policies:
@@ -24038,6 +24352,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -24062,6 +24377,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - owner: "{}"
               uris:
@@ -24095,6 +24411,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -24119,6 +24436,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -24151,6 +24469,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -24175,6 +24494,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -24216,6 +24536,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -24240,6 +24561,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -24272,6 +24594,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -24296,6 +24619,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -24336,6 +24660,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -24360,6 +24685,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -24392,6 +24718,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -24416,6 +24743,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -24457,6 +24785,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -24481,6 +24810,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -24513,6 +24843,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -24537,6 +24868,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -24574,6 +24906,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -24598,6 +24931,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -24630,6 +24964,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -24654,6 +24989,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -24842,9 +25178,764 @@ components:
         attributes:
           key: attributes
         registrationEmailAsUsername: true
-        otpPolicyPeriod: 5
+        otpPolicyPeriod: 3
         ssoSessionMaxLifespanRememberMe: 9
-        otpPolicyInitialCounter: 2
+        adminPermissionsClient:
+          optionalClientScopes:
+          - optionalClientScopes
+          - optionalClientScopes
+          publicClient: true
+          registeredNodes:
+            key: 6
+          authorizationSettings:
+            authorizationSchema:
+              resourceTypes:
+                key:
+                  scopes:
+                  - scopes
+                  - scopes
+                  type: type
+            clientId: clientId
+            name: name
+            policies:
+            - owner: owner
+              policies:
+              - policies
+              - policies
+              resourcesData:
+              - null
+              - null
+              description: description
+              resources:
+              - resources
+              - resources
+              type: type
+              scopesData:
+              - null
+              - null
+              name: name
+              id: id
+              scopes:
+              - scopes
+              - scopes
+              logic: POSITIVE
+              decisionStrategy: AFFIRMATIVE
+              config:
+                key: config
+              resourceType: resourceType
+            - owner: owner
+              policies:
+              - policies
+              - policies
+              resourcesData:
+              - null
+              - null
+              description: description
+              resources:
+              - resources
+              - resources
+              type: type
+              scopesData:
+              - null
+              - null
+              name: name
+              id: id
+              scopes:
+              - scopes
+              - scopes
+              logic: POSITIVE
+              decisionStrategy: AFFIRMATIVE
+              config:
+                key: config
+              resourceType: resourceType
+            resources:
+            - owner: "{}"
+              uris:
+              - uris
+              - uris
+              scopesUma:
+              - displayName: displayName
+                name: name
+                policies:
+                - owner: owner
+                  policies:
+                  - policies
+                  - policies
+                  resourcesData:
+                  - null
+                  - null
+                  description: description
+                  resources:
+                  - resources
+                  - resources
+                  type: type
+                  scopesData:
+                  - null
+                  - null
+                  name: name
+                  id: id
+                  scopes:
+                  - scopes
+                  - scopes
+                  logic: POSITIVE
+                  decisionStrategy: AFFIRMATIVE
+                  config:
+                    key: config
+                  resourceType: resourceType
+                - owner: owner
+                  policies:
+                  - policies
+                  - policies
+                  resourcesData:
+                  - null
+                  - null
+                  description: description
+                  resources:
+                  - resources
+                  - resources
+                  type: type
+                  scopesData:
+                  - null
+                  - null
+                  name: name
+                  id: id
+                  scopes:
+                  - scopes
+                  - scopes
+                  logic: POSITIVE
+                  decisionStrategy: AFFIRMATIVE
+                  config:
+                    key: config
+                  resourceType: resourceType
+                resources:
+                - null
+                - null
+                id: id
+                iconUri: iconUri
+              - displayName: displayName
+                name: name
+                policies:
+                - owner: owner
+                  policies:
+                  - policies
+                  - policies
+                  resourcesData:
+                  - null
+                  - null
+                  description: description
+                  resources:
+                  - resources
+                  - resources
+                  type: type
+                  scopesData:
+                  - null
+                  - null
+                  name: name
+                  id: id
+                  scopes:
+                  - scopes
+                  - scopes
+                  logic: POSITIVE
+                  decisionStrategy: AFFIRMATIVE
+                  config:
+                    key: config
+                  resourceType: resourceType
+                - owner: owner
+                  policies:
+                  - policies
+                  - policies
+                  resourcesData:
+                  - null
+                  - null
+                  description: description
+                  resources:
+                  - resources
+                  - resources
+                  type: type
+                  scopesData:
+                  - null
+                  - null
+                  name: name
+                  id: id
+                  scopes:
+                  - scopes
+                  - scopes
+                  logic: POSITIVE
+                  decisionStrategy: AFFIRMATIVE
+                  config:
+                    key: config
+                  resourceType: resourceType
+                resources:
+                - null
+                - null
+                id: id
+                iconUri: iconUri
+              ownerManagedAccess: true
+              displayName: displayName
+              name: name
+              attributes:
+                key:
+                - attributes
+                - attributes
+              _id: _id
+              scopes:
+              - displayName: displayName
+                name: name
+                policies:
+                - owner: owner
+                  policies:
+                  - policies
+                  - policies
+                  resourcesData:
+                  - null
+                  - null
+                  description: description
+                  resources:
+                  - resources
+                  - resources
+                  type: type
+                  scopesData:
+                  - null
+                  - null
+                  name: name
+                  id: id
+                  scopes:
+                  - scopes
+                  - scopes
+                  logic: POSITIVE
+                  decisionStrategy: AFFIRMATIVE
+                  config:
+                    key: config
+                  resourceType: resourceType
+                - owner: owner
+                  policies:
+                  - policies
+                  - policies
+                  resourcesData:
+                  - null
+                  - null
+                  description: description
+                  resources:
+                  - resources
+                  - resources
+                  type: type
+                  scopesData:
+                  - null
+                  - null
+                  name: name
+                  id: id
+                  scopes:
+                  - scopes
+                  - scopes
+                  logic: POSITIVE
+                  decisionStrategy: AFFIRMATIVE
+                  config:
+                    key: config
+                  resourceType: resourceType
+                resources:
+                - null
+                - null
+                id: id
+                iconUri: iconUri
+              - displayName: displayName
+                name: name
+                policies:
+                - owner: owner
+                  policies:
+                  - policies
+                  - policies
+                  resourcesData:
+                  - null
+                  - null
+                  description: description
+                  resources:
+                  - resources
+                  - resources
+                  type: type
+                  scopesData:
+                  - null
+                  - null
+                  name: name
+                  id: id
+                  scopes:
+                  - scopes
+                  - scopes
+                  logic: POSITIVE
+                  decisionStrategy: AFFIRMATIVE
+                  config:
+                    key: config
+                  resourceType: resourceType
+                - owner: owner
+                  policies:
+                  - policies
+                  - policies
+                  resourcesData:
+                  - null
+                  - null
+                  description: description
+                  resources:
+                  - resources
+                  - resources
+                  type: type
+                  scopesData:
+                  - null
+                  - null
+                  name: name
+                  id: id
+                  scopes:
+                  - scopes
+                  - scopes
+                  logic: POSITIVE
+                  decisionStrategy: AFFIRMATIVE
+                  config:
+                    key: config
+                  resourceType: resourceType
+                resources:
+                - null
+                - null
+                id: id
+                iconUri: iconUri
+              type: type
+              uri: uri
+              icon_uri: icon_uri
+            - owner: "{}"
+              uris:
+              - uris
+              - uris
+              scopesUma:
+              - displayName: displayName
+                name: name
+                policies:
+                - owner: owner
+                  policies:
+                  - policies
+                  - policies
+                  resourcesData:
+                  - null
+                  - null
+                  description: description
+                  resources:
+                  - resources
+                  - resources
+                  type: type
+                  scopesData:
+                  - null
+                  - null
+                  name: name
+                  id: id
+                  scopes:
+                  - scopes
+                  - scopes
+                  logic: POSITIVE
+                  decisionStrategy: AFFIRMATIVE
+                  config:
+                    key: config
+                  resourceType: resourceType
+                - owner: owner
+                  policies:
+                  - policies
+                  - policies
+                  resourcesData:
+                  - null
+                  - null
+                  description: description
+                  resources:
+                  - resources
+                  - resources
+                  type: type
+                  scopesData:
+                  - null
+                  - null
+                  name: name
+                  id: id
+                  scopes:
+                  - scopes
+                  - scopes
+                  logic: POSITIVE
+                  decisionStrategy: AFFIRMATIVE
+                  config:
+                    key: config
+                  resourceType: resourceType
+                resources:
+                - null
+                - null
+                id: id
+                iconUri: iconUri
+              - displayName: displayName
+                name: name
+                policies:
+                - owner: owner
+                  policies:
+                  - policies
+                  - policies
+                  resourcesData:
+                  - null
+                  - null
+                  description: description
+                  resources:
+                  - resources
+                  - resources
+                  type: type
+                  scopesData:
+                  - null
+                  - null
+                  name: name
+                  id: id
+                  scopes:
+                  - scopes
+                  - scopes
+                  logic: POSITIVE
+                  decisionStrategy: AFFIRMATIVE
+                  config:
+                    key: config
+                  resourceType: resourceType
+                - owner: owner
+                  policies:
+                  - policies
+                  - policies
+                  resourcesData:
+                  - null
+                  - null
+                  description: description
+                  resources:
+                  - resources
+                  - resources
+                  type: type
+                  scopesData:
+                  - null
+                  - null
+                  name: name
+                  id: id
+                  scopes:
+                  - scopes
+                  - scopes
+                  logic: POSITIVE
+                  decisionStrategy: AFFIRMATIVE
+                  config:
+                    key: config
+                  resourceType: resourceType
+                resources:
+                - null
+                - null
+                id: id
+                iconUri: iconUri
+              ownerManagedAccess: true
+              displayName: displayName
+              name: name
+              attributes:
+                key:
+                - attributes
+                - attributes
+              _id: _id
+              scopes:
+              - displayName: displayName
+                name: name
+                policies:
+                - owner: owner
+                  policies:
+                  - policies
+                  - policies
+                  resourcesData:
+                  - null
+                  - null
+                  description: description
+                  resources:
+                  - resources
+                  - resources
+                  type: type
+                  scopesData:
+                  - null
+                  - null
+                  name: name
+                  id: id
+                  scopes:
+                  - scopes
+                  - scopes
+                  logic: POSITIVE
+                  decisionStrategy: AFFIRMATIVE
+                  config:
+                    key: config
+                  resourceType: resourceType
+                - owner: owner
+                  policies:
+                  - policies
+                  - policies
+                  resourcesData:
+                  - null
+                  - null
+                  description: description
+                  resources:
+                  - resources
+                  - resources
+                  type: type
+                  scopesData:
+                  - null
+                  - null
+                  name: name
+                  id: id
+                  scopes:
+                  - scopes
+                  - scopes
+                  logic: POSITIVE
+                  decisionStrategy: AFFIRMATIVE
+                  config:
+                    key: config
+                  resourceType: resourceType
+                resources:
+                - null
+                - null
+                id: id
+                iconUri: iconUri
+              - displayName: displayName
+                name: name
+                policies:
+                - owner: owner
+                  policies:
+                  - policies
+                  - policies
+                  resourcesData:
+                  - null
+                  - null
+                  description: description
+                  resources:
+                  - resources
+                  - resources
+                  type: type
+                  scopesData:
+                  - null
+                  - null
+                  name: name
+                  id: id
+                  scopes:
+                  - scopes
+                  - scopes
+                  logic: POSITIVE
+                  decisionStrategy: AFFIRMATIVE
+                  config:
+                    key: config
+                  resourceType: resourceType
+                - owner: owner
+                  policies:
+                  - policies
+                  - policies
+                  resourcesData:
+                  - null
+                  - null
+                  description: description
+                  resources:
+                  - resources
+                  - resources
+                  type: type
+                  scopesData:
+                  - null
+                  - null
+                  name: name
+                  id: id
+                  scopes:
+                  - scopes
+                  - scopes
+                  logic: POSITIVE
+                  decisionStrategy: AFFIRMATIVE
+                  config:
+                    key: config
+                  resourceType: resourceType
+                resources:
+                - null
+                - null
+                id: id
+                iconUri: iconUri
+              type: type
+              uri: uri
+              icon_uri: icon_uri
+            id: id
+            scopes:
+            - displayName: displayName
+              name: name
+              policies:
+              - owner: owner
+                policies:
+                - policies
+                - policies
+                resourcesData:
+                - null
+                - null
+                description: description
+                resources:
+                - resources
+                - resources
+                type: type
+                scopesData:
+                - null
+                - null
+                name: name
+                id: id
+                scopes:
+                - scopes
+                - scopes
+                logic: POSITIVE
+                decisionStrategy: AFFIRMATIVE
+                config:
+                  key: config
+                resourceType: resourceType
+              - owner: owner
+                policies:
+                - policies
+                - policies
+                resourcesData:
+                - null
+                - null
+                description: description
+                resources:
+                - resources
+                - resources
+                type: type
+                scopesData:
+                - null
+                - null
+                name: name
+                id: id
+                scopes:
+                - scopes
+                - scopes
+                logic: POSITIVE
+                decisionStrategy: AFFIRMATIVE
+                config:
+                  key: config
+                resourceType: resourceType
+              resources:
+              - null
+              - null
+              id: id
+              iconUri: iconUri
+            - displayName: displayName
+              name: name
+              policies:
+              - owner: owner
+                policies:
+                - policies
+                - policies
+                resourcesData:
+                - null
+                - null
+                description: description
+                resources:
+                - resources
+                - resources
+                type: type
+                scopesData:
+                - null
+                - null
+                name: name
+                id: id
+                scopes:
+                - scopes
+                - scopes
+                logic: POSITIVE
+                decisionStrategy: AFFIRMATIVE
+                config:
+                  key: config
+                resourceType: resourceType
+              - owner: owner
+                policies:
+                - policies
+                - policies
+                resourcesData:
+                - null
+                - null
+                description: description
+                resources:
+                - resources
+                - resources
+                type: type
+                scopesData:
+                - null
+                - null
+                name: name
+                id: id
+                scopes:
+                - scopes
+                - scopes
+                logic: POSITIVE
+                decisionStrategy: AFFIRMATIVE
+                config:
+                  key: config
+                resourceType: resourceType
+              resources:
+              - null
+              - null
+              id: id
+              iconUri: iconUri
+            allowRemoteResourceManagement: true
+            policyEnforcementMode: ENFORCING
+            decisionStrategy: null
+          access:
+            key: true
+          authorizationServicesEnabled: true
+          origin: origin
+          description: description
+          alwaysDisplayInConsole: true
+          serviceAccountsEnabled: true
+          secret: secret
+          type: type
+          consentRequired: true
+          useTemplateConfig: true
+          enabled: true
+          clientAuthenticatorType: clientAuthenticatorType
+          notBefore: 2
+          surrogateAuthRequired: true
+          frontchannelLogout: true
+          protocol: protocol
+          defaultClientScopes:
+          - defaultClientScopes
+          - defaultClientScopes
+          bearerOnly: true
+          nodeReRegistrationTimeout: 6
+          id: id
+          adminUrl: adminUrl
+          useTemplateScope: true
+          clientId: clientId
+          registrationAccessToken: registrationAccessToken
+          useTemplateMappers: true
+          directGrantsOnly: true
+          protocolMappers:
+          - protocol: protocol
+            protocolMapper: protocolMapper
+            name: name
+            id: id
+            consentText: consentText
+            consentRequired: true
+            config:
+              key: config
+          - protocol: protocol
+            protocolMapper: protocolMapper
+            name: name
+            id: id
+            consentText: consentText
+            consentRequired: true
+            config:
+              key: config
+          clientTemplate: clientTemplate
+          redirectUris:
+          - redirectUris
+          - redirectUris
+          fullScopeAllowed: true
+          rootUrl: rootUrl
+          implicitFlowEnabled: true
+          directAccessGrantsEnabled: true
+          baseUrl: baseUrl
+          name: name
+          defaultRoles:
+          - defaultRoles
+          - defaultRoles
+          authenticationFlowBindingOverrides:
+            key: authenticationFlowBindingOverrides
+          standardFlowEnabled: true
+          webOrigins:
+          - webOrigins
+          - webOrigins
+          attributes:
+            key: attributes
+        otpPolicyInitialCounter: 5
         userManagedAccessAllowed: true
         clientOfflineSessionIdleTimeout: 1
         notBefore: 0
@@ -24892,7 +25983,8 @@ components:
         resetCredentialsFlow: resetCredentialsFlow
         webAuthnPolicyUserVerificationRequirement: webAuthnPolicyUserVerificationRequirement
         passwordPolicy: passwordPolicy
-        webAuthnPolicyCreateTimeout: 6
+        webAuthnPolicyCreateTimeout: 7
+        verifiableCredentialsEnabled: true
         defaultRole:
           composites:
             application:
@@ -24992,16 +26084,16 @@ components:
           credentials:
           - userLabel: userLabel
             temporary: true
-            period: 4
+            period: 3
             hashedSaltedValue: hashedSaltedValue
             salt: salt
-            hashIterations: 7
-            counter: 6
+            hashIterations: 4
+            counter: 8
             type: type
             priority: 0
             secretData: secretData
-            createdDate: 7
-            digits: 0
+            createdDate: 6
+            digits: 7
             id: id
             credentialData: credentialData
             value: value
@@ -25010,16 +26102,16 @@ components:
             algorithm: algorithm
           - userLabel: userLabel
             temporary: true
-            period: 4
+            period: 3
             hashedSaltedValue: hashedSaltedValue
             salt: salt
-            hashIterations: 7
-            counter: 6
+            hashIterations: 4
+            counter: 8
             type: type
             priority: 0
             secretData: secretData
-            createdDate: 7
-            digits: 0
+            createdDate: 6
+            digits: 7
             id: id
             credentialData: credentialData
             value: value
@@ -25028,7 +26120,7 @@ components:
             algorithm: algorithm
           origin: origin
           enabled: true
-          notBefore: 3
+          notBefore: 5
           id: id
           email: email
           clientRoles:
@@ -25039,7 +26131,7 @@ components:
             key:
             - applicationRoles
             - applicationRoles
-          createdTimestamp: 3
+          createdTimestamp: 7
           groups:
           - groups
           - groups
@@ -25049,7 +26141,7 @@ components:
             - grantedRealmRoles
             lastUpdatedDate: 7
             clientId: clientId
-            createdDate: 8
+            createdDate: 3
             grantedClientScopes:
             - grantedClientScopes
             - grantedClientScopes
@@ -25058,7 +26150,7 @@ components:
             - grantedRealmRoles
             lastUpdatedDate: 7
             clientId: clientId
-            createdDate: 8
+            createdDate: 3
             grantedClientScopes:
             - grantedClientScopes
             - grantedClientScopes
@@ -25137,16 +26229,16 @@ components:
           credentials:
           - userLabel: userLabel
             temporary: true
-            period: 4
+            period: 3
             hashedSaltedValue: hashedSaltedValue
             salt: salt
-            hashIterations: 7
-            counter: 6
+            hashIterations: 4
+            counter: 8
             type: type
             priority: 0
             secretData: secretData
-            createdDate: 7
-            digits: 0
+            createdDate: 6
+            digits: 7
             id: id
             credentialData: credentialData
             value: value
@@ -25155,16 +26247,16 @@ components:
             algorithm: algorithm
           - userLabel: userLabel
             temporary: true
-            period: 4
+            period: 3
             hashedSaltedValue: hashedSaltedValue
             salt: salt
-            hashIterations: 7
-            counter: 6
+            hashIterations: 4
+            counter: 8
             type: type
             priority: 0
             secretData: secretData
-            createdDate: 7
-            digits: 0
+            createdDate: 6
+            digits: 7
             id: id
             credentialData: credentialData
             value: value
@@ -25173,7 +26265,7 @@ components:
             algorithm: algorithm
           origin: origin
           enabled: true
-          notBefore: 3
+          notBefore: 5
           id: id
           email: email
           clientRoles:
@@ -25184,7 +26276,7 @@ components:
             key:
             - applicationRoles
             - applicationRoles
-          createdTimestamp: 3
+          createdTimestamp: 7
           groups:
           - groups
           - groups
@@ -25194,7 +26286,7 @@ components:
             - grantedRealmRoles
             lastUpdatedDate: 7
             clientId: clientId
-            createdDate: 8
+            createdDate: 3
             grantedClientScopes:
             - grantedClientScopes
             - grantedClientScopes
@@ -25203,7 +26295,7 @@ components:
             - grantedRealmRoles
             lastUpdatedDate: 7
             clientId: clientId
-            createdDate: 8
+            createdDate: 3
             grantedClientScopes:
             - grantedClientScopes
             - grantedClientScopes
@@ -25447,16 +26539,16 @@ components:
           credentials:
           - userLabel: userLabel
             temporary: true
-            period: 4
+            period: 3
             hashedSaltedValue: hashedSaltedValue
             salt: salt
-            hashIterations: 7
-            counter: 6
+            hashIterations: 4
+            counter: 8
             type: type
             priority: 0
             secretData: secretData
-            createdDate: 7
-            digits: 0
+            createdDate: 6
+            digits: 7
             id: id
             credentialData: credentialData
             value: value
@@ -25465,16 +26557,16 @@ components:
             algorithm: algorithm
           - userLabel: userLabel
             temporary: true
-            period: 4
+            period: 3
             hashedSaltedValue: hashedSaltedValue
             salt: salt
-            hashIterations: 7
-            counter: 6
+            hashIterations: 4
+            counter: 8
             type: type
             priority: 0
             secretData: secretData
-            createdDate: 7
-            digits: 0
+            createdDate: 6
+            digits: 7
             id: id
             credentialData: credentialData
             value: value
@@ -25483,7 +26575,7 @@ components:
             algorithm: algorithm
           origin: origin
           enabled: true
-          notBefore: 3
+          notBefore: 5
           id: id
           email: email
           clientRoles:
@@ -25494,7 +26586,7 @@ components:
             key:
             - applicationRoles
             - applicationRoles
-          createdTimestamp: 3
+          createdTimestamp: 7
           groups:
           - groups
           - groups
@@ -25504,7 +26596,7 @@ components:
             - grantedRealmRoles
             lastUpdatedDate: 7
             clientId: clientId
-            createdDate: 8
+            createdDate: 3
             grantedClientScopes:
             - grantedClientScopes
             - grantedClientScopes
@@ -25513,7 +26605,7 @@ components:
             - grantedRealmRoles
             lastUpdatedDate: 7
             clientId: clientId
-            createdDate: 8
+            createdDate: 3
             grantedClientScopes:
             - grantedClientScopes
             - grantedClientScopes
@@ -25592,16 +26684,16 @@ components:
           credentials:
           - userLabel: userLabel
             temporary: true
-            period: 4
+            period: 3
             hashedSaltedValue: hashedSaltedValue
             salt: salt
-            hashIterations: 7
-            counter: 6
+            hashIterations: 4
+            counter: 8
             type: type
             priority: 0
             secretData: secretData
-            createdDate: 7
-            digits: 0
+            createdDate: 6
+            digits: 7
             id: id
             credentialData: credentialData
             value: value
@@ -25610,16 +26702,16 @@ components:
             algorithm: algorithm
           - userLabel: userLabel
             temporary: true
-            period: 4
+            period: 3
             hashedSaltedValue: hashedSaltedValue
             salt: salt
-            hashIterations: 7
-            counter: 6
+            hashIterations: 4
+            counter: 8
             type: type
             priority: 0
             secretData: secretData
-            createdDate: 7
-            digits: 0
+            createdDate: 6
+            digits: 7
             id: id
             credentialData: credentialData
             value: value
@@ -25628,7 +26720,7 @@ components:
             algorithm: algorithm
           origin: origin
           enabled: true
-          notBefore: 3
+          notBefore: 5
           id: id
           email: email
           clientRoles:
@@ -25639,7 +26731,7 @@ components:
             key:
             - applicationRoles
             - applicationRoles
-          createdTimestamp: 3
+          createdTimestamp: 7
           groups:
           - groups
           - groups
@@ -25649,7 +26741,7 @@ components:
             - grantedRealmRoles
             lastUpdatedDate: 7
             clientId: clientId
-            createdDate: 8
+            createdDate: 3
             grantedClientScopes:
             - grantedClientScopes
             - grantedClientScopes
@@ -25658,7 +26750,7 @@ components:
             - grantedRealmRoles
             lastUpdatedDate: 7
             clientId: clientId
-            createdDate: 8
+            createdDate: 3
             grantedClientScopes:
             - grantedClientScopes
             - grantedClientScopes
@@ -26002,16 +27094,16 @@ components:
             credentials:
             - userLabel: userLabel
               temporary: true
-              period: 4
+              period: 3
               hashedSaltedValue: hashedSaltedValue
               salt: salt
-              hashIterations: 7
-              counter: 6
+              hashIterations: 4
+              counter: 8
               type: type
               priority: 0
               secretData: secretData
-              createdDate: 7
-              digits: 0
+              createdDate: 6
+              digits: 7
               id: id
               credentialData: credentialData
               value: value
@@ -26020,16 +27112,16 @@ components:
               algorithm: algorithm
             - userLabel: userLabel
               temporary: true
-              period: 4
+              period: 3
               hashedSaltedValue: hashedSaltedValue
               salt: salt
-              hashIterations: 7
-              counter: 6
+              hashIterations: 4
+              counter: 8
               type: type
               priority: 0
               secretData: secretData
-              createdDate: 7
-              digits: 0
+              createdDate: 6
+              digits: 7
               id: id
               credentialData: credentialData
               value: value
@@ -26059,7 +27151,7 @@ components:
               - grantedRealmRoles
               lastUpdatedDate: 7
               clientId: clientId
-              createdDate: 8
+              createdDate: 3
               grantedClientScopes:
               - grantedClientScopes
               - grantedClientScopes
@@ -26068,7 +27160,7 @@ components:
               - grantedRealmRoles
               lastUpdatedDate: 7
               clientId: clientId
-              createdDate: 8
+              createdDate: 3
               grantedClientScopes:
               - grantedClientScopes
               - grantedClientScopes
@@ -26148,16 +27240,16 @@ components:
             credentials:
             - userLabel: userLabel
               temporary: true
-              period: 4
+              period: 3
               hashedSaltedValue: hashedSaltedValue
               salt: salt
-              hashIterations: 7
-              counter: 6
+              hashIterations: 4
+              counter: 8
               type: type
               priority: 0
               secretData: secretData
-              createdDate: 7
-              digits: 0
+              createdDate: 6
+              digits: 7
               id: id
               credentialData: credentialData
               value: value
@@ -26166,16 +27258,16 @@ components:
               algorithm: algorithm
             - userLabel: userLabel
               temporary: true
-              period: 4
+              period: 3
               hashedSaltedValue: hashedSaltedValue
               salt: salt
-              hashIterations: 7
-              counter: 6
+              hashIterations: 4
+              counter: 8
               type: type
               priority: 0
               secretData: secretData
-              createdDate: 7
-              digits: 0
+              createdDate: 6
+              digits: 7
               id: id
               credentialData: credentialData
               value: value
@@ -26205,7 +27297,7 @@ components:
               - grantedRealmRoles
               lastUpdatedDate: 7
               clientId: clientId
-              createdDate: 8
+              createdDate: 3
               grantedClientScopes:
               - grantedClientScopes
               - grantedClientScopes
@@ -26214,7 +27306,7 @@ components:
               - grantedRealmRoles
               lastUpdatedDate: 7
               clientId: clientId
-              createdDate: 8
+              createdDate: 3
               grantedClientScopes:
               - grantedClientScopes
               - grantedClientScopes
@@ -26347,16 +27439,16 @@ components:
             credentials:
             - userLabel: userLabel
               temporary: true
-              period: 4
+              period: 3
               hashedSaltedValue: hashedSaltedValue
               salt: salt
-              hashIterations: 7
-              counter: 6
+              hashIterations: 4
+              counter: 8
               type: type
               priority: 0
               secretData: secretData
-              createdDate: 7
-              digits: 0
+              createdDate: 6
+              digits: 7
               id: id
               credentialData: credentialData
               value: value
@@ -26365,16 +27457,16 @@ components:
               algorithm: algorithm
             - userLabel: userLabel
               temporary: true
-              period: 4
+              period: 3
               hashedSaltedValue: hashedSaltedValue
               salt: salt
-              hashIterations: 7
-              counter: 6
+              hashIterations: 4
+              counter: 8
               type: type
               priority: 0
               secretData: secretData
-              createdDate: 7
-              digits: 0
+              createdDate: 6
+              digits: 7
               id: id
               credentialData: credentialData
               value: value
@@ -26404,7 +27496,7 @@ components:
               - grantedRealmRoles
               lastUpdatedDate: 7
               clientId: clientId
-              createdDate: 8
+              createdDate: 3
               grantedClientScopes:
               - grantedClientScopes
               - grantedClientScopes
@@ -26413,7 +27505,7 @@ components:
               - grantedRealmRoles
               lastUpdatedDate: 7
               clientId: clientId
-              createdDate: 8
+              createdDate: 3
               grantedClientScopes:
               - grantedClientScopes
               - grantedClientScopes
@@ -26493,16 +27585,16 @@ components:
             credentials:
             - userLabel: userLabel
               temporary: true
-              period: 4
+              period: 3
               hashedSaltedValue: hashedSaltedValue
               salt: salt
-              hashIterations: 7
-              counter: 6
+              hashIterations: 4
+              counter: 8
               type: type
               priority: 0
               secretData: secretData
-              createdDate: 7
-              digits: 0
+              createdDate: 6
+              digits: 7
               id: id
               credentialData: credentialData
               value: value
@@ -26511,16 +27603,16 @@ components:
               algorithm: algorithm
             - userLabel: userLabel
               temporary: true
-              period: 4
+              period: 3
               hashedSaltedValue: hashedSaltedValue
               salt: salt
-              hashIterations: 7
-              counter: 6
+              hashIterations: 4
+              counter: 8
               type: type
               priority: 0
               secretData: secretData
-              createdDate: 7
-              digits: 0
+              createdDate: 6
+              digits: 7
               id: id
               credentialData: credentialData
               value: value
@@ -26550,7 +27642,7 @@ components:
               - grantedRealmRoles
               lastUpdatedDate: 7
               clientId: clientId
-              createdDate: 8
+              createdDate: 3
               grantedClientScopes:
               - grantedClientScopes
               - grantedClientScopes
@@ -26559,7 +27651,7 @@ components:
               - grantedRealmRoles
               lastUpdatedDate: 7
               clientId: clientId
-              createdDate: 8
+              createdDate: 3
               grantedClientScopes:
               - grantedClientScopes
               - grantedClientScopes
@@ -26658,6 +27750,13 @@ components:
           registeredNodes:
             key: 0
           authorizationSettings:
+            authorizationSchema:
+              resourceTypes:
+                key:
+                  scopes:
+                  - scopes
+                  - scopes
+                  type: type
             clientId: clientId
             name: name
             policies:
@@ -26685,6 +27784,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -26709,6 +27809,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - owner: "{}"
               uris:
@@ -26742,6 +27843,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -26766,6 +27868,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -26798,6 +27901,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -26822,6 +27926,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -26863,6 +27968,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -26887,6 +27993,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -26919,6 +28026,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -26943,6 +28051,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -26983,6 +28092,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -27007,6 +28117,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -27039,6 +28150,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -27063,6 +28175,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -27104,6 +28217,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -27128,6 +28242,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -27160,6 +28275,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -27184,6 +28300,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -27221,6 +28338,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -27245,6 +28363,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -27277,6 +28396,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -27301,6 +28421,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -27384,6 +28505,13 @@ components:
           registeredNodes:
             key: 0
           authorizationSettings:
+            authorizationSchema:
+              resourceTypes:
+                key:
+                  scopes:
+                  - scopes
+                  - scopes
+                  type: type
             clientId: clientId
             name: name
             policies:
@@ -27411,6 +28539,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -27435,6 +28564,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - owner: "{}"
               uris:
@@ -27468,6 +28598,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -27492,6 +28623,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -27524,6 +28656,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -27548,6 +28681,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -27589,6 +28723,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -27613,6 +28748,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -27645,6 +28781,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -27669,6 +28806,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -27709,6 +28847,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -27733,6 +28872,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -27765,6 +28905,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -27789,6 +28930,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -27830,6 +28972,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -27854,6 +28997,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -27886,6 +29030,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 - owner: owner
                   policies:
                   - policies
@@ -27910,6 +29055,7 @@ components:
                   decisionStrategy: AFFIRMATIVE
                   config:
                     key: config
+                  resourceType: resourceType
                 resources:
                 - null
                 - null
@@ -27947,6 +29093,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -27971,6 +29118,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -28003,6 +29151,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               - owner: owner
                 policies:
                 - policies
@@ -28027,6 +29176,7 @@ components:
                 decisionStrategy: AFFIRMATIVE
                 config:
                   key: config
+                resourceType: resourceType
               resources:
               - null
               - null
@@ -28262,6 +29412,8 @@ components:
           type: array
         defaultRole:
           $ref: '#/components/schemas/RoleRepresentation'
+        adminPermissionsClient:
+          $ref: '#/components/schemas/ClientRepresentation'
         defaultGroups:
           items:
             type: string
@@ -28506,6 +29658,10 @@ components:
           items:
             $ref: '#/components/schemas/OrganizationRepresentation'
           type: array
+        verifiableCredentialsEnabled:
+          type: boolean
+        adminPermissionsEnabled:
+          type: boolean
         social:
           deprecated: true
           type: boolean
@@ -28657,6 +29813,7 @@ components:
             decisionStrategy: AFFIRMATIVE
             config:
               key: config
+            resourceType: resourceType
           - owner: owner
             policies:
             - policies
@@ -28681,6 +29838,7 @@ components:
             decisionStrategy: AFFIRMATIVE
             config:
               key: config
+            resourceType: resourceType
           resources:
           - null
           - null
@@ -28713,6 +29871,7 @@ components:
             decisionStrategy: AFFIRMATIVE
             config:
               key: config
+            resourceType: resourceType
           - owner: owner
             policies:
             - policies
@@ -28737,6 +29896,7 @@ components:
             decisionStrategy: AFFIRMATIVE
             config:
               key: config
+            resourceType: resourceType
           resources:
           - null
           - null
@@ -28778,6 +29938,7 @@ components:
             decisionStrategy: AFFIRMATIVE
             config:
               key: config
+            resourceType: resourceType
           - owner: owner
             policies:
             - policies
@@ -28802,6 +29963,7 @@ components:
             decisionStrategy: AFFIRMATIVE
             config:
               key: config
+            resourceType: resourceType
           resources:
           - null
           - null
@@ -28834,6 +29996,7 @@ components:
             decisionStrategy: AFFIRMATIVE
             config:
               key: config
+            resourceType: resourceType
           - owner: owner
             policies:
             - policies
@@ -28858,6 +30021,7 @@ components:
             decisionStrategy: AFFIRMATIVE
             config:
               key: config
+            resourceType: resourceType
           resources:
           - null
           - null
@@ -28912,6 +30076,13 @@ components:
       type: object
     ResourceServerRepresentation:
       example:
+        authorizationSchema:
+          resourceTypes:
+            key:
+              scopes:
+              - scopes
+              - scopes
+              type: type
         clientId: clientId
         name: name
         policies:
@@ -28939,6 +30110,7 @@ components:
           decisionStrategy: AFFIRMATIVE
           config:
             key: config
+          resourceType: resourceType
         - owner: owner
           policies:
           - policies
@@ -28963,6 +30135,7 @@ components:
           decisionStrategy: AFFIRMATIVE
           config:
             key: config
+          resourceType: resourceType
         resources:
         - owner: "{}"
           uris:
@@ -28996,6 +30169,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -29020,6 +30194,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -29052,6 +30227,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -29076,6 +30252,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -29117,6 +30294,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -29141,6 +30319,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -29173,6 +30352,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -29197,6 +30377,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -29237,6 +30418,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -29261,6 +30443,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -29293,6 +30476,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -29317,6 +30501,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -29358,6 +30543,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -29382,6 +30568,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -29414,6 +30601,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             - owner: owner
               policies:
               - policies
@@ -29438,6 +30626,7 @@ components:
               decisionStrategy: AFFIRMATIVE
               config:
                 key: config
+              resourceType: resourceType
             resources:
             - null
             - null
@@ -29475,6 +30664,7 @@ components:
             decisionStrategy: AFFIRMATIVE
             config:
               key: config
+            resourceType: resourceType
           - owner: owner
             policies:
             - policies
@@ -29499,6 +30689,7 @@ components:
             decisionStrategy: AFFIRMATIVE
             config:
               key: config
+            resourceType: resourceType
           resources:
           - null
           - null
@@ -29531,6 +30722,7 @@ components:
             decisionStrategy: AFFIRMATIVE
             config:
               key: config
+            resourceType: resourceType
           - owner: owner
             policies:
             - policies
@@ -29555,6 +30747,7 @@ components:
             decisionStrategy: AFFIRMATIVE
             config:
               key: config
+            resourceType: resourceType
           resources:
           - null
           - null
@@ -29588,6 +30781,23 @@ components:
           type: array
         decisionStrategy:
           $ref: '#/components/schemas/DecisionStrategy'
+        authorizationSchema:
+          $ref: '#/components/schemas/AuthorizationSchema'
+      type: object
+    ResourceType:
+      example:
+        scopes:
+        - scopes
+        - scopes
+        type: type
+      properties:
+        type:
+          type: string
+        scopes:
+          items:
+            type: string
+          type: array
+          uniqueItems: true
       type: object
     RoleRepresentation:
       example:
@@ -29863,6 +31073,7 @@ components:
           decisionStrategy: AFFIRMATIVE
           config:
             key: config
+          resourceType: resourceType
         - owner: owner
           policies:
           - policies
@@ -29887,6 +31098,7 @@ components:
           decisionStrategy: AFFIRMATIVE
           config:
             key: config
+          resourceType: resourceType
         resources:
         - null
         - null
@@ -30140,7 +31352,7 @@ components:
         - grantedRealmRoles
         lastUpdatedDate: 7
         clientId: clientId
-        createdDate: 8
+        createdDate: 3
         grantedClientScopes:
         - grantedClientScopes
         - grantedClientScopes
@@ -30345,16 +31557,16 @@ components:
         credentials:
         - userLabel: userLabel
           temporary: true
-          period: 4
+          period: 3
           hashedSaltedValue: hashedSaltedValue
           salt: salt
-          hashIterations: 7
-          counter: 6
+          hashIterations: 4
+          counter: 8
           type: type
           priority: 0
           secretData: secretData
-          createdDate: 7
-          digits: 0
+          createdDate: 6
+          digits: 7
           id: id
           credentialData: credentialData
           value: value
@@ -30363,16 +31575,16 @@ components:
           algorithm: algorithm
         - userLabel: userLabel
           temporary: true
-          period: 4
+          period: 3
           hashedSaltedValue: hashedSaltedValue
           salt: salt
-          hashIterations: 7
-          counter: 6
+          hashIterations: 4
+          counter: 8
           type: type
           priority: 0
           secretData: secretData
-          createdDate: 7
-          digits: 0
+          createdDate: 6
+          digits: 7
           id: id
           credentialData: credentialData
           value: value
@@ -30381,7 +31593,7 @@ components:
           algorithm: algorithm
         origin: origin
         enabled: true
-        notBefore: 3
+        notBefore: 5
         id: id
         email: email
         clientRoles:
@@ -30392,7 +31604,7 @@ components:
           key:
           - applicationRoles
           - applicationRoles
-        createdTimestamp: 3
+        createdTimestamp: 7
         groups:
         - groups
         - groups
@@ -30402,7 +31614,7 @@ components:
           - grantedRealmRoles
           lastUpdatedDate: 7
           clientId: clientId
-          createdDate: 8
+          createdDate: 3
           grantedClientScopes:
           - grantedClientScopes
           - grantedClientScopes
@@ -30411,7 +31623,7 @@ components:
           - grantedRealmRoles
           lastUpdatedDate: 7
           clientId: clientId
-          createdDate: 8
+          createdDate: 3
           grantedClientScopes:
           - grantedClientScopes
           - grantedClientScopes
@@ -30595,12 +31807,12 @@ components:
         transientUser:
           type: boolean
       type: object
-    _admin_realms__realm__organizations__id__members_invite_existing_user_post_request:
+    _admin_realms__realm__organizations__org_id__members_invite_existing_user_post_request:
       properties:
         id:
           type: string
       type: object
-    _admin_realms__realm__organizations__id__members_invite_user_post_request:
+    _admin_realms__realm__organizations__org_id__members_invite_user_post_request:
       properties:
         email:
           type: string

@@ -19,15 +19,15 @@ var _ MappedNullable = &UPAttribute{}
 
 // UPAttribute struct for UPAttribute
 type UPAttribute struct {
-	Name        *string                            `json:"name,omitempty"`
-	DisplayName *string                            `json:"displayName,omitempty"`
+	Name *string `json:"name,omitempty"`
+	DisplayName *string `json:"displayName,omitempty"`
 	Validations *map[string]map[string]interface{} `json:"validations,omitempty"`
-	Annotations map[string]interface{}             `json:"annotations,omitempty"`
-	Required    *UPAttributeRequired               `json:"required,omitempty"`
-	Permissions *UPAttributePermissions            `json:"permissions,omitempty"`
-	Selector    *UPAttributeSelector               `json:"selector,omitempty"`
-	Group       *string                            `json:"group,omitempty"`
-	Multivalued *bool                              `json:"multivalued,omitempty"`
+	Annotations map[string]interface{} `json:"annotations,omitempty"`
+	Required *UPAttributeRequired `json:"required,omitempty"`
+	Permissions *UPAttributePermissions `json:"permissions,omitempty"`
+	Selector *UPAttributeSelector `json:"selector,omitempty"`
+	Group *string `json:"group,omitempty"`
+	Multivalued *bool `json:"multivalued,omitempty"`
 }
 
 // NewUPAttribute instantiates a new UPAttribute object
@@ -336,7 +336,7 @@ func (o *UPAttribute) SetMultivalued(v bool) {
 }
 
 func (o UPAttribute) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -410,3 +410,5 @@ func (v *NullableUPAttribute) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

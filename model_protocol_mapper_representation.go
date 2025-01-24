@@ -19,15 +19,15 @@ var _ MappedNullable = &ProtocolMapperRepresentation{}
 
 // ProtocolMapperRepresentation struct for ProtocolMapperRepresentation
 type ProtocolMapperRepresentation struct {
-	Id             *string `json:"id,omitempty"`
-	Name           *string `json:"name,omitempty"`
-	Protocol       *string `json:"protocol,omitempty"`
+	Id *string `json:"id,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Protocol *string `json:"protocol,omitempty"`
 	ProtocolMapper *string `json:"protocolMapper,omitempty"`
 	// Deprecated
 	ConsentRequired *bool `json:"consentRequired,omitempty"`
 	// Deprecated
-	ConsentText *string            `json:"consentText,omitempty"`
-	Config      *map[string]string `json:"config,omitempty"`
+	ConsentText *string `json:"consentText,omitempty"`
+	Config *map[string]string `json:"config,omitempty"`
 }
 
 // NewProtocolMapperRepresentation instantiates a new ProtocolMapperRepresentation object
@@ -278,7 +278,7 @@ func (o *ProtocolMapperRepresentation) SetConfig(v map[string]string) {
 }
 
 func (o ProtocolMapperRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -346,3 +346,5 @@ func (v *NullableProtocolMapperRepresentation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

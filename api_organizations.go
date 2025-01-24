@@ -19,18 +19,26 @@ import (
 	"strings"
 )
 
+
 // OrganizationsAPIService OrganizationsAPI service
 type OrganizationsAPIService service
 
 type ApiAdminRealmsRealmOrganizationsGetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *OrganizationsAPIService
-	realm      string
-	exact      *bool
-	first      *int32
-	max        *int32
-	q          *string
-	search     *string
+	realm string
+	briefRepresentation *bool
+	exact *bool
+	first *int32
+	max *int32
+	q *string
+	search *string
+}
+
+// if true, return the full representation. Otherwise, only the basic fields are returned.
+func (r ApiAdminRealmsRealmOrganizationsGetRequest) BriefRepresentation(briefRepresentation bool) ApiAdminRealmsRealmOrganizationsGetRequest {
+	r.briefRepresentation = &briefRepresentation
+	return r
 }
 
 // Boolean which defines whether the param &#39;search&#39; must match exactly or not
@@ -70,27 +78,26 @@ func (r ApiAdminRealmsRealmOrganizationsGetRequest) Execute() ([]OrganizationRep
 /*
 AdminRealmsRealmOrganizationsGet Returns a paginated list of organizations filtered according to the specified parameters
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@return ApiAdminRealmsRealmOrganizationsGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @return ApiAdminRealmsRealmOrganizationsGetRequest
 */
 func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsGet(ctx context.Context, realm string) ApiAdminRealmsRealmOrganizationsGetRequest {
 	return ApiAdminRealmsRealmOrganizationsGetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
+		ctx: ctx,
+		realm: realm,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	[]OrganizationRepresentation
+//  @return []OrganizationRepresentation
 func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsGetExecute(r ApiAdminRealmsRealmOrganizationsGetRequest) ([]OrganizationRepresentation, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []OrganizationRepresentation
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []OrganizationRepresentation
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsGet")
@@ -105,6 +112,12 @@ func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsGetExecute(r ApiA
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.briefRepresentation != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "briefRepresentation", r.briefRepresentation, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.briefRepresentation = &defaultValue
+	}
 	if r.exact != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "exact", r.exact, "form", "")
 	}
@@ -174,147 +187,52 @@ func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsGetExecute(r ApiA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiAdminRealmsRealmOrganizationsIdDeleteRequest struct {
-	ctx        context.Context
+type ApiAdminRealmsRealmOrganizationsMembersMemberIdOrganizationsGetRequest struct {
+	ctx context.Context
 	ApiService *OrganizationsAPIService
-	realm      string
-	id         string
+	realm string
+	memberId string
 }
 
-func (r ApiAdminRealmsRealmOrganizationsIdDeleteRequest) Execute() (*http.Response, error) {
-	return r.ApiService.AdminRealmsRealmOrganizationsIdDeleteExecute(r)
+func (r ApiAdminRealmsRealmOrganizationsMembersMemberIdOrganizationsGetRequest) Execute() ([]OrganizationRepresentation, *http.Response, error) {
+	return r.ApiService.AdminRealmsRealmOrganizationsMembersMemberIdOrganizationsGetExecute(r)
 }
 
 /*
-AdminRealmsRealmOrganizationsIdDelete Deletes the organization
+AdminRealmsRealmOrganizationsMembersMemberIdOrganizationsGet Returns the organizations associated with the user that has the specified id
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param id
-	@return ApiAdminRealmsRealmOrganizationsIdDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param memberId
+ @return ApiAdminRealmsRealmOrganizationsMembersMemberIdOrganizationsGetRequest
 */
-func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdDelete(ctx context.Context, realm string, id string) ApiAdminRealmsRealmOrganizationsIdDeleteRequest {
-	return ApiAdminRealmsRealmOrganizationsIdDeleteRequest{
+func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsMembersMemberIdOrganizationsGet(ctx context.Context, realm string, memberId string) ApiAdminRealmsRealmOrganizationsMembersMemberIdOrganizationsGetRequest {
+	return ApiAdminRealmsRealmOrganizationsMembersMemberIdOrganizationsGetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		id:         id,
+		ctx: ctx,
+		realm: realm,
+		memberId: memberId,
 	}
 }
 
 // Execute executes the request
-func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdDeleteExecute(r ApiAdminRealmsRealmOrganizationsIdDeleteRequest) (*http.Response, error) {
+//  @return []OrganizationRepresentation
+func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsMembersMemberIdOrganizationsGetExecute(r ApiAdminRealmsRealmOrganizationsMembersMemberIdOrganizationsGetRequest) ([]OrganizationRepresentation, *http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []OrganizationRepresentation
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsIdDelete")
-	if err != nil {
-		return nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/admin/realms/{realm}/organizations/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"realm"+"}", url.PathEscape(parameterValueToString(r.realm, "realm")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
-}
-
-type ApiAdminRealmsRealmOrganizationsIdGetRequest struct {
-	ctx        context.Context
-	ApiService *OrganizationsAPIService
-	realm      string
-	id         string
-}
-
-func (r ApiAdminRealmsRealmOrganizationsIdGetRequest) Execute() (*OrganizationRepresentation, *http.Response, error) {
-	return r.ApiService.AdminRealmsRealmOrganizationsIdGetExecute(r)
-}
-
-/*
-AdminRealmsRealmOrganizationsIdGet Returns the organization representation
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param id
-	@return ApiAdminRealmsRealmOrganizationsIdGetRequest
-*/
-func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdGet(ctx context.Context, realm string, id string) ApiAdminRealmsRealmOrganizationsIdGetRequest {
-	return ApiAdminRealmsRealmOrganizationsIdGetRequest{
-		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		id:         id,
-	}
-}
-
-// Execute executes the request
-//
-//	@return	OrganizationRepresentation
-func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdGetExecute(r ApiAdminRealmsRealmOrganizationsIdGetRequest) (*OrganizationRepresentation, *http.Response, error) {
-	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *OrganizationRepresentation
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsMembersMemberIdOrganizationsGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/admin/realms/{realm}/organizations/{id}"
+	localVarPath := localBasePath + "/admin/realms/{realm}/organizations/members/{member-id}/organizations"
 	localVarPath = strings.Replace(localVarPath, "{"+"realm"+"}", url.PathEscape(parameterValueToString(r.realm, "realm")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"member-id"+"}", url.PathEscape(parameterValueToString(r.memberId, "memberId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -374,55 +292,254 @@ func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdGetExecute(r Ap
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiAdminRealmsRealmOrganizationsIdIdentityProvidersAliasDeleteRequest struct {
-	ctx        context.Context
+type ApiAdminRealmsRealmOrganizationsOrgIdDeleteRequest struct {
+	ctx context.Context
 	ApiService *OrganizationsAPIService
-	realm      string
-	id         string
-	alias      string
+	realm string
+	orgId string
 }
 
-func (r ApiAdminRealmsRealmOrganizationsIdIdentityProvidersAliasDeleteRequest) Execute() (*http.Response, error) {
-	return r.ApiService.AdminRealmsRealmOrganizationsIdIdentityProvidersAliasDeleteExecute(r)
+func (r ApiAdminRealmsRealmOrganizationsOrgIdDeleteRequest) Execute() (*http.Response, error) {
+	return r.ApiService.AdminRealmsRealmOrganizationsOrgIdDeleteExecute(r)
 }
 
 /*
-AdminRealmsRealmOrganizationsIdIdentityProvidersAliasDelete Removes the identity provider with the specified alias from the organization
+AdminRealmsRealmOrganizationsOrgIdDelete Deletes the organization
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param orgId
+ @return ApiAdminRealmsRealmOrganizationsOrgIdDeleteRequest
+*/
+func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsOrgIdDelete(ctx context.Context, realm string, orgId string) ApiAdminRealmsRealmOrganizationsOrgIdDeleteRequest {
+	return ApiAdminRealmsRealmOrganizationsOrgIdDeleteRequest{
+		ApiService: a,
+		ctx: ctx,
+		realm: realm,
+		orgId: orgId,
+	}
+}
+
+// Execute executes the request
+func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsOrgIdDeleteExecute(r ApiAdminRealmsRealmOrganizationsOrgIdDeleteRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsOrgIdDelete")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/admin/realms/{realm}/organizations/{org-id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"realm"+"}", url.PathEscape(parameterValueToString(r.realm, "realm")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"org-id"+"}", url.PathEscape(parameterValueToString(r.orgId, "orgId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiAdminRealmsRealmOrganizationsOrgIdGetRequest struct {
+	ctx context.Context
+	ApiService *OrganizationsAPIService
+	realm string
+	orgId string
+}
+
+func (r ApiAdminRealmsRealmOrganizationsOrgIdGetRequest) Execute() (*OrganizationRepresentation, *http.Response, error) {
+	return r.ApiService.AdminRealmsRealmOrganizationsOrgIdGetExecute(r)
+}
+
+/*
+AdminRealmsRealmOrganizationsOrgIdGet Returns the organization representation
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param orgId
+ @return ApiAdminRealmsRealmOrganizationsOrgIdGetRequest
+*/
+func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsOrgIdGet(ctx context.Context, realm string, orgId string) ApiAdminRealmsRealmOrganizationsOrgIdGetRequest {
+	return ApiAdminRealmsRealmOrganizationsOrgIdGetRequest{
+		ApiService: a,
+		ctx: ctx,
+		realm: realm,
+		orgId: orgId,
+	}
+}
+
+// Execute executes the request
+//  @return OrganizationRepresentation
+func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsOrgIdGetExecute(r ApiAdminRealmsRealmOrganizationsOrgIdGetRequest) (*OrganizationRepresentation, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *OrganizationRepresentation
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsOrgIdGet")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/admin/realms/{realm}/organizations/{org-id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"realm"+"}", url.PathEscape(parameterValueToString(r.realm, "realm")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"org-id"+"}", url.PathEscape(parameterValueToString(r.orgId, "orgId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiAdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasDeleteRequest struct {
+	ctx context.Context
+	ApiService *OrganizationsAPIService
+	realm string
+	orgId string
+	alias string
+}
+
+func (r ApiAdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasDeleteRequest) Execute() (*http.Response, error) {
+	return r.ApiService.AdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasDeleteExecute(r)
+}
+
+/*
+AdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasDelete Removes the identity provider with the specified alias from the organization
 
 Breaks the association between the identity provider and the organization. The provider itself is not deleted. If no provider is found, or if it is not currently associated with the org, an error response is returned
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param id
-	@param alias
-	@return ApiAdminRealmsRealmOrganizationsIdIdentityProvidersAliasDeleteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param orgId
+ @param alias
+ @return ApiAdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasDeleteRequest
 */
-func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdIdentityProvidersAliasDelete(ctx context.Context, realm string, id string, alias string) ApiAdminRealmsRealmOrganizationsIdIdentityProvidersAliasDeleteRequest {
-	return ApiAdminRealmsRealmOrganizationsIdIdentityProvidersAliasDeleteRequest{
+func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasDelete(ctx context.Context, realm string, orgId string, alias string) ApiAdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasDeleteRequest {
+	return ApiAdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		id:         id,
-		alias:      alias,
+		ctx: ctx,
+		realm: realm,
+		orgId: orgId,
+		alias: alias,
 	}
 }
 
 // Execute executes the request
-func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdIdentityProvidersAliasDeleteExecute(r ApiAdminRealmsRealmOrganizationsIdIdentityProvidersAliasDeleteRequest) (*http.Response, error) {
+func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasDeleteExecute(r ApiAdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasDeleteRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsIdIdentityProvidersAliasDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/admin/realms/{realm}/organizations/{id}/identity-providers/{alias}"
+	localVarPath := localBasePath + "/admin/realms/{realm}/organizations/{org-id}/identity-providers/{alias}"
 	localVarPath = strings.Replace(localVarPath, "{"+"realm"+"}", url.PathEscape(parameterValueToString(r.realm, "realm")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"org-id"+"}", url.PathEscape(parameterValueToString(r.orgId, "orgId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"alias"+"}", url.PathEscape(parameterValueToString(r.alias, "alias")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -474,58 +591,57 @@ func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdIdentityProvide
 	return localVarHTTPResponse, nil
 }
 
-type ApiAdminRealmsRealmOrganizationsIdIdentityProvidersAliasGetRequest struct {
-	ctx        context.Context
+type ApiAdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasGetRequest struct {
+	ctx context.Context
 	ApiService *OrganizationsAPIService
-	realm      string
-	id         string
-	alias      string
+	realm string
+	orgId string
+	alias string
 }
 
-func (r ApiAdminRealmsRealmOrganizationsIdIdentityProvidersAliasGetRequest) Execute() (*IdentityProviderRepresentation, *http.Response, error) {
-	return r.ApiService.AdminRealmsRealmOrganizationsIdIdentityProvidersAliasGetExecute(r)
+func (r ApiAdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasGetRequest) Execute() (*IdentityProviderRepresentation, *http.Response, error) {
+	return r.ApiService.AdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasGetExecute(r)
 }
 
 /*
-AdminRealmsRealmOrganizationsIdIdentityProvidersAliasGet Returns the identity provider associated with the organization that has the specified alias
+AdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasGet Returns the identity provider associated with the organization that has the specified alias
 
 Searches for an identity provider with the given alias. If one is found and is associated with the organization, it is returned. Otherwise, an error response with status NOT_FOUND is returned
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param id
-	@param alias
-	@return ApiAdminRealmsRealmOrganizationsIdIdentityProvidersAliasGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param orgId
+ @param alias
+ @return ApiAdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasGetRequest
 */
-func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdIdentityProvidersAliasGet(ctx context.Context, realm string, id string, alias string) ApiAdminRealmsRealmOrganizationsIdIdentityProvidersAliasGetRequest {
-	return ApiAdminRealmsRealmOrganizationsIdIdentityProvidersAliasGetRequest{
+func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasGet(ctx context.Context, realm string, orgId string, alias string) ApiAdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasGetRequest {
+	return ApiAdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasGetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		id:         id,
-		alias:      alias,
+		ctx: ctx,
+		realm: realm,
+		orgId: orgId,
+		alias: alias,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	IdentityProviderRepresentation
-func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdIdentityProvidersAliasGetExecute(r ApiAdminRealmsRealmOrganizationsIdIdentityProvidersAliasGetRequest) (*IdentityProviderRepresentation, *http.Response, error) {
+//  @return IdentityProviderRepresentation
+func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasGetExecute(r ApiAdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasGetRequest) (*IdentityProviderRepresentation, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *IdentityProviderRepresentation
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *IdentityProviderRepresentation
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsIdIdentityProvidersAliasGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsOrgIdIdentityProvidersAliasGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/admin/realms/{realm}/organizations/{id}/identity-providers/{alias}"
+	localVarPath := localBasePath + "/admin/realms/{realm}/organizations/{org-id}/identity-providers/{alias}"
 	localVarPath = strings.Replace(localVarPath, "{"+"realm"+"}", url.PathEscape(parameterValueToString(r.realm, "realm")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"org-id"+"}", url.PathEscape(parameterValueToString(r.orgId, "orgId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"alias"+"}", url.PathEscape(parameterValueToString(r.alias, "alias")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -586,53 +702,52 @@ func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdIdentityProvide
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiAdminRealmsRealmOrganizationsIdIdentityProvidersGetRequest struct {
-	ctx        context.Context
+type ApiAdminRealmsRealmOrganizationsOrgIdIdentityProvidersGetRequest struct {
+	ctx context.Context
 	ApiService *OrganizationsAPIService
-	realm      string
-	id         string
+	realm string
+	orgId string
 }
 
-func (r ApiAdminRealmsRealmOrganizationsIdIdentityProvidersGetRequest) Execute() ([]IdentityProviderRepresentation, *http.Response, error) {
-	return r.ApiService.AdminRealmsRealmOrganizationsIdIdentityProvidersGetExecute(r)
+func (r ApiAdminRealmsRealmOrganizationsOrgIdIdentityProvidersGetRequest) Execute() ([]IdentityProviderRepresentation, *http.Response, error) {
+	return r.ApiService.AdminRealmsRealmOrganizationsOrgIdIdentityProvidersGetExecute(r)
 }
 
 /*
-AdminRealmsRealmOrganizationsIdIdentityProvidersGet Returns all identity providers associated with the organization
+AdminRealmsRealmOrganizationsOrgIdIdentityProvidersGet Returns all identity providers associated with the organization
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param id
-	@return ApiAdminRealmsRealmOrganizationsIdIdentityProvidersGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param orgId
+ @return ApiAdminRealmsRealmOrganizationsOrgIdIdentityProvidersGetRequest
 */
-func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdIdentityProvidersGet(ctx context.Context, realm string, id string) ApiAdminRealmsRealmOrganizationsIdIdentityProvidersGetRequest {
-	return ApiAdminRealmsRealmOrganizationsIdIdentityProvidersGetRequest{
+func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsOrgIdIdentityProvidersGet(ctx context.Context, realm string, orgId string) ApiAdminRealmsRealmOrganizationsOrgIdIdentityProvidersGetRequest {
+	return ApiAdminRealmsRealmOrganizationsOrgIdIdentityProvidersGetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		id:         id,
+		ctx: ctx,
+		realm: realm,
+		orgId: orgId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	[]IdentityProviderRepresentation
-func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdIdentityProvidersGetExecute(r ApiAdminRealmsRealmOrganizationsIdIdentityProvidersGetRequest) ([]IdentityProviderRepresentation, *http.Response, error) {
+//  @return []IdentityProviderRepresentation
+func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsOrgIdIdentityProvidersGetExecute(r ApiAdminRealmsRealmOrganizationsOrgIdIdentityProvidersGetRequest) ([]IdentityProviderRepresentation, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []IdentityProviderRepresentation
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []IdentityProviderRepresentation
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsIdIdentityProvidersGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsOrgIdIdentityProvidersGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/admin/realms/{realm}/organizations/{id}/identity-providers"
+	localVarPath := localBasePath + "/admin/realms/{realm}/organizations/{org-id}/identity-providers"
 	localVarPath = strings.Replace(localVarPath, "{"+"realm"+"}", url.PathEscape(parameterValueToString(r.realm, "realm")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"org-id"+"}", url.PathEscape(parameterValueToString(r.orgId, "orgId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -692,58 +807,58 @@ func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdIdentityProvide
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiAdminRealmsRealmOrganizationsIdIdentityProvidersPostRequest struct {
-	ctx        context.Context
+type ApiAdminRealmsRealmOrganizationsOrgIdIdentityProvidersPostRequest struct {
+	ctx context.Context
 	ApiService *OrganizationsAPIService
-	realm      string
-	id         string
-	body       *string
+	realm string
+	orgId string
+	body *string
 }
 
-func (r ApiAdminRealmsRealmOrganizationsIdIdentityProvidersPostRequest) Body(body string) ApiAdminRealmsRealmOrganizationsIdIdentityProvidersPostRequest {
+func (r ApiAdminRealmsRealmOrganizationsOrgIdIdentityProvidersPostRequest) Body(body string) ApiAdminRealmsRealmOrganizationsOrgIdIdentityProvidersPostRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiAdminRealmsRealmOrganizationsIdIdentityProvidersPostRequest) Execute() (*http.Response, error) {
-	return r.ApiService.AdminRealmsRealmOrganizationsIdIdentityProvidersPostExecute(r)
+func (r ApiAdminRealmsRealmOrganizationsOrgIdIdentityProvidersPostRequest) Execute() (*http.Response, error) {
+	return r.ApiService.AdminRealmsRealmOrganizationsOrgIdIdentityProvidersPostExecute(r)
 }
 
 /*
-AdminRealmsRealmOrganizationsIdIdentityProvidersPost Adds the identity provider with the specified id to the organization
+AdminRealmsRealmOrganizationsOrgIdIdentityProvidersPost Adds the identity provider with the specified id to the organization
 
 Adds, or associates, an existing identity provider with the organization. If no identity provider is found, or if it is already associated with the organization, an error response is returned
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param id
-	@return ApiAdminRealmsRealmOrganizationsIdIdentityProvidersPostRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param orgId
+ @return ApiAdminRealmsRealmOrganizationsOrgIdIdentityProvidersPostRequest
 */
-func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdIdentityProvidersPost(ctx context.Context, realm string, id string) ApiAdminRealmsRealmOrganizationsIdIdentityProvidersPostRequest {
-	return ApiAdminRealmsRealmOrganizationsIdIdentityProvidersPostRequest{
+func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsOrgIdIdentityProvidersPost(ctx context.Context, realm string, orgId string) ApiAdminRealmsRealmOrganizationsOrgIdIdentityProvidersPostRequest {
+	return ApiAdminRealmsRealmOrganizationsOrgIdIdentityProvidersPostRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		id:         id,
+		ctx: ctx,
+		realm: realm,
+		orgId: orgId,
 	}
 }
 
 // Execute executes the request
-func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdIdentityProvidersPostExecute(r ApiAdminRealmsRealmOrganizationsIdIdentityProvidersPostRequest) (*http.Response, error) {
+func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsOrgIdIdentityProvidersPostExecute(r ApiAdminRealmsRealmOrganizationsOrgIdIdentityProvidersPostRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsIdIdentityProvidersPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsOrgIdIdentityProvidersPost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/admin/realms/{realm}/organizations/{id}/identity-providers"
+	localVarPath := localBasePath + "/admin/realms/{realm}/organizations/{org-id}/identity-providers"
 	localVarPath = strings.Replace(localVarPath, "{"+"realm"+"}", url.PathEscape(parameterValueToString(r.realm, "realm")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"org-id"+"}", url.PathEscape(parameterValueToString(r.orgId, "orgId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -796,53 +911,52 @@ func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdIdentityProvide
 	return localVarHTTPResponse, nil
 }
 
-type ApiAdminRealmsRealmOrganizationsIdMembersCountGetRequest struct {
-	ctx        context.Context
+type ApiAdminRealmsRealmOrganizationsOrgIdMembersCountGetRequest struct {
+	ctx context.Context
 	ApiService *OrganizationsAPIService
-	realm      string
-	id         string
+	realm string
+	orgId string
 }
 
-func (r ApiAdminRealmsRealmOrganizationsIdMembersCountGetRequest) Execute() (int64, *http.Response, error) {
-	return r.ApiService.AdminRealmsRealmOrganizationsIdMembersCountGetExecute(r)
+func (r ApiAdminRealmsRealmOrganizationsOrgIdMembersCountGetRequest) Execute() (int64, *http.Response, error) {
+	return r.ApiService.AdminRealmsRealmOrganizationsOrgIdMembersCountGetExecute(r)
 }
 
 /*
-AdminRealmsRealmOrganizationsIdMembersCountGet Returns number of members in the organization.
+AdminRealmsRealmOrganizationsOrgIdMembersCountGet Returns number of members in the organization.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param id
-	@return ApiAdminRealmsRealmOrganizationsIdMembersCountGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param orgId
+ @return ApiAdminRealmsRealmOrganizationsOrgIdMembersCountGetRequest
 */
-func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdMembersCountGet(ctx context.Context, realm string, id string) ApiAdminRealmsRealmOrganizationsIdMembersCountGetRequest {
-	return ApiAdminRealmsRealmOrganizationsIdMembersCountGetRequest{
+func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsOrgIdMembersCountGet(ctx context.Context, realm string, orgId string) ApiAdminRealmsRealmOrganizationsOrgIdMembersCountGetRequest {
+	return ApiAdminRealmsRealmOrganizationsOrgIdMembersCountGetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		id:         id,
+		ctx: ctx,
+		realm: realm,
+		orgId: orgId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	int64
-func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdMembersCountGetExecute(r ApiAdminRealmsRealmOrganizationsIdMembersCountGetRequest) (int64, *http.Response, error) {
+//  @return int64
+func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsOrgIdMembersCountGetExecute(r ApiAdminRealmsRealmOrganizationsOrgIdMembersCountGetRequest) (int64, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue int64
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  int64
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsIdMembersCountGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsOrgIdMembersCountGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/admin/realms/{realm}/organizations/{id}/members/count"
+	localVarPath := localBasePath + "/admin/realms/{realm}/organizations/{org-id}/members/count"
 	localVarPath = strings.Replace(localVarPath, "{"+"realm"+"}", url.PathEscape(parameterValueToString(r.realm, "realm")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"org-id"+"}", url.PathEscape(parameterValueToString(r.orgId, "orgId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -902,81 +1016,87 @@ func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdMembersCountGet
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiAdminRealmsRealmOrganizationsIdMembersGetRequest struct {
-	ctx        context.Context
+type ApiAdminRealmsRealmOrganizationsOrgIdMembersGetRequest struct {
+	ctx context.Context
 	ApiService *OrganizationsAPIService
-	realm      string
-	id         string
-	exact      *bool
-	first      *int32
-	max        *int32
-	search     *string
+	realm string
+	orgId string
+	exact *bool
+	first *int32
+	max *int32
+	membershipType *string
+	search *string
 }
 
 // Boolean which defines whether the param &#39;search&#39; must match exactly or not
-func (r ApiAdminRealmsRealmOrganizationsIdMembersGetRequest) Exact(exact bool) ApiAdminRealmsRealmOrganizationsIdMembersGetRequest {
+func (r ApiAdminRealmsRealmOrganizationsOrgIdMembersGetRequest) Exact(exact bool) ApiAdminRealmsRealmOrganizationsOrgIdMembersGetRequest {
 	r.exact = &exact
 	return r
 }
 
 // The position of the first result to be processed (pagination offset)
-func (r ApiAdminRealmsRealmOrganizationsIdMembersGetRequest) First(first int32) ApiAdminRealmsRealmOrganizationsIdMembersGetRequest {
+func (r ApiAdminRealmsRealmOrganizationsOrgIdMembersGetRequest) First(first int32) ApiAdminRealmsRealmOrganizationsOrgIdMembersGetRequest {
 	r.first = &first
 	return r
 }
 
 // The maximum number of results to be returned. Defaults to 10
-func (r ApiAdminRealmsRealmOrganizationsIdMembersGetRequest) Max(max int32) ApiAdminRealmsRealmOrganizationsIdMembersGetRequest {
+func (r ApiAdminRealmsRealmOrganizationsOrgIdMembersGetRequest) Max(max int32) ApiAdminRealmsRealmOrganizationsOrgIdMembersGetRequest {
 	r.max = &max
 	return r
 }
 
+// The membership type
+func (r ApiAdminRealmsRealmOrganizationsOrgIdMembersGetRequest) MembershipType(membershipType string) ApiAdminRealmsRealmOrganizationsOrgIdMembersGetRequest {
+	r.membershipType = &membershipType
+	return r
+}
+
 // A String representing either a member&#39;s username, e-mail, first name, or last name.
-func (r ApiAdminRealmsRealmOrganizationsIdMembersGetRequest) Search(search string) ApiAdminRealmsRealmOrganizationsIdMembersGetRequest {
+func (r ApiAdminRealmsRealmOrganizationsOrgIdMembersGetRequest) Search(search string) ApiAdminRealmsRealmOrganizationsOrgIdMembersGetRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiAdminRealmsRealmOrganizationsIdMembersGetRequest) Execute() ([]MemberRepresentation, *http.Response, error) {
-	return r.ApiService.AdminRealmsRealmOrganizationsIdMembersGetExecute(r)
+func (r ApiAdminRealmsRealmOrganizationsOrgIdMembersGetRequest) Execute() ([]MemberRepresentation, *http.Response, error) {
+	return r.ApiService.AdminRealmsRealmOrganizationsOrgIdMembersGetExecute(r)
 }
 
 /*
-AdminRealmsRealmOrganizationsIdMembersGet Returns a paginated list of organization members filtered according to the specified parameters
+AdminRealmsRealmOrganizationsOrgIdMembersGet Returns a paginated list of organization members filtered according to the specified parameters
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param id
-	@return ApiAdminRealmsRealmOrganizationsIdMembersGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param orgId
+ @return ApiAdminRealmsRealmOrganizationsOrgIdMembersGetRequest
 */
-func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdMembersGet(ctx context.Context, realm string, id string) ApiAdminRealmsRealmOrganizationsIdMembersGetRequest {
-	return ApiAdminRealmsRealmOrganizationsIdMembersGetRequest{
+func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsOrgIdMembersGet(ctx context.Context, realm string, orgId string) ApiAdminRealmsRealmOrganizationsOrgIdMembersGetRequest {
+	return ApiAdminRealmsRealmOrganizationsOrgIdMembersGetRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		id:         id,
+		ctx: ctx,
+		realm: realm,
+		orgId: orgId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return	[]MemberRepresentation
-func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdMembersGetExecute(r ApiAdminRealmsRealmOrganizationsIdMembersGetRequest) ([]MemberRepresentation, *http.Response, error) {
+//  @return []MemberRepresentation
+func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsOrgIdMembersGetExecute(r ApiAdminRealmsRealmOrganizationsOrgIdMembersGetRequest) ([]MemberRepresentation, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []MemberRepresentation
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []MemberRepresentation
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsIdMembersGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsOrgIdMembersGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/admin/realms/{realm}/organizations/{id}/members"
+	localVarPath := localBasePath + "/admin/realms/{realm}/organizations/{org-id}/members"
 	localVarPath = strings.Replace(localVarPath, "{"+"realm"+"}", url.PathEscape(parameterValueToString(r.realm, "realm")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"org-id"+"}", url.PathEscape(parameterValueToString(r.orgId, "orgId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -990,6 +1110,9 @@ func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdMembersGetExecu
 	}
 	if r.max != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "max", r.max, "form", "")
+	}
+	if r.membershipType != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "membershipType", r.membershipType, "form", "")
 	}
 	if r.search != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "search", r.search, "form", "")
@@ -1048,56 +1171,56 @@ func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdMembersGetExecu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiAdminRealmsRealmOrganizationsIdMembersInviteExistingUserPostRequest struct {
-	ctx        context.Context
+type ApiAdminRealmsRealmOrganizationsOrgIdMembersInviteExistingUserPostRequest struct {
+	ctx context.Context
 	ApiService *OrganizationsAPIService
-	realm      string
-	id         string
-	id2        *string
+	realm string
+	orgId string
+	id *string
 }
 
-func (r ApiAdminRealmsRealmOrganizationsIdMembersInviteExistingUserPostRequest) Id2(id2 string) ApiAdminRealmsRealmOrganizationsIdMembersInviteExistingUserPostRequest {
-	r.id2 = &id2
+func (r ApiAdminRealmsRealmOrganizationsOrgIdMembersInviteExistingUserPostRequest) Id(id string) ApiAdminRealmsRealmOrganizationsOrgIdMembersInviteExistingUserPostRequest {
+	r.id = &id
 	return r
 }
 
-func (r ApiAdminRealmsRealmOrganizationsIdMembersInviteExistingUserPostRequest) Execute() (*http.Response, error) {
-	return r.ApiService.AdminRealmsRealmOrganizationsIdMembersInviteExistingUserPostExecute(r)
+func (r ApiAdminRealmsRealmOrganizationsOrgIdMembersInviteExistingUserPostRequest) Execute() (*http.Response, error) {
+	return r.ApiService.AdminRealmsRealmOrganizationsOrgIdMembersInviteExistingUserPostExecute(r)
 }
 
 /*
-AdminRealmsRealmOrganizationsIdMembersInviteExistingUserPost Invites an existing user to the organization, using the specified user id
+AdminRealmsRealmOrganizationsOrgIdMembersInviteExistingUserPost Invites an existing user to the organization, using the specified user id
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param id
-	@return ApiAdminRealmsRealmOrganizationsIdMembersInviteExistingUserPostRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param orgId
+ @return ApiAdminRealmsRealmOrganizationsOrgIdMembersInviteExistingUserPostRequest
 */
-func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdMembersInviteExistingUserPost(ctx context.Context, realm string, id string) ApiAdminRealmsRealmOrganizationsIdMembersInviteExistingUserPostRequest {
-	return ApiAdminRealmsRealmOrganizationsIdMembersInviteExistingUserPostRequest{
+func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsOrgIdMembersInviteExistingUserPost(ctx context.Context, realm string, orgId string) ApiAdminRealmsRealmOrganizationsOrgIdMembersInviteExistingUserPostRequest {
+	return ApiAdminRealmsRealmOrganizationsOrgIdMembersInviteExistingUserPostRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		id:         id,
+		ctx: ctx,
+		realm: realm,
+		orgId: orgId,
 	}
 }
 
 // Execute executes the request
-func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdMembersInviteExistingUserPostExecute(r ApiAdminRealmsRealmOrganizationsIdMembersInviteExistingUserPostRequest) (*http.Response, error) {
+func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsOrgIdMembersInviteExistingUserPostExecute(r ApiAdminRealmsRealmOrganizationsOrgIdMembersInviteExistingUserPostRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsIdMembersInviteExistingUserPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsOrgIdMembersInviteExistingUserPost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/admin/realms/{realm}/organizations/{id}/members/invite-existing-user"
+	localVarPath := localBasePath + "/admin/realms/{realm}/organizations/{org-id}/members/invite-existing-user"
 	localVarPath = strings.Replace(localVarPath, "{"+"realm"+"}", url.PathEscape(parameterValueToString(r.realm, "realm")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"org-id"+"}", url.PathEscape(parameterValueToString(r.orgId, "orgId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1120,8 +1243,8 @@ func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdMembersInviteEx
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.id2 != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "id", r.id2, "", "")
+	if r.id != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "id", r.id, "", "")
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -1151,70 +1274,70 @@ func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdMembersInviteEx
 	return localVarHTTPResponse, nil
 }
 
-type ApiAdminRealmsRealmOrganizationsIdMembersInviteUserPostRequest struct {
-	ctx        context.Context
+type ApiAdminRealmsRealmOrganizationsOrgIdMembersInviteUserPostRequest struct {
+	ctx context.Context
 	ApiService *OrganizationsAPIService
-	realm      string
-	id         string
-	email      *string
-	firstName  *string
-	lastName   *string
+	realm string
+	orgId string
+	email *string
+	firstName *string
+	lastName *string
 }
 
-func (r ApiAdminRealmsRealmOrganizationsIdMembersInviteUserPostRequest) Email(email string) ApiAdminRealmsRealmOrganizationsIdMembersInviteUserPostRequest {
+func (r ApiAdminRealmsRealmOrganizationsOrgIdMembersInviteUserPostRequest) Email(email string) ApiAdminRealmsRealmOrganizationsOrgIdMembersInviteUserPostRequest {
 	r.email = &email
 	return r
 }
 
-func (r ApiAdminRealmsRealmOrganizationsIdMembersInviteUserPostRequest) FirstName(firstName string) ApiAdminRealmsRealmOrganizationsIdMembersInviteUserPostRequest {
+func (r ApiAdminRealmsRealmOrganizationsOrgIdMembersInviteUserPostRequest) FirstName(firstName string) ApiAdminRealmsRealmOrganizationsOrgIdMembersInviteUserPostRequest {
 	r.firstName = &firstName
 	return r
 }
 
-func (r ApiAdminRealmsRealmOrganizationsIdMembersInviteUserPostRequest) LastName(lastName string) ApiAdminRealmsRealmOrganizationsIdMembersInviteUserPostRequest {
+func (r ApiAdminRealmsRealmOrganizationsOrgIdMembersInviteUserPostRequest) LastName(lastName string) ApiAdminRealmsRealmOrganizationsOrgIdMembersInviteUserPostRequest {
 	r.lastName = &lastName
 	return r
 }
 
-func (r ApiAdminRealmsRealmOrganizationsIdMembersInviteUserPostRequest) Execute() (*http.Response, error) {
-	return r.ApiService.AdminRealmsRealmOrganizationsIdMembersInviteUserPostExecute(r)
+func (r ApiAdminRealmsRealmOrganizationsOrgIdMembersInviteUserPostRequest) Execute() (*http.Response, error) {
+	return r.ApiService.AdminRealmsRealmOrganizationsOrgIdMembersInviteUserPostExecute(r)
 }
 
 /*
-AdminRealmsRealmOrganizationsIdMembersInviteUserPost Invites an existing user or sends a registration link to a new user, based on the provided e-mail address.
+AdminRealmsRealmOrganizationsOrgIdMembersInviteUserPost Invites an existing user or sends a registration link to a new user, based on the provided e-mail address.
 
 If the user with the given e-mail address exists, it sends an invitation link, otherwise it sends a registration link.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param id
-	@return ApiAdminRealmsRealmOrganizationsIdMembersInviteUserPostRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param orgId
+ @return ApiAdminRealmsRealmOrganizationsOrgIdMembersInviteUserPostRequest
 */
-func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdMembersInviteUserPost(ctx context.Context, realm string, id string) ApiAdminRealmsRealmOrganizationsIdMembersInviteUserPostRequest {
-	return ApiAdminRealmsRealmOrganizationsIdMembersInviteUserPostRequest{
+func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsOrgIdMembersInviteUserPost(ctx context.Context, realm string, orgId string) ApiAdminRealmsRealmOrganizationsOrgIdMembersInviteUserPostRequest {
+	return ApiAdminRealmsRealmOrganizationsOrgIdMembersInviteUserPostRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		id:         id,
+		ctx: ctx,
+		realm: realm,
+		orgId: orgId,
 	}
 }
 
 // Execute executes the request
-func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdMembersInviteUserPostExecute(r ApiAdminRealmsRealmOrganizationsIdMembersInviteUserPostRequest) (*http.Response, error) {
+func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsOrgIdMembersInviteUserPostExecute(r ApiAdminRealmsRealmOrganizationsOrgIdMembersInviteUserPostRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsIdMembersInviteUserPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsOrgIdMembersInviteUserPost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/admin/realms/{realm}/organizations/{id}/members/invite-user"
+	localVarPath := localBasePath + "/admin/realms/{realm}/organizations/{org-id}/members/invite-user"
 	localVarPath = strings.Replace(localVarPath, "{"+"realm"+"}", url.PathEscape(parameterValueToString(r.realm, "realm")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"org-id"+"}", url.PathEscape(parameterValueToString(r.orgId, "orgId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1274,58 +1397,378 @@ func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdMembersInviteUs
 	return localVarHTTPResponse, nil
 }
 
-type ApiAdminRealmsRealmOrganizationsIdMembersPostRequest struct {
-	ctx        context.Context
+type ApiAdminRealmsRealmOrganizationsOrgIdMembersMemberIdDeleteRequest struct {
+	ctx context.Context
 	ApiService *OrganizationsAPIService
-	realm      string
-	id         string
-	body       *string
+	realm string
+	orgId string
+	memberId string
 }
 
-func (r ApiAdminRealmsRealmOrganizationsIdMembersPostRequest) Body(body string) ApiAdminRealmsRealmOrganizationsIdMembersPostRequest {
-	r.body = &body
-	return r
-}
-
-func (r ApiAdminRealmsRealmOrganizationsIdMembersPostRequest) Execute() (*http.Response, error) {
-	return r.ApiService.AdminRealmsRealmOrganizationsIdMembersPostExecute(r)
+func (r ApiAdminRealmsRealmOrganizationsOrgIdMembersMemberIdDeleteRequest) Execute() (*http.Response, error) {
+	return r.ApiService.AdminRealmsRealmOrganizationsOrgIdMembersMemberIdDeleteExecute(r)
 }
 
 /*
-AdminRealmsRealmOrganizationsIdMembersPost Adds the user with the specified id as a member of the organization
+AdminRealmsRealmOrganizationsOrgIdMembersMemberIdDelete Removes the user with the specified id from the organization
 
-Adds, or associates, an existing user with the organization. If no user is found, or if it is already associated with the organization, an error response is returned
+Breaks the association between the user and organization. The user itself is deleted in case the membership is managed, otherwise the user is not deleted. If no user is found, or if they are not a member of the organization, an error response is returned
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param id
-	@return ApiAdminRealmsRealmOrganizationsIdMembersPostRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param orgId
+ @param memberId
+ @return ApiAdminRealmsRealmOrganizationsOrgIdMembersMemberIdDeleteRequest
 */
-func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdMembersPost(ctx context.Context, realm string, id string) ApiAdminRealmsRealmOrganizationsIdMembersPostRequest {
-	return ApiAdminRealmsRealmOrganizationsIdMembersPostRequest{
+func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsOrgIdMembersMemberIdDelete(ctx context.Context, realm string, orgId string, memberId string) ApiAdminRealmsRealmOrganizationsOrgIdMembersMemberIdDeleteRequest {
+	return ApiAdminRealmsRealmOrganizationsOrgIdMembersMemberIdDeleteRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		id:         id,
+		ctx: ctx,
+		realm: realm,
+		orgId: orgId,
+		memberId: memberId,
 	}
 }
 
 // Execute executes the request
-func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdMembersPostExecute(r ApiAdminRealmsRealmOrganizationsIdMembersPostRequest) (*http.Response, error) {
+func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsOrgIdMembersMemberIdDeleteExecute(r ApiAdminRealmsRealmOrganizationsOrgIdMembersMemberIdDeleteRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsIdMembersPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsOrgIdMembersMemberIdDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/admin/realms/{realm}/organizations/{id}/members"
+	localVarPath := localBasePath + "/admin/realms/{realm}/organizations/{org-id}/members/{member-id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"realm"+"}", url.PathEscape(parameterValueToString(r.realm, "realm")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"org-id"+"}", url.PathEscape(parameterValueToString(r.orgId, "orgId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"member-id"+"}", url.PathEscape(parameterValueToString(r.memberId, "memberId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiAdminRealmsRealmOrganizationsOrgIdMembersMemberIdGetRequest struct {
+	ctx context.Context
+	ApiService *OrganizationsAPIService
+	realm string
+	orgId string
+	memberId string
+}
+
+func (r ApiAdminRealmsRealmOrganizationsOrgIdMembersMemberIdGetRequest) Execute() (*MemberRepresentation, *http.Response, error) {
+	return r.ApiService.AdminRealmsRealmOrganizationsOrgIdMembersMemberIdGetExecute(r)
+}
+
+/*
+AdminRealmsRealmOrganizationsOrgIdMembersMemberIdGet Returns the member of the organization with the specified id
+
+Searches for auser with the given id. If one is found, and is currently a member of the organization, returns it. Otherwise,an error response with status NOT_FOUND is returned
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param orgId
+ @param memberId
+ @return ApiAdminRealmsRealmOrganizationsOrgIdMembersMemberIdGetRequest
+*/
+func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsOrgIdMembersMemberIdGet(ctx context.Context, realm string, orgId string, memberId string) ApiAdminRealmsRealmOrganizationsOrgIdMembersMemberIdGetRequest {
+	return ApiAdminRealmsRealmOrganizationsOrgIdMembersMemberIdGetRequest{
+		ApiService: a,
+		ctx: ctx,
+		realm: realm,
+		orgId: orgId,
+		memberId: memberId,
+	}
+}
+
+// Execute executes the request
+//  @return MemberRepresentation
+func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsOrgIdMembersMemberIdGetExecute(r ApiAdminRealmsRealmOrganizationsOrgIdMembersMemberIdGetRequest) (*MemberRepresentation, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *MemberRepresentation
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsOrgIdMembersMemberIdGet")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/admin/realms/{realm}/organizations/{org-id}/members/{member-id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"realm"+"}", url.PathEscape(parameterValueToString(r.realm, "realm")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"org-id"+"}", url.PathEscape(parameterValueToString(r.orgId, "orgId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"member-id"+"}", url.PathEscape(parameterValueToString(r.memberId, "memberId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiAdminRealmsRealmOrganizationsOrgIdMembersMemberIdOrganizationsGetRequest struct {
+	ctx context.Context
+	ApiService *OrganizationsAPIService
+	realm string
+	orgId string
+	memberId string
+}
+
+func (r ApiAdminRealmsRealmOrganizationsOrgIdMembersMemberIdOrganizationsGetRequest) Execute() ([]OrganizationRepresentation, *http.Response, error) {
+	return r.ApiService.AdminRealmsRealmOrganizationsOrgIdMembersMemberIdOrganizationsGetExecute(r)
+}
+
+/*
+AdminRealmsRealmOrganizationsOrgIdMembersMemberIdOrganizationsGet Returns the organizations associated with the user that has the specified id
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param orgId
+ @param memberId
+ @return ApiAdminRealmsRealmOrganizationsOrgIdMembersMemberIdOrganizationsGetRequest
+*/
+func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsOrgIdMembersMemberIdOrganizationsGet(ctx context.Context, realm string, orgId string, memberId string) ApiAdminRealmsRealmOrganizationsOrgIdMembersMemberIdOrganizationsGetRequest {
+	return ApiAdminRealmsRealmOrganizationsOrgIdMembersMemberIdOrganizationsGetRequest{
+		ApiService: a,
+		ctx: ctx,
+		realm: realm,
+		orgId: orgId,
+		memberId: memberId,
+	}
+}
+
+// Execute executes the request
+//  @return []OrganizationRepresentation
+func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsOrgIdMembersMemberIdOrganizationsGetExecute(r ApiAdminRealmsRealmOrganizationsOrgIdMembersMemberIdOrganizationsGetRequest) ([]OrganizationRepresentation, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []OrganizationRepresentation
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsOrgIdMembersMemberIdOrganizationsGet")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/admin/realms/{realm}/organizations/{org-id}/members/{member-id}/organizations"
+	localVarPath = strings.Replace(localVarPath, "{"+"realm"+"}", url.PathEscape(parameterValueToString(r.realm, "realm")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"org-id"+"}", url.PathEscape(parameterValueToString(r.orgId, "orgId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"member-id"+"}", url.PathEscape(parameterValueToString(r.memberId, "memberId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiAdminRealmsRealmOrganizationsOrgIdMembersPostRequest struct {
+	ctx context.Context
+	ApiService *OrganizationsAPIService
+	realm string
+	orgId string
+	body *string
+}
+
+func (r ApiAdminRealmsRealmOrganizationsOrgIdMembersPostRequest) Body(body string) ApiAdminRealmsRealmOrganizationsOrgIdMembersPostRequest {
+	r.body = &body
+	return r
+}
+
+func (r ApiAdminRealmsRealmOrganizationsOrgIdMembersPostRequest) Execute() (*http.Response, error) {
+	return r.ApiService.AdminRealmsRealmOrganizationsOrgIdMembersPostExecute(r)
+}
+
+/*
+AdminRealmsRealmOrganizationsOrgIdMembersPost Adds the user with the specified id as a member of the organization
+
+Adds, or associates, an existing user with the organization. If no user is found, or if it is already associated with the organization, an error response is returned
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param orgId
+ @return ApiAdminRealmsRealmOrganizationsOrgIdMembersPostRequest
+*/
+func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsOrgIdMembersPost(ctx context.Context, realm string, orgId string) ApiAdminRealmsRealmOrganizationsOrgIdMembersPostRequest {
+	return ApiAdminRealmsRealmOrganizationsOrgIdMembersPostRequest{
+		ApiService: a,
+		ctx: ctx,
+		realm: realm,
+		orgId: orgId,
+	}
+}
+
+// Execute executes the request
+func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsOrgIdMembersPostExecute(r ApiAdminRealmsRealmOrganizationsOrgIdMembersPostRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsOrgIdMembersPost")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/admin/realms/{realm}/organizations/{org-id}/members"
+	localVarPath = strings.Replace(localVarPath, "{"+"realm"+"}", url.PathEscape(parameterValueToString(r.realm, "realm")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"org-id"+"}", url.PathEscape(parameterValueToString(r.orgId, "orgId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1378,378 +1821,56 @@ func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdMembersPostExec
 	return localVarHTTPResponse, nil
 }
 
-type ApiAdminRealmsRealmOrganizationsIdMembersUserIdDeleteRequest struct {
-	ctx        context.Context
+type ApiAdminRealmsRealmOrganizationsOrgIdPutRequest struct {
+	ctx context.Context
 	ApiService *OrganizationsAPIService
-	realm      string
-	id         string
-	userId     string
-}
-
-func (r ApiAdminRealmsRealmOrganizationsIdMembersUserIdDeleteRequest) Execute() (*http.Response, error) {
-	return r.ApiService.AdminRealmsRealmOrganizationsIdMembersUserIdDeleteExecute(r)
-}
-
-/*
-AdminRealmsRealmOrganizationsIdMembersUserIdDelete Removes the user with the specified id from the organization
-
-Breaks the association between the user and organization. The user itself is deleted in case the membership is managed, otherwise the user is not deleted. If no user is found, or if they are not a member of the organization, an error response is returned
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param id
-	@param userId
-	@return ApiAdminRealmsRealmOrganizationsIdMembersUserIdDeleteRequest
-*/
-func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdMembersUserIdDelete(ctx context.Context, realm string, id string, userId string) ApiAdminRealmsRealmOrganizationsIdMembersUserIdDeleteRequest {
-	return ApiAdminRealmsRealmOrganizationsIdMembersUserIdDeleteRequest{
-		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		id:         id,
-		userId:     userId,
-	}
-}
-
-// Execute executes the request
-func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdMembersUserIdDeleteExecute(r ApiAdminRealmsRealmOrganizationsIdMembersUserIdDeleteRequest) (*http.Response, error) {
-	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsIdMembersUserIdDelete")
-	if err != nil {
-		return nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/admin/realms/{realm}/organizations/{id}/members/{userId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"realm"+"}", url.PathEscape(parameterValueToString(r.realm, "realm")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
-}
-
-type ApiAdminRealmsRealmOrganizationsIdMembersUserIdGetRequest struct {
-	ctx        context.Context
-	ApiService *OrganizationsAPIService
-	realm      string
-	id         string
-	userId     string
-}
-
-func (r ApiAdminRealmsRealmOrganizationsIdMembersUserIdGetRequest) Execute() (*MemberRepresentation, *http.Response, error) {
-	return r.ApiService.AdminRealmsRealmOrganizationsIdMembersUserIdGetExecute(r)
-}
-
-/*
-AdminRealmsRealmOrganizationsIdMembersUserIdGet Returns the member of the organization with the specified id
-
-Searches for auser with the given id. If one is found, and is currently a member of the organization, returns it. Otherwise,an error response with status NOT_FOUND is returned
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param id
-	@param userId
-	@return ApiAdminRealmsRealmOrganizationsIdMembersUserIdGetRequest
-*/
-func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdMembersUserIdGet(ctx context.Context, realm string, id string, userId string) ApiAdminRealmsRealmOrganizationsIdMembersUserIdGetRequest {
-	return ApiAdminRealmsRealmOrganizationsIdMembersUserIdGetRequest{
-		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		id:         id,
-		userId:     userId,
-	}
-}
-
-// Execute executes the request
-//
-//	@return	MemberRepresentation
-func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdMembersUserIdGetExecute(r ApiAdminRealmsRealmOrganizationsIdMembersUserIdGetRequest) (*MemberRepresentation, *http.Response, error) {
-	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *MemberRepresentation
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsIdMembersUserIdGet")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/admin/realms/{realm}/organizations/{id}/members/{userId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"realm"+"}", url.PathEscape(parameterValueToString(r.realm, "realm")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiAdminRealmsRealmOrganizationsIdMembersUserIdOrganizationsGetRequest struct {
-	ctx        context.Context
-	ApiService *OrganizationsAPIService
-	realm      string
-	id         string
-	userId     string
-}
-
-func (r ApiAdminRealmsRealmOrganizationsIdMembersUserIdOrganizationsGetRequest) Execute() ([]OrganizationRepresentation, *http.Response, error) {
-	return r.ApiService.AdminRealmsRealmOrganizationsIdMembersUserIdOrganizationsGetExecute(r)
-}
-
-/*
-AdminRealmsRealmOrganizationsIdMembersUserIdOrganizationsGet Returns the organizations associated with the user that has the specified id
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param id
-	@param userId
-	@return ApiAdminRealmsRealmOrganizationsIdMembersUserIdOrganizationsGetRequest
-*/
-func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdMembersUserIdOrganizationsGet(ctx context.Context, realm string, id string, userId string) ApiAdminRealmsRealmOrganizationsIdMembersUserIdOrganizationsGetRequest {
-	return ApiAdminRealmsRealmOrganizationsIdMembersUserIdOrganizationsGetRequest{
-		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		id:         id,
-		userId:     userId,
-	}
-}
-
-// Execute executes the request
-//
-//	@return	[]OrganizationRepresentation
-func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdMembersUserIdOrganizationsGetExecute(r ApiAdminRealmsRealmOrganizationsIdMembersUserIdOrganizationsGetRequest) ([]OrganizationRepresentation, *http.Response, error) {
-	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []OrganizationRepresentation
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsIdMembersUserIdOrganizationsGet")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/admin/realms/{realm}/organizations/{id}/members/{userId}/organizations"
-	localVarPath = strings.Replace(localVarPath, "{"+"realm"+"}", url.PathEscape(parameterValueToString(r.realm, "realm")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiAdminRealmsRealmOrganizationsIdPutRequest struct {
-	ctx                        context.Context
-	ApiService                 *OrganizationsAPIService
-	realm                      string
-	id                         string
+	realm string
+	orgId string
 	organizationRepresentation *OrganizationRepresentation
 }
 
-func (r ApiAdminRealmsRealmOrganizationsIdPutRequest) OrganizationRepresentation(organizationRepresentation OrganizationRepresentation) ApiAdminRealmsRealmOrganizationsIdPutRequest {
+func (r ApiAdminRealmsRealmOrganizationsOrgIdPutRequest) OrganizationRepresentation(organizationRepresentation OrganizationRepresentation) ApiAdminRealmsRealmOrganizationsOrgIdPutRequest {
 	r.organizationRepresentation = &organizationRepresentation
 	return r
 }
 
-func (r ApiAdminRealmsRealmOrganizationsIdPutRequest) Execute() (*http.Response, error) {
-	return r.ApiService.AdminRealmsRealmOrganizationsIdPutExecute(r)
+func (r ApiAdminRealmsRealmOrganizationsOrgIdPutRequest) Execute() (*http.Response, error) {
+	return r.ApiService.AdminRealmsRealmOrganizationsOrgIdPutExecute(r)
 }
 
 /*
-AdminRealmsRealmOrganizationsIdPut Updates the organization
+AdminRealmsRealmOrganizationsOrgIdPut Updates the organization
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param id
-	@return ApiAdminRealmsRealmOrganizationsIdPutRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @param orgId
+ @return ApiAdminRealmsRealmOrganizationsOrgIdPutRequest
 */
-func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdPut(ctx context.Context, realm string, id string) ApiAdminRealmsRealmOrganizationsIdPutRequest {
-	return ApiAdminRealmsRealmOrganizationsIdPutRequest{
+func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsOrgIdPut(ctx context.Context, realm string, orgId string) ApiAdminRealmsRealmOrganizationsOrgIdPutRequest {
+	return ApiAdminRealmsRealmOrganizationsOrgIdPutRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		id:         id,
+		ctx: ctx,
+		realm: realm,
+		orgId: orgId,
 	}
 }
 
 // Execute executes the request
-func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdPutExecute(r ApiAdminRealmsRealmOrganizationsIdPutRequest) (*http.Response, error) {
+func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsOrgIdPutExecute(r ApiAdminRealmsRealmOrganizationsOrgIdPutRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPut
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsIdPut")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsOrgIdPut")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/admin/realms/{realm}/organizations/{id}"
+	localVarPath := localBasePath + "/admin/realms/{realm}/organizations/{org-id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"realm"+"}", url.PathEscape(parameterValueToString(r.realm, "realm")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"org-id"+"}", url.PathEscape(parameterValueToString(r.orgId, "orgId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1802,116 +1923,10 @@ func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsIdPutExecute(r Ap
 	return localVarHTTPResponse, nil
 }
 
-type ApiAdminRealmsRealmOrganizationsMembersIdOrganizationsGetRequest struct {
-	ctx        context.Context
-	ApiService *OrganizationsAPIService
-	realm      string
-	id         string
-}
-
-func (r ApiAdminRealmsRealmOrganizationsMembersIdOrganizationsGetRequest) Execute() ([]OrganizationRepresentation, *http.Response, error) {
-	return r.ApiService.AdminRealmsRealmOrganizationsMembersIdOrganizationsGetExecute(r)
-}
-
-/*
-AdminRealmsRealmOrganizationsMembersIdOrganizationsGet Returns the organizations associated with the user that has the specified id
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@param id
-	@return ApiAdminRealmsRealmOrganizationsMembersIdOrganizationsGetRequest
-*/
-func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsMembersIdOrganizationsGet(ctx context.Context, realm string, id string) ApiAdminRealmsRealmOrganizationsMembersIdOrganizationsGetRequest {
-	return ApiAdminRealmsRealmOrganizationsMembersIdOrganizationsGetRequest{
-		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
-		id:         id,
-	}
-}
-
-// Execute executes the request
-//
-//	@return	[]OrganizationRepresentation
-func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsMembersIdOrganizationsGetExecute(r ApiAdminRealmsRealmOrganizationsMembersIdOrganizationsGetRequest) ([]OrganizationRepresentation, *http.Response, error) {
-	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []OrganizationRepresentation
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsMembersIdOrganizationsGet")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/admin/realms/{realm}/organizations/members/{id}/organizations"
-	localVarPath = strings.Replace(localVarPath, "{"+"realm"+"}", url.PathEscape(parameterValueToString(r.realm, "realm")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
 type ApiAdminRealmsRealmOrganizationsPostRequest struct {
-	ctx                        context.Context
-	ApiService                 *OrganizationsAPIService
-	realm                      string
+	ctx context.Context
+	ApiService *OrganizationsAPIService
+	realm string
 	organizationRepresentation *OrganizationRepresentation
 }
 
@@ -1927,24 +1942,24 @@ func (r ApiAdminRealmsRealmOrganizationsPostRequest) Execute() (*http.Response, 
 /*
 AdminRealmsRealmOrganizationsPost Creates a new organization
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param realm realm name (not id!)
-	@return ApiAdminRealmsRealmOrganizationsPostRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param realm realm name (not id!)
+ @return ApiAdminRealmsRealmOrganizationsPostRequest
 */
 func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsPost(ctx context.Context, realm string) ApiAdminRealmsRealmOrganizationsPostRequest {
 	return ApiAdminRealmsRealmOrganizationsPostRequest{
 		ApiService: a,
-		ctx:        ctx,
-		realm:      realm,
+		ctx: ctx,
+		realm: realm,
 	}
 }
 
 // Execute executes the request
 func (a *OrganizationsAPIService) AdminRealmsRealmOrganizationsPostExecute(r ApiAdminRealmsRealmOrganizationsPostRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AdminRealmsRealmOrganizationsPost")

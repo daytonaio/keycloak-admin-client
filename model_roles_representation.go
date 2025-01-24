@@ -19,7 +19,7 @@ var _ MappedNullable = &RolesRepresentation{}
 
 // RolesRepresentation struct for RolesRepresentation
 type RolesRepresentation struct {
-	Realm  []RoleRepresentation             `json:"realm,omitempty"`
+	Realm []RoleRepresentation `json:"realm,omitempty"`
 	Client *map[string][]RoleRepresentation `json:"client,omitempty"`
 	// Deprecated
 	Application *map[string][]RoleRepresentation `json:"application,omitempty"`
@@ -142,7 +142,7 @@ func (o *RolesRepresentation) SetApplication(v map[string][]RoleRepresentation) 
 }
 
 func (o RolesRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -198,3 +198,5 @@ func (v *NullableRolesRepresentation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

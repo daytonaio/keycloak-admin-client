@@ -19,12 +19,12 @@ var _ MappedNullable = &PolicyEvaluationRequest{}
 
 // PolicyEvaluationRequest struct for PolicyEvaluationRequest
 type PolicyEvaluationRequest struct {
-	Context      *map[string]map[string]string `json:"context,omitempty"`
-	Resources    []ResourceRepresentation      `json:"resources,omitempty"`
-	ClientId     *string                       `json:"clientId,omitempty"`
-	UserId       *string                       `json:"userId,omitempty"`
-	RoleIds      []string                      `json:"roleIds,omitempty"`
-	Entitlements *bool                         `json:"entitlements,omitempty"`
+	Context *map[string]map[string]string `json:"context,omitempty"`
+	Resources []ResourceRepresentation `json:"resources,omitempty"`
+	ClientId *string `json:"clientId,omitempty"`
+	UserId *string `json:"userId,omitempty"`
+	RoleIds []string `json:"roleIds,omitempty"`
+	Entitlements *bool `json:"entitlements,omitempty"`
 }
 
 // NewPolicyEvaluationRequest instantiates a new PolicyEvaluationRequest object
@@ -237,7 +237,7 @@ func (o *PolicyEvaluationRequest) SetEntitlements(v bool) {
 }
 
 func (o PolicyEvaluationRequest) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -302,3 +302,5 @@ func (v *NullablePolicyEvaluationRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

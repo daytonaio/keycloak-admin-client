@@ -19,35 +19,35 @@ var _ MappedNullable = &UserRepresentation{}
 
 // UserRepresentation struct for UserRepresentation
 type UserRepresentation struct {
-	Id                         *string                           `json:"id,omitempty"`
-	Username                   *string                           `json:"username,omitempty"`
-	FirstName                  *string                           `json:"firstName,omitempty"`
-	LastName                   *string                           `json:"lastName,omitempty"`
-	Email                      *string                           `json:"email,omitempty"`
-	EmailVerified              *bool                             `json:"emailVerified,omitempty"`
-	Attributes                 *map[string][]string              `json:"attributes,omitempty"`
-	UserProfileMetadata        *UserProfileMetadata              `json:"userProfileMetadata,omitempty"`
-	Self                       *string                           `json:"self,omitempty"`
-	Origin                     *string                           `json:"origin,omitempty"`
-	CreatedTimestamp           *int64                            `json:"createdTimestamp,omitempty"`
-	Enabled                    *bool                             `json:"enabled,omitempty"`
-	Totp                       *bool                             `json:"totp,omitempty"`
-	FederationLink             *string                           `json:"federationLink,omitempty"`
-	ServiceAccountClientId     *string                           `json:"serviceAccountClientId,omitempty"`
-	Credentials                []CredentialRepresentation        `json:"credentials,omitempty"`
-	DisableableCredentialTypes []string                          `json:"disableableCredentialTypes,omitempty"`
-	RequiredActions            []string                          `json:"requiredActions,omitempty"`
-	FederatedIdentities        []FederatedIdentityRepresentation `json:"federatedIdentities,omitempty"`
-	RealmRoles                 []string                          `json:"realmRoles,omitempty"`
-	ClientRoles                *map[string][]string              `json:"clientRoles,omitempty"`
-	ClientConsents             []UserConsentRepresentation       `json:"clientConsents,omitempty"`
-	NotBefore                  *int32                            `json:"notBefore,omitempty"`
+	Id *string `json:"id,omitempty"`
+	Username *string `json:"username,omitempty"`
+	FirstName *string `json:"firstName,omitempty"`
+	LastName *string `json:"lastName,omitempty"`
+	Email *string `json:"email,omitempty"`
+	EmailVerified *bool `json:"emailVerified,omitempty"`
+	Attributes *map[string][]string `json:"attributes,omitempty"`
+	UserProfileMetadata *UserProfileMetadata `json:"userProfileMetadata,omitempty"`
+	Self *string `json:"self,omitempty"`
+	Origin *string `json:"origin,omitempty"`
+	CreatedTimestamp *int64 `json:"createdTimestamp,omitempty"`
+	Enabled *bool `json:"enabled,omitempty"`
+	Totp *bool `json:"totp,omitempty"`
+	FederationLink *string `json:"federationLink,omitempty"`
+	ServiceAccountClientId *string `json:"serviceAccountClientId,omitempty"`
+	Credentials []CredentialRepresentation `json:"credentials,omitempty"`
+	DisableableCredentialTypes []string `json:"disableableCredentialTypes,omitempty"`
+	RequiredActions []string `json:"requiredActions,omitempty"`
+	FederatedIdentities []FederatedIdentityRepresentation `json:"federatedIdentities,omitempty"`
+	RealmRoles []string `json:"realmRoles,omitempty"`
+	ClientRoles *map[string][]string `json:"clientRoles,omitempty"`
+	ClientConsents []UserConsentRepresentation `json:"clientConsents,omitempty"`
+	NotBefore *int32 `json:"notBefore,omitempty"`
 	// Deprecated
 	ApplicationRoles *map[string][]string `json:"applicationRoles,omitempty"`
 	// Deprecated
 	SocialLinks []SocialLinkRepresentation `json:"socialLinks,omitempty"`
-	Groups      []string                   `json:"groups,omitempty"`
-	Access      *map[string]bool           `json:"access,omitempty"`
+	Groups []string `json:"groups,omitempty"`
+	Access *map[string]bool `json:"access,omitempty"`
 }
 
 // NewUserRepresentation instantiates a new UserRepresentation object
@@ -938,7 +938,7 @@ func (o *UserRepresentation) SetAccess(v map[string]bool) {
 }
 
 func (o UserRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1066,3 +1066,5 @@ func (v *NullableUserRepresentation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -20,7 +20,7 @@ var _ MappedNullable = &ClientInitialAccessCreatePresentation{}
 // ClientInitialAccessCreatePresentation struct for ClientInitialAccessCreatePresentation
 type ClientInitialAccessCreatePresentation struct {
 	Expiration *int32 `json:"expiration,omitempty"`
-	Count      *int32 `json:"count,omitempty"`
+	Count *int32 `json:"count,omitempty"`
 }
 
 // NewClientInitialAccessCreatePresentation instantiates a new ClientInitialAccessCreatePresentation object
@@ -105,7 +105,7 @@ func (o *ClientInitialAccessCreatePresentation) SetCount(v int32) {
 }
 
 func (o ClientInitialAccessCreatePresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,3 +158,5 @@ func (v *NullableClientInitialAccessCreatePresentation) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

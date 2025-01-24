@@ -19,11 +19,11 @@ var _ MappedNullable = &ClientPolicyRepresentation{}
 
 // ClientPolicyRepresentation struct for ClientPolicyRepresentation
 type ClientPolicyRepresentation struct {
-	Name        *string                               `json:"name,omitempty"`
-	Description *string                               `json:"description,omitempty"`
-	Enabled     *bool                                 `json:"enabled,omitempty"`
-	Conditions  []ClientPolicyConditionRepresentation `json:"conditions,omitempty"`
-	Profiles    []string                              `json:"profiles,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Description *string `json:"description,omitempty"`
+	Enabled *bool `json:"enabled,omitempty"`
+	Conditions []ClientPolicyConditionRepresentation `json:"conditions,omitempty"`
+	Profiles []string `json:"profiles,omitempty"`
 }
 
 // NewClientPolicyRepresentation instantiates a new ClientPolicyRepresentation object
@@ -204,7 +204,7 @@ func (o *ClientPolicyRepresentation) SetProfiles(v []string) {
 }
 
 func (o ClientPolicyRepresentation) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -266,3 +266,5 @@ func (v *NullableClientPolicyRepresentation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+
